@@ -34,7 +34,7 @@
     </div>
     <div class="row mt-3">
         <div class="col ">
-            <a href="" class="btn btn-primary rounded-pill d-flex justify-content-center">ร้องเรียนในนามนิติบุคคล</a>
+            <a href="form3" class="btn btn-primary rounded-pill d-flex justify-content-center">ร้องเรียนในนามนิติบุคคล</a>
         </div>
     </div>
 </div>

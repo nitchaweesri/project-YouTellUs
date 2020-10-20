@@ -6,7 +6,7 @@
 <body>
 <?php include 'navbar.php';?>
 <div style="height:80px"></div>
-<div class="container mb-4">
+<div class="container mb-4 col-lg-7 col-md-12 col-sm-12 ">
     <div class="row">
         <div class="col">
             <h2 class="text-primary text-center">เงื่อนไขการร้องเรียน</h2>

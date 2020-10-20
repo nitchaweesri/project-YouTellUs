@@ -9,7 +9,7 @@
 <div class="container mb-4">
     <div class="row">
         <div class="col">
-            <h2 class="text-primary text-center">ข้อมูลส่วนตัว</h2>
+            <h2 class="text-primary text-center">ข้อมูลส่วนตัว2</h2>
         </div>
     </div>
     <div class="row justify-content-center">

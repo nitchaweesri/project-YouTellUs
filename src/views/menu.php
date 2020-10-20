@@ -24,12 +24,12 @@
     </div>
     <div class="row mt-3">
         <div class="col ">
-            <a href="form1" class="btn btn-primary rounded-pill d-flex justify-content-center">ร้องเรียนทั่วไป</a>
+            <a href="form1" class="btn btn-primary rounded d-flex justify-content-center">ร้องเรียนทั่วไป</a>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col ">
-            <a href="" class="btn btn-primary rounded-pill d-flex justify-content-center">ร้องเรียนแทนบุคคลอื่น</a>
+            <a href="form2" class="btn btn-primary rounded-pill d-flex justify-content-center">ร้องเรียนแทนบุคคลอื่น</a>
         </div>
     </div>
     <div class="row mt-3">

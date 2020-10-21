@@ -18,18 +18,21 @@
                 <form>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">ข้อมูลส่วนตัว</h3>
+                            <h3 class="text-primary text-left">ข้อมูลนิติบุคคล</h3>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="ชื่อ-สกุลของลูกค้า">
+                        <input type="text" class="form-control" id="name" placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="numID" placeholder="หมายเลขบัตรประชาชนของลูกค้า">
+                        <input type="text" class="form-control" id="numID" placeholder="เลขจดทะเบียนนิติบุคคล">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nameDelegate"
-                            placeholder="ชื่อ-สกุลของผู้ร้องเรียนแทน">
+                        <input type="text" class="form-control" id="nameAuthorizedPerson"
+                            placeholder="ชื่อ-สกุลผู้มีอำนาจลงนาม">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="position" placeholder="ตำแหน่ง">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="tel" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้">
@@ -49,49 +52,12 @@
                         <input type="text" class="form-control" id="serviceID"
                             placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน">
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-left">ความสัมพันธ์ของท่านและเจ้าของหมายเลขบัญชีข้างต้น</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="parent">
-                                <label class="form-check-label" for="inlineCheckbox1">บิดา/มารดา</label>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="attorney">
-                                <label class="form-check-label" for="inlineCheckbox2">ผู้รับมอบอำนาจ</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="child">
-                                <label class="form-check-label" for="inlineCheckbox1">บุตร</label>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="other">
-                                <label class="form-check-label" for="inlineCheckbox2">อื่น ๆ (โปรดระบุ)</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="relative">
-                                <label class="form-check-label" for="inlineCheckbox1">ญาติ / พี่น้อง</label>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nameOwner"
+                            placeholder="ชื่อลูกค้า/เจ้าของหมายเลขบัญชีข้างต้น">
                     </div>
                     <div class="form-group mt-2">
-                        <textarea class="form-control" id="detail" rows="3"
+                        <textarea class="form-control" id="detail" rows="4"
                             placeholder="รายละเอียดข้อร้องเรียน"></textarea>
                     </div>
                     <div class="row">
@@ -102,18 +68,26 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="copyOfDelegate" value="copyOfDelegate">
+                                <input class="form-check-input" type="checkbox" id="copyOfOwner" value="copyOfOwner">
                                 <label class="form-check-label"
-                                    for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้ร้องเรียนแทน</label>
+                                    for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="copyOfOwner" value="copyOfOwner">
+                                <input class="form-check-input" type="checkbox" id="copyOfDelegate" value="copyOfDelegate">
                                 <label class="form-check-label"
-                                    for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของลูกค้า/เจ้าของหมายเลขบัญชีข้างต้น</label>
+                                    for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="powerOfAttorney" value="powerOfAttorney">
+                                <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)</label>
                             </div>
                         </div>
                     </div>

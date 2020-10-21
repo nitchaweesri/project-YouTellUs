@@ -37,10 +37,62 @@
 
             <div class="form-group mt-4">
                 <label for="exampleFormControlInput1" class="text-primary h5 Regular">เอกสารประกอบข้อร้องเรียน</label>
-                <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน">
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน">
+                <label for="exampleFormControlInput1" class="text-primary h6 Regular">แนบเอกสารประกอบ</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="image-upload">
+                            <label for="file-input" class="btn btn-primary col">
+                                <div class="row justify-content-center">
+                                    <img src="public/img/upload.png" width="22px" class="white-img mb-1"/>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <h7 class="text-white">upload</h7>
+                                </div>
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="image-upload">
+                            <label for="file-input" class="btn btn-primary col">
+                                <div class="row justify-content-center">
+                                    <img src="public/img/upload.png" width="22px" class="white-img mb-1"/>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <h7 class="text-white">upload</h7>
+                                </div>
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="image-upload">
+                            <label for="file-input" class="btn btn-primary col">
+                                <div class="row justify-content-center">
+                                    <img src="public/img/upload.png" width="22px" class="white-img mb-1"/>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <h7 class="text-white">upload</h7>
+                                </div>
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="image-upload ">
+                            <label for="file-input" class="btn btn-primary col">
+                                <div class="row justify-content-center">
+                                    <img src="public/img/upload.png" width="22px" class="white-img mb-1"/>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <h7 class="text-white">upload</h7>
+                                </div>
+                            </label>
+                            <input id="file-input" type="file" />
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             <div class="row mt-4">
                 <div class="col">

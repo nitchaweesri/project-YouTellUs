@@ -2,13 +2,19 @@
 <html lang="en">
 <?php include 'header.php';?>
 <style>
-    p,label,input,button,textarea{
-        font-family: 'Mitr-Light' ,Fallback, sans-serif;
-    }
-    h3{
-        font-family: 'Mitr-Regular' ,Fallback, sans-serif;
-    }
+p,
+label,
+input,
+button,
+textarea {
+    font-family: 'Mitr-Light', Fallback, sans-serif;
+}
+
+h5 {
+    font-family: 'Mitr-Regular', Fallback, sans-serif;
+}
 </style>
+
 <body>
     <?php include 'navbar.php';?>
     <div style="height:80px"></div>
@@ -18,11 +24,12 @@
                 <form class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">ข้อมูลนิติบุคคล</h3>
+                            <h5 class="text-primary text-left">ข้อมูลนิติบุคคล</h5>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร" required>
+                        <input type="text" class="form-control" id="name" placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร"
+                            required>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="numID" placeholder="เลขจดทะเบียนนิติบุคคล" required>
@@ -35,18 +42,20 @@
                         <input type="text" class="form-control" id="position" placeholder="ตำแหน่ง" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="tel" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required>
+                        <input type="text" class="form-control" id="tel" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้"
+                            required>
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" id="mail" placeholder="E-mail Address" required>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">เรื่องร้องเรียน</h3>
+                            <h5 class="text-primary text-left">เรื่องร้องเรียน</h5>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="service" placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required>
+                        <input type="text" class="form-control" id="service"
+                            placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="serviceID"
@@ -57,12 +66,12 @@
                             placeholder="ชื่อลูกค้า/เจ้าของหมายเลขบัญชีข้างต้น" required>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea class="form-control" id="detail" rows="4"
-                            placeholder="รายละเอียดข้อร้องเรียน" required></textarea>
+                        <textarea class="form-control" id="detail" rows="4" placeholder="รายละเอียดข้อร้องเรียน"
+                            required></textarea>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">เอกสารประกอบข้อร้องเรียน</h3>
+                            <h5 class="text-primary text-left">เอกสารประกอบข้อร้องเรียน</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -77,7 +86,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="copyOfDelegate" value="copyOfDelegate">
+                                <input class="form-check-input" type="checkbox" id="copyOfDelegate"
+                                    value="copyOfDelegate">
                                 <label class="form-check-label"
                                     for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</label>
                             </div>
@@ -86,15 +96,18 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="powerOfAttorney" value="powerOfAttorney">
-                                <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)</label>
+                                <input class="form-check-input" type="checkbox" id="powerOfAttorney"
+                                    value="powerOfAttorney">
+                                <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล
+                                    (อายุไม่เกิน 6 เดือน)</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="powerOfAttorney" value="powerOfAttorney">
+                                <input class="form-check-input" type="checkbox" id="powerOfAttorney"
+                                    value="powerOfAttorney">
                                 <label class="form-check-label" for="inlineCheckbox1">หนังสือมอบอำนาจ</label>
                             </div>
                         </div>
@@ -183,7 +196,7 @@
     </div>
 
 
-<script>
+    <script>
     (function() {
         'use strict';
         window.addEventListener('load', function() {
@@ -201,7 +214,7 @@
             });
         }, false);
     })();
-</script>
+    </script>
 </body>
 
 </html>

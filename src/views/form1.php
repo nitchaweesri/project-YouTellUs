@@ -126,20 +126,20 @@
 
 <script>
     $(document).ready(function(){
-  $('#idcard').on('keyup',function(){
-    if($.trim($(this).val()) != '' && $(this).val().length == 13){
-      id = $(this).val().replace(/-/g,"");
-      var result = Script_checkID(id);
-      if(result === false){
-        $('#idcard').removeClass('is-valid').addClass('is-invalid');
-      }else{
-        $('#idcard').removeClass('is-invalid').addClass('is-valid');
-      }
-    }else{
-      $('span.error').removeClass('true').text('');
-    }
-  })
-});
+        $('#idcard').on('keyup',function(){
+            if($.trim($(this).val()) != '' && $(this).val().length == 13){
+            id = $(this).val().replace(/-/g,"");
+            var result = Script_checkID(id);
+            if(result === false){
+                $('#idcard').removeClass('is-valid').addClass('is-invalid');
+            }else{
+                $('#idcard').removeClass('is-invalid').addClass('is-valid');
+            }
+            }else{
+            $('span.error').removeClass('true').text('');
+            }
+        })
+    });
 
 function Script_checkID(id){
     if(! IsNumeric(id)) return false;

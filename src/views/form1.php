@@ -7,41 +7,59 @@
 <?php include 'navbar.php';?>
 <div style="height:80px"></div>
 <div class="container mb-4">
-    <div class="row">
-        <div class="col">
-            <h2 class="text-primary text-center">ข้อมูลส่วนตัว</h2>
-        </div>
-    </div>
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12 col-sm-12 ">
-        <form>
+        <form action="data1" method="post">
             <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
+                <input name="name" type="text" class="form-control Light" id="name"  placeholder="ชื่อ - สกุล">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
+                <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light" placeholder="หมายเลขบัตรประชาชน">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
-                <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
+                <input name="tell" type="tell" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Example textarea</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="E-mail Address">
+            </div>
+
+            <div class="form-group mt-4">
+                <label for="exampleFormControlInput1" class="text-primary h5 Regular">เรื่องร้องเรียน</label>
+                <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน">
+            </div>
+            <div class="form-group">
+                <textarea rows="4" class="form-control Light" id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" ></textarea>
+            </div>
+
+            <div class="form-group mt-4">
+                <label for="exampleFormControlInput1" class="text-primary h5 Regular">เอกสารประกอบข้อร้องเรียน</label>
+                <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน">
+            </div>
+            <div class="form-group">
+                <textarea rows="4" class="form-control Light" id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" ></textarea>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col">
+                    <h6 class="ExtraLight">
+                    *ข้อร้องเรียนของท่านจะถูกส่งเข้าระบบในวันทำการถัดไป และธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับข้อร้องเรียนของท่านภายใน 15 วันทำการนับจากวันที่ข้อร้องเรียนเข้าสู่ระบบ โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร 
+หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777
+
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col ">
+                    <input type="submit" class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12" value="ยอมรับและส่งข้อร้องเรียน">
+                </div>
             </div>
             </form>
         </div>
@@ -49,8 +67,43 @@
 </div>
 
 
+
+<script>
+    $(document).ready(function(){
+  $('#idcard').on('keyup',function(){
+    if($.trim($(this).val()) != '' && $(this).val().length == 13){
+      id = $(this).val().replace(/-/g,"");
+      var result = Script_checkID(id);
+      if(result === false){
+        $('#idcard').removeClass('is-valid').addClass('is-invalid');
+      }else{
+        $('#idcard').removeClass('is-invalid').addClass('is-valid');
+      }
+    }else{
+      $('span.error').removeClass('true').text('');
+    }
+  })
+});
+
+function Script_checkID(id){
+    if(! IsNumeric(id)) return false;
+    if(id.substring(0,1)== 0) return false;
+    if(id.length != 13) return false;
+    for(i=0, sum=0; i < 12; i++)
+        sum += parseFloat(id.charAt(i))*(13-i);
+    if((11-sum%11)%10!=parseFloat(id.charAt(12))) return false;
+    return true;
+}
+function IsNumeric(input){
+    var RE = /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
+    return (RE.test(input));
+}
+</script>
+
 </body>
 </html>
+
+
 
 
 

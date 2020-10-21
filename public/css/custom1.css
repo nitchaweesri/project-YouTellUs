@@ -1,0 +1,60 @@
+.text-primary,.btn-outline-primary{
+    color:#765ABA !important;
+    border-color :#765ABA !important;
+}
+
+.btn-outline-primary:hover{
+    background-color:#765ABA !important;
+    color:#ffffff !important;
+}
+
+.btn-primary{
+    background-color:#765ABA !important;
+    border-color:#765ABA !important
+}
+
+
+@font-face {
+    font-family: 'Mitr-Bold';
+    src: url('../fonts/Mitr/Mitr-Bold.ttf')
+}
+@font-face {
+    font-family: 'Mitr-ExtraLight';
+    src: url('../fonts/Mitr/Mitr-ExtraLight.ttf')
+}
+@font-face {
+    font-family: 'Mitr-Light';
+    src: url('../fonts/Mitr/Mitr-Light.ttf')
+}
+@font-face {
+    font-family: 'Mitr-Medium';
+    src: url('../fonts/Mitr/Mitr-Medium.ttf')
+}
+@font-face {
+    font-family: 'Mitr-Regular';
+    src: url('../fonts/Mitr/Mitr-Regular.ttf')
+}
+@font-face {
+    font-family: 'Mitr-SemiBold';
+    src: url('../fonts/Mitr/Mitr-SemiBold.ttf')
+}
+
+
+.Bold{
+    font-family: 'Mitr-Bold' ,Fallback, sans-serif;
+}
+.ExtraLight{
+    font-family: 'Mitr-ExtraLight' ,Fallback, sans-serif;
+}
+.Light{
+    font-family: 'Mitr-Light' ,Fallback, sans-serif;
+}
+.Medium{
+    font-family: 'Mitr-Medium' ,Fallback, sans-serif;
+}
+.Regular{
+    font-family: 'Mitr-Regular' ,Fallback, sans-serif;
+}
+.SemiBold{
+    font-family: 'Mitr-SemiBold' ,Fallback, sans-serif;
+}

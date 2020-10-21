@@ -1,7 +1,6 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
-
 switch ($request) {
     case '/tellVoiceProject' :
         require '../src/views/condition.php';
@@ -17,6 +16,9 @@ switch ($request) {
         break;
     case '/tellVoiceProject/form2' :
         require '../src/views/form2.php';
+        break;
+    case '/tellVoiceProject/data1' :
+        require '../src/views/data1.php';
         break;
     case '/tellVoiceProject/form3' :
         require '../src/views/form3.php';

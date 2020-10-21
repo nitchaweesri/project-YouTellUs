@@ -9,7 +9,6 @@ button,
 textarea {
     font-family: 'Mitr-Light', Fallback, sans-serif;
 }
-
 h5 {
     font-family: 'Mitr-Regular', Fallback, sans-serif;
 }

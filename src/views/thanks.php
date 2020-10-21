@@ -16,7 +16,7 @@
 <body>
     <?php include 'navbar.php';?>
     <div style="height:80px"></div>
-    <div class="container mb-4" id="main">
+    <div class="container" id="main">
         <div class="row mt-4">
             <div class="col">
                 <h2 class="text-primary text-center">ขอบคุณค่ะ</h2>

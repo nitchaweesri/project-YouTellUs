@@ -1,6 +1,7 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
+// echo trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 switch ($request) {
     case '/tellVoiceProject' :
         require '../src/views/condition.php';

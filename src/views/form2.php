@@ -10,7 +10,7 @@ textarea {
     font-family: 'Mitr-Light', Fallback, sans-serif;
 }
 
-h3 {
+h5 {
     font-family: 'Mitr-Regular', Fallback, sans-serif;
 }
 </style>
@@ -24,7 +24,7 @@ h3 {
                 <form class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">ข้อมูลส่วนตัว</h3>
+                            <h5 class="text-primary text-left">ข้อมูลส่วนตัว</h5>
                         </div>
                     </div>
                     <div class="form-group">
@@ -45,7 +45,7 @@ h3 {
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">เรื่องร้องเรียน</h3>
+                            <h5 class="text-primary text-left">เรื่องร้องเรียน</h5>
                         </div>
                     </div>
                     <div class="form-group">
@@ -103,7 +103,7 @@ h3 {
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h3 class="text-primary text-left">เอกสารประกอบข้อร้องเรียน</h3>
+                            <h5 class="text-primary text-left">เอกสารประกอบข้อร้องเรียน</h5>
                         </div>
                     </div>
                     <div class="row">

@@ -41,6 +41,7 @@
 
 
 
+<?php include '../src/model/database.php';?>
 
 </body>
 </html>

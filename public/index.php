@@ -1,7 +1,7 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
-// echo trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+echo $request;
 switch ($request) {
     case '/tellVoiceProject' :
         require '../src/views/condition.php';
@@ -19,7 +19,7 @@ switch ($request) {
         require '../src/views/form2.php';
         break;
     case '/tellVoiceProject/data1' :
-        require '../src/views/data1.php';
+        require '../src/controller/data1.php';
         break;
     case '/tellVoiceProject/form3' :
         require '../src/views/form3.php';

@@ -8,7 +8,7 @@ RewriteRule ^/?$ public/ [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.+)$ public/?path=$1 [L,QSA]
+RewriteRule ^(.+)$ public/index.php?path=$1 [L,QSA]
 
 
 

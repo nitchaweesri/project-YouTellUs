@@ -21,6 +21,9 @@ switch ($request) {
     case '/tellVoiceProject/data1' :
         require '../src/views/data1.php';
         break;
+    case '/tellVoiceProject/store.php' :
+        require '../src/views/store.php';
+        break;
     case '/tellVoiceProject/form3' :
         require '../src/views/form3.php';
         break;

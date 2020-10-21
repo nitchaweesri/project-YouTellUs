@@ -9,7 +9,7 @@
 <div class="container mb-4">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12 col-sm-12 ">
-        <form action="data1" method="post" class="needs-validation" novalidate>
+        <form action="store.php" method="post" class="needs-validation" novalidate>
             <div class="form-group">
                 <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
                 <input name="name" type="text" class="form-control Light" id="name"  placeholder="ชื่อ - สกุล" required>
@@ -114,7 +114,7 @@
 
             <div class="row mt-3">
                 <div class="col ">
-                    <input type="submit" class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12" value="ยอมรับและส่งข้อร้องเรียน">
+                    <input type="submit" name="submit" class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12" value="ยอมรับและส่งข้อร้องเรียน">
                 </div>
             </div>
             </form>

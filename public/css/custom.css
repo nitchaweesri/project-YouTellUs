@@ -15,7 +15,7 @@
 
 .image-upload>input {
     display: none;
-  }
+}
 
 h7{
     font-size: 10px;
@@ -24,7 +24,9 @@ h7{
 .white-img {
     -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
-  }
+    width: 22px;
+    height: 22px;
+}
 
 @font-face {
     font-family: 'Mitr-Bold';

@@ -64,7 +64,7 @@
                         <div class="image-upload">
                             <label for="file2" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" width="22px" height="22px" class="white-img mb-1"/>
+                                    <img src="public/img/upload.png" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -77,7 +77,7 @@
                         <div class="image-upload">
                             <label for="file3" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" width="22px" height="22px" class="white-img mb-1"/>
+                                    <img src="public/img/upload.png" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -90,7 +90,7 @@
                         <div class="image-upload ">
                             <label for="file4" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" width="22px" height="22px" class="white-img mb-1"/>
+                                    <img src="public/img/upload.png" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -146,20 +146,20 @@
 
 
     $(document).ready(function(){
-  $('#idcard').on('keyup',function(){
-    if($.trim($(this).val()) != '' && $(this).val().length == 13){
-      id = $(this).val().replace(/-/g,"");
-      var result = Script_checkID(id);
-      if(result === false){
-        $('#idcard').removeClass('is-valid').addClass('is-invalid');
-      }else{
-        $('#idcard').removeClass('is-invalid').addClass('is-valid');
-      }
-    }else{
-      $('span.error').removeClass('true').text('');
-    }
-  })
-});
+        $('#idcard').on('keyup',function(){
+            if($.trim($(this).val()) != '' && $(this).val().length == 13){
+            id = $(this).val().replace(/-/g,"");
+            var result = Script_checkID(id);
+            if(result === false){
+                $('#idcard').removeClass('is-valid').addClass('is-invalid');
+            }else{
+                $('#idcard').removeClass('is-invalid').addClass('is-valid');
+            }
+            }else{
+            $('span.error').removeClass('true').text('');
+            }
+        })
+    });
 
 function Script_checkID(id){
     if(! IsNumeric(id)) return false;

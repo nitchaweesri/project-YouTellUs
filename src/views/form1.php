@@ -15,7 +15,7 @@
                 <input name="name" type="text" class="form-control Light" id="name"  placeholder="ชื่อ - สกุล">
             </div>
             <div class="form-group">
-                <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light" placeholder="หมายเลขบัตรประชาชน">
+                <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light" placeholder="หมายเลขบัตรประชาชน" required>
             </div>
             <div class="form-group">
                 <input name="tell" type="tell" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้">
@@ -42,10 +42,6 @@
             <div class="form-group">
                 <input type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน">
             </div>
-            <div class="form-group">
-                <textarea rows="4" class="form-control Light" id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" ></textarea>
-            </div>
-
             <div class="row mt-4">
                 <div class="col">
                     <h6 class="ExtraLight">

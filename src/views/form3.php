@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'header.php';?>
-
+<style>
+    p,label,input,button,textarea{
+        font-family: 'Mitr-Light' ,Fallback, sans-serif;
+    }
+    h3{
+        font-family: 'Mitr-Regular' ,Fallback, sans-serif;
+    }
+</style>
 <body>
     <?php include 'navbar.php';?>
     <div style="height:80px"></div>

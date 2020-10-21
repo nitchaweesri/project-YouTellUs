@@ -5,6 +5,7 @@
 
 <body>
 <?php include 'navbar.php';?>
+
 <div style="height:80px"></div>
 <div class="container mb-4 col-lg-7 col-md-12 col-sm-12 ">
     <div class="row">

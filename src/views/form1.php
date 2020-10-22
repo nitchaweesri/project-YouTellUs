@@ -4,15 +4,16 @@
 
 <body>
     <?php include 'navbar.php';?>
-    <div style="height:80px"></div>
-    <div class="container mb-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12 col-sm-12 ">
-                <form action="data1" method="post" class="needs-validation" novalidate>
+
+    <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="row justify-content-center mt-5 ">
+            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
+                <form action="form1-submit" method="post" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
-                        <input name="name" type="text" class="form-control Light" id="name" placeholder="ชื่อ - สกุล"
-                            required>
+                        <input name="name" type="text" class="form-control Light" id="name" placeholder='ชื่อ - สกุล'
+                            required
+                            <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light"
@@ -126,7 +127,7 @@
 
                     <div class="row mt-3">
                         <div class="col ">
-                            <input type="submit"
+                            <input type="submit" name="submit"
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
                                 value="ยอมรับและส่งข้อร้องเรียน">
                         </div>

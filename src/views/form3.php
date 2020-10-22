@@ -209,7 +209,8 @@ h5 {
             </div>
         </div>
     </div>
-
+    
+    <?php include 'footer.php';?>
 
     <script>
     (function() {

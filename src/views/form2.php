@@ -21,7 +21,7 @@ h5 {
         <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-                    <form action="form2-submit" method="post" class="needs-validation" novalidate>
+                    <form action="<?php echo isset($_POST['name']) ?  "thanks"  : "form2-submit";?>" method="post" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col">
                                 <h5 class="text-primary text-left">ข้อมูลส่วนตัว</h5>
@@ -232,6 +232,7 @@ h5 {
                                     value="ยอมรับและส่งข้อร้องเรียน">
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

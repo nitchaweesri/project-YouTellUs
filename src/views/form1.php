@@ -8,7 +8,7 @@
         <div class="container mb-4 shadow-lg p-3 bg-white rounded pd-top">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-                    <form action="form1-submit" method="post" class="needs-validation" novalidate>
+                    <form action="<?php echo isset($_POST['name']) ?  "thanks"  : "form1-submit";?>" method="post" class="needs-validation" novalidate>
                         <div class="form-group">
                             <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
                             <input name="name" type="text" class="form-control Light" id="name"
@@ -27,7 +27,6 @@
                             <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1"
                                 placeholder="E-mail Address" required>
                         </div>
-
                         <div class="form-group mt-4">
                             <label for="exampleFormControlInput1"
                                 class="text-primary h5 Regular">เรื่องร้องเรียน</label>

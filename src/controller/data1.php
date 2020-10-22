@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +8,22 @@
 <body>
     data1
     <table>
-<?php 
-  print_r($_POST);
+        <?php 
+        print_r($_POST);
 
-    // foreach ($_POST as $key => $value) {
-    //     echo "<tr>";
-    //     echo "<td>";
-    //     echo $key. ' : ';
-    //     echo "</td>";
-    //     echo "<td>";
-    //     echo $value;
-    //     echo "</td>";
-    //     echo "</tr>";
-    // }
+            // foreach ($_POST as $key => $value) {
+            //     echo "<tr>";
+            //     echo "<td>";
+            //     echo $key. ' : ';
+            //     echo "</td>";
+            //     echo "<td>";
+            //     echo $value;
+            //     echo "</td>";
+            //     echo "</tr>";
+            // }
 
 
-?>
+        ?>
 </table>
 </body>
 </html>

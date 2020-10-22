@@ -27,7 +27,6 @@
                             <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1"
                                 placeholder="E-mail Address" required>
                         </div>
-
                         <div class="form-group mt-4">
                             <label for="exampleFormControlInput1"
                                 class="text-primary h5 Regular">เรื่องร้องเรียน</label>

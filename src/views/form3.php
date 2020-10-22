@@ -21,7 +21,7 @@ h5 {
     <div class="container mb-4">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-12 col-sm-12">
-                <form action="data1" method="post" class="needs-validation" novalidate>
+                <form action="form3-submit" method="post" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col">
                             <h5 class="text-primary text-left">ข้อมูลนิติบุคคล</h5>
@@ -29,27 +29,33 @@ h5 {
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="name" id="name"
-                            placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร" required>
+                            placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร" required
+                        <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="numID" id="numID"
-                            placeholder="เลขจดทะเบียนนิติบุคคล" required>
+                            placeholder="เลขจดทะเบียนนิติบุคคล" required
+                        <?php echo $_POST['numID'] = isset($_POST['numID']) ?  " value='".$_POST['numID']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="nameAuthorizedPerson" id="nameAuthorizedPerson"
-                            placeholder="ชื่อ-สกุลผู้มีอำนาจลงนาม" required>
+                            placeholder="ชื่อ-สกุลผู้มีอำนาจลงนาม" required
+                        <?php echo $_POST['nameAuthorizedPerson'] = isset($_POST['nameAuthorizedPerson']) ?  " value='".$_POST['nameAuthorizedPerson']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="position" id="position" placeholder="ตำแหน่ง"
-                            required>
+                            required
+                        <?php echo $_POST['position'] = isset($_POST['position']) ?  " value='".$_POST['position']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="tel" id="tel"
-                            placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required>
+                            placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required
+                        <?php echo $_POST['tel'] = isset($_POST['tel']) ?  " value='".$_POST['tel']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail Address"
-                            required>
+                        required
+                        <?php echo $_POST['mail'] = isset($_POST['mail']) ?  " value='".$_POST['mail']."' readonly"  : "";?>>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -58,19 +64,23 @@ h5 {
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="service" id="service"
-                            placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required>
+                        placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required
+                        <?php echo $_POST['service'] = isset($_POST['service']) ?  " value='".$_POST['service']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="serviceID" id="serviceID"
-                            placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน" required>
+                            placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน" required
+                        <?php echo $_POST['serviceID'] = isset($_POST['serviceID']) ?  " value='".$_POST['serviceID']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="nameOwner" id="nameOwner"
-                            placeholder="ชื่อลูกค้า/เจ้าของหมายเลขบัญชีข้างต้น" required>
+                            placeholder="ชื่อลูกค้า/เจ้าของหมายเลขบัญชีข้างต้น" required
+                        <?php echo $_POST['nameOwner'] = isset($_POST['nameOwner']) ?  " value='".$_POST['nameOwner']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
                         <textarea class="form-control" name="detail" id="detail" rows="4"
-                            placeholder="รายละเอียดข้อร้องเรียน" required></textarea>
+                            placeholder="รายละเอียดข้อร้องเรียน" required
+                            <?php echo $_POST['detail'] = isset($_POST['detail']) ?  " value='".$_POST['detail']."' readonly"  : "";?>></textarea>
                     </div>
                     <div class="row">
                         <div class="col">

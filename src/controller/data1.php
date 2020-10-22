@@ -1,23 +1,4 @@
 
-<?php 
-include '../src/model/database.php';
-
-
-
-
-$sql = "INSERT INTO `case`( `user_name`, `user_tel`, `status`, `description`) VALUES ('fik','0822671922',1,'des')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-?>
-
-
-
 
 
 
@@ -34,18 +15,18 @@ $conn->close();
     data1
     <table>
 <?php 
+  print_r($_POST);
 
-
-    foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key. ' : ';
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "</tr>";
-    }
+    // foreach ($_POST as $key => $value) {
+    //     echo "<tr>";
+    //     echo "<td>";
+    //     echo $key. ' : ';
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "</td>";
+    //     echo "</tr>";
+    // }
 
 
 ?>

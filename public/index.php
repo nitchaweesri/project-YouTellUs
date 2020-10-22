@@ -18,7 +18,7 @@ switch ($_GET['path']) {
     case 'data1' :
         require '../src/controller/data1.php';
         break;
-    case 'store.php' :
+    case 'store' :
         require '../src/views/store.php';
         break;
     case 'form3' :

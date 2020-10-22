@@ -21,32 +21,35 @@ h5 {
     <div class="container mb-4">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-12 col-sm-12">
-                <form class="needs-validation" novalidate>
+                <form action="data1" method="post" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col">
                             <h5 class="text-primary text-left">ข้อมูลนิติบุคคล</h5>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร"
-                            required>
+                        <input type="text" class="form-control" name="name" id="name"
+                            placeholder="ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="numID" placeholder="เลขจดทะเบียนนิติบุคคล" required>
+                        <input type="text" class="form-control" name="numID" id="numID"
+                            placeholder="เลขจดทะเบียนนิติบุคคล" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nameAuthorizedPerson"
+                        <input type="text" class="form-control" name="nameAuthorizedPerson" id="nameAuthorizedPerson"
                             placeholder="ชื่อ-สกุลผู้มีอำนาจลงนาม" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="position" placeholder="ตำแหน่ง" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="tel" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้"
+                        <input type="text" class="form-control" name="position" id="position" placeholder="ตำแหน่ง"
                             required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="mail" placeholder="E-mail Address" required>
+                        <input type="text" class="form-control" name="tel" id="tel"
+                            placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail Address"
+                            required>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -54,20 +57,20 @@ h5 {
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="service"
+                        <input type="text" class="form-control" name="service" id="service"
                             placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="serviceID"
+                        <input type="text" class="form-control" name="serviceID" id="serviceID"
                             placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nameOwner"
+                        <input type="text" class="form-control" name="nameOwner" id="nameOwner"
                             placeholder="ชื่อลูกค้า/เจ้าของหมายเลขบัญชีข้างต้น" required>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea class="form-control" id="detail" rows="4" placeholder="รายละเอียดข้อร้องเรียน"
-                            required></textarea>
+                        <textarea class="form-control" name="detail" id="detail" rows="4"
+                            placeholder="รายละเอียดข้อร้องเรียน" required></textarea>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -77,7 +80,8 @@ h5 {
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="copyOfOwner" value="copyOfOwner">
+                                <input class="form-check-input" type="checkbox" name="copyOfOwner" id="copyOfOwner"
+                                    value="copyOfOwner">
                                 <label class="form-check-label"
                                     for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</label>
                             </div>
@@ -86,8 +90,8 @@ h5 {
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="copyOfDelegate"
-                                    value="copyOfDelegate">
+                                <input class="form-check-input" type="checkbox" name="copyOfDelegate"
+                                    id="copyOfDelegate" value="copyOfDelegate">
                                 <label class="form-check-label"
                                     for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</label>
                             </div>
@@ -96,8 +100,8 @@ h5 {
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="powerOfAttorney"
-                                    value="powerOfAttorney">
+                                <input class="form-check-input" type="checkbox" name="companyCertificate"
+                                    id="companyCertificate" value="companyCertificate">
                                 <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล
                                     (อายุไม่เกิน 6 เดือน)</label>
                             </div>
@@ -106,8 +110,8 @@ h5 {
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="powerOfAttorney"
-                                    value="powerOfAttorney">
+                                <input class="form-check-input" type="checkbox" name="powerOfAttorney"
+                                    id="powerOfAttorney" value="powerOfAttorney">
                                 <label class="form-check-label" for="inlineCheckbox1">หนังสือมอบอำนาจ</label>
                             </div>
                         </div>
@@ -128,7 +132,7 @@ h5 {
                                         <h7 class="text-white">upload</h7>
                                     </div>
                                 </label>
-                                <input id="file-input" type="file" />
+                                <input id="file-input" name="file1" type="file" />
                             </div>
                         </div>
                         <div class="col">
@@ -141,7 +145,7 @@ h5 {
                                         <h7 class="text-white">upload</h7>
                                     </div>
                                 </label>
-                                <input id="file-input" type="file" />
+                                <input id="file-input" name="file2" type="file" />
                             </div>
                         </div>
                         <div class="col">
@@ -154,7 +158,7 @@ h5 {
                                         <h7 class="text-white">upload</h7>
                                     </div>
                                 </label>
-                                <input id="file-input" type="file" />
+                                <input id="file-input" name="file3" type="file" />
                             </div>
                         </div>
                         <div class="col">
@@ -167,7 +171,7 @@ h5 {
                                         <h7 class="text-white">upload</h7>
                                     </div>
                                 </label>
-                                <input id="file-input" type="file" />
+                                <input id="file-input" name="file4" type="file" />
                             </div>
                         </div>
                     </div>
@@ -186,8 +190,10 @@ h5 {
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary rounded-pill">ยอมรับและส่งข้อร้องเรียน</button>
+                        <div class="col ">
+                            <input type="submit"
+                                class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
+                                value="ยอมรับและส่งข้อร้องเรียน">
                         </div>
                     </div>
                 </form>

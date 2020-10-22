@@ -1,6 +1,16 @@
 <?php
 
 $_GET['path'] = isset($_GET['path']) ? $_GET['path'] : "";
+// echo $_GET['path'];
+
+
+// if (strpos( $_GET['path'], '/hello/') === 0) {
+//     $names = preg_replace('|^\/hello\/|', '',  $_GET['path']);
+//     $names = str_replace('/','-', $names);
+//     // return "/hello/$names";
+// //   }
+//     $_GET['path'] = $names;
+    echo $_GET['path'];
 
 switch ($_GET['path']) {
     case '' :
@@ -10,6 +20,10 @@ switch ($_GET['path']) {
         require '../src/views/menu.php';
         break;
     case 'form1' :
+        require '../src/views/form1.php';
+        break;
+    case 'form1-submit' :
+        echo 'yes';
         require '../src/views/form1.php';
         break;
     case 'form2' :

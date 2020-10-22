@@ -11,6 +11,13 @@
         background-position-x: right;
         background-position-y: center;
     }
+    h2{
+        font-family: 'Mitr-Medium' ,Fallback, sans-serif;
+    }
+    h5,a{
+        font-family: 'Mitr-Regular', Fallback, sans-serif;
+    }
+
 </style>
 
 <body>

@@ -34,11 +34,11 @@ h7{
 }
 @font-face {
     font-family: 'Mitr-ExtraLight';
-    src: url('../fonts/Mitr/Mitr-ExtraLight.ttf')
+    src: url('../fonts/sukhumvit/SukhumvitSet-Thin.ttf')
 }
 @font-face {
     font-family: 'Mitr-Light';
-    src: url('../fonts/Mitr/Mitr-Light.ttf')
+    src: url('../fonts/sukhumvit/SukhumvitSet-Light.ttf')
 }
 @font-face {
     font-family: 'Mitr-Medium';
@@ -46,7 +46,7 @@ h7{
 }
 @font-face {
     font-family: 'Mitr-Regular';
-    src: url('../fonts/Mitr/Mitr-Regular.ttf')
+    src: url('../fonts/sukhumvit/SukhumvitSet-Text.ttf')
 }
 @font-face {
     font-family: 'Mitr-SemiBold';

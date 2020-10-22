@@ -17,10 +17,9 @@ h5 {
 
 <body>
     <?php include 'navbar.php';?>
-    <div style="height:80px"></div>
-    <div class="container mb-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12 col-sm-12">
+    <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="row justify-content-center mt-5 ">
+            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form action="form3-submit" method="post" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col">

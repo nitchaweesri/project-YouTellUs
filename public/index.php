@@ -1,33 +1,30 @@
 <?php
 
-$request = $_SERVER['REQUEST_URI'];
-// echo trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-switch ($request) {
-    case '/tellVoiceProject' :
+$_GET['path'] = isset($_GET['path']) ? $_GET['path'] : "";
+
+switch ($_GET['path']) {
+    case '' :
         require '../src/views/condition.php';
         break;
-    case '/tellVoiceProject/' :
-        require '../src/views/condition.php';
-        break;
-    case '/tellVoiceProject/menu' :
+    case 'menu' :
         require '../src/views/menu.php';
         break;
-    case '/tellVoiceProject/form1' :
+    case 'form1' :
         require '../src/views/form1.php';
         break;
-    case '/tellVoiceProject/form2' :
+    case 'form2' :
         require '../src/views/form2.php';
         break;
-    case '/tellVoiceProject/data1' :
-        require '../src/views/data1.php';
+    case 'data1' :
+        require '../src/controller/data1.php';
         break;
-    case '/tellVoiceProject/store.php' :
+    case 'store.php' :
         require '../src/views/store.php';
         break;
-    case '/tellVoiceProject/form3' :
+    case 'form3' :
         require '../src/views/form3.php';
         break;
-    case '/tellVoiceProject/thanks' :
+    case 'thanks' :
         require '../src/views/thanks.php';
         break;
     default:

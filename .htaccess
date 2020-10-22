@@ -1,5 +1,3 @@
-
-
 DirectoryIndex index.php
 RewriteEngine On
 
@@ -9,6 +7,3 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(.+)$ public/?path=$1 [L,QSA]
-
-
-

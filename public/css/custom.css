@@ -1,3 +1,17 @@
+@media (min-width: 320px) and (max-width: 993px) {
+    .container-sm{
+        padding: 0 18px;
+    }
+    .logoMB {
+        margin: auto ;
+    }
+
+    #footer .text_thx {
+        font-size: 15px !important;
+    }
+    
+}
+
 .text-primary,.btn-outline-primary{
     color:#765ABA !important;
     border-color :#765ABA !important;
@@ -27,6 +41,25 @@ h7{
     width: 22px;
     height: 22px;
 }
+
+#footer {
+    color: #444444;
+    font-size: 14px;
+    background: #ffffff;			/*  #f1f0f2  */
+}
+  
+#footer .text_thx {
+    font-family: 'Mitr-Light' ,Fallback, sans-serif;
+    color: #7A58BF; 
+    text-align: right; 
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.pd-top {
+    margin-top: 80px !important;
+}
+
 
 @font-face {
     font-family: 'Mitr-Bold';

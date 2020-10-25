@@ -27,13 +27,19 @@ switch ($_GET['path']) {
     case 'form2' :
         require '../src/views/form2.php';
         break;
+    case 'form2-submit' :
+        require '../src/views/form2.php';
+        break;
     case 'data1' :
         require '../src/controller/data1.php';
         break;
-    case 'store.php' :
+    case 'store' :
         require '../src/views/store.php';
         break;
     case 'form3' :
+        require '../src/views/form3.php';
+        break;
+    case 'form3-submit' :
         require '../src/views/form3.php';
         break;
     case 'thanks' :

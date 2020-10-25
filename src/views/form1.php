@@ -5,10 +5,10 @@
 
 <body>
 <?php include 'navbar.php';?>
-<div style="height:90px"></div>
-<div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded">
-    <div class="row justify-content-center mt-5 ">
-        <div class="col-lg-10 col-md-12 col-sm-12">
+<div class="container-sm">
+<div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
+    <div class="row justify-content-center ">
+        <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
         <form action="<?php echo isset($_POST['name']) ?  "thanks"  : "form1-submit";?>" method="post" class="needs-validation" novalidate>
             <div class="form-group">
                 <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
@@ -18,15 +18,16 @@
             </div>
             <div class="form-group">
                 <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light" placeholder="หมายเลขบัตรประชาชน" required
-                <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";?> >
+                <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>  pattern="[0-9]{13}"
+                oninput="valid_creditcard(this)" >
             </div>
             <div class="form-group">
                 <input name="tell" type="tell" class="form-control Light" id="exampleFormControlInput1" placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required
-                <?php echo $_POST['tell'] = isset($_POST['tell']) ?  " value='".$_POST['tell']."' readonly"  : "";?>>
+                <?php echo $_POST['tell'] = isset($_POST['tell']) ?  " value='".$_POST['tell']."' readonly"  : "";?> pattern="^0([8|9|6])([0-9]{8}$)">
             </div>
             <div class="form-group">
                 <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1" placeholder="E-mail Address" required
-                <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>>
+                <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             </div>
 
             <div class="form-group mt-4">
@@ -39,7 +40,7 @@
                 <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
             </div>
             <div class="form-group">
-                <textarea name="description" type="text" rows="4" class="form-control Light" id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" required
+                <textarea name="description" type="text" rows="4" class="form-control Light " id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" required
                 <?php echo $_POST['description'] = isset($_POST['description']) ?  " value='".$_POST['description']."' readonly"  : "";?>></textarea>
             </div>
 
@@ -128,21 +129,50 @@
         </div>
     </div>
 </div>
-
+</div>
 
 
 <script>
+
+
+
+function valid_creditcard(obj){
+    var pattern_otp = /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
+    if (!obj.value.match(pattern_otp)) {
+        obj.setCustomValidity('invalid');
+    }if (obj.value.substring(0,1)== 0) {
+        obj.setCustomValidity('invalid');
+    }if (obj.length != 13) {
+        obj.setCustomValidity('invalid');
+    }
+    for(i=0, sum=0; i < 12; i++)
+        sum += parseFloat(obj.value.charAt(i))*(13-i);
+    if ((11-sum%11)%10!=parseFloat(obj.value.charAt(12))) {
+        obj.setCustomValidity('invalid');
+    }
+    else{
+        obj.setCustomValidity('');
+    }
+   
+       
+    // obj.setCustomValidity(obj.value.match(pattern_otp)?"":"invalid");
+
+}
 (function() {
   'use strict';
+
   window.addEventListener('load', function() {
+      
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
     // Loop over them and prevent submission
+
     var validation = Array.prototype.filter.call(forms, function(form) {
       form.addEventListener('submit', function(event) {
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
+        
         }
         form.classList.add('was-validated');
       }, false);
@@ -152,21 +182,23 @@
 
 
 
-    $(document).ready(function(){
-        $('#idcard').on('keyup',function(){
-            if($.trim($(this).val()) != '' && $(this).val().length == 13){
-            id = $(this).val().replace(/-/g,"");
-            var result = Script_checkID(id);
-            if(result === false){
-                $('#idcard').removeClass('is-valid').addClass('is-invalid');
-            }else{
-                $('#idcard').removeClass('is-invalid').addClass('is-valid');
-            }
-            }else{
-            $('span.error').removeClass('true').text('');
-            }
-        })
-    });
+/////////////////// validate id card ///////////
+$(document).ready(function(){
+    $('#idcard').on('keyup',function(){
+        if($.trim($(this).val()) != '' && $(this).val().length == 13){
+        id = $(this).val().replace(/-/g,"");
+        console.log(id);
+        var result = Script_checkID(id);
+        if(result === false){
+            $('#idcard').removeClass('was-validated').removeClass('is-valid').addClass('is-invalid');
+        }else{
+            $('#idcard').removeClass('was-validated').removeClass('is-invalid').addClass('is-valid');
+        }
+        }else{
+        $('span.error').removeClass('true').text('');
+        }
+    })
+});
 
 function Script_checkID(id){
     if(! IsNumeric(id)) return false;

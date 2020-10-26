@@ -21,7 +21,7 @@
         <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-                    <form action="form3-submit" method="post" class="needs-validation" novalidate>
+                    <form action="<?php echo isset($_POST['name']) ?  "../../src/views/thanks.php"  : "../../src/views/form3.php";?>"  method="post" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col">
                                 <h5 class="text-primary text-left">ข้อมูลนิติบุคคล</h5>
@@ -136,7 +136,7 @@
                                 <div class="image-upload">
                                     <label for="file-input" class="btn btn-primary col">
                                         <div class="row justify-content-center">
-                                            <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
+                                            <img src="../../public/img/upload.png" width="22px" class="white-img mb-1" />
                                         </div>
                                         <div class="row justify-content-center">
                                             <h7 class="text-white">upload</h7>
@@ -149,7 +149,7 @@
                                 <div class="image-upload">
                                     <label for="file-input" class="btn btn-primary col">
                                         <div class="row justify-content-center">
-                                            <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
+                                            <img src="../../public/img/upload.png" width="22px" class="white-img mb-1" />
                                         </div>
                                         <div class="row justify-content-center">
                                             <h7 class="text-white">upload</h7>
@@ -162,7 +162,7 @@
                                 <div class="image-upload">
                                     <label for="file-input" class="btn btn-primary col">
                                         <div class="row justify-content-center">
-                                            <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
+                                            <img src="../../public/img/upload.png" width="22px" class="white-img mb-1" />
                                         </div>
                                         <div class="row justify-content-center">
                                             <h7 class="text-white">upload</h7>
@@ -175,7 +175,7 @@
                                 <div class="image-upload ">
                                     <label for="file-input" class="btn btn-primary col">
                                         <div class="row justify-content-center">
-                                            <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
+                                            <img src="../../public/img/upload.png" width="22px" class="white-img mb-1" />
                                         </div>
                                         <div class="row justify-content-center">
                                             <h7 class="text-white">upload</h7>

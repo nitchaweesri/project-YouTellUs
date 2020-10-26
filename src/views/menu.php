@@ -3,7 +3,7 @@
 <?php include 'header.php';?>
 <style>
 #menu {
-    background-image: url("public/img/bg1.png");
+    background-image: url("../../public/img/bg1.png");
     background-repeat: no-repeat;
     background-size: 200px;
 }
@@ -28,19 +28,19 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <a href="form1"
+                <a href="../../src/views/form1.php"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนทั่วไป</a>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col ">
-                <a href="form2"
+                <a href="../../src/views/form2.php"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนแทนบุคคลอื่น</a>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col ">
-                <a href="form3"
+                <a href="../../src/views/form3.php"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนในนามนิติบุคคล</a>
             </div>
         </div>

@@ -1,56 +1,53 @@
-<?php
+<?php 
+    include_once 'public/script/inc.php';
+    $url_lang = 'index.php';
 
-// $_GET['path'] = isset($_GET['path']) ? $_GET['path'] : "";
-// // echo $_GET['path'];
+    $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1;
+    $lang = @$_SESSION['lang'];
 
+    if ($page == '' || $page == 1) {
+        $view = 'resources/views/condition.php';
+    } elseif ($page == 2) {
+        $view = 'resources/views/menu.php';
+    } elseif ($page == "form1") {
+        $view = 'resources/views/form1.php';
+    } elseif ($page == "form2") {
+        $view = 'resources/views/form2.php';
+    } elseif ($page == "form3") {
+        $view = 'resources/views/form3.php';
+    } elseif ($page == "thanks") {
+        $view = 'resources/views/thanks.php';
+    }
+?>
 
-// // if (strpos( $_GET['path'], '/hello/') === 0) {
-// //     $names = preg_replace('|^\/hello\/|', '',  $_GET['path']);
-// //     $names = str_replace('/','-', $names);
-// //     // return "/hello/$names";
-// // //   }
-// //     $_GET['path'] = $names;
+<!DOCTYPE html>
+<html lang="en">
 
-// switch ($_GET['path']) {
-//     case '' :
-//         require 'src/views/condition.php';
-//         break;
-//     case 'menu' :
-//         require 'src/views/menu.php';
-//         break;
-//     case 'form1' :
-//         require 'src/views/form1.php';
-//         break;
-//     case 'form1-submit' :
-//         require 'src/views/form1.php';
-//         break;
-//     case 'form2' :
-//         require 'src/views/form2.php';
-//         break;
-//     case 'form2-submit' :
-//         require 'src/views/form2.php';
-//         break;
-//     case 'data1' :
-//         require 'src/controller/data1.php';
-//         break;
-//     case 'store' :
-//         require 'src/views/store.php';
-//         break;
-//     case 'form3' :
-//         require 'src/views/form3.php';
-//         break;
-//     case 'form3-submit' :
-//         require 'src/views/form3.php';
-//         break;
-//     case 'thanks' :
-//         require 'src/views/thanks.php';
-//         break;
-//     default:
-//         http_response_code(404);
-//         require 'src/views/condition.php';
-//         break;
-// }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTellUs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/custom.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
+    </script>
+    <?php
+        // include_once 'lang/lang_'. $lang .'.php';
+	?>
+</head>
+<?php include 'resources/views/layouts/header.php';?>
 
+<body style="padding-bottom: 37px;">
+    <?php include_once $view;         /*  === form YouTellUs ===  */    ?>
+</body>
+<?php include 'resources/views/layouts/footer.php';?>
 
-include 'src/views/condition.php';
-
+</html>

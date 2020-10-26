@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include 'header.php';?>
-<style>
-#menu {
-    background-image: url("../../public/img/bg1.png");
-    background-repeat: no-repeat;
-    background-size: 200px;
-}
-</style>
 
-<body>
-    <?php include 'navbar.php';?>
     <div style="height:80px"></div>
     <div class="container mb-4 col-lg-7 col-md-12 col-sm-12" id="menu">
         <div class="row justify-content-end">
@@ -28,25 +16,20 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <a href="../../src/views/form1.php"
+                <a href="index.php?page=form1"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนทั่วไป</a>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col ">
-                <a href="../../src/views/form2.php"
+                <a href="index.php?page=form2"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนแทนบุคคลอื่น</a>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col ">
-                <a href="../../src/views/form3.php"
+                <a href="index.php?page=form3"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนในนามนิติบุคคล</a>
             </div>
         </div>
     </div>
-
-</body>
-
-
-</html>

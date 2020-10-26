@@ -1,6 +1,9 @@
 <?php header ("Content-Type: text/html; charset=UTF-8"); ?>
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Webhook FB feed API A 
 // 20-05-2020  Create file
@@ -18,7 +21,7 @@ require_once("function_post.php"); //acomment
 	$gbTransID = generateRandomString(10);
 	define('LOGFILE',  '../log/log_youtellus/webhooks_'.date('Ymd').'.log');
 
-	logWrite(LOGFILE, "===================== Begin App Connect FB Feed Webhook =========================");
+	logWrite(LOGFILE, "===================== Begin App You Tell Us Webhook =========================");
 
 /* Output JSON array */
 	$outputJSON = array(
@@ -30,7 +33,7 @@ require_once("function_post.php"); //acomment
 /* --------------------------- */
 /* ---- Is valid authen? ----- */  // NO authen return 1000 Unauthorized
 /* --------------------------- */  // Return 403 Forbidden Not Registion API
-
+/*
 	$user = $_SERVER['PHP_AUTH_USER'];
 	$pass = $_SERVER['PHP_AUTH_PW'];
 
@@ -39,7 +42,7 @@ require_once("function_post.php"); //acomment
 
 	if (!$validated) {
 	    $outputJSON['responseCode'] = "1000";    $outputJSON['responseDesc'] = "Unauthorized";
-	    /* Output */
+	    // Output //
 	    http_response_code(403);
 	    header('Content-Type: application/json');
 	    $outputJSONStr = json_encode($outputJSON);
@@ -47,7 +50,7 @@ require_once("function_post.php"); //acomment
 	    logWrite(LOGFILE, "Output JSON = ".$outputJSONStr);
 	    exit(0);
 	}
-
+*/
 
 /* --------------------------- */ // This method is POST
 /* ---- Is valid request? ---- */ // Return 1001 Invalid request method
@@ -85,11 +88,12 @@ if(json_last_error() != JSON_ERROR_NONE){
 /* -------------------------- */
 /* ----- Params: events ----- */	// Return 1002 Invalid request content
 /* -------------------------- */	// Return 400 Bad Request Wrong or Not match parameter
+/*
 if(!array_key_exists('events' , $inputArray) || empty($inputArray['events'])){
     $outputJSON['requestId'] = $inputArray['requestId'];
     $outputJSON['responseCode'] = '1002';    
     $outputJSON['responseDesc'] = 'Invalid request content(No \'events\')';
-    /* Output */
+    // Output //
     http_response_code(400);
     header('Content-Type: application/json');
     $outputJSONStr = json_encode($outputJSON);
@@ -97,9 +101,9 @@ if(!array_key_exists('events' , $inputArray) || empty($inputArray['events'])){
     logWrite(LOGFILE, 'Output JSON = '.$outputJSONStr);
     exit(0);
 }
+*/
 
-
-	logWrite(LOGFILE, "===================== Start [Event] FB Feed Webhook =========================");
+	logWrite(LOGFILE, "===================== Start [Event] You Tell US Webhook =========================");
 
 	$object = json_decode($inputContent, true);
 
@@ -108,8 +112,63 @@ if(!array_key_exists('events' , $inputArray) || empty($inputArray['events'])){
 	} else {
 		logWrite(LOGFILE, "Object : ".$object);
 	}
+	
+	$connection = new CDatabase();
+	$connection->Connect();
+	
+	$slasec = $olasec = 3600;
+	$isparentresp = 1;
+	$casestatus = "N"; 
+	$caseclosetype = "";
+	$closecode = "";
 
-	//SET OBJECT TO DEFULT
+
+	////////////////////set data form ///////////////////
+	$feedtitle = $object
+	
+	$arrInfo=array("CASEID"=>"-1"
+		,"FEEDID"=> date("YmdHis") . uniqid() . rand()
+		,"FEEDTYPE"=>"YU" //FB TO FS
+		,"FEEDSUBTYPE"=>"YU" //$sData["FEEDSUBTYPE"]
+		,"FEEDACCOUNT"=>"YTU" //$sData["FEEDACCOUNT"]
+		,"FEEDTITLE"=> "" //mb_substr($data["message"],0,250,'UTF-8')
+		,"FEEDBODY"=> "" //$data["message"]//json_encode($object)
+		,"FEATURE01"=> "YTU" //$customerSetID
+		,"FEATURE02"=>null
+		,"FEATURE03"=>null
+		,"FEATURE04"=>null
+		,"FEATURE05"=>null
+		,"SOCIAL_CUSTID"=>"" //$_sender_id
+		,"SOCIAL_CUSTNAME"=> "" //$userInfo["sender_name"]
+		,"SOCIAL_CUSTINFO"=>null
+		,"CONTACTID"=> -1 // $sData["CONTACTID"]
+		,"CREATED_DT"=> date("Y-m-d H:i:s") // date("Y-m-d H:i:s",$data["created_time"])
+		,"PRIORITYSCORE"=> 100 //$priScore
+		,"SLASEC"=>$slasec
+		,"SLADUE_DT"=>date("Y-m-d H:i:s", time() +$slasec)
+		,"OLASEC"=>$olasec
+		,"OLADUE_DT"=>date("Y-m-d H:i:s", time() +$olasec)
+		,"ADDED_DT"=>date("Y-m-d H:i:s")
+		,"LANGUAGE"=> "TH" // $sData["language"]
+		,"FEEDPARENTID"=> "-1" // $sData["PARENTID"]
+		,"ISPARENTRESP"=> $isparentresp // $sData["ISPARENTRESP"]
+		,"TARGETAGENTID"=>-1
+		,"RP_STATUS"=>"F"
+		,"FROMBOT"=>"N"
+		,"CASESTATUS"=>$casestatus
+		,"AGENTID"=>-1
+		,"CONVERSESSIONID"=>""
+		,"CLOSEDTYPE"=>$caseclosetype
+		,"CLOSEDCODE"=>$closecode
+	);
+
+
+	Insert_CASEINFO($connection,$arrInfo);
+
+
+
+	//SET OBJECT TO DEFAULT
+/*
 	$object = $object['events'];
 
 if($object)
@@ -125,7 +184,7 @@ if($object)
 	logWrite(LOGFILE, "===================== config_connector =========================");
 	
 
-	/*================Begin Feed===================*/
+	//================Begin Feed===================
 	$mydata = initWebHooks($object);
 
 	logWrite(LOGFILE, "mydata :: ".print_r($mydata, true));
@@ -252,11 +311,7 @@ if($object)
 										// Post from page
 										if($_sender_id != $data["pageID"]) {
 											$sData["IS_PRIVATEREPLY"] = 'Y';
-	/*										// Then check comment ? reply from comment sender
-											$mentSender = get_PostSenderID($connection, $sData["PARENTID"]);
-											if ( ($mentSender > 0) && ($mentSender == $_sender_id) ) {
-												$sData["IS_PRIVATEREPLY"] = 'Y';
-											}*/
+	
 										}
 									}
 								} else {
@@ -579,13 +634,14 @@ if($object)
 			}
 		}
 	}
+*/
 
 	/*================End Feed===================*/
 
 	$connection->Disconnect();
 	unset($connection);
 
-} //if($object) //end object
+//} //if($object) //end object
 
 logWrite(LOGFILE,"===================== End App Connect FB Webhook =========================");
 

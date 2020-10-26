@@ -4,7 +4,7 @@
 
 <style>
     #main {
-        background-image: url("public/img/bg-thanks.png");
+        background-image: url("../../public/img/bg-thanks.png");
         background-repeat: no-repeat;
         background-size: 320px;
         height: 100vh;

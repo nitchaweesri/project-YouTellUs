@@ -9,7 +9,7 @@
 <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
     <div class="row justify-content-center ">
         <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-        <form action="<?php echo isset($_POST['name']) ?  "thanks"  : "form1-submit";?>" method="post" class="needs-validation" novalidate>
+        <form action="<?php echo isset($_POST['name']) ?  "../../src/controller/createcase.php"  : "../../src/views/form1.php";?>" method="post" class="needs-validation" novalidate>
             <div class="form-group">
                 <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
                 <input name="name" type="text" class="form-control Light" id="name"  placeholder='ชื่อ - สกุล' required 
@@ -60,7 +60,7 @@
                         <div class="image-upload">
                             <label for="file1" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" width="22px" height="22px" class="white-img mb-1"/>
+                                    <img src="../../public/img/upload.png" width="22px" height="22px" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -73,7 +73,7 @@
                         <div class="image-upload">
                             <label for="file2" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" class="white-img mb-1"/>
+                                    <img src="../../public/img/upload.png" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -86,7 +86,7 @@
                         <div class="image-upload">
                             <label for="file3" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" class="white-img mb-1"/>
+                                    <img src="../../public/img/upload.png" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -99,7 +99,7 @@
                         <div class="image-upload ">
                             <label for="file4" class="btn btn-primary col">
                                 <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" class="white-img mb-1"/>
+                                    <img src="../../public/img/upload.png" class="white-img mb-1"/>
                                 </div>
                                 <div class="row justify-content-center">
                                     <h7 class="text-white">upload</h7>
@@ -131,6 +131,7 @@
 </div>
 </div>
 
+<?php include 'footer.php';?>
 
 <script>
 

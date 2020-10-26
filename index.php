@@ -6,17 +6,17 @@
     $lang = @$_SESSION['lang'];
 
     if ($page == '' || $page == 1) {
-        $FormData = 'src/views/condition.php';
+        $FormData = 'resources/views/condition.php';
     } elseif ($page == 2) {
-        $FormData = 'src/views/menu.php';
+        $FormData = 'resources/views/menu.php';
     } elseif ($page == "form1") {
-        $FormData = 'src/views/form1.php';
+        $FormData = 'resources/views/form1.php';
     } elseif ($page == "form2") {
-        $FormData = 'src/views/form2.php';
+        $FormData = 'resources/views/form2.php';
     } elseif ($page == "form3") {
-        $FormData = 'src/views/form3.php';
+        $FormData = 'resources/views/form3.php';
     } elseif ($page == "thanks") {
-        $FormData = 'src/views/thanks.php';
+        $FormData = 'resources/views/thanks.php';
     }
 ?>
 
@@ -43,11 +43,11 @@
         // include_once 'lang/lang_'. $lang .'.php';
 	?>
 </head>
-<?php include 'src/views/layouts/header.php';?>
+<?php include 'resources/views/layouts/header.php';?>
 
 <body style="padding-bottom: 37px;">
     <?php include_once $FormData;         /*  === form YouTellUs ===  */    ?>
 </body>
-<?php include 'src/views/layouts/footer.php';?>
+<?php include 'resources/views/layouts/footer.php';?>
 
 </html>

@@ -15,6 +15,8 @@
         $FormData = 'src/views/form2.php';
     } elseif ($page == "form3") {
         $FormData = 'src/views/form3.php';
+    } elseif ($page == "thanks") {
+        $FormData = 'src/views/thanks.php';
     }
 ?>
 
@@ -41,11 +43,11 @@
         // include_once 'lang/lang_'. $lang .'.php';
 	?>
 </head>
+<?php include 'src/views/layouts/header.php';?>
 
-<body>
-    <?php include 'src/views/layouts/header.php';?>
+<body style="padding-bottom: 37px;">
     <?php include_once $FormData;         /*  === form YouTellUs ===  */    ?>
-    <?php include 'src/views/layouts/footer.php';?>
 </body>
+<?php include 'src/views/layouts/footer.php';?>
 
 </html>

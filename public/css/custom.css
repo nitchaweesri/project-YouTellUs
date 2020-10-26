@@ -45,7 +45,10 @@ h7{
 #footer {
     color: #444444;
     font-size: 14px;
-    background: #ffffff;			/*  #f1f0f2  */
+    background: #ffffff;
+    bottom: 0px;
+    width: 100%;
+    position: fixed;	/*  #f1f0f2  */
 }
   
 #footer .text_thx {
@@ -64,6 +67,22 @@ h7{
     background-image: url("../../public/img/bg1.png");
     background-repeat: no-repeat;
     background-size: 200px;
+}
+
+.lang-btn {
+	display: block;
+	position: relative;
+	float: right;	
+}
+
+.lang-btn a{
+	font-family: 'Mitr-Regular';
+	color: #888888;
+}
+
+.lang-btn a.se{
+	font-family: 'Mitr-Regular';
+	color: #462279;
 }
 
 

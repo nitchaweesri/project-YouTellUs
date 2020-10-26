@@ -1,6 +1,6 @@
 
 <div style="height:80px"></div>
-<div class="container mb-4 col-lg-7 col-md-12 col-sm-12 ">
+<div class="container col-lg-7 col-md-12 col-sm-12 ">
     <div class="row">
         <div class="col">
             <h2 class="text-primary text-center Regular">เงื่อนไขการร้องเรียน</h2>
@@ -30,7 +30,7 @@
         </div>
     </div>
 </div>
-
+<div style="height:80px"></div>
 
 
 

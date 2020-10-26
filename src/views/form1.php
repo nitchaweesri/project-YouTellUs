@@ -3,7 +3,7 @@
 <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
     <div class="row justify-content-center ">
         <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-        <form action="<?php echo isset($_POST['name']) ?  "../../src/controller/createcase.php"  : "../../src/views/form1.php";?>" method="post" class="needs-validation" novalidate>
+        <form action="<?php echo isset($_POST['name']) ?  "src/controller/createcase.php"  : "index.php?page=form1";?>" method="post" class="needs-validation" novalidate>
             <div class="form-group">
                 <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
                 <input name="name" type="text" class="form-control Light" id="name"  placeholder='ชื่อ - สกุล' required 

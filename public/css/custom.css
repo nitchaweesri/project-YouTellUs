@@ -12,6 +12,10 @@
     
 }
 
+input,p,label,textarea{
+    font-family: 'Mitr-Regular';
+}
+
 .text-primary,.btn-outline-primary{
     color:#765ABA !important;
     border-color :#765ABA !important;
@@ -84,6 +88,7 @@ h7{
 	font-family: 'Mitr-Regular';
 	color: #462279;
 }
+
 
 
 @font-face {

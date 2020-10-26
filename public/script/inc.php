@@ -6,6 +6,6 @@ if ($re_lang != '') {
     session_unset ();
     $_SESSION['lang'] = $re_lang;
 } else {
-    ($_SESSION['lang'] != '') ? $_SESSION['lang']:'th';
+    // ($_SESSION['lang'] != '') ? $_SESSION['lang']:'th';
 }
 ?>

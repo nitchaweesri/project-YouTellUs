@@ -268,6 +268,8 @@ $('#input-powerOfAttorney2').on('change', function() {
     }, false);
 })();
 
+// -------------------------------------------------------------------------------------
+
 function validate() {
     if (document.getElementById('copyOfOwner').checked) {
         if(document.getElementById("input-copyOfOwner1").files.length != 0){

@@ -9,7 +9,9 @@
     #footer .text_thx {
         font-size: 15px !important;
     }
-    
+    /* .custom-file{
+        padding-bottom: 5px;
+    } */
 }
 
 input,p,label,textarea{

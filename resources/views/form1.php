@@ -3,7 +3,7 @@
         <div class="row justify-content-center ">
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "src/controller/createcase.php"  : "index.php?page=form1";?>"
+                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=form1";?>"
                     method="post" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <textarea name="description" type="text" rows="4" class="form-control Light "
                             id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" required
-                            <?php echo $_POST['description'] = isset($_POST['description']) ?  " value='".$_POST['description']."' readonly"  : "";?>></textarea>
+                            <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
                     </div>
 
                     <div class="form-group mt-4">

@@ -74,100 +74,101 @@
                         <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="copyOfOwner" id="copyOfOwner"
-                                    value="copyOfOwner">
+                                    value="copyOfOwner" onclick="validate()">
                                 <label class="form-check-label"
                                     for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-copyOfOwner1" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-copyOfOwner1" />
+                                <label class="custom-file-label" for="input-copyOfOwner1">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-copyOfOwner2" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-copyOfOwner2" />
+                                <label class="custom-file-label" for="input-copyOfOwner2">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="copyOfDelegate"
-                                    id="copyOfDelegate" value="copyOfDelegate">
+                                    id="copyOfDelegate" value="copyOfDelegate" onclick="validate()">
                                 <label class="form-check-label"
                                     for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-copyOfDelegate1" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-copyOfDelegate1" />
+                                <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-copyOfDelegate2" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-copyOfDelegate2" />
+                                <label class="custom-file-label" for="input-copyOfDelegate2">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="companyCertificate"
-                                    id="companyCertificate" value="companyCertificate">
+                                    id="companyCertificate" value="companyCertificate" onclick="validate()">
                                 <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล
                                     (อายุไม่เกิน 6 เดือน)</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-companyCertificate1" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-companyCertificate1" />
+                                <label class="custom-file-label" for="input-companyCertificate1">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-companyCertificate2" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-companyCertificate2" />
+                                <label class="custom-file-label" for="input-companyCertificate2">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="powerOfAttorney"
-                                    id="powerOfAttorney" value="powerOfAttorney">
+                                    id="powerOfAttorney" value="powerOfAttorney" onclick="validate()">
                                 <label class="form-check-label" for="inlineCheckbox1">หนังสือมอบอำนาจ</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-2">
-                        <div class="col">
-                            <p class="text-primary text-left">แนบเอกสารประกอบ</p>
-                        </div>
-                    </div>
                     <div class="row">
-                        <div class="col">
-                            <div class="image-upload">
-                                <label for="file-input" class="btn btn-primary col">
-                                    <div class="row justify-content-center">
-                                        <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <h7 class="text-white">upload</h7>
-                                    </div>
-                                </label>
-                                <input id="file-input" name="file1" type="file" />
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-powerOfAttorney1" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-powerOfAttorney1" />
+                                <label class="custom-file-label" for="input-powerOfAttorney1">Choose file</label>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="image-upload">
-                                <label for="file-input" class="btn btn-primary col">
-                                    <div class="row justify-content-center">
-                                        <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <h7 class="text-white">upload</h7>
-                                    </div>
-                                </label>
-                                <input id="file-input" name="file2" type="file" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="image-upload">
-                                <label for="file-input" class="btn btn-primary col">
-                                    <div class="row justify-content-center">
-                                        <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <h7 class="text-white">upload</h7>
-                                    </div>
-                                </label>
-                                <input id="file-input" name="file3" type="file" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="image-upload ">
-                                <label for="file-input" class="btn btn-primary col">
-                                    <div class="row justify-content-center">
-                                        <img src="public/img/upload.png" width="22px" class="white-img mb-1" />
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <h7 class="text-white">upload</h7>
-                                    </div>
-                                </label>
-                                <input id="file-input" name="file4" type="file" />
+                        <div class="col-sm-12 col-md-6">
+                            <div class="custom-file" id="file-powerOfAttorney2" style="display: none;">
+                                <input type="file" class="custom-file-input" id="input-powerOfAttorney2" />
+                                <label class="custom-file-label" for="input-powerOfAttorney2">Choose file</label>
                             </div>
                         </div>
                     </div>
+
                     <div class="row mt-3">
                         <div class="col">
                             <p class="text-left">ข้อร้องเรียนของท่านจะถูกส่งเข้าระบบในวันทำการถัดไป
@@ -196,6 +197,61 @@
 </div>
 
 <script>
+
+// -------------------------------------------------------------------------------------
+
+$('#input-copyOfOwner1').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+    document.getElementById('file-copyOfOwner2').style.display = 'flex';
+})
+
+$('#input-copyOfOwner2').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+})
+
+// --------------------------------------------
+
+$('#input-copyOfDelegate1').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+    document.getElementById('file-copyOfDelegate2').style.display = 'flex';
+})
+
+$('#input-copyOfDelegate2').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+})
+
+// --------------------------------------------
+
+$('#input-companyCertificate1').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+    document.getElementById('file-companyCertificate2').style.display = 'flex';
+})
+
+$('#input-companyCertificate2').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+})
+
+// --------------------------------------------
+
+$('#input-powerOfAttorney1').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+    document.getElementById('file-powerOfAttorney2').style.display = 'flex';
+})
+
+$('#input-powerOfAttorney2').on('change', function() {
+    var fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+})
+
+// -------------------------------------------------------------------------------------
+
 (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -211,4 +267,49 @@
         });
     }, false);
 })();
+
+// -------------------------------------------------------------------------------------
+
+function validate() {
+    if (document.getElementById('copyOfOwner').checked) {
+        if(document.getElementById("input-copyOfOwner1").files.length != 0){
+            document.getElementById('file-copyOfOwner2').style.display = 'flex';
+        }
+        document.getElementById('file-copyOfOwner1').style.display = 'flex';
+    } else {
+        document.getElementById('file-copyOfOwner1').style.display = 'none';
+        document.getElementById('file-copyOfOwner2').style.display = 'none';
+    }
+
+    if (document.getElementById('copyOfDelegate').checked) {
+        if(document.getElementById("input-copyOfDelegate1").files.length != 0){
+            document.getElementById('file-copyOfDelegate2').style.display = 'flex';
+        }
+        document.getElementById('file-copyOfDelegate1').style.display = 'flex';
+    } else {
+        document.getElementById('file-copyOfDelegate1').style.display = 'none';
+        document.getElementById('file-copyOfDelegate2').style.display = 'none';
+    }
+
+    if (document.getElementById('companyCertificate').checked) {
+        if(document.getElementById("input-companyCertificate1").files.length != 0){
+            document.getElementById('file-companyCertificate2').style.display = 'flex';
+        }
+        document.getElementById('file-companyCertificate1').style.display = 'flex';
+    } else {
+        document.getElementById('file-companyCertificate1').style.display = 'none';
+        document.getElementById('file-companyCertificate2').style.display = 'none';
+    }
+
+    if (document.getElementById('powerOfAttorney').checked) {
+        if(document.getElementById("input-powerOfAttorney1").files.length != 0){
+            document.getElementById('file-powerOfAttorney2').style.display = 'flex';
+        }
+        document.getElementById('file-powerOfAttorney1').style.display = 'flex';
+    } else {
+        document.getElementById('file-powerOfAttorney1').style.display = 'none';
+        document.getElementById('file-powerOfAttorney2').style.display = 'none';
+    }
+}
+
 </script>

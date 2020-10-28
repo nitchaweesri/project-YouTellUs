@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php     $msg = @$_REQUEST['msg'] != '' ? $_REQUEST['msg'] : 1;
+?>
 <style>
     #main {
-        background-image: url("public/img/bg-thanks.png");
+        /* background-image: url("public/img/bg-thanks.png"); */
         background-repeat: no-repeat;
         background-size: 320px;
         height: 100vh;
@@ -22,14 +23,9 @@
 <body>
     <div style="height:80px"></div>
     <div class="container" id="main">
-        <div class="row mt-4">
-            <div class="col">
-                <h2 class="text-primary text-center">ขอบคุณค่ะ</h2>
-            </div>
-        </div>
         <div class="row mb-8">
             <div class="col">
-                <h5 class="text-primary text-center">เราได้รับข้อมูลของคุณเรียบร้อยแล้ว</h5>
+                <h5 class="text-primary text-center"><?php echo $msg?></h5>
             </div>
         </div>
         <div class="row">

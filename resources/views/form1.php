@@ -3,7 +3,7 @@
 <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
     <div class="row justify-content-center ">
         <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-        <form action="<?php echo isset($_POST['name']) ?  "controller/createcase.php"  : "index.php?page=form1";?>" method="post" class="needs-validation" novalidate>
+        <form action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=form1";?>" method="post" class="needs-validation" novalidate>
             <div class="form-group">
                 <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
                 <input name="name" type="text" class="form-control Light" id="name"  placeholder='ชื่อ - สกุล' required 
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <textarea name="description" type="text" rows="4" class="form-control Light " id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" required
-                <?php echo $_POST['description'] = isset($_POST['description']) ?  " value='".$_POST['description']."' readonly"  : "";?>></textarea>
+                <?php echo  isset($_POST['description']) ?  " value='".$_POST['description']."' readonly"  : "";?>><?php echo  isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
             </div>
 
             <div class="form-group mt-4">
@@ -50,58 +50,42 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <div class="image-upload">
-                            <label for="file1" class="btn btn-primary col">
-                                <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" width="22px" height="22px" class="white-img mb-1"/>
+
+                    <?php 
+                        for ($i=1; $i <=4 ; $i++) { 
+                            if(isset($_POST['file'.$i])){
+                                $value[$i] = " value='".$_POST['file'.$i]. "' readonly";
+                                $div[$i] = "<div class='row justify-content-center pr-3 pl-3'>
+                                            <h7 class='text-primary'>".$_POST['file'.$i]. "</h7>
+                                        </div>";
+                            }else{
+                                $value[$i] = "";
+                                $div[$i] = "";
+                            }
+                            $string =  "
+                                <div class='col'>
+                                    <div class='image-upload'>
+                                        <label for='file$i' class='btn btn-primary col'>
+                                            <div class='row justify-content-center'>
+                                                <img src='public/img/upload.png' width='22px' height='22px' class='white-img mb-1'/>
+                                            </div>
+                                            <div class='row justify-content-center'>
+                                                <h7 class='text-white'>upload</h7>
+                                            </div>
+                                        </label>
+                                        <input name='file$i' id='file$i' type='file' value='hhhhh' />
+                                        ".$div[$i]."
+                                            
+                                    </div>
                                 </div>
-                                <div class="row justify-content-center">
-                                    <h7 class="text-white">upload</h7>
-                                </div>
-                            </label>
-                            <input name="file1" id="file1" type="file"/>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="image-upload">
-                            <label for="file2" class="btn btn-primary col">
-                                <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" class="white-img mb-1"/>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <h7 class="text-white">upload</h7>
-                                </div>
-                            </label>
-                            <input name="file2" id="file2" type="file" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="image-upload">
-                            <label for="file3" class="btn btn-primary col">
-                                <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" class="white-img mb-1"/>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <h7 class="text-white">upload</h7>
-                                </div>
-                            </label>
-                            <input name="file3" id="file3" type="file" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="image-upload ">
-                            <label for="file4" class="btn btn-primary col">
-                                <div class="row justify-content-center">
-                                    <img src="public/img/upload.png" class="white-img mb-1"/>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <h7 class="text-white">upload</h7>
-                                </div>
-                            </label>
-                            <input name="file4" id="file4" type="file" />
-                        </div>
-                    </div>
+                                ";
+
+                            echo $string;
+                        }
+
+                    ?>
+
+                    
                 </div>
                 
             </div>

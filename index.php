@@ -17,7 +17,10 @@
         $view = 'resources/views/form3.php';
     } elseif ($page == "thanks") {
         $view = 'resources/views/thanks.php';
+    } elseif ($page == "error") {
+        $view = 'resources/views/error.php';
     }
+
 ?>
 
 <!DOCTYPE html>

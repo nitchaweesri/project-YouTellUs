@@ -12,6 +12,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {}
+
 </style>
 
 <div class="container mb-4 p-4 mb-5 bg-white rounded pd-top">

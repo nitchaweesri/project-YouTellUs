@@ -26,7 +26,7 @@
     </div>
     <div class="row mt-3">
         <div class="col ">
-            <a href="index.php?page=2" class="btn btn-primary rounded-pill d-flex justify-content-center Regular">ยอมรับและดำเนินการต่อ</a>
+            <a href="index.php?page=verify" class="btn btn-primary rounded-pill d-flex justify-content-center Regular">ยอมรับและดำเนินการต่อ</a>
         </div>
     </div>
 </div>

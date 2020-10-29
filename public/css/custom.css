@@ -1,3 +1,9 @@
+@media (min-width: 994px) and (max-width: 1960px) {
+    .lg-custom{
+        padding: 0px 50px 0 50px !important;
+    }
+}
+
 @media (min-width: 320px) and (max-width: 993px) {
     .container-sm{
         padding: 0 18px;
@@ -13,6 +19,7 @@
         padding-bottom: 5px;
     } */
 }
+
 
 input,p,label,textarea{
     font-family: 'Mitr-Regular';
@@ -92,8 +99,7 @@ h7{
 	color: #462279;
 }
 
-
-
+/* -----------------------------------font---------------------------------------- */
 
 @font-face {
     font-family: 'Mitr-Bold';
@@ -139,3 +145,5 @@ h7{
 .SemiBold{
     font-family: 'Mitr-SemiBold' ,Fallback, sans-serif;
 }
+
+/* -----------------------------------font---------------------------------------- */

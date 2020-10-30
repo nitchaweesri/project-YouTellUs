@@ -32,11 +32,11 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="tel" id="tel"
-                            placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required
+                            placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
                             <?php echo $_POST['tel'] = isset($_POST['tel']) ?  " value='".$_POST['tel']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail Address"
+                        <input type="email" class="form-control" name="mail" id="mail" placeholder="<?php echo constant("อีเมล")?>"
                             required
                             <?php echo $_POST['mail'] = isset($_POST['mail']) ?  " value='".$_POST['mail']."' readonly"  : "";?>>
                     </div>
@@ -62,12 +62,12 @@
                     </div>
                     <div class="form-group mt-2">
                         <textarea class="form-control" name="detail" id="detail" rows="4"
-                            placeholder="รายละเอียดข้อร้องเรียน" required
+                            placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo $_POST['detail'] = isset($_POST['detail']) ?  " value='".$_POST['detail']."' readonly"  : "";?>></textarea>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label for="exampleFormControlInput1" class="text-primary h5 Regular">เอกสารประกอบข้อร้องเรียน</label>
+                            <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                         </div>
                     </div>
                     <div class="row">

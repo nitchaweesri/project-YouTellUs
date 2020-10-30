@@ -7,25 +7,25 @@
                     method="post" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
-                        <input name="name" type="text" class="form-control Light" id="name" placeholder='ชื่อ - สกุล'
+                        <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
                             required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light"
-                            placeholder="หมายเลขบัตรประชาชน" required
+                            placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
                     </div>
                     <div class="form-group">
                         <input name="tell" type="tell" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required
+                            placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
                             <?php echo $_POST['tell'] = isset($_POST['tell']) ?  " value='".$_POST['tell']."' readonly"  : "";?>
                             pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">
                         <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="E-mail Address" required
+                            placeholder="<?php echo constant("อีเมล")?>" required
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>
                             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     </div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <textarea name="description" type="text" rows="4" class="form-control Light "
-                            id="validationTextarea" placeholder="รายละเอียดข้อร้องเรียน" required
+                            id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
                     </div>
 
@@ -51,7 +51,7 @@
                         <div class="row">
                             <div class="col">
                                 <label for="exampleFormControlInput1"
-                                    class="text-primary h5 Regular">เอกสารประกอบข้อร้องเรียน</label>
+                                    class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                             </div>
                         </div>
                         <div class="row">

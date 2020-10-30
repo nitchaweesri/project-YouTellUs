@@ -103,6 +103,11 @@ h7{
     line-height: 22px;
 }
 
+.custom-file-label{
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 /* -----------------------------------font---------------------------------------- */
 
 @font-face {

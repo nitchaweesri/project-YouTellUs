@@ -17,7 +17,7 @@
         <div class="row mt-3">
             <div class="col">
                 <a href="index.php?page=form1"
-                    class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular">ร้องเรียนทั่วไป</a>
+                    class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular"><?php echo constant('ร้องเรียนทั่วไป') ?></a>
             </div>
         </div>
         <div class="row mt-3">

@@ -31,11 +31,14 @@
         $view = 'resources/views/queryby.php';
     }elseif ($page == "querybyid") {
         $view = 'resources/views/querybyid.php';
-    }else{
+    }elseif ($page == "verify") {
+        $view = 'resources/views/verify.php';
+    }elseif ($page == "otp") {
+        $view = 'resources/views/otp.php';
+    }
+    else{
         $view = '../html-errors/HTTP404.html';
     }
-    
-
 ?>
 
 <!DOCTYPE html>

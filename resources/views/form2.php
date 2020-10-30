@@ -6,17 +6,17 @@
                     method="post" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col">
-                            <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
+                            <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="ชื่อ-สกุลของลูกค้า"
+                        <input type="text" class="form-control" name="name" id="name" placeholder="<?php echo constant("ชื่อ")?>"
                             required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="idcard" id="idcard"
-                            placeholder="หมายเลขบัตรประชาชนของลูกค้า" required
+                            placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
@@ -26,11 +26,11 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="tel" id="tel"
-                            placeholder="หมายเลขโทรศัพท์ที่ติดต่อได้" required
+                            placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
                             <?php echo $_POST['tel'] = isset($_POST['tel']) ?  " value='".$_POST['tel']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail Address"
+                        <input type="email" class="form-control" name="mail" id="mail" placeholder="<?php echo constant("อีเมล")?>"
                             required
                             <?php echo $_POST['mail'] = isset($_POST['mail']) ?  " value='".$_POST['mail']."' readonly"  : "";?>>
                     </div>
@@ -98,13 +98,13 @@
                     </div>
                     <div class="form-group mt-2">
                         <textarea class="form-control" id="detail" rows="3" name="detail"
-                            placeholder="รายละเอียดข้อร้องเรียน" required
+                            placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo $_POST['detail'] = isset($_POST['detail']) ?  " value='".$_POST['detail']."' readonly"  : "";?>></textarea>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="exampleFormControlInput1"
-                                class="text-primary h5 Regular">เอกสารประกอบข้อร้องเรียน</label>
+                                class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                         </div>
                     </div>
                     <div class="row">

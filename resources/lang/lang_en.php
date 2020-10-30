@@ -10,5 +10,9 @@ define('ร้องเรียนในนามนิติบุคคล','
 define('ข้อมูลส่วนตัว','Personal information');
 define('ชื่อ','Name');
 define('นามสกุล','Surname');
-
+define('หมายเลขบัตรประชาชน','ID card number');
+define('หมายเลขโทรศัพท์ที่ติดต่อได้','Tel');
+define('อีเมล','E-mail Address');
+define('รายละเอียดข้อร้องเรียน','Detail');
+define('เอกสารประกอบข้อร้องเรียน','Attachment');
 ?>

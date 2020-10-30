@@ -2,8 +2,14 @@
     include_once 'public/script/inc.php';
     $url_lang = 'index.php';
 
+    if(!isset($_REQUEST['lang']) || $_REQUEST['lang'] == 'th'){
+        include 'resources/lang/lang_th.php';
+    }else{
+        include 'resources/lang/lang_en.php';
+    }
+
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1;
-    $lang = @$_SESSION['lang'];
+    // $lang = @$_SESSION['lang'];
 
     if ($page == '' || $page == 1) {
         $view = 'resources/views/condition.php';
@@ -19,7 +25,16 @@
         $view = 'resources/views/thanks.php';
     } elseif ($page == "error") {
         $view = 'resources/views/error.php';
+    }elseif ($page == "testdb") {
+        $view = 'resources/views/query.php';
+    }elseif ($page == "showcase") {
+        $view = 'resources/views/queryby.php';
+    }elseif ($page == "querybyid") {
+        $view = 'resources/views/querybyid.php';
+    }else{
+        $view = '../html-errors/HTTP404.html';
     }
+    
 
 ?>
 

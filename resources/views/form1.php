@@ -6,7 +6,7 @@
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=form1";?>"
                     method="post" class="needs-validation" novalidate>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลส่วนตัว</label>
+                        <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         <input name="name" type="text" class="form-control Light" id="name" placeholder='ชื่อ - สกุล'
                             required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>

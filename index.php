@@ -19,8 +19,11 @@
         $view = 'resources/views/thanks.php';
     } elseif ($page == "error") {
         $view = 'resources/views/error.php';
+    }elseif ($page == "verify") {
+        $view = 'resources/views/verify.php';
+    }elseif ($page == "otp") {
+        $view = 'resources/views/otp.php';
     }
-
 ?>
 
 <!DOCTYPE html>

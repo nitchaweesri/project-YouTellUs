@@ -1,5 +1,6 @@
 
 function setGetParameter(paramName, paramValue) {
+
     var url = window.location.href;
     var hash = location.hash;
     url = url.replace(hash, '');

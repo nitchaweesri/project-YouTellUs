@@ -2,11 +2,6 @@
     include_once 'public/script/inc.php';
     $url_lang = 'index.php';
 
-    if(!isset($_REQUEST['lang']) || $_REQUEST['lang'] == 'th'){
-        include 'resources/lang/lang_th.php';
-    }else{
-        include 'resources/lang/lang_en.php';
-    }
 
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1;
     // $lang = @$_SESSION['lang'];

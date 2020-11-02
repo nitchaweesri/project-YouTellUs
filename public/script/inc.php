@@ -12,7 +12,7 @@ if(isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])){
    if(isset($_SESSION['lang'])){
     include "resources/lang/lang_".$_SESSION['lang'].".php";
 }else{
-    include "resources/lang/lang_en.php";
+    include "resources/lang/lang_th.php";
 }
 ?>
 

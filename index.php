@@ -2,9 +2,8 @@
     include_once 'public/script/inc.php';
     $url_lang = 'index.php';
 
-
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1;
-    // $lang = @$_SESSION['lang'];
+    $lang = @$_SESSION['lang'];
 
     if ($page == '' || $page == 1) {
         $view = 'resources/views/condition.php';
@@ -20,19 +19,10 @@
         $view = 'resources/views/thanks.php';
     } elseif ($page == "error") {
         $view = 'resources/views/error.php';
-    }elseif ($page == "testdb") {
-        $view = 'resources/views/query.php';
-    }elseif ($page == "showcase") {
-        $view = 'resources/views/queryby.php';
-    }elseif ($page == "querybyid") {
-        $view = 'resources/views/querybyid.php';
     }elseif ($page == "verify") {
         $view = 'resources/views/verify.php';
     }elseif ($page == "otp") {
         $view = 'resources/views/otp.php';
-    }
-    else{
-        $view = '../html-errors/HTTP404.html';
     }
 ?>
 
@@ -43,17 +33,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTellUs</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/custom.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
+    <script src="public/vendor/jquery/jquery.min.js">
     </script>
     <?php
         // include_once 'lang/lang_'. $lang .'.php';

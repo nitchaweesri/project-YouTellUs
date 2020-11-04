@@ -25,7 +25,7 @@ button {
 <div class="container p-3 mb-5 bg-white pd-top">
     <form>
         <div class="form-list">
-            <p class="topic text-primary">CC_041163_นพดล</p>
+            <p class="topic text-primary">CC-041163-นพดล</p>
             <p class="detail text-primary">กรุณาอัพโหลดสำเนาบัตรประชาชน</p>
             <div class="form-group">
                 <div class="custom-file">
@@ -35,7 +35,7 @@ button {
             </div>
         </div>
         <div>
-            <p class="topic text-primary">PL_011163_นพดล</p>
+            <p class="topic text-primary">PL-011163-นพดล</p>
             <p class="detail text-primary">กรุณาอัพโหลดสำเนาเอกสารเพิ่มเติม</p>
             <div class="form-group">
                 <div class="custom-file">

@@ -3,7 +3,7 @@
         <div class="row justify-content-center ">
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=form1";?>"
+                    action="<?php echo isset($_POST['name']) ?  "controllers/case.php"  : "index.php?page=form1";?>"
                     method="post" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
@@ -92,7 +92,7 @@
 
                     <div class="row mt-3">
                         <div class="col ">
-                            <input type="submit" name="submit"
+                            <input type="submit" name="create_case"
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
                                 value="ยอมรับและส่งข้อร้องเรียน">
                         </div>

@@ -23,10 +23,30 @@ $result_column = $_result[1];
                           </thead>
                           <tbody class='Light'>";
                 foreach ($result_column as $key => $value) {
-                    // output data of each row
-                    echo "<tr><td>".$value['COLUMN_NAME']."</td>
+                    if (is_object(json_decode($row[$value['COLUMN_NAME']]))) 
+                        { 
+                            $data = json_decode($row[$value['COLUMN_NAME']]);
+                            $lenght = sizeof((array)($data));
+                            echo "<tr><td rowspan='$lenght'>".$value['COLUMN_NAME']."</td>";
+                            $i = 0;
+                            foreach ($data as $key1 => $value1) {
+                                if ($i == 0) {
+                                    echo  "<td>".$key1.' -> '.$value1."</td></tr>";
+                                }else{
+                                    echo  "<tr><td>".$key1.' -> '.$value1."</td></tr>";
+                                }
+                                $i++; 
+                            }
+                           
+                        }
+                    else{
+                        echo "<tr><td>".$value['COLUMN_NAME']."</td>
                             <td>".$row[$value['COLUMN_NAME']]."</td></tr>";
                     }
+
+                    }
+                    // output data of each row
+                    
                     echo "</tbody>
                         </table>";
 

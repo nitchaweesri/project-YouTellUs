@@ -23,6 +23,10 @@
         $view = 'resources/views/verify.php';
     }elseif ($page == "otp") {
         $view = 'resources/views/otp.php';
+    }elseif ($page == "testdb") {
+        $view = 'resources/views/query.php';
+    }elseif ($page == "querybyid") {
+        $view = 'resources/views/querybyid.php';
     }
 ?>
 

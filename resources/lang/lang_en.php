@@ -1,4 +1,10 @@
 <?php 
+/////memuUpload////
+
+define('อัพโหลดไฟล์เอกสาร','Upload');
+define('ร้องเรียน','Report');
+
+
 /////memu//
 define('กรุณาระบุประเภทการร้องเรียน','Please specify the type of complaint');
 define('ร้องเรียนทั่วไป','General complaints');

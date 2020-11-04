@@ -39,8 +39,7 @@
     <title>YouTellUs</title>
     <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/custom.css">
-    <script src="public/vendor/jquery/jquery.min.js">
-    </script>
+    <script src="public/vendor/jquery/jquery.min.js"></script>
     <?php
         // include_once 'lang/lang_'. $lang .'.php';
 	?>
@@ -50,6 +49,5 @@
 <body style="padding-bottom: 37px;">
     <?php include_once $view;         /*  === form YouTellUs ===  */    ?>
 </body>
-<?php include 'resources/views/layouts/footer.php';?>
 
 </html>

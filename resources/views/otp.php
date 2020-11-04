@@ -1,4 +1,14 @@
 <style>
+    a{
+        color: black;
+        font-size: 13px;
+        color: #495057;
+    }
+    .img-refresh-otp{
+        width: 13px;
+        height: 13px;
+        margin-bottom: 3px;
+    }
 @media (min-width: 1025px) and (max-width: 1960px) {
     .container {
         padding: 0px 306px !important;
@@ -20,6 +30,9 @@
         <div class="form-group">
             <label for="exampleInputEmail1">กรอกรหัส OTP</label>
             <input type="text" class="form-control" id="tell" placeholder="รหัส OTP" required>
+            <div>
+                <a href=""><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
+            </div>
         </div>
         <div class="row mt-3">
             <div class="col d-flex justify-content-center">

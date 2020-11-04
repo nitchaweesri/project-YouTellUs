@@ -27,6 +27,10 @@
         $view = 'resources/views/query.php';
     }elseif ($page == "querybyid") {
         $view = 'resources/views/querybyid.php';
+    }elseif ($page == "menuupload") {
+        $view = 'resources/views/menuUpload.php';
+    }elseif ($page == "upload") {
+        $view = 'resources/views/upload.php';
     }
 ?>
 

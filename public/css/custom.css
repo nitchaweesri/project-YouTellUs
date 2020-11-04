@@ -21,9 +21,10 @@
 }
 
 
-input,p,label,textarea{
+input,p,label,textarea,a,button{
     font-family: 'Mitr-Regular';
 }
+
 
 .text-primary,.btn-outline-primary{
     color:#765ABA !important;
@@ -107,6 +108,7 @@ h7{
     white-space: nowrap;
     overflow: hidden;
 }
+
 
 /* -----------------------------------font---------------------------------------- */
 

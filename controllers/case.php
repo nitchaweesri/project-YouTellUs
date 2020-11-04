@@ -16,7 +16,7 @@
         $result = $conn->query($sql);
         return $result;
     }
-    function show_case_id(Type $var = null)
+    function show_case_id()
     {
         include 'database/model/database.php';
 

@@ -1,12 +1,12 @@
 <?php 
     include_once('crypt.php') ;
 
-    // if (isset($_POST['show_case'])) {
-    //     show_case($_POST);
-    // }
-    // else {
-    //     // print_form();
-    // }
+    if (isset($_POST['create_case'])) {
+        create_case($_POST);
+    }
+    else {
+        // print_form();
+    }
       
 
     function show_case()
@@ -31,7 +31,7 @@
         return [$result, $result_column];
     
     }
-    function creat_case($data)
+    function create_case($data)
     {
         try{
 
@@ -42,36 +42,33 @@
             // $_POST['title'] = 'ร้องเรียน';
             // $_POST['iduser'] = 'f449cdef';
             // $_POST['description'] = 'เรื่องการบริการ';
-
-            $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook.php";
+    
+            $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook_fik_test.php";
             
             $idcard = encryptString($_POST['idcard']);
             $ch = curl_init( $url );
-
+    
             ///////////// set json data ////////////
-            $Jsonbody->title = $_POST['title'];
-            $Jsonbody->iduser = $_POST['iduser'];
-            $Jsonbody->description = $_POST['description'];
-            
-
-            # Setup request to send json via POST.
-            $ParamArr->name = $_POST['name'];
-            $ParamArr->idcard = $idcard;    
-            $ParamArr->tell = $_POST['tell'];
-            $ParamArr->email = $_POST['email'];
-            $ParamArr->title = $_POST['title'];
-            $ParamArr->description = $Jsonbody;
-            $ParamArr->file1 = $_POST['file1'];
-            $ParamArr->file2 = $_POST['file2'];
-            $ParamArr->file3 = $_POST['file3'];
-            $ParamArr->file4 = $_POST['file4'];
-
+            $Jsonbody = array( "title"=> $_POST['title']
+                                ,"iduser"=> $_POST['iduser']
+                                ,"description"=> $_POST['description'] );
+    
+            $ParamArr = array( "name"=> $_POST['name']
+                                ,"idcard"=> $idcard
+                                ,"tell"=> $_POST['tell'] 
+                                ,"email"=> $_POST['email']
+                                ,"title"=> $_POST['title']
+                                ,"description"=> json_encode($Jsonbody)
+                                ,"file1"=> isset($_POST['file1'])? $_POST['file1'] : ""
+                                ,"file2"=> isset($_POST['file2'])? $_POST['file2'] : ""
+                                ,"file3"=> isset($_POST['file3'])? $_POST['file3'] : ""
+                                ,"file4"=> isset($_POST['file4'])? $_POST['file4'] : "" );
             
             $payload = json_encode( $ParamArr);
-
+    
             // print_r ($payload);
-
-            $ParamArr = array( "data"=> "FIK TEST" );
+    
+            // $ParamArr = array( "data"=> "FIK TEST" );
             curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
             curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
             # Return response instead of printing.
@@ -84,7 +81,7 @@
             
             
             header("Location: ../index.php?page=thanks");
-
+    
         }catch (Exception $e) {
             $msg = "error";
             header("Location: ../index.php?page=error&msg=$msg");

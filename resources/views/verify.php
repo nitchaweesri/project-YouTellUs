@@ -23,10 +23,15 @@
         <!-- <div class="d-flex justify-content-center">
             <img src="public/img/captcha.png" alt="captcha" width="320" height="140">
         </div> -->
-        <div class="row mt-3">
+        <!-- <div class="row mt-3">
             <div class="col d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary rounded-pill  Regular col-12 g-recaptcha" data-sitekey="6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD" 
         data-callback='onSubmit' data-action='submit'>ส่งรหัส OTP</button>
+            </div>
+        </div> -->
+        <div class="row mt-3">
+            <div class="col d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
             </div>
         </div>
     </form>
@@ -36,11 +41,11 @@
         data-action='submit'>Submit</button> -->
 </div>
 
-<script src="https://www.google.com/recaptcha/api.js"></script>
+<!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
 <script>
-    function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-    }
+    // function onSubmit(token) {
+    //     document.getElementById("demo-form").submit();
+    // }
 
     (function() {
         'use strict';

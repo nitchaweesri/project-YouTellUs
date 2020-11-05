@@ -1,6 +1,7 @@
 
 <?php 
 include 'controllers/case.php';
+
 $result = ytu_product();
 ?>
 
@@ -9,8 +10,15 @@ $result = ytu_product();
         <div class="row justify-content-center ">
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/case.php"  : "index.php?page=form1";?>"
+                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
                     method="post" class="needs-validation" novalidate>
+
+                    <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
+                    <input type="hidden" name="file1" value="<?php echo $_POST['file1']?>" >
+                    <input type="hidden" name="file2" value="<?php echo $_POST['file2']?>" >
+
+
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
@@ -37,23 +45,24 @@ $result = ytu_product();
                     </div>
 
                     <div class="form-group mt-4">
-                        <label for="exampleFormControlInput1" class="text-primary h5 Regular">เรื่องร้องเรียน</label>
-                        <input name="title" type="text" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required
-                            <?php echo $_POST['title'] = isset($_POST['title']) ?  " value='".$_POST['title']."' readonly"  : "";?>>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label for="exampleFormControlSelect1" class="text-primary h5 Regular">เรื่องร้องเรียน</label>
-                        <select name="title" class="form-control Light" id="exampleFormControlSelect1">
-                        <?php foreach ($result as $key => $value) {
-                            echo "<option value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
-                        }
-                        ?>
+                        <label for="feedsubtype" class="text-primary h5 Regular"><?php echo constant('เรื่องร้องเรียน')?></label>
+                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
+                            <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
+                            <?php foreach ($result as $key => $value) {
+                                if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
+                                    echo "<option selected='selected' value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+
+                                }else{
+                                    echo "<option  value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <input name="iduser" type="text" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน" required
+                            placeholder="<?php echo constant('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน')?>" required
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
@@ -72,22 +81,28 @@ $result = ytu_product();
                         <div class="row">
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="copyOfIDCard" type="checkbox"
+                                    <input class="form-check-input" name="copyOfIDCard" type="checkbox" checked disabled
                                         id="copyOfIDCard" value="copyOfIDCard" onclick="validate()">
                                     <label class="form-check-label" for="copyOfIDCard">สำเนาบัตรประจำตัวประชาชน</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="custom-file" id="file-copyOfIDCard1" style="display: none;">
-                                    <input type="file" class="custom-file-input" id="input-copyOfIDCard1" />
-                                    <label class="custom-file-label" for="input-copyOfIDCard1">Choose file</label>
-                                </div>
+                            <div class="col-sm-12 col-md-6 mb-2">
+                                <?php  if(isset($_POST['file1'])){ 
+                                echo '<label class="form-check-label">'.$_POST['file1'].'</label><br>
+                                      <label  class="form-check-label">'.$_POST['file2'].'</label>';
+                                }else{ 
+                                echo '<div class="custom-file" id="file-copyOfIDCard1" style="display: block;" >
+                                        <input name="file1" type="file" class="custom-file-input" id="input-copyOfIDCard1" required/>
+                                        <label class="custom-file-label" for="input-copyOfIDCard1">Choose file</label>
+                                    </div>';
+                                }?>
+                                
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                            <div class="col-sm-12 col-md-6 mb-2">
                                 <div class="custom-file" id="file-copyOfIDCard2" style="display: none;">
-                                    <input type="file" class="custom-file-input" id="input-copyOfIDCard2" />
+                                    <input name="file2" type="file" class="custom-file-input" id="input-copyOfIDCard2" />
                                     <label class="custom-file-label" for="input-copyOfIDCard2">Choose file</label>
                                 </div>
                             </div>
@@ -107,7 +122,7 @@ $result = ytu_product();
 
                     <div class="row mt-3">
                         <div class="col ">
-                            <input type="submit" name="create_case"
+                            <input type="submit" name="create_case" 
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
                                 value="ยอมรับและส่งข้อร้องเรียน">
                         </div>

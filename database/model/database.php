@@ -1,21 +1,14 @@
 <?php 
 
+include 'config.php';
 // $connection = ssh2_connect('devytuapp.tellvoice.com', 22);
 // ssh2_auth_password($connection,'devyoutellus','Ytu2020#P@ssw0rd');
 
-    ////////////////////////  dev  //////////////////////////
-    // $servername = "devscbdb01";
-    // $username = "tellvoice";
-    // $password = "eciovllet";
-    // $dbname = "scbytu_dev";
-    // $port = "9306";
-
-    //////////////////     localhost     ///////////////////
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "scbytu_dev";
-    $port = "3306";
+    $servername = DATABASE_HOSTNAME;
+    $username = DATABASE_USER;
+    $password = DATABASE_PASSWORD;
+    $dbname = DATABASE_DBNAME;
+    $port = DATABASE_HOSTPORT;
 
 
 

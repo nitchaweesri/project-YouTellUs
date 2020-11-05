@@ -4,11 +4,22 @@
     if (isset($_POST['create_case'])) {
         create_case($_POST);
     }
-    else {
-        // print_form();
-    }
       
 
+    function ytu_complainttype()
+    {
+        include 'database/model/database.php';
+        $sql = "SELECT * FROM `CONFIG_YTU_COMPLAINTTYPE`";
+        $result = $conn->query($sql);
+        return $result;
+    }
+    function ytu_product()
+    {
+        include 'database/model/database.php';
+        $sql = "SELECT * FROM `CONFIG_YTU_PRODUCT` GROUP BY `PRODUCTCODE`";
+        $result = $conn->query($sql);
+        return $result;
+    }
     function show_case()
     {
         include 'database/model/database.php';

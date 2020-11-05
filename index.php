@@ -9,11 +9,11 @@
         $view = 'resources/views/condition.php';
     } elseif ($page == 2) {
         $view = 'resources/views/menu.php';
-    } elseif ($page == "form1") {
+    } elseif ($page == "GN") {
         $view = 'resources/views/form1.php';
-    } elseif ($page == "form2") {
+    } elseif ($page == "JP") {
         $view = 'resources/views/form2.php';
-    } elseif ($page == "form3") {
+    } elseif ($page == "OT") {
         $view = 'resources/views/form3.php';
     } elseif ($page == "thanks") {
         $view = 'resources/views/thanks.php';

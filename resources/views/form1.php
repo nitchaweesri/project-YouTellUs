@@ -1,3 +1,9 @@
+
+<?php 
+include 'controllers/case.php';
+$result = ytu_product();
+?>
+
 <div class="container-sm">
     <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
         <div class="row justify-content-center ">
@@ -35,6 +41,15 @@
                         <input name="title" type="text" class="form-control Light" id="exampleFormControlInput1"
                             placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required
                             <?php echo $_POST['title'] = isset($_POST['title']) ?  " value='".$_POST['title']."' readonly"  : "";?>>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="exampleFormControlSelect1" class="text-primary h5 Regular">เรื่องร้องเรียน</label>
+                        <select name="title" class="form-control Light" id="exampleFormControlSelect1">
+                        <?php foreach ($result as $key => $value) {
+                            echo "<option value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+                        }
+                        ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input name="iduser" type="text" class="form-control Light" id="exampleFormControlInput1"

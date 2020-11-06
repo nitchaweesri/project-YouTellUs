@@ -26,20 +26,26 @@
 </style>
 
 <div class="container mb-4 p-4 mb-5 bg-white rounded pd-top">
-    <form action="index.php?page=2" method="post" class="needs-validation" novalidate>
+    <!-- <form action="index.php?page=2" method="post" class="needs-validation" novalidate> -->
         <div class="form-group">
             <label for="exampleInputEmail1">กรอกรหัส OTP</label>
-            <input type="text" class="form-control" id="tell" placeholder="รหัส OTP" required>
-            <div>
-                <a href=""><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
+            <input type="text" class="form-control mb-2" id="otp" placeholder="รหัส OTP" required>
+            
+            <div class="form-group">
+                <label id="msg" class="text-danger"></label>
             </div>
+            <div class="d-flex justify-content-between">
+                <a href=""><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
+                <a id="countdown" class="Light"></a>
+            </div>
+                
         </div>
         <div class="row mt-3">
             <div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
+                <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
             </div>
         </div>
-    </form>
+    <!-- </form> -->
 </div>
 
 <script>
@@ -58,4 +64,31 @@
             });
         }, false);
     })();
+
+var how = 30;
+var timeleft = new Date().getTime() - localStorage.getItem('countStart');
+var second = Math.floor((timeleft % (1000 * 60)) / 1000);
+var downloadTimer = setInterval(function(){
+  if(second >= how){
+    clearInterval(downloadTimer);
+    var oldmistake = localStorage.getItem('countMistake');
+    localStorage.setItem('countMistake',oldmistake+=1);
+    window.location.href = 'index.php?page=verify&msg=expired'; 
+
+  } else {
+    var timeleft = how-second;
+    document.getElementById("countdown").innerHTML = "โปรดใส่รหัสก่อน " +timeleft + " วินาที" ;
+  }
+  second += 1;
+}, 1000);
+
+function checkotp(params) {
+    if ($('#otp').val()!='1234') {
+        var oldmistake = localStorage.getItem('countMistake')
+        localStorage.setItem('countMistake',oldmistake+=1);
+        $('#msg').html('รหัส OTP ไม่ถูกต้อง');
+    } else {
+        window.location.href = 'index.php?page=2';
+    }
+}
 </script>

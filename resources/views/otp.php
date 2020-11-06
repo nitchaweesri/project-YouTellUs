@@ -9,6 +9,10 @@
         height: 13px;
         margin-bottom: 3px;
     }
+    .text-alert{
+        display: none;
+        font-size: 14px;
+    }
 @media (min-width: 1025px) and (max-width: 1960px) {
     .container {
         padding: 0px 306px !important;
@@ -31,8 +35,8 @@
             <label for="exampleInputEmail1">กรอกรหัส OTP</label>
             <input type="text" class="form-control mb-2" id="otp" placeholder="รหัส OTP" required>
             
-            <div class="form-group">
-                <label id="msg" class="text-danger"></label>
+            <div class="form-group text-alert" id="msg">
+                <label class="text-danger">รหัส OTP ไม่ถูกต้อง</label>
             </div>
             <div class="d-flex justify-content-between">
                 <a href=""><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
@@ -47,7 +51,7 @@
         </div>
     <!-- </form> -->
 </div>
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
     (function() {
         'use strict';
@@ -86,9 +90,23 @@ function checkotp(params) {
     if ($('#otp').val()!='1234') {
         var oldmistake = localStorage.getItem('countMistake')
         localStorage.setItem('countMistake',oldmistake+=1);
-        $('#msg').html('รหัส OTP ไม่ถูกต้อง');
+        document.getElementById('msg').style.display = 'flex';
+        // $('#msg').html('รหัส OTP ไม่ถูกต้อง');
     } else {
-        window.location.href = 'index.php?page=2';
+        $.ajax({
+            url:"controllers/checkPending.php",
+            type: "POST",
+            data:{"tel": "<?php echo($_POST['tel']) ?>"},
+            success:function(data){
+                if(data === '0'){
+                    window.location.href = 'index.php?page=2';
+                }else{
+                    window.location.href = 'index.php?page=menuupload';
+                }
+            },error:function(){
+                alert("error!!!!");
+            }
+        });
     }
 }
 </script>

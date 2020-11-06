@@ -20,6 +20,11 @@
             <label for="exampleInputEmail1">หมายเลขโทรศัพท์สำหรับรับรหัส OTP</label>
             <input type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
         </div>
+        <?php echo isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired'? '
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="text-danger">คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง</label>
+        </div>':''?>
+            
         <!-- <div class="d-flex justify-content-center">
             <img src="public/img/captcha.png" alt="captcha" width="320" height="140">
         </div> -->
@@ -31,7 +36,7 @@
         </div> -->
         <div class="row mt-3">
             <div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
+                <button type="submit" onclick="makesession()" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
             </div>
         </div>
     </form>
@@ -63,4 +68,9 @@
         }, false);
     })();
 
+function makesession(params) {
+ 
+    localStorage.setItem('countStart',new Date().getTime());
+    localStorage.setItem('countMistake',0);
+}
 </script>

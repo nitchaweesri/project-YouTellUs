@@ -21,4 +21,9 @@ define('หมายเลขโทรศัพท์ที่ติดต่อ
 define('อีเมล','E-mail Address');
 define('รายละเอียดข้อร้องเรียน','Detail');
 define('เอกสารประกอบข้อร้องเรียน','Attachment');
+define('เรื่องร้องเรียน','Complaint');
+define('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน','The account number of the product to be complained of');
+
+
+
 ?>

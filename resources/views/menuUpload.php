@@ -16,7 +16,7 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <a href="index.php?page=menu"
+                <a href="index.php?page=upload"
                     class="btn btn-lg btn-outline-primary rounded d-flex justify-content-center Regular"><?php echo constant('อัพโหลดไฟล์เอกสาร') ?></a>
             </div>
         </div>

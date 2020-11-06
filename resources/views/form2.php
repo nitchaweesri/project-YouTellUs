@@ -1,9 +1,26 @@
+<?php 
+include 'controllers/case.php';
+
+$result = ytu_product();
+?>
 <div class="container-sm">
     <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
-                <form action="<?php echo isset($_POST['name']) ?  "src/views/thanks.php"  : "index.php?page=form2";?>"
+                <form
+                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=JP";?>"
                     method="post" class="needs-validation" novalidate>
+
+                    <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
+                    <input type="hidden" name="relationOptions" value="<?php echo $_POST['relationOptions']?>" >
+                    <input type="hidden" name="file1" value="<?php echo $_POST['file1']?>" >
+                    <input type="hidden" name="file2" value="<?php echo isset($_POST['file2'])? $_POST['file2'] :''?>" >
+                    <input type="hidden" name="file3" value="<?php echo isset($_POST['file3'])? $_POST['file3'] :''?>" >
+                    <input type="hidden" name="file4" value="<?php echo isset($_POST['file4'])? $_POST['file4'] :''?>" >
+                    <input type="hidden" name="file5" value="<?php echo isset($_POST['file5'])? $_POST['file5'] :''?>" >
+                    <input type="hidden" name="file6" value="<?php echo isset($_POST['file6'])? $_POST['file6'] :''?>" >
+ 
                     <div class="row">
                         <div class="col">
                             <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
@@ -15,9 +32,10 @@
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="idcard" id="idcard"
+                        <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light"
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
-                            <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";?>>
+                            <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
+                            pattern="[0-9]{13}" oninput="valid_creditcard(this)">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="nameDelegate" id="nameDelegate"
@@ -25,20 +43,30 @@
                             <?php echo $_POST['nameDelegate'] = isset($_POST['nameDelegate']) ?  " value='".$_POST['nameDelegate']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="tel" id="tel"
+                        <input type="text" class="form-control" name="tell" id="tel"
                             placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
-                            <?php echo $_POST['tel'] = isset($_POST['tel']) ?  " value='".$_POST['tel']."' readonly"  : "";?>>
+                            <?php echo $_POST['tell'] = isset($_POST['tell']) ?  " value='".$_POST['tell']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="mail" id="mail" placeholder="<?php echo constant("อีเมล")?>"
+                        <input type="email" class="form-control" name="email" id="mail" placeholder="<?php echo constant("อีเมล")?>"
                             required
-                            <?php echo $_POST['mail'] = isset($_POST['mail']) ?  " value='".$_POST['mail']."' readonly"  : "";?>>
+                            <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="exampleFormControlInput1"
-                                class="text-primary h5 Regular">เรื่องร้องเรียน</label>
-                        </div>
+                    <div class="form-group mt-4">
+                        <label for="feedsubtype" class="text-primary h5 Regular">เรื่องร้องเรียน</label>
+                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
+                            <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
+                            <?php foreach ($result as $key => $value) {
+                                if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
+                                    echo "<option selected='selected' value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+
+                                }else{
+                                    echo "<option  value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+
+                                }
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="service" id="service"
@@ -55,51 +83,61 @@
                             <p class="text-left">ความสัมพันธ์ของท่านและเจ้าของหมายเลขบัญชีข้างต้น</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relationOptions" type="checkbox" id="parent"
-                                    value="parent">
-                                <label class="form-check-label" for="inlineCheckbox1">บิดา/มารดา</label>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relationOptions" type="checkbox" id="attorney"
-                                    value="attorney">
-                                <label class="form-check-label" for="inlineCheckbox2">ผู้รับมอบอำนาจ</label>
-                            </div>
-                        </div>
+
+                    <div class="row p-2">
+                        <?php 
+                        $radio = array(['parent','บิดา/มารดา'],
+                                        ['attorney','ผู้รับมอบอำนาจ'],
+                                        ['child','บุตร'],
+                                        ['other','อื่น ๆ (โปรดระบุ)'],
+                                        ['relative','ญาติ / พี่น้อง']
+                            );
+                        
+                        foreach ($radio as $key => $value) {
+                            if (isset($_POST['relationOptions'])&&$_POST['relationOptions']==$value[0]) {
+                                echo '
+                                <div class="col-6">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="relationOptions" type="radio" id="'.$value[0].'" required checked disabled
+                                            value="'.$value[0].'">
+                                        <label class="form-check-label" for="inlineCheckbox1">'.$value[1].'</label>
+                                    </div>
+                                </div>
+                                ';
+                               
+                            } else {
+                                if (isset($_POST['relationOptions'])) {
+                                    echo '
+                                    <div class="col-6">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="relationOptions" type="radio" id="'.$value[0].'" required disabled
+                                                value="'.$value[0].'">
+                                            <label class="form-check-label" for="inlineCheckbox1">'.$value[1].'</label>
+                                        </div>
+                                    </div>
+                                    ';
+                                } else {
+                                    echo '
+                                    <div class="col-6">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="relationOptions" type="radio" id="'.$value[0].'" required
+                                                value="'.$value[0].'">
+                                            <label class="form-check-label" for="inlineCheckbox1">'.$value[1].'</label>
+                                        </div>
+                                    </div>
+                                    ';
+                                }
+                                
+                            }
+                            
+                        }
+                        ?>
                     </div>
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relationOptions" type="checkbox" id="child"
-                                    value="child">
-                                <label class="form-check-label" for="inlineCheckbox1">บุตร</label>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relationOptions" type="checkbox" id="other"
-                                    value="other">
-                                <label class="form-check-label" for="inlineCheckbox2">อื่น ๆ (โปรดระบุ)</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relationOptions" type="checkbox" id="relative"
-                                    value="relative">
-                                <label class="form-check-label" for="inlineCheckbox1">ญาติ / พี่น้อง</label>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="form-group mt-2">
-                        <textarea class="form-control" id="detail" rows="3" name="detail"
-                            placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
-                            <?php echo $_POST['detail'] = isset($_POST['detail']) ?  " value='".$_POST['detail']."' readonly"  : "";?>></textarea>
+                        <textarea name="description" type="text" rows="4" class="form-control Light "
+                            id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
+                            <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -107,31 +145,36 @@
                                 class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
+                    <div class="row pl-2">
+                        <div class="col ">
                             <div class="form-check">
-                                <input class="form-check-input" name="copyOfDelegate" type="checkbox"
+                                <input class="form-check-input" name="copyOfDelegate" type="checkbox" checked disabled
                                     id="copyOfDelegate" value="copyOfDelegate" onclick="validate()">
                                 <label class="form-check-label"
                                     for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้ร้องเรียนแทน</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="custom-file" id="file-copyOfDelegate1" style="display: none;">
-                                <input type="file" class="custom-file-input" id="input-copyOfDelegate1" />
-                                <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
-                            </div>
+                    <div class="row pl-2">
+                        <div class="col-sm-12 col-md-6 mb-2">
+                            <?php  if(isset($_POST['file1'])){ 
+                                echo '<label class="form-check-label">'.$_POST['file1'].'</label><br>
+                                    <label  class="form-check-label">'.$_POST['file2'].'</label>';
+                                }else{ 
+                                echo '<div class="custom-file" id="file-copyOfDelegate1" style="display: block;" >
+                                        <input name="file1" type="file" class="custom-file-input" id="input-copyOfDelegate1" required/>
+                                        <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
+                                    </div>';
+                                }?>
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-copyOfDelegate2" style="display: none;">
-                                <input type="file" class="custom-file-input" id="input-copyOfDelegate2" />
+                                <input name="file2" type="file" class="custom-file-input" id="input-copyOfDelegate2" />
                                 <label class="custom-file-label" for="input-copyOfDelegate2">Choose file</label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row pl-2">
                         <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" name="copyOfOwner" type="checkbox" id="copyOfOwner"
@@ -141,22 +184,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
+                    <div class="row pl-2">
+                        <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-copyOfOwner1" style="display: none;">
-                                <input type="file" class="custom-file-input" id="input-copyOfOwner1" />
+                                <input name="file3" type="file" class="custom-file-input" id="input-copyOfOwner1" />
                                 <label class="custom-file-label" for="input-copyOfOwner1">Choose file</label>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-copyOfOwner2" style="display: none;">
-                                <input type="file" class="custom-file-input" id="input-copyOfOwner2" />
+                                <input name="file4" type="file" class="custom-file-input" id="input-copyOfOwner2" />
                                 <label class="custom-file-label" for="input-copyOfOwner2">Choose file</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row pl-2">
                         <div class="col">
                             <div class="form-check">
                                 <input class="form-check-input" name="powerOfAttorney" type="checkbox"
@@ -165,16 +208,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
+                    <div class="row pl-2">
+                        <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-powerOfAttorney1" style="display: none;">
-                                <input type="file" class="custom-file-input" id="input-powerOfAttorney1" />
+                                <input name="file5" type="file" class="custom-file-input" id="input-powerOfAttorney1" />
                                 <label class="custom-file-label" for="input-powerOfAttorney1">Choose file</label>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-powerOfAttorney2" style="display: none;">
-                                <input type="file" class="custom-file-input" id="input-powerOfAttorney2" />
+                                <input name="file6" type="file" class="custom-file-input" id="input-powerOfAttorney2" />
                                 <label class="custom-file-label" for="input-powerOfAttorney2">Choose file</label>
                             </div>
                         </div>
@@ -196,7 +239,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col ">
-                            <input type="submit"
+                            <input type="submit" name="create_case"
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
                                 value="ยอมรับและส่งข้อร้องเรียน">
                         </div>
@@ -279,6 +322,32 @@ function Script_checkID(id) {
 function IsNumeric(input) {
     var RE = /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
     return (RE.test(input));
+}
+
+
+function valid_creditcard(obj) {
+    var pattern_otp =
+        /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
+    if (!obj.value.match(pattern_otp)) {
+        obj.setCustomValidity('invalid');
+    }
+    if (obj.value.substring(0, 1) == 0) {
+        obj.setCustomValidity('invalid');
+    }
+    if (obj.length != 13) {
+        obj.setCustomValidity('invalid');
+    }
+    for (i = 0, sum = 0; i < 12; i++)
+        sum += parseFloat(obj.value.charAt(i)) * (13 - i);
+    if ((11 - sum % 11) % 10 != parseFloat(obj.value.charAt(12))) {
+        obj.setCustomValidity('invalid');
+    } else {
+        obj.setCustomValidity('');
+    }
+
+
+    // obj.setCustomValidity(obj.value.match(pattern_otp)?"":"invalid");
+
 }
 
 (function() {

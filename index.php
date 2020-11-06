@@ -31,6 +31,8 @@
         $view = 'resources/views/menuUpload.php';
     }elseif ($page == "upload") {
         $view = 'resources/views/upload.php';
+    }elseif ($page == "test") {
+        $view = 'resources/views/test.php';
     }
 ?>
 

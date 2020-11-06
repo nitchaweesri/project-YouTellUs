@@ -1,4 +1,3 @@
-
     <div style="height:80px"></div>
     <div class="container mb-4 col-lg-7 col-md-12 col-sm-12" id="menu">
         <div class="row justify-content-end">
@@ -9,8 +8,7 @@
         <div class="row">
             <div class="col">
                 <h6 class="">
-
-
+                    
                 </h6>
             </div>
         </div>

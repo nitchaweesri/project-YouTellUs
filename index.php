@@ -33,7 +33,32 @@
         $view = 'resources/views/upload.php';
     }elseif ($page == "test") {
         $view = 'resources/views/test.php';
+    }elseif ($page == "error") {
+        $view = 'resources/views/error.php';
     }
+
+    // $count = "<script>document.write(localStorage.getItem('countMistake'));</script>";
+
+    if (isset($_SESSION['countMistake'])&&$_SESSION['countMistake'] > 3) {
+        $view = 'resources/views/error.php';
+    }
+
+    
+    // $ip =  $_SERVER["REMOTE_ADDR"];
+
+    // if(isset($_SERVER["REMOTE_HOST"])) {
+    // $ip = $_SERVER["REMOTE_HOST"];
+    // } else {
+    // $ip = $_SERVER["REMOTE_ADDR"];
+    // }
+
+    // // foreach($ip_block as $key =>$val) {
+    // if($ip == $_SERVER["REMOTE_ADDR"]) {
+    //     $msg = "ไม่สามารถเข้าเว็บได้";
+    //     $view = 'resources/views/error.php';
+    //     // exit();
+    // }
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +71,8 @@
     <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/custom.css">
     <script src="public/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
     <?php
         // include_once 'lang/lang_'. $lang .'.php';
 	?>
@@ -56,4 +83,15 @@
     <?php include_once $view;         /*  === form YouTellUs ===  */    ?>
 </body>
 
+<script>
+// $(window).on('load', function(){
+//     if (parseInt(localStorage.getItem('countMistake'))>3) {
+//             window.location.href = 'index.php?page=error';
+//         }
+// });
+
+ 
+</script>
+
 </html>
+

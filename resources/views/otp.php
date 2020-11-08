@@ -65,14 +65,22 @@
         }, false);
     })();
 
-var how = 30;
-var timeleft = new Date().getTime() - localStorage.getItem('countStart');
+var how = 60;
+var countStart = '<?php echo $_SESSION['countStart'];?>';
+var timeleft = new Date().getTime() - countStart;
 var second = Math.floor((timeleft % (1000 * 60)) / 1000);
 var downloadTimer = setInterval(function(){
   if(second >= how){
     clearInterval(downloadTimer);
-    var oldmistake = localStorage.getItem('countMistake');
-    localStorage.setItem('countMistake',oldmistake+=1);
+    var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
+    var newmistake = oldmistake+=1;
+    
+    $.ajax({
+            type: "POST",
+            url: 'controllers/session_write.php?name=countMistake&value=' + newmistake ,
+            dataType: "json"
+            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+        }); 
     window.location.href = 'index.php?page=verify&msg=expired'; 
 
   } else {
@@ -84,9 +92,19 @@ var downloadTimer = setInterval(function(){
 
 function checkotp(params) {
     if ($('#otp').val()!='1234') {
-        var oldmistake = localStorage.getItem('countMistake')
-        localStorage.setItem('countMistake',oldmistake+=1);
+        var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
+        var newmistake = oldmistake+=1;
+        $.ajax({
+            type: "POST",
+            url: 'controllers/session_write.php?name=countMistake&value=' + newmistake ,
+            dataType: "json"
+            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+        }); 
         $('#msg').html('รหัส OTP ไม่ถูกต้อง');
+        // if (parseInt(sessionStorage.getItem('countMistake'))>3) {
+        //     window.location.href = 'index.php?page=error';
+        // }
+        window.location.href = 'index.php?page=otp';
     } else {
         window.location.href = 'index.php?page=2';
     }

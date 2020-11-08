@@ -32,7 +32,12 @@
 </div>
 <div style="height:80px"></div>
 
+<script>
 
-
-
-
+$.ajax({
+    type: "POST",
+    url: 'controllers/session_write.php?name=countMistake&value=0',
+    dataType: "json"
+    // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+}); 
+</script>

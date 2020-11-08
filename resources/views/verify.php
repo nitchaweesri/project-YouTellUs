@@ -18,12 +18,13 @@
     <form action="index.php?page=otp" method="post" class="needs-validation" id="demo-form" novalidate>
         <div class="form-group">
             <label for="exampleInputEmail1">หมายเลขโทรศัพท์สำหรับรับรหัส OTP</label>
-            <input type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
+            <input name="tell" type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
         </div>
-        <?php echo isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired'? '
-        <div class="form-group">
-            <label for="exampleInputEmail1" class="text-danger">คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง</label>
-        </div>':''?>
+        <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired'){ ?>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="text-danger">คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง</label>
+            </div> 
+        <?php }?>
             
         <!-- <div class="d-flex justify-content-center">
             <img src="public/img/captcha.png" alt="captcha" width="320" height="140">
@@ -73,14 +74,22 @@ $(function () {
         
         $.ajax({
             type: "POST",
-            url: 'controllers/session_write.php?name=countStart&value='+new Date().getTime(),
+            url: 'controllers/sessionWrite.php?name=countStart&value='+new Date().getTime(),
             dataType: "json"
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
-        if ('<?php echo $_SESSION['countMistake'];?>'==null) {
+        $.ajax({
+            type: "POST",
+            url: 'controllers/sessionWrite.php?name=phoneNo&value='+$('#tell').val(),
+            dataType: "json"
+            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+        }); 
+        var countMistake = '<?php echo isset($_SESSION['countMistake'])? $_SESSION['countMistake']: '';?>';
+
+        if (countMistake == '') {
             $.ajax({
             type: "POST",
-            url: 'controllers/session_write.php?name=countMistake&value=0',
+            url: 'controllers/sessionWrite.php?name=countMistake&value=0',
             dataType: "json"
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 

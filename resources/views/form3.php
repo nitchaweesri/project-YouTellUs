@@ -31,9 +31,10 @@
                             <?php echo $_POST['position'] = isset($_POST['position']) ?  " value='".$_POST['position']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="tel" id="tel"
+                        <input name="tel" type="tel" class="form-control Light" id="tel"
                             placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
-                            <?php echo $_POST['tel'] = isset($_POST['tel']) ?  " value='".$_POST['tel']."' readonly"  : "";?>>
+                            <?php echo isset($_SESSION['phoneNo']) ?  " value='".$_SESSION['phoneNo']."' readonly"  : "";?>
+                            pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" name="mail" id="mail" placeholder="<?php echo constant("อีเมล")?>"

@@ -30,10 +30,14 @@
         <div class="form-group">
             <label for="exampleInputEmail1">กรอกรหัส OTP</label>
             <input type="text" class="form-control mb-2" id="otp" placeholder="รหัส OTP" required>
-            
-            <div class="form-group">
-                <label id="msg" class="text-danger"></label>
-            </div>
+
+            <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="text-danger">รหัส OTP ไม่ถูกต้อง</label>
+                </div> 
+            <?php }?>
+       
+           
             <div class="d-flex justify-content-between">
                 <a href=""><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
                 <a id="countdown" class="Light"></a>
@@ -77,7 +81,7 @@ var downloadTimer = setInterval(function(){
     
     $.ajax({
             type: "POST",
-            url: 'controllers/session_write.php?name=countMistake&value=' + newmistake ,
+            url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
             dataType: "json"
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
@@ -96,16 +100,23 @@ function checkotp(params) {
         var newmistake = oldmistake+=1;
         $.ajax({
             type: "POST",
-            url: 'controllers/session_write.php?name=countMistake&value=' + newmistake ,
+            url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
             dataType: "json"
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
-        $('#msg').html('รหัส OTP ไม่ถูกต้อง');
+
         // if (parseInt(sessionStorage.getItem('countMistake'))>3) {
         //     window.location.href = 'index.php?page=error';
         // }
-        window.location.href = 'index.php?page=otp';
+        window.location.href = 'index.php?page=otp&msg=pwd';
+    
     } else {
+        $.ajax({
+            type: "POST",
+            url: 'controllers/sessionWrite.php?name=logOn&value=true' ,
+            dataType: "json"
+            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+        }); 
         window.location.href = 'index.php?page=2';
     }
 }

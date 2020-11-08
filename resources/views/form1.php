@@ -10,7 +10,7 @@ $result = ytu_product();
         <div class="row justify-content-center ">
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
+                    action="<?php echo isset($_POST['name']) ?  "controllers/createCase.php"  : "index.php?page=GN";?>"
                     method="post" class="needs-validation" novalidate>
 
                     <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
@@ -26,15 +26,15 @@ $result = ytu_product();
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light"
+                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Light"
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
                     </div>
                     <div class="form-group">
-                        <input name="tell" type="tell" class="form-control Light" id="exampleFormControlInput1"
+                        <input name="tel" type="tel" class="form-control Light" id="exampleFormControlInput1"
                             placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
-                            <?php echo $_POST['tell'] = isset($_POST['tell']) ?  " value='".$_POST['tell']."' readonly"  : "";?>
+                            <?php echo isset($_SESSION['phoneNo']) ?  " value='".$_SESSION['phoneNo']."' readonly"  : "";?>
                             pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">

@@ -11,7 +11,7 @@ function create_case($data)
 {
     try{
 
-        $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook_fik_test.php";
+        $url = "https://devytuapp.telvoice.com/TVSSCRAWLER3/youtelus/webhook_fik_test.php";
         
         $idcard = encryptString($_POST['idcard']);
         $ch = curl_init( $url );
@@ -19,7 +19,7 @@ function create_case($data)
         ///////////// set json data ////////////
         $Jsonbody = array(  "name"=> $_POST['name']
                             ,"idCard"=> $idcard
-                            ,"tell"=> $_POST['tell'] 
+                            ,"tel"=> $_POST['tel'] 
                             ,"email"=> $_POST['email']
                             ,"idUser"=> $_POST['iduser']
                             ,"description"=> $_POST['description']
@@ -36,7 +36,7 @@ function create_case($data)
         
 
         $ParamArr = array(   
-                            "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tell'].' '.$_POST['name']
+                            "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tel'].' '.$_POST['name']
                             ,"feedType"=> $_POST['feedtype']
                             ,"feedSubType"=> $_POST['feedsubtype']
                             ,"feedBody"=> json_encode($Jsonbody)

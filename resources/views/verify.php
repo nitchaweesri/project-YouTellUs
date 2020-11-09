@@ -71,7 +71,6 @@
 
 $(function () {
     $('#makesession').on('click', function () {
-        
         $.ajax({
             type: "POST",
             url: 'controllers/sessionWrite.php?name=countStart&value='+new Date().getTime(),

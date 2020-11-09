@@ -25,6 +25,7 @@
 
 </style>
 
+<?php include 'config.php'; ?>
 <div class="container mb-4 p-4 mb-5 bg-white rounded pd-top">
     <!-- <form action="index.php?page=2" method="post" class="needs-validation" novalidate> -->
         <div class="form-group">
@@ -39,7 +40,7 @@
        
            
             <div class="d-flex justify-content-between">
-                <a href=""><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
+                <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
                 <a id="countdown" class="Light"></a>
             </div>
                 
@@ -69,7 +70,8 @@
         }, false);
     })();
 
-var how = 60;
+
+var how = '<?php echo TIME_OTP?>';
 var countStart = '<?php echo $_SESSION['countStart'];?>';
 var timeleft = new Date().getTime() - countStart;
 var second = Math.floor((timeleft % (1000 * 60)) / 1000);
@@ -78,14 +80,15 @@ var downloadTimer = setInterval(function(){
     clearInterval(downloadTimer);
     var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
     var newmistake = oldmistake+=1;
-    
+
     $.ajax({
-            type: "POST",
-            url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
-            dataType: "json"
-            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
+        type: "POST",
+        url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
+        dataType: "json"
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
     window.location.href = 'index.php?page=verify&msg=expired'; 
+
 
   } else {
     var timeleft = how-second;
@@ -94,29 +97,61 @@ var downloadTimer = setInterval(function(){
   second += 1;
 }, 1000);
 
+function reotp() {
+
+    var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
+    var newmistake = oldmistake+=1;
+  
+    $.ajax({
+        type: "POST",
+        url: 'controllers/sessionWrite.php?name=countStart&value='+new Date().getTime(),
+        dataType: "json"
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
+    $.ajax({
+        type: "POST",
+        url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
+        dataType: "json"
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
+
+
+    // if (parseInt(sessionStorage.getItem('countMistake'))>3) {
+    //     window.location.href = 'index.php?page=error';
+    // }
+    window.location.href = 'index.php?page=otp&msg=pwd';    
+}
+
 function checkotp(params) {
     if ($('#otp').val()!='1234') {
         var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
         var newmistake = oldmistake+=1;
+        
+    
         $.ajax({
             type: "POST",
             url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
             dataType: "json"
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
+        });
 
-        // if (parseInt(sessionStorage.getItem('countMistake'))>3) {
-        //     window.location.href = 'index.php?page=error';
-        // }
         window.location.href = 'index.php?page=otp&msg=pwd';
+        
+        
+        
     
     } else {
+        var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
+        var newmistake = oldmistake+=1;
+    
         $.ajax({
             type: "POST",
             url: 'controllers/sessionWrite.php?name=logOn&value=true' ,
             dataType: "json"
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
+        
+        
         window.location.href = 'index.php?page=2';
     }
 }

@@ -13,6 +13,7 @@ foreach ($result->select_block() as $key => $value) {
 $now = strtotime(date('Y-m-d H:i:s'));
 if($now >= strtotime($expired) ){
     $result->delete_block();
+    header("Location: index.php?page=otp");
 }
 
 ?>
@@ -75,7 +76,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("msg").innerHTML = minutes + "m " + seconds + "s ";
+  document.getElementById("msg").innerHTML = "This phone number has blocked <br>"+  minutes + "m " + seconds + "s ";
     
   // If the count down is over, write some text 
   if (distance < 0) {

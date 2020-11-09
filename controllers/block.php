@@ -1,5 +1,6 @@
 <?php   
 
+
 class Block {
 
     function get_client_ip() {
@@ -59,15 +60,17 @@ class Block {
             $sql = "SELECT * FROM `CONFIG_YTU_BLOCK` WHERE `BLOCKTEL` LIKE '%$tel_block%'";
             $result = $conn->query($sql);
             return $result;
-        } else {
-            $sql = "SELECT * FROM `CONFIG_YTU_BLOCK` WHERE `BLOCKIP` LIKE '%$ip_block%'";
-            $result = $conn->query($sql);
-            return $result;
-        }
+        } 
+        // else {
+        //     $sql = "SELECT * FROM `CONFIG_YTU_BLOCK` WHERE `BLOCKIP` LIKE '%$ip_block%'";
+        //     $result = $conn->query($sql);
+        //     return $result;
+        // }
     
         $conn->close();
 
     }
+
 
     function delete_block()
     {
@@ -80,11 +83,12 @@ class Block {
             $sql = "DELETE  FROM `CONFIG_YTU_BLOCK` WHERE `BLOCKTEL` LIKE '%$tel_block%'";
             $result = $conn->query($sql);
             return $result;
-        } else {
-            $sql = "DELETE FROM `CONFIG_YTU_BLOCK` WHERE `BLOCKIP` LIKE '%$ip_block%'";
-            $result = $conn->query($sql);
-            return $result;
-        }
+        } 
+        // else {
+        //     $sql = "DELETE FROM `CONFIG_YTU_BLOCK` WHERE `BLOCKIP` LIKE '%$ip_block%'";
+        //     $result = $conn->query($sql);
+        //     return $result;
+        // }
     
         $conn->close();
 
@@ -92,6 +96,7 @@ class Block {
 
     
 }
+
 
 
 ?>

@@ -8,12 +8,12 @@
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1;
     $lang = @$_SESSION['lang'];
 
-    $result = new block;
-    if(mysqli_num_rows($result->select_block())!=0){
-        // include 'resources/views/countDown.php';
-        $view = 'resources/views/countDown.php';
-    }
-    else {
+    // $result = new block;
+    // if(mysqli_num_rows($result->select_block())!=0){
+    //     // include 'resources/views/countDown.php';
+    //     $view = 'resources/views/countDown.php';
+    // }
+    // else {
         if (isset($_SESSION['logOn'])&& $_SESSION['logOn']=='true') {
             if ($page == 2) {
                $view = 'resources/views/menu.php';
@@ -49,22 +49,30 @@
            }elseif ($page == "verify") {
                $view = 'resources/views/verify.php';
            }elseif ($page == "otp") {
-               $view = 'resources/views/otp.php';
+                $result = new block;
+                if(mysqli_num_rows($result->select_block($_SESSION['phoneNo']))!=0){
+                    // include 'resources/views/countDown.php';
+                    $view = 'resources/views/countDown.php';
+                }else {
+                    $view = 'resources/views/otp.php';
+                }
            }elseif ($page == "error") {
                $view = 'resources/views/error.php';
            }else{
                $view = 'resources/views/condition.php';
            }
            if (isset($_SESSION['countMistake'])&&$_SESSION['countMistake'] > POSSIBLE_ERROR_OTP) {
-               $result->create_block();
-               $view = 'resources/views/error.php';
-               $_SESSION['countMistake'] = 0;
+                $result = new block;
+                $result->create_block();
+                $msg = '';
+                $view = 'resources/views/countDown.php';
+                $_SESSION['countMistake'] = 0;
            }
         //    if (isset($_SESSION['countMistake'])&&$_SESSION['countMistake'] == 'block') {
         //        $view = 'resources/views/error.php';
         //    }
        }   
-    }
+    // }
     
 
     

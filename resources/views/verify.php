@@ -18,7 +18,7 @@
     <form action="index.php?page=otp" method="post" class="needs-validation" id="demo-form" novalidate>
         <div class="form-group">
             <label for="exampleInputEmail1">หมายเลขโทรศัพท์สำหรับรับรหัส OTP</label>
-            <input type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
+            <input name="tel" type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
         </div>
         <?php echo isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired'? '
         <div class="form-group">

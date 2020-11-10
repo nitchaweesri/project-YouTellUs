@@ -9,6 +9,10 @@
         height: 13px;
         margin-bottom: 3px;
     }
+    .text-alert{
+        display: none;
+        font-size: 14px;
+    }
 @media (min-width: 1025px) and (max-width: 1960px) {
     .container {
         padding: 0px 306px !important;
@@ -31,6 +35,7 @@
         <div class="form-group">
             <label for="exampleInputEmail1">กรอกรหัส OTP</label>
             <input type="text" class="form-control mb-2" id="otp" placeholder="รหัส OTP" required>
+<<<<<<< HEAD
 
             <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
                 <div class="form-group">
@@ -39,6 +44,12 @@
             <?php }?>
        
            
+=======
+            
+            <div class="form-group text-alert" id="msg">
+                <label class="text-danger">รหัส OTP ไม่ถูกต้อง</label>
+            </div>
+>>>>>>> 02bd639f3580ab710bcef1ca3fa93e6f206156de
             <div class="d-flex justify-content-between">
                 <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
                 <a id="countdown" class="Light"></a>
@@ -52,7 +63,7 @@
         </div>
     <!-- </form> -->
 </div>
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
     (function() {
         'use strict';

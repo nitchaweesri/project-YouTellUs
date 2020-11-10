@@ -8,7 +8,7 @@ $result = ytu_product();
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/createCase.php"  : "index.php?page=JP";?>"
+                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=JP";?>"
                     method="post" class="needs-validation" novalidate>
 
                     <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >

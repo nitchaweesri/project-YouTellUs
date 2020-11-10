@@ -13,6 +13,7 @@ foreach ($result->select_block() as $key => $value) {
 $now = strtotime(date('Y-m-d H:i:s'));
 if($now >= strtotime($expired) ){
     $result->delete_block();
+    unset($_SESSION['phoneNo']);
     header("Location: index.php?page=otp");
 }
 

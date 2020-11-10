@@ -9,6 +9,9 @@
                     alt="" loading="lazy">
             </a>
         </div>
+        <div class="logo mr-auto ml-lg-5">
+            <h5 class="regular" id="count"><?php echo isset($_SESSION['countMistake'])? $_SESSION['countMistake']:'no' ?></h5>
+        </div>
         <div class="lang-btn mr-lg-5">
             <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">ไทย</a>&nbsp; &frasl;&nbsp;
             <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">EN</a>

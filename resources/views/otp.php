@@ -151,8 +151,22 @@ function checkotp(params) {
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         
-        
-        window.location.href = 'index.php?page=2';
+
+        ///////////////////   check require file    ///////////////////
+        $.ajax({
+            url:"controllers/checkPending.php",
+            type: "POST",
+            data:{"tel": "<?php echo($_POST['tel']) ?>"},
+            success:function(data){
+                if(data === '0'){
+                    window.location.href = 'index.php?page=2';
+                }else{
+                    window.location.href = 'index.php?page=menuupload';
+                }
+            },error:function(){
+                alert("error!!!!");
+            }
+        });
     }
 }
 </script>

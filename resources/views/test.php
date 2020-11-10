@@ -1,42 +1,20 @@
-
 <?php
+    // $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook.php";
+    $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook_fik_test.php";
 
-function get_client_ip() {
-    $ipaddress = '';
-    if (isset($_SERVER['HTTP_CLIENT_IP']))
-        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    else if(isset($_SERVER['HTTP_X_FORWARDED']))
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-    else if(isset($_SERVER['HTTP_FORWARDED']))
-        $ipaddress = $_SERVER['HTTP_FORWARDED'];
-    else if(isset($_SERVER['REMOTE_ADDR']))
-        $ipaddress = $_SERVER['REMOTE_ADDR'];
-    else
-        $ipaddress = 'UNKNOWN';
-    return $ipaddress;
-}
-
-
-
-$ip_block[] = get_client_ip(); //fik ip
-
-
-echo $_SERVER["REMOTE_ADDR"];
-
-if(isset($_SERVER["REMOTE_HOST"])) {
-   $ip = $_SERVER["REMOTE_HOST"];
-} else {
-   $ip = $_SERVER["REMOTE_ADDR"];
-}
-
-foreach($ip_block as $key =>$val) {
-  if($ip == $val) {
-     echo "ไม่สามารถเข้าเว็บได้";
-     exit();
-  }
-}
+	
+	$ch = curl_init( $url );
+	# Setup request to send json via POST.
+	
+	$ParamArr = array( "data"=> "FIK TEST" );
+	$payload = json_encode( $ParamArr );
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
+	curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+	# Return response instead of printing.
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+	# Send request.
+	$result = curl_exec($ch);
+	curl_close($ch);
+	# Print response.
+	echo "<pre>$result</pre>";
 ?>

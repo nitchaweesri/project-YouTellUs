@@ -55,6 +55,8 @@
 
         }elseif ($page == "error") {
             $view = 'resources/views/error.php';
+        }elseif ($page == "test") {
+            $view = 'resources/views/test.php';
         }else{
             $view = 'resources/views/condition.php';
         }

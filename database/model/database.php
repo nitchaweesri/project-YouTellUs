@@ -1,8 +1,6 @@
 <?php 
 
-include 'config.php';
-// $connection = ssh2_connect('devytuapp.tellvoice.com', 22);
-// ssh2_auth_password($connection,'devyoutellus','Ytu2020#P@ssw0rd');
+file_exists('config.php')?include 'config.php' : include '../config.php';
 
 
     $servername = DATABASE_HOSTNAME;

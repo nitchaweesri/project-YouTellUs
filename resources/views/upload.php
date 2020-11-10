@@ -1,18 +1,18 @@
 <?php 
-     $servername = "localhost";
-     $username = "root";
-     $password = "";
-     $dbname = 'scbytu_dev';
-     $conn = new mysqli($servername, $username, $password, $dbname);
+    include 'database/model/database.php';
+
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      }else{
-        $sql = "SELECT `YTU_REQFILE`.`FILEREQ`, `YTU_REQFILE`.`REQFILEID`, `CASEINFO`.`FEEDTITLE` 
+       
+
+        $sql = "SELECT *
                 FROM `YTU_REQFILE`
                 INNER JOIN `CASEINFO` ON `CASEINFO`.`CASEID` = `YTU_REQFILE`.`CASEID`
-                WHERE `YTU_REQFILE`.`REQFILEID` = '" . $_SESSION['reqfileID'] . "'
-                    AND `YTU_REQFILE`.`STATUS` = 1
-                    AND `YTU_REQFILE`.`EXPIRYDATE` > NOW()";
+                WHERE `YTU_REQFILE`.`RECID` = '" . $_SESSION['reqfileID'] . "'
+                    AND `YTU_REQFILE`.`RECSTATUS` = 'A'
+                    AND `YTU_REQFILE`.`EXPIRED_DT` > NOW()
+                    ";
         $result = mysqli_query($conn, $sql);
         if (!$result) {
             printf("Error: %s\n", mysqli_error($conn));
@@ -21,7 +21,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 $data = $row;
             }
-            $fileReq = explode(",",$data["FILEREQ"]);
+            $fileReq = explode(",",$data["FILEDESC"]);
         }
      }
 ?>

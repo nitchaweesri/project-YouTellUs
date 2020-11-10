@@ -158,7 +158,9 @@ function checkotp(params) {
             type: "POST",
             data:{"tel": "<?php echo($_SESSION['phoneNo']) ?>"},
             success:function(data){
-                if(data === '0'){
+                // alert(data);
+                if(data == '0'){
+                    // alert('null');
                     window.location.href = 'index.php?page=2';
                 }else{
                     window.location.href = 'index.php?page=menuupload';

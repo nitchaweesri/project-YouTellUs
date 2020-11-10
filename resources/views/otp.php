@@ -156,7 +156,7 @@ function checkotp(params) {
         $.ajax({
             url:"controllers/checkPending.php",
             type: "POST",
-            data:{"tel": "<?php echo($_POST['tel']) ?>"},
+            data:{"tel": "<?php echo($_SESSION['phoneNo']) ?>"},
             success:function(data){
                 if(data === '0'){
                     window.location.href = 'index.php?page=2';

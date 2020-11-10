@@ -9,9 +9,9 @@
         die("Connection failed: " . $conn->connect_error);
     }else{
         if ($_SESSION['phoneNo']) {
-            $sql = "SELECT ytu_reqfile.reqfileid FROM ytu_reqfile
-                    INNER JOIN caseinfo ON caseinfo.caseid = ytu_reqfile.caseid
-                    WHERE social_custid = '" . $_SESSION['phoneNo'] . "'";
+            $sql = "SELECT `YTU_REQFILE`.`REQFILEID` FROM `YTU_REQFILE`
+                    INNER JOIN `CASEINFO` ON `CASEINFO`.`CASEID` = `YTU_REQFILE`.`CASEID`
+                    WHERE `SOCIAL_CUSTID` = '" . $_SESSION['phoneNo'] . "'";
             $result = mysqli_query($conn, $sql);
             
             if (!$result) {
@@ -22,8 +22,8 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         $data = $row;
                     }
-                    @session_start();
-                    $_SESSION['reqfileID'] = $data["reqfileid"];
+                    session_start();
+                    $_SESSION['reqfileID'] = $data["REQFILEID"];
     
                     echo json_encode(1); 
                 }else{

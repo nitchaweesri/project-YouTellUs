@@ -44,7 +44,7 @@
             $view = 'resources/views/verify.php';
         }elseif ($page == "otp") {
             $result = new block;
-            $block = mysqli_num_rows($result->select_block($_SESSION['phoneNo']));
+            $block = mysqli_num_rows($result->select_block());
             if($block!=0){
                 $view = 'resources/views/countDown.php';
             }elseif(isset($_SESSION['phoneNo'])&&$block==0) {

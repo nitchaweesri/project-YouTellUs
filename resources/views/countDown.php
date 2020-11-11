@@ -57,6 +57,7 @@ if($now >= strtotime($expired) ){
 
 <script>
 
+
 var expired = '<?php echo $expired ?>';
 // Set the date we're counting down to
 var countDownDate = new Date(expired).getTime();

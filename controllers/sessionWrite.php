@@ -10,6 +10,10 @@ session_start();
 // }
 
 // if (!isset($_SESSION[$_GET['name']])) {
-            $_SESSION[$_GET['name']] = $_GET['value'];
+            $_SESSION[$_POST['name']] = $_POST['value'];
+            // $_SESSION['phoneNo'] = '0822671922';
+            // $_SESSION['countMistake'] = '0';
+            // $_SESSION['countStart'] = date("Y-m-d H:i:s");
+
         // }
 ?>

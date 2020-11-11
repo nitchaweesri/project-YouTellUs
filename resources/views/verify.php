@@ -73,14 +73,14 @@ $(function () {
     $('#makesession').on('click', function () {
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php?name=countStart&value='+new Date().getTime(),
-            dataType: "json"
+            url: './controllers/sessionWrite.php',
+            data:{"name": "countStart","value":new Date().getTime()}
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php?name=phoneNo&value='+$('#tell').val(),
-            dataType: "json"
+            url: './controllers/sessionWrite.php?',
+            data:{"name": "phoneNo","value":$('#tell').val()}
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         var countMistake = '<?php echo isset($_SESSION['countMistake'])? $_SESSION['countMistake']: '';?>';
@@ -88,8 +88,8 @@ $(function () {
         if (countMistake == '') {
             $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php?name=countMistake&value=0',
-            dataType: "json"
+            url: './controllers/sessionWrite.php?name=countMistake&value=0',
+            data:{"name": "countMistake","value":"0"}
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         }

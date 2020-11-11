@@ -87,8 +87,8 @@ var downloadTimer = setInterval(function(){
 
     $.ajax({
         type: "POST",
-        url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
-        dataType: "json"
+        url: 'controllers/sessionWrite.php' ,
+        data:{"name": "countMistake","value":newmistake}
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
     }); 
     window.location.href = 'index.php?page=verify&msg=expired'; 
@@ -108,14 +108,14 @@ function reotp() {
   
     $.ajax({
         type: "POST",
-        url: 'controllers/sessionWrite.php?name=countStart&value='+new Date().getTime(),
-        dataType: "json"
+        url: 'controllers/sessionWrite.php',
+        data:{"name": "countStart","value":new Date().getTime()}
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
     }); 
     $.ajax({
         type: "POST",
-        url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
-        dataType: "json"
+        url: 'controllers/sessionWrite.php' ,
+        data:{"name": "countMistake","value":newmistake }
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
     }); 
 
@@ -134,8 +134,8 @@ function checkotp(params) {
     
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php?name=countMistake&value=' + newmistake ,
-            dataType: "json"
+            url: 'controllers/sessionWrite.php',
+            data:{"name": "countMistake","value":newmistake }
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         });
 
@@ -150,8 +150,8 @@ function checkotp(params) {
     
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php?name=logOn&value=true' ,
-            dataType: "json"
+            url: 'controllers/sessionWrite.php' ,
+            data:{"name": "logOn","value":"true" }
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         

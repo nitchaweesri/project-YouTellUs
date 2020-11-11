@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php     $msg = @$_REQUEST['msg'] != '' ? $_REQUEST['msg'] : 1;
+<?php    
+ $msg = isset($_REQUEST['msg'])? $_REQUEST['msg']: $msg;
 ?>
 <style>
     #main {

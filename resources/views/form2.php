@@ -32,7 +32,7 @@ $result = ytu_product();
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="idcard" type="tell" id="idcard" maxlength="13" class="form-control Light"
+                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Light"
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
@@ -43,9 +43,10 @@ $result = ytu_product();
                             <?php echo $_POST['nameDelegate'] = isset($_POST['nameDelegate']) ?  " value='".$_POST['nameDelegate']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="tell" id="tel"
+                        <input name="tel" type="tel" class="form-control Light" id="tel"
                             placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
-                            <?php echo $_POST['tell'] = isset($_POST['tell']) ?  " value='".$_POST['tell']."' readonly"  : "";?>>
+                            <?php echo isset($_SESSION['phoneNo']) ?  " value='".$_SESSION['phoneNo']."' readonly"  : "";?>
+                            pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" name="email" id="mail" placeholder="<?php echo constant("อีเมล")?>"

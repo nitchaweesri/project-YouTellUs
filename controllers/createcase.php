@@ -2,6 +2,7 @@
 
 include_once('crypt.php') ;
 
+// die ('yes');
 if (isset($_POST['create_case'])) {
     // print_r($_POST);
     create_case($_POST);
@@ -19,7 +20,7 @@ function create_case($data)
         ///////////// set json data ////////////
         $Jsonbody = array(  "name"=> $_POST['name']
                             ,"idCard"=> $idcard
-                            ,"tell"=> $_POST['tell'] 
+                            ,"tel"=> $_POST['tel'] 
                             ,"email"=> $_POST['email']
                             ,"idUser"=> $_POST['iduser']
                             ,"description"=> $_POST['description']
@@ -36,7 +37,7 @@ function create_case($data)
         
 
         $ParamArr = array(   
-                            "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tell'].' '.$_POST['name']
+                            "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tel'].' '.$_POST['name']
                             ,"feedType"=> $_POST['feedtype']
                             ,"feedSubType"=> $_POST['feedsubtype']
                             ,"feedBody"=> json_encode($Jsonbody)
@@ -44,7 +45,7 @@ function create_case($data)
         
         $payload = json_encode( $ParamArr);
 
-        // print_r ($payload);
+        // die(print_r ($payload));
 
         // $ParamArr = array( "data"=> "FIK TEST" );
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
@@ -55,9 +56,10 @@ function create_case($data)
         $result = curl_exec($ch);
         curl_close($ch);
         # Print response.
-        // echo "<pre>$result</pre>";
+        // ;
         
-        
+        // die(print_r( "<pre>$result</pre>"));
+
         header("Location: ../index.php?page=thanks");
 
     }catch (Exception $e) {

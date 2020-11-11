@@ -1,18 +1,18 @@
 <?php 
-     $servername = "localhost";
-     $username = "root";
-     $password = "";
-     $dbname = 'scbytu_dev';
-     $conn = new mysqli($servername, $username, $password, $dbname);
+    include 'database/model/database.php';
+
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      }else{
-        $sql = "SELECT ytu_reqfile.filereq, ytu_reqfile.reqfileid, caseinfo.feedtitle 
-                FROM ytu_reqfile
-                INNER JOIN caseinfo ON caseinfo.caseid = ytu_reqfile.caseid
-                WHERE ytu_reqfile.reqfileid = '" . $_SESSION['reqfileID'] . "'
-                    AND ytu_reqfile.status = 1
-                    AND ytu_reqfile.expirydate > NOW()";
+       
+
+        $sql = "SELECT *
+                FROM `YTU_REQFILE`
+                INNER JOIN `CASEINFO` ON `CASEINFO`.`CASEID` = `YTU_REQFILE`.`CASEID`
+                WHERE `YTU_REQFILE`.`RECID` = '" . $_SESSION['reqfileID'] . "'
+                    AND `YTU_REQFILE`.`RECSTATUS` = 'A'
+                    AND `YTU_REQFILE`.`EXPIRED_DT` > NOW()
+                    ";
         $result = mysqli_query($conn, $sql);
         if (!$result) {
             printf("Error: %s\n", mysqli_error($conn));
@@ -21,7 +21,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 $data = $row;
             }
-            $fileReq = explode(",",$data["filereq"]);
+            $fileReq = explode(",",$data["FILEDESC"]);
         }
      }
 ?>
@@ -55,7 +55,7 @@ button {
 <div class="container p-3 mb-5 bg-white pd-top">
     <form>
         <div class="form-list">
-            <p class="topic text-primary"><?php echo($data["feedtitle"]) ?></p>
+            <p class="topic text-primary"><?php echo($data["FEEDTITLE"]) ?></p>
             <?php foreach ($fileReq as $value) { ?>
                 <div class="div-files">
                     <p class="detail text-primary"><?php echo($value) ?></p>

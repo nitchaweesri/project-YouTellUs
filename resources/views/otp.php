@@ -87,7 +87,7 @@ var downloadTimer = setInterval(function(){
 
     $.ajax({
         type: "POST",
-        url: 'controllers/sessionWrite.php' ,
+        url: 'controllers/sessionCreate.php' ,
         data:{"name": "countMistake","value":newmistake}
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
     }); 
@@ -108,13 +108,13 @@ function reotp() {
   
     $.ajax({
         type: "POST",
-        url: 'controllers/sessionWrite.php',
+        url: 'controllers/sessionCreate.php',
         data:{"name": "countStart","value":new Date().getTime()}
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
     }); 
     $.ajax({
         type: "POST",
-        url: 'controllers/sessionWrite.php' ,
+        url: 'controllers/sessionCreate.php' ,
         data:{"name": "countMistake","value":newmistake }
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
     }); 
@@ -134,7 +134,7 @@ function checkotp(params) {
     
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php',
+            url: 'controllers/sessionCreate.php',
             data:{"name": "countMistake","value":newmistake }
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         });
@@ -150,7 +150,7 @@ function checkotp(params) {
     
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionWrite.php' ,
+            url: 'controllers/sessionCreate.php' ,
             data:{"name": "logOn","value":"true" }
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 

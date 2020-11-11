@@ -3,7 +3,7 @@
     include '../database/model/database.php';
 
     $tel = $_POST['tel'];
-    if ( isset($tel)) {
+    if (isset($tel)) {
         $sql = "SELECT `YTU_REQFILE`.`RECID` FROM `YTU_REQFILE`
                 INNER JOIN `CASEINFO` ON `CASEINFO`.`CASEID` = `YTU_REQFILE`.`CASEID`
                 WHERE `SOCIAL_CUSTID` LIKE '$tel'";
@@ -19,6 +19,7 @@
                 }
                 session_start();
                 $_SESSION['reqfileID'] = $data["RECID"];
+                $_SESSION['pending'] = "1";
 
                 echo json_encode(1); 
             }else{

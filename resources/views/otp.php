@@ -140,9 +140,7 @@ function checkotp(params) {
         });
 
         window.location.href = 'index.php?page=otp&msg=pwd';
-        
-        
-        
+
     
     } else {
         var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
@@ -150,10 +148,10 @@ function checkotp(params) {
     
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionCreate.php' ,
+            url: 'controllers/sessionCreate.php',
             data:{"name": "logOn","value":"true" }
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
+        });
         
 
         ///////////////////   check require file    ///////////////////

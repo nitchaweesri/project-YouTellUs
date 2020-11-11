@@ -93,7 +93,7 @@ $(function () {
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         }
-        
+        // window.location.href = 'index.php?page=otp';    
     });
 });
 

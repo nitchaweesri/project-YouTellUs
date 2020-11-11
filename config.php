@@ -12,9 +12,9 @@
     if (!defined('DATABASE_DBNAME')) define('DATABASE_DBNAME', 'scbytu_dev');
     if (!defined('DATABASE_HOSTPORT')) define('DATABASE_HOSTPORT', '3306');
 
-    if (!defined('TIME_OTP')) define('TIME_OTP', 20); // minute
-    if (!defined('TIME_BLOCK_EXPIRE')) define('TIME_BLOCK_EXPIRE', 1); // minute
-    if (!defined('POSSIBLE_ERROR_OTP')) define('POSSIBLE_ERROR_OTP', 3);
+    if (!defined('TIME_OTP')) define('TIME_OTP', 20); // second
+    if (!defined('TIME_BLOCK_EXPIRE')) define('TIME_BLOCK_EXPIRE', 0.2); // minute
+    if (!defined('POSSIBLE_ERROR_OTP')) define('POSSIBLE_ERROR_OTP', 3); //time
 
     
 ?>

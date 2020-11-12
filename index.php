@@ -37,19 +37,22 @@
         else{
             $view = 'resources/views/menu.php';
         }
-    } else {        
+    } else {  
+              
         if ($page == '' || $page == 1) {
             $view = 'resources/views/condition.php';
         }elseif ($page == "verify") {
             $view = 'resources/views/verify.php';
         }elseif ($page == "otp") {
-            $result = new block;
-            $block = mysqli_num_rows($result->select_block());
-            if($block!=0){
-                $view = 'resources/views/countDown.php';
-            }elseif(isset($_SESSION['phoneNo'])&&$block==0) {
-                $view = 'resources/views/otp.php';
-            }else{
+            if (isset($_SESSION['phoneNo'])) {
+                $result = new block;
+                $block = mysqli_num_rows($result->select_block());
+                if($block!=0){
+                    $view = 'resources/views/countDown.php';
+                }elseif($block==0) {
+                    $view = 'resources/views/otp.php';
+                }
+            } else {
                 $view = 'resources/views/condition.php';
             }
 
@@ -101,7 +104,6 @@
 //         }
 // });
 
- 
 </script>
 
 </html>

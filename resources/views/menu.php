@@ -3,8 +3,17 @@
 include 'controllers/case.php';
 $result = ytu_complainttype();
 ?>
+
+<style>
+    .menu {
+        background-image: url("public/img/thankyou_smile.png");
+        background-repeat: no-repeat;
+        background-size: 200px;
+    }
+</style>
+
 <div style="height:80px"></div>
-<div class="container mb-4 col-lg-7 col-md-12 col-sm-12" id="menu">
+<div class="container menu mb-4 col-lg-7 col-md-12 col-sm-12">
     <div class="row justify-content-end">
         <div class="col-8 ">
             <h2 class="text-secondary text-right mt-5 Regular">กรุณาระบุประเภทการร้องเรียน</h2>

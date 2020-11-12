@@ -78,12 +78,6 @@ h7{
     margin-top: 80px !important;
 }
 
-#menu {
-    background-image: url("../../public/img/bg1.png");
-    background-repeat: no-repeat;
-    background-size: 200px;
-}
-
 .lang-btn {
 	display: block;
 	position: relative;

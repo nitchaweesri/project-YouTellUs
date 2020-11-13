@@ -32,10 +32,12 @@ class Block {
         $ip_block = $this->get_client_ip();
         $phone_block = $_SESSION['phoneNo'];
         $now = date('Y-m-d H:i:s');
+        $formatDate = time();
 
-        $currentDate = strtotime($now);
-        $futureDate = $currentDate+(60* TIME_BLOCK_EXPIRE);
-        $formatDate = date('Y-m-d H:i:s', $futureDate);
+
+        // $currentDate = strtotime($now);
+        // $futureDate = $currentDate+(60* TIME_BLOCK_EXPIRE);
+        // $formatDate = date('Y-m-d H:i:s', $futureDate);
 
         $sql = "INSERT INTO `CONFIG_YTU_BLOCK` ( `BLOCKIP`, `BLOCKTEL`, `CREATED_DT`,`EXPIRED_DT`)
         VALUES ('$ip_block', '$phone_block', '$now' , '$formatDate' )";

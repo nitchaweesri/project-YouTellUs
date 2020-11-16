@@ -1,5 +1,7 @@
 <div class="container mb-4 p-4 mb-5 bg-white rounded pd-top" align="center">
     <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+        <input type="hidden" name="action" value="validate_captcha">
         <div class="form-group">
             <label for="exampleInputEmail1" style="float: left;">หมายเลขโทรศัพท์สำหรับรับรหัส OTP</label>
             <input name="tel" type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
@@ -29,6 +31,7 @@
                 </div>
             </div>
         </div>
+        
     </form>
     
     <?php /* ?>
@@ -43,10 +46,15 @@
 </div>
 
 <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD"></script>
 <script>
-    // function onSubmit(token) {
-    //     document.getElementById("demo-form").submit();
-    // }
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD', {action:'validate_captcha'}).then(function(token) {
+            // add token value to form
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+
 
 (function() {
     'use strict';

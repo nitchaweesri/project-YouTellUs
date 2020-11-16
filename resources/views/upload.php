@@ -11,8 +11,7 @@
                 INNER JOIN `CASEINFO` ON `CASEINFO`.`CASEID` = `YTU_REQFILE`.`CASEID`
                 WHERE `YTU_REQFILE`.`RECID` = '" . $_SESSION['reqfileID'] . "'
                     AND `YTU_REQFILE`.`RECSTATUS` = 'A'
-                    AND `YTU_REQFILE`.`EXPIRED_DT` > NOW()
-                    ";
+                    AND `YTU_REQFILE`.`EXPIRED_DT` > NOW()";
         $result = mysqli_query($conn, $sql);
         if (!$result) {
             printf("Error: %s\n", mysqli_error($conn));

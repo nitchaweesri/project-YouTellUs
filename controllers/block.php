@@ -24,21 +24,22 @@ class Block {
     }
 
 
-    function create_block()
+    function create_block($status)
     {
         include 'database/model/database.php';
         include 'config.php';
 
         $ip_block = $this->get_client_ip();
         $phone_block = $_SESSION['phoneNo'];
-        $now = date('Y-m-d H:i:s');
+        $expired = time() +(60* TIME_BLOCK_EXPIRE);
 
-        $currentDate = strtotime($now);
-        $futureDate = $currentDate+(60* TIME_BLOCK_EXPIRE);
-        $formatDate = date('Y-m-d H:i:s', $futureDate);
 
-        $sql = "INSERT INTO `CONFIG_YTU_BLOCK` ( `BLOCKIP`, `BLOCKTEL`, `CREATED_DT`,`EXPIRED_DT`)
-        VALUES ('$ip_block', '$phone_block', '$now' , '$formatDate' )";
+        // $currentDate = strtotime($now);
+        // $futureDate = $currentDate+(60* TIME_BLOCK_EXPIRE);
+        // $formatDate = date('Y-m-d H:i:s', $futureDate);
+
+        $sql = "INSERT INTO `CONFIG_YTU_BLOCK` ( `BLOCKIP`, `BLOCKTEL`, `STATUS`,`EXPIRED_DT`)
+        VALUES ('$ip_block', '$phone_block', '$status' , '$expired' )";
 
         if ($conn->query($sql) === TRUE) {
         } else {
@@ -46,6 +47,7 @@ class Block {
         }
 
         $conn->close();
+
 
     }
 

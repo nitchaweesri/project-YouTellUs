@@ -30,7 +30,7 @@ define('TOPIC_STRING', 'SCB/EVENT/CUSTOMERSERVICE/CASEMANAGEMENT/NONVOICECHANNEL
 
 define('MESSAGEOTP', 'ใช้ <OTP $OTP> <Ref. $PAC> ใน 3 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด');
 
-define('MASTER_FEEDTYPE', array('LN' => 'Line', 'FB' => 'Facebook', 'PT' => 'Pantip', 'TT' => 'Twitter', 'EM' => 'Email', 'IG' => 'Instagram', 'YT' => 'Youtube'));
+define('MASTER_FEEDTYPE', array('LN' => 'Line', 'FB' => 'Facebook', 'FS' => 'Facebook', 'PT' => 'Pantip', 'TT' => 'Twitter', 'EM' => 'Email', 'IG' => 'Instagram', 'YT' => 'Youtube'));
 define('MASTER_FEEDSUBTYPE', array('ME' => 'Inbox',
                               'CM' => 'Comment',
                               'CR' => 'Subcomment',

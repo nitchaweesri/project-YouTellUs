@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2020 at 04:12 AM
+-- Generation Time: Nov 16, 2020 at 05:14 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -31,8 +31,8 @@ CREATE TABLE `CONFIG_YTU_BLOCK` (
   `BLOCKID` int(11) NOT NULL,
   `BLOCKIP` varchar(20) NOT NULL,
   `BLOCKTEL` varchar(11) NOT NULL,
-  `CREATED_DT` datetime NOT NULL,
-  `EXPIRED_DT` datetime NOT NULL
+  `STATUS` varchar(2) NOT NULL,
+  `EXPIRED_DT` varchar(255) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -53,7 +53,7 @@ ALTER TABLE `CONFIG_YTU_BLOCK`
 -- AUTO_INCREMENT for table `CONFIG_YTU_BLOCK`
 --
 ALTER TABLE `CONFIG_YTU_BLOCK`
-  MODIFY `BLOCKID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `BLOCKID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

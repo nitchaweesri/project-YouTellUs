@@ -1,61 +1,70 @@
 <style>
-    a{
-        color: black;
-        font-size: 13px;
-        color: #495057;
-    }
-    .img-refresh-otp{
-        width: 13px;
-        height: 13px;
-        margin-bottom: 3px;
-    }
-    .text-alert{
-        display: none;
-        font-size: 14px;
-    }
-@media (min-width: 1025px) and (max-width: 1960px) {
-    .container {
-        padding: 0px 306px !important;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .container {
-        padding: 0px 210px !important;
-    }
-}
-
-@media (min-width: 320px) and (max-width: 767px) {}
-
+    a { color: black; font-size: 13px; color: #495057; }
+    .img-refresh-otp { width: 13px; height: 13px; margin-bottom: 3px; }
+    .text-alert { display: none; font-size: 14px; }
 </style>
-
 <?php include 'config.php'; ?>
-<div class="container mb-4 p-4 mb-5 bg-white rounded pd-top">
-    <!-- <form action="index.php?page=2" method="post" class="needs-validation" novalidate> -->
+<div class="container mb-4 pt-5 mt-5 mb-5 bg-white rounded otp-pd-top" align="center">
+    <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="form-group">
-            <label for="exampleInputEmail1">กรอกรหัส OTP</label>
+            <label for="exampleInputEmail1" style="float: left;">กรอกรหัส OTP</label>
             <input type="text" class="form-control mb-2" id="otp" placeholder="รหัส OTP" required>
 
             <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
                 <div class="form-group">
-                    <label for="exampleInputEmail1" class="text-danger">รหัส OTP ไม่ถูกต้อง</label>
+                    <label for="exampleInputEmail1" class="text-danger" style="float: left;">รหัส OTP ไม่ถูกต้อง</label>
                 </div> 
             <?php }?>
        
            
-            <div class="d-flex justify-content-between">
-                <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh" width="15"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
+            <div class="d-flex justify-content-between col-lg-12 col-md-12 col-sm-12 p-0">
+                <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
                 <a id="countdown" class="Light"></a>
             </div>
                 
         </div>
-        <div class="row mt-3">
-            <div class="col d-flex justify-content-center">
-                <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
+        <div class="row" align="center" style="display: inline;">
+        	<div class="col-lg-7 col-md-8 col-sm-10">
+                <div class="col d-flex justify-content-center">
+                    <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
+                </div>
             </div>
         </div>
-    <!-- </form> -->
+    </div>    
 </div>
+
+<div id="myModal" class="modal" style="background: #343a408c;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="padding: 5px;">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size: 13px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+function myPopUP() {
+	modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
     (function() {
@@ -140,7 +149,9 @@ function checkotp(params) {
         });
 
         window.location.href = 'index.php?page=otp&msg=pwd';
-
+        
+        
+        
     
     } else {
         var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
@@ -148,10 +159,10 @@ function checkotp(params) {
     
         $.ajax({
             type: "POST",
-            url: 'controllers/sessionCreate.php',
+            url: 'controllers/sessionCreate.php' ,
             data:{"name": "logOn","value":"true" }
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        });
+        }); 
         
 
         ///////////////////   check require file    ///////////////////

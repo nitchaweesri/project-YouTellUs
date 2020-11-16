@@ -20,6 +20,7 @@
     } */
 }
 
+body .body-pd-bt { padding-bottom: 37px; }
 
 input,p,label,textarea,a,button{
     font-family: 'Mitr-Regular';
@@ -78,20 +79,37 @@ h7{
     margin-top: 80px !important;
 }
 
+.otp-pd-top { margin-top: 40px !important; }  
+
+#menu {
+    background-image: url("../../public/img/thankyou_smile.png");
+    background-repeat: no-repeat;
+	background-size: 350px;
+    padding-bottom: 120px;
+}
+
 .lang-btn {
 	display: block;
 	position: relative;
 	float: right;	
+	color: #888888 !important;
 }
 
 .lang-btn a{
 	font-family: 'Mitr-Regular';
-	color: #888888;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration : none;
 }
+
+.lang-btn a:hover { color: #765ABA !important; }
 
 .lang-btn a.se{
 	font-family: 'Mitr-Regular';
-	color: #462279;
+    color: rgb(70, 34, 121) !important;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration : none;
 }
 
 .text-condition{
@@ -152,3 +170,4 @@ h7{
 }
 
 /* -----------------------------------font---------------------------------------- */
+

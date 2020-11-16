@@ -1,6 +1,7 @@
 
 <?php 
 include 'controllers/case.php';
+include 'controllers/uploadfile.php';
 
 $result = ytu_product();
 ?>
@@ -11,14 +12,18 @@ $result = ytu_product();
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
-                    method="post" class="needs-validation" novalidate>
+                    method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 
                     <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
-                    <input type="hidden" name="file1" value="<?php echo $_POST['file1']?>" >
-                    <input type="hidden" name="file2" value="<?php echo $_POST['file2']?>" >
-
-
+                    <?php 
+                    if(isset($file)){ 
+                        foreach ($file as $key => $value) {
+                          echo   '<input type="hidden" name="file[]" value="'.$value.'" >';
+                        }
+                    }
+                    ?>
+                    
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
@@ -89,12 +94,14 @@ $result = ytu_product();
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-2">
-                                <?php  if(isset($_POST['file1'])){ 
-                                echo '<label class="form-check-label">'.$_POST['file1'].'</label><br>
-                                      <label  class="form-check-label">'.$_POST['file2'].'</label>';
+                                <?php  if(isset($file)){ 
+                                    foreach ($file as $key => $value) {
+                                        echo '<label class="form-check-label">'.$value.'</label><br>' ;
+                                    }
+                               
                                 }else{ 
                                 echo '<div class="custom-file" id="file-copyOfIDCard1" style="display: block;" >
-                                        <input name="file1" type="file" class="custom-file-input" id="input-copyOfIDCard1" required/>
+                                        <input name="file[]" type="file" class="custom-file-input" id="input-copyOfIDCard1" required/>
                                         <label class="custom-file-label" for="input-copyOfIDCard1">Choose file</label>
                                     </div>';
                                 }?>
@@ -102,7 +109,7 @@ $result = ytu_product();
                             </div>
                             <div class="col-sm-12 col-md-6 mb-2">
                                 <div class="custom-file" id="file-copyOfIDCard2" style="display: none;">
-                                    <input name="file2" type="file" class="custom-file-input" id="input-copyOfIDCard2" />
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-copyOfIDCard2" />
                                     <label class="custom-file-label" for="input-copyOfIDCard2">Choose file</label>
                                 </div>
                             </div>

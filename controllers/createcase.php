@@ -10,12 +10,20 @@ if (isset($_POST['create_case'])) {
 
 function create_case($data)
 {
+
     try{
 
         $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook_fik_test.php";
         
         $idcard = encryptString($_POST['idcard']);
         $ch = curl_init( $url );
+
+
+        $JsonFile = array();
+        foreach ($_POST['file'] as $key => $value) {
+            $JsonFile["file$key"] = $value ;
+            $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$value;
+        }
 
         ///////////// set json data ////////////
         $Jsonbody = array(  "name"=> $_POST['name']
@@ -24,15 +32,12 @@ function create_case($data)
                             ,"email"=> $_POST['email']
                             ,"idUser"=> $_POST['iduser']
                             ,"description"=> $_POST['description']
-                            ,"file1"=> isset($_POST['file1'])? $_POST['file1'] : ""
-                            ,"file2"=> isset($_POST['file2'])? $_POST['file2'] : ""
-                            ,"file3"=> isset($_POST['file3'])? $_POST['file3'] : ""
                             ,"nameDelegate"=> isset($_POST['nameDelegate'])? $_POST['nameDelegate'] : "" 
                             ,"service"=> isset($_POST['service'])? $_POST['service'] : "" 
                             ,"serviceId"=> isset($_POST['serviceID'])? $_POST['serviceID'] : "" 
                             ,"relationOption"=> isset($_POST['relationOptions'])? $_POST['relationOptions'] : "" 
                             ,"relationOption"=> isset($_POST['relationOptions'])? $_POST['relationOptions'] : "" 
-
+                            ,"file"=>json_encode($JsonFile)
                         );
         
 

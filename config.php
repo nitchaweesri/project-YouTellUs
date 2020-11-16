@@ -15,5 +15,6 @@
     if (!defined('TIME_OTP')) define('TIME_OTP', 120); // second
     if (!defined('TIME_BLOCK_EXPIRE')) define('TIME_BLOCK_EXPIRE', 10); // minute
     if (!defined('POSSIBLE_ERROR_OTP')) define('POSSIBLE_ERROR_OTP', 3); //time
+
     
 ?>

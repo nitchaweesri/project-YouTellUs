@@ -1,18 +1,47 @@
 <?php
+    $currentDirectory = getcwd();
+    $uploadDirectory = "/uploads/file/";
 
-// Check if image file is a actual image or fake image
-if(isset($_POST["create_case"])) {
-    $target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["file1"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  $check = getimagesize($_FILES["file1"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
+    $errors = []; // Store errors here
+
+    // $fileExtensionsAllowed = ['jpeg','jpg','png']; // These will be the only file extensions allowed 
+
+    if (isset($_POST['create_case'])) {
+
+      $total = count($_FILES['file']['name']);
+      for( $i=0 ; $i < $total ; $i++ ) {
+        $fileName = $_FILES['file']['name'][$i];
+        $fileSize = $_FILES['file']['size'][$i];
+        $fileTmpName  = $_FILES['file']['tmp_name'][$i];
+        $fileType = $_FILES['file']['type'][$i];
+        // $fileExtension = strtolower(end(explode('.',$fileName)));
+
+        $uploadPath = $currentDirectory . $uploadDirectory . basename($fileName); 
+
+
+          // if (! in_array($fileExtension,$fileExtensionsAllowed)) {
+          //   $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
+          // }
+
+          if ($fileSize > 4000000) {
+            $errors[] = "File exceeds maximum size (4MB)";
+          }
+
+          if (empty($errors)) {
+            $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
+
+            if ($didUpload) {
+              $msg = "The file " . basename($fileName) . " has been uploaded";
+              $file[$i] = basename($fileName);
+            } else {
+              $msg = "An error occurred. Please contact the administrator.";
+            }
+          } else {
+            foreach ($errors as $error) {
+              $msg = $error . "These are the errors" . "\n";
+            }
+          }
+
+        }
   }
-}
 ?>

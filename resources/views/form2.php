@@ -1,5 +1,6 @@
 <?php 
 include 'controllers/case.php';
+include 'controllers/uploadfile.php';
 
 $result = ytu_product();
 ?>
@@ -9,17 +10,18 @@ $result = ytu_product();
             <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
                 <form
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=JP";?>"
-                    method="post" class="needs-validation" novalidate>
+                    method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 
                     <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
                     <input type="hidden" name="relationOptions" value="<?php echo $_POST['relationOptions']?>" >
-                    <input type="hidden" name="file1" value="<?php echo $_POST['file1']?>" >
-                    <input type="hidden" name="file2" value="<?php echo isset($_POST['file2'])? $_POST['file2'] :''?>" >
-                    <input type="hidden" name="file3" value="<?php echo isset($_POST['file3'])? $_POST['file3'] :''?>" >
-                    <input type="hidden" name="file4" value="<?php echo isset($_POST['file4'])? $_POST['file4'] :''?>" >
-                    <input type="hidden" name="file5" value="<?php echo isset($_POST['file5'])? $_POST['file5'] :''?>" >
-                    <input type="hidden" name="file6" value="<?php echo isset($_POST['file6'])? $_POST['file6'] :''?>" >
+                    <?php 
+                    if(isset($file)){ 
+                        foreach ($file as $key => $value) {
+                          echo   '<input type="hidden" name="file[]" value="'.$value.'" >';
+                        }
+                    }
+                    ?>
  
                     <div class="row">
                         <div class="col">
@@ -156,21 +158,23 @@ $result = ytu_product();
                             </div>
                         </div>
                     </div>
-                    <div class="row pl-2">
-                        <div class="col-sm-12 col-md-6 mb-2">
-                            <?php  if(isset($_POST['file1'])){ 
-                                echo '<label class="form-check-label">'.$_POST['file1'].'</label><br>
-                                    <label  class="form-check-label">'.$_POST['file2'].'</label>';
-                                }else{ 
-                                echo '<div class="custom-file" id="file-copyOfDelegate1" style="display: block;" >
-                                        <input name="file1" type="file" class="custom-file-input" id="input-copyOfDelegate1" required/>
-                                        <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
-                                    </div>';
-                                }?>
+                    
+                        <?php   
+                        if(isset($file)){ 
+                            foreach ($file as $key => $value) {
+                                echo '<label class="form-check-label">'.$value.'</label><br>' ;
+                            }
+                        }else{ ?>
+                        <div class="row pl-2">
+                            <div class="col-sm-12 col-md-6 mb-2">
+                            <div class="custom-file" id="file-copyOfDelegate1" style="display: block;" >
+                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfDelegate1" required/>
+                                <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-copyOfDelegate2" style="display: none;">
-                                <input name="file2" type="file" class="custom-file-input" id="input-copyOfDelegate2" />
+                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfDelegate2" />
                                 <label class="custom-file-label" for="input-copyOfDelegate2">Choose file</label>
                             </div>
                         </div>
@@ -188,13 +192,13 @@ $result = ytu_product();
                     <div class="row pl-2">
                         <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-copyOfOwner1" style="display: none;">
-                                <input name="file3" type="file" class="custom-file-input" id="input-copyOfOwner1" />
+                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfOwner1" />
                                 <label class="custom-file-label" for="input-copyOfOwner1">Choose file</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-copyOfOwner2" style="display: none;">
-                                <input name="file4" type="file" class="custom-file-input" id="input-copyOfOwner2" />
+                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfOwner2" />
                                 <label class="custom-file-label" for="input-copyOfOwner2">Choose file</label>
                             </div>
                         </div>
@@ -212,17 +216,20 @@ $result = ytu_product();
                     <div class="row pl-2">
                         <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-powerOfAttorney1" style="display: none;">
-                                <input name="file5" type="file" class="custom-file-input" id="input-powerOfAttorney1" />
+                                <input name="file[]" type="file" class="custom-file-input" id="input-powerOfAttorney1" />
                                 <label class="custom-file-label" for="input-powerOfAttorney1">Choose file</label>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 mb-2">
                             <div class="custom-file" id="file-powerOfAttorney2" style="display: none;">
-                                <input name="file6" type="file" class="custom-file-input" id="input-powerOfAttorney2" />
+                                <input name="file[]" type="file" class="custom-file-input" id="input-powerOfAttorney2" />
                                 <label class="custom-file-label" for="input-powerOfAttorney2">Choose file</label>
                             </div>
                         </div>
                     </div>
+                    
+                    <?php }?>
+                        
 
                     <div class="row mt-3">
                         <div class="col">

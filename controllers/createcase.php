@@ -36,7 +36,10 @@ function create_case($data)
                             ,"service"=> isset($_POST['service'])? $_POST['service'] : "" 
                             ,"serviceId"=> isset($_POST['serviceID'])? $_POST['serviceID'] : "" 
                             ,"relationOption"=> isset($_POST['relationOptions'])? $_POST['relationOptions'] : "" 
-                            ,"relationOption"=> isset($_POST['relationOptions'])? $_POST['relationOptions'] : "" 
+                            ,"numId"=> isset($_POST['numID'])? $_POST['numID'] : "" 
+                            ,"nameAuthorizedPerson"=> isset($_POST['nameAuthorizedPerson'])? $_POST['nameAuthorizedPerson'] : "" 
+                            ,"position"=> isset($_POST['position'])? $_POST['position'] : "" 
+                            ,"nameOwner"=> isset($_POST['nameOwner'])? $_POST['nameOwner'] : "" 
                             ,"file"=>json_encode($JsonFile)
                         );
         

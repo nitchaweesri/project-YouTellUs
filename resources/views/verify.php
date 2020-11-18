@@ -2,6 +2,7 @@
     <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
         <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
         <input type="hidden" name="action" value="validate_captcha">
+       
         <div class="form-group">
             <label for="exampleInputEmail1" style="float: left;">หมายเลขโทรศัพท์สำหรับรับรหัส OTP</label>
             <input name="tel" type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
@@ -44,6 +45,11 @@
     <?php */ ?>
         
 </div>
+
+
+
+
+
 
 <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
 <script src="https://www.google.com/recaptcha/api.js?render=6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD"></script>
@@ -98,6 +104,38 @@ $(function () {
         }
         // window.location.href = 'index.php?page=otp';    
     });
+});
+
+
+
+$(document).ready(function(){
+
+    var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
+    
+    if (langSession == 'FALSE') {
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('เลือกภาษา')
+            modal.find('.modal-body').prepend($(` <div class="row">
+                <div class="col">
+                    <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
+                        <img src="public/img/thailand.svg" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
+                        <img src="public/img/united-states.svg" alt="">
+                    </a>
+                    </div>
+                </div>`
+                ));
+            modal.find('.modal-footer').text('')
+            
+            })
+        $('#exampleModal').modal('show')
+    }
+
+    
 });
 
 </script>

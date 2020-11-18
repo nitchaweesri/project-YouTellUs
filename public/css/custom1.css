@@ -171,3 +171,9 @@ h7{
 
 /* -----------------------------------font---------------------------------------- */
 
+
+
+.modal-content{
+    border: none !important;
+    border-radius: 1.5rem !important;
+}

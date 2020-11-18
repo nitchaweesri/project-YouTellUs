@@ -106,8 +106,6 @@
         <?php // include_once 'lang/lang_'. $lang .'.php'; ?>
     </head>
 	<?php include 'resources/views/layouts/header.php'; ?>
-    <?php include 'resources/views/modal.php'; ?>
-
 
     <body class="body-pd-bt" onload="myPopUP()">
         <?php include_once $view;         /*  === form YouTellUs ===  */    ?>

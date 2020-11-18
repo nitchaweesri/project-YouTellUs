@@ -35,18 +35,18 @@
 <div class="container mb-4 pt-5 mt-5 mb-5 bg-white rounded otp-pd-top" align="center">
     <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="form-group">
-            <label for="exampleInputEmail1" style="float: left;">กรอกรหัส OTP</label>
-            <input type="text" class="form-control mb-2" id="otp" placeholder="รหัส OTP" required>
+            <label for="exampleInputEmail1" style="float: left;"><?php echo constant('กรอกรหัส OTP') ?></label>
+            <input type="text" class="form-control mb-2" id="otp" placeholder="<?php echo constant('รหัส OTP') ?>" required>
 
             <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
                 <div class="form-group">
-                    <label for="exampleInputEmail1" class="text-danger" style="float: left;">รหัส OTP ไม่ถูกต้อง</label>
+                    <label for="exampleInputEmail1" class="text-danger" style="float: left;"><?php echo constant('รหัส OTP ไม่ถูกต้อง') ?></label>
                 </div> 
             <?php }?>
        
            
             <div class="d-flex justify-content-between col-lg-12 col-md-12 col-sm-12 p-0">
-                <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh"> ส่งรหัส OTP ใหม่อีกครั้ง</a>
+                <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh"> <?php echo constant('ส่งรหัส OTP ใหม่อีกครั้ง') ?></a>
                 <a id="countdown" class="Light"></a>
             </div>
                 
@@ -54,7 +54,7 @@
         <div class="row" align="center" style="display: inline;">
         	<div class="col-lg-7 col-md-8 col-sm-10">
                 <div class="col d-flex justify-content-center">
-                    <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
+                    <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill  Regular col-12"><?php echo constant('ส่งรหัส OTP') ?></button>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@ var downloadTimer = setInterval(function(){
 
   } else {
     var timeleft = how-second;
-    document.getElementById("countdown").innerHTML = "โปรดใส่รหัสก่อน " +timeleft + " วินาที" ;
+    document.getElementById("countdown").innerHTML = "<?php echo constant('โปรดใส่รหัสก่อน') ?> " +timeleft + " <?php echo constant('วินาที') ?>" ;
   }
   second += 1;
 }, 1000);

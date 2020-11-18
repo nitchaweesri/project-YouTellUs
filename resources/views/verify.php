@@ -4,12 +4,12 @@
         <input type="hidden" name="action" value="validate_captcha">
        
         <div class="form-group">
-            <label for="exampleInputEmail1" style="float: left;">หมายเลขโทรศัพท์สำหรับรับรหัส OTP</label>
-            <input name="tel" type="text" class="form-control" id="tell" placeholder="หมายเลขโทรศัพท์" required pattern="^0([8|9|6])([0-9]{8}$)">
+            <label for="exampleInputEmail1" style="float: left;"><?php echo constant('หมายเลขโทรศัพท์สำหรับรับรหัส OTP') ?></label>
+            <input name="tel" type="text" class="form-control" id="tell" placeholder="<?php echo constant('หมายเลขโทรศัพท์') ?>" required pattern="^0([8|9|6])([0-9]{8}$)">
         </div>
         <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired') { ?>
             <div class="form-group">
-                <label for="exampleInputEmail1" class="text-danger" style="float: left;">คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง</label>
+                <label for="exampleInputEmail1" class="text-danger" style="float: left;"><?php echo constant('คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง') ?></label>
             </div> 
         <?php } ?>
         
@@ -28,7 +28,7 @@
         <div class="row" align="center" style="display: inline;">
             <div class="col-lg-7 col-md-8 col-sm-10">
                 <div class="col d-flex justify-content-center">
-                    <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12" style="width: ">ส่งรหัส OTP</button>
+                    <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12" style="width: "><?php echo constant('ส่งรหัส OTP')?></button>
                 </div>
             </div>
         </div>
@@ -102,39 +102,39 @@ $(function () {
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         }
-        window.location.href = 'index.php?page=otp';    
+        // window.location.href = 'index.php?page=otp';    
     });
 });
 
 
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-//     var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
+    var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
     
-//     if (langSession == 'FALSE') {
-//         $('#exampleModal').on('show.bs.modal', function (event) {
-//             var modal = $(this)
-//             modal.find('.modal-title').text('เลือกภาษา')
-//             modal.find('.modal-body').prepend($(` <div class="row">
-//                 <div class="col">
-//                     <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
-//                         <img src="public/img/thailand.svg" alt="">
-//                     </a>
-//                 </div>
-//                 <div class="col">
-//                     <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
-//                         <img src="public/img/united-states.svg" alt="">
-//                     </a>
-//                     </div>
-//                 </div>`
-//                 ));
-//             modal.find('.modal-footer').text('')
+    if (langSession == 'FALSE') {
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('เลือกภาษา')
+            modal.find('.modal-body').prepend($(` <div class="row">
+                <div class="col">
+                    <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
+                        <img src="public/img/thailand.svg" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
+                        <img src="public/img/united-states.svg" alt="">
+                    </a>
+                    </div>
+                </div>`
+                ));
+            modal.find('.modal-footer').text('')
             
-//             })
-//         $('#exampleModal').modal('show')
-//     }
+            })
+        $('#exampleModal').modal('show')
+    }
     
-// });
+});
 
 </script>

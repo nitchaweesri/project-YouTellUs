@@ -85,6 +85,14 @@ h7{
     margin-top: 80px !important;
 }
 
+.form-group {
+    margin-bottom: 17px !important;
+}
+
+.form-control{
+    border-radius: 0.5rem !important;
+}
+
 .otp-pd-top { margin-top: 40px !important; }  
 
 #menu {

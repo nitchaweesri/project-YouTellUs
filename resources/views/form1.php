@@ -7,9 +7,9 @@ $result = ytu_product();
 ?>
 
 <div class="container-sm">
-    <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
+    <div class="container mb-4 p-3 mb-5 bg-white pd-top">
         <div class="row justify-content-center ">
-            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
+            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-3 pt-md-3">
                 <form
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">

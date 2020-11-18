@@ -1,30 +1,30 @@
 <?php
-    if (isset($_POST['g-recaptcha-response'])) {
-        $captcha = $_POST['g-recaptcha-response'];
-    } else {
-        $captcha = false;
-    }
+    // if (isset($_POST['g-recaptcha-response'])) {
+    //     $captcha = $_POST['g-recaptcha-response'];
+    // } else {
+    //     $captcha = false;
+    // }
     
-    if (!$captcha) {
-        printf("dont have captcha");
-    } else {
-        $secret   = '6Ldbad4ZAAAAAGdmwIx5DUNh9dLRdIcMugjXBUXF';
-        $response = file_get_contents(
-            "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
-        );
-        // use json_decode to extract json response
-        $response = json_decode($response);
+    // if (!$captcha) {
+    //     printf("dont have captcha");
+    // } else {
+    //     $secret   = '6Ldbad4ZAAAAAGdmwIx5DUNh9dLRdIcMugjXBUXF';
+    //     $response = file_get_contents(
+    //         "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
+    //     );
+    //     // use json_decode to extract json response
+    //     $response = json_decode($response);
     
-        if ($response->success === false) {
-            printf("captcha fine but dont have respon");
-        }
+    //     if ($response->success === false) {
+    //         printf("captcha fine but dont have respon");
+    //     }
 
-        if ($response->success==true && $response->score != 0.0) {
-            session_start();
-            $_SESSION['score'] = $response->score;
-            printf("score is : " . $response->score);
-        }
-    }
+    //     if ($response->success==true && $response->score != 0.0) {
+    //         session_start();
+    //         $_SESSION['score'] = $response->score;
+    //         printf("score is : " . $response->score);
+    //     }
+    // }
 ?>
 <style>
     a { color: black; font-size: 13px; color: #495057; }
@@ -61,37 +61,8 @@
     </div>    
 </div>
 
-<div id="myModal" class="modal" style="background: #343a408c;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" style="padding: 5px;">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div style="font-size: 13px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
-<script>
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-
-function myPopUP() {
-	modal.style.display = "block";
-}
-span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>

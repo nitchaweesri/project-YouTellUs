@@ -52,14 +52,14 @@
 
 
 <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
-<script src="https://www.google.com/recaptcha/api.js?render=6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD"></script>
+<!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD"></script> -->
 <script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD', {action:'validate_captcha'}).then(function(token) {
-            // add token value to form
-            document.getElementById('g-recaptcha-response').value = token;
-        });
-    });
+    // grecaptcha.ready(function() {
+    //     grecaptcha.execute('6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD', {action:'validate_captcha'}).then(function(token) {
+    //         // add token value to form
+    //         document.getElementById('g-recaptcha-response').value = token;
+    //     });
+    // });
 
 
 (function() {
@@ -102,7 +102,7 @@ $(function () {
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         }
-        // window.location.href = 'index.php?page=otp';    
+        window.location.href = 'index.php?page=otp';    
     });
 });
 
@@ -134,7 +134,6 @@ $(document).ready(function(){
             })
         $('#exampleModal').modal('show')
     }
-
     
 });
 

@@ -1,7 +1,23 @@
-<?php
 
 
-echo strtotime("+30 minutes")."<br>";
-echo strtotime(date('Y-m-d H:i:s'));
 
-?>
+
+<?php include 'modal.php' ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<button id="test"></button>
+
+
+
+
+<script>
+$("#test").click(function(){
+    $('#exampleModal').modal('show')
+});
+</script>

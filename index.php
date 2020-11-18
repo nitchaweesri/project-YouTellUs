@@ -6,9 +6,11 @@
     $url_lang = 'index.php';
     
     if(@$_REQUEST['re_session'] == 'unset') { 
-        unset($_SESSION['countStart']); 
-        unset($_SESSION['countMistake']);
-        unset($_SESSION['logOn']);
+        session_destroy();
+        // unset($_SESSION['countStart']); 
+        // unset($_SESSION['countMistake']);
+        // unset($_SESSION['logOn']);
+        header("Location: index.php?page=verify");
     }
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1 ;
     $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;
@@ -102,12 +104,16 @@
         <link rel="stylesheet" href="public/css/custom.css">
         <script src="public/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
         <?php // include_once 'lang/lang_'. $lang .'.php'; ?>
     </head>
 	<?php include 'resources/views/layouts/header.php'; ?>
+	<?php include 'resources/views/modal.php'; ?>
 
-    <body class="body-pd-bt" onload="myPopUP()">
+    <body class="body-pd-bt">
         <?php include_once $view;         /*  === form YouTellUs ===  */    ?>
     </body>
 

@@ -100,4 +100,34 @@ $(function () {
     });
 });
 
+
+
+$(document).ready(function(){
+
+    var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
+    
+    if (langSession == 'FALSE') {
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('เลือกภาษา')
+            modal.find('.modal-body').prepend($(` <div class="row">
+                <div class="col">
+                    <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
+                        <img src="public/img/thailand.svg" alt="">
+                    </a>
+                </div>
+                <div class="col">
+                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
+                        <img src="public/img/united-states.svg" alt="">
+                    </a>
+                    </div>
+                </div>`
+                ));
+            modal.find('.modal-footer').text('')
+            
+            })
+        $('#exampleModal').modal('show')
+    }
+    
+});
 </script>

@@ -86,10 +86,11 @@ $result = ytu_product();
                             <?php echo $_POST['nameOwner'] = isset($_POST['nameOwner']) ?  " value='".$_POST['nameOwner']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="description" type="text" rows="4" class="form-control Light "
+                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
                             id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
-                    </div>
+                            <div id="characters-left" class="characters-left"></div>
+                        </div>
                     <div class="row">
                         <div class="col">
                             <label for="exampleFormControlInput1"
@@ -397,4 +398,20 @@ function validate() {
         document.getElementById('file-powerOfAttorney2').style.display = 'none';
     }
 }
+
+// -------------------------------------------------------------------------------------
+
+var textarea = document.getElementById('validationTextarea');
+
+window.onload = textareaLengthCheck();
+
+function textareaLengthCheck() {
+    var textArea = textarea.value.length;
+    var charactersLeft = 3000 - textArea;
+    var count = document.getElementById('characters-left');
+    count.innerHTML = charactersLeft + "/3000";
+}
+
+textarea.addEventListener('keyup', textareaLengthCheck, false);
+textarea.addEventListener('keydown', textareaLengthCheck, false);
 </script>

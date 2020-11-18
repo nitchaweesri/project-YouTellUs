@@ -71,9 +71,10 @@ $result = ytu_product();
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <textarea name="description" type="text" rows="4" class="form-control Light "
+                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
                             id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
+                        <div id="characters-left" class="characters-left"></div>
                     </div>
 
                     <div class="form-group mt-4">
@@ -252,4 +253,21 @@ function validate() {
         document.getElementById('file-copyOfIDCard2').style.display = 'none';
     }
 }
+
+// -------------------------------------------------------------------------------------
+
+var textarea = document.getElementById('validationTextarea');
+
+window.onload = textareaLengthCheck();
+
+function textareaLengthCheck() {
+    var textArea = textarea.value.length;
+    var charactersLeft = 3000 - textArea;
+    var count = document.getElementById('characters-left');
+    count.innerHTML = charactersLeft + "/3000";
+}
+
+textarea.addEventListener('keyup', textareaLengthCheck, false);
+textarea.addEventListener('keydown', textareaLengthCheck, false);
+
 </script>

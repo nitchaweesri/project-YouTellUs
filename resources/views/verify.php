@@ -34,7 +34,7 @@
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
 $(document).ready(function() {
-    $('#makesession').prop('disabled', true);
+    // $('#makesession').prop('disabled', true);
 });
 
 (function() {
@@ -98,18 +98,25 @@ $(document).ready(function(){
         $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
             modal.find('.modal-title').text('เลือกภาษา')
-            modal.find('.modal-body').prepend($(` <div class="row">
-                <div class="col">
+            modal.find('.modal-body').prepend($(` 
+            <div class="row">
+                <div class="col mr-0 pr-0">
                     <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
-                        <img src="public/img/thailand.svg" alt="">
+                        <img src="public/img/thailand.svg" width="70px" alt="">
                     </a>
-                </div>
-                <div class="col">
-                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
-                        <img src="public/img/united-states.svg" alt="">
-                    </a>
+                    <div class="row">
+                        <h7 class="mx-auto mt-2 Regular">ไทย</h7>
                     </div>
-                </div>`
+                </div>
+                <div class="col ml-0 pl-0">
+                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
+                        <img src="public/img/united-states.svg" width="70px" alt="">
+                    </a>
+                    <div class="row">
+                        <h7 class="mx-auto mt-2 Regular">อังกฤษ</h7>
+                    </div>
+                </div>
+            </div>`
                 ));
             modal.find('.modal-footer').text('')
             

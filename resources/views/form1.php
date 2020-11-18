@@ -25,7 +25,7 @@ $result = ytu_product();
                     ?>
                     
                     <div class="form-group">
-                        <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
+                        <label for="exampleFormControlInput1" class="text-primary h5 Regular mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
                             required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
@@ -50,7 +50,7 @@ $result = ytu_product();
                     </div>
 
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h5 Regular"><?php echo constant('เรื่องร้องเรียน')?></label>
+                        <label for="feedsubtype" class="text-primary h5 Regular mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
                         <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
@@ -79,7 +79,7 @@ $result = ytu_product();
 
                     <div class="form-group mt-4">
                         <div class="row">
-                            <div class="col">
+                            <div class="col mb-2 mt-2">
                                 <label for="exampleFormControlInput1"
                                     class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                             </div>

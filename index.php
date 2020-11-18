@@ -101,7 +101,7 @@
   		<link href="assets/img/favicon.png" rel="apple-touch-icon">
 
         <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="public/css/custom1.css">
+        <link rel="stylesheet" href="public/css/custom.css">
         <script src="public/vendor/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

@@ -6,9 +6,11 @@
     $url_lang = 'index.php';
     
     if(@$_REQUEST['re_session'] == 'unset') { 
-        unset($_SESSION['countStart']); 
-        unset($_SESSION['countMistake']);
-        unset($_SESSION['logOn']);
+        session_destroy();
+        // unset($_SESSION['countStart']); 
+        // unset($_SESSION['countMistake']);
+        // unset($_SESSION['logOn']);
+        header("Location: index.php?page=verify");
     }
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1 ;
     $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;

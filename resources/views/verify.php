@@ -13,17 +13,9 @@
             </div> 
         <?php } ?>
         
-        <?php /* ?>    
-        <!-- <div class="d-flex justify-content-center">
-            <img src="public/img/captcha.png" alt="captcha" width="320" height="140">
-        </div> -->
-        <!-- <div class="row mt-3">
-            <div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary rounded-pill  Regular col-12 g-recaptcha" data-sitekey="6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD" 
-        data-callback='onSubmit' data-action='submit'>ส่งรหัส OTP</button>
-            </div>
-        </div> -->
-        <?php */ ?>
+        <div class="form-group" style="float: left;">
+            <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
+        </div>
         
         <div class="row" align="center" style="display: inline;">
             <div class="col-lg-7 col-md-8 col-sm-10">
@@ -34,33 +26,16 @@
         </div>
         
     </form>
-    
-    <?php /* ?>
-    <!-- 
-    <button class="g-recaptcha" 
-        data-sitekey="6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD" 
-        data-callback='onSubmit' 
-        data-action='submit'>Submit</button> 
-    -->
-    <?php */ ?>
         
 </div>
 
 
 
-
-
-
-<!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
-<!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD"></script> -->
+<script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
-    // grecaptcha.ready(function() {
-    //     grecaptcha.execute('6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD', {action:'validate_captcha'}).then(function(token) {
-    //         // add token value to form
-    //         document.getElementById('g-recaptcha-response').value = token;
-    //     });
-    // });
-
+$(document).ready(function() {
+    $('#makesession').prop('disabled', true);
+});
 
 (function() {
     'use strict';
@@ -108,6 +83,10 @@ $(function () {
     });
 });
 
+
+function recaptchaCallback() {
+    $('#makesession').prop('disabled', false);
+};
 
 
 $(document).ready(function(){

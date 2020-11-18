@@ -102,13 +102,16 @@ $(function () {
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
         }); 
         }
-        // window.location.href = 'index.php?page=otp';    
+
+        // window.location.href = 'index.php?page=otp'; 
+        
     });
 });
 
 
 
 $(document).ready(function(){
+    localStorage.setItem('firstime','true');
 
     var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
     

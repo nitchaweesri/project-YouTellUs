@@ -63,8 +63,21 @@
 
 
 
+<!-- <div id="myModal" class="modal" style="background: #343a408c;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="padding: 5px;">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size: 13px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
+      </div>
+    </div>
+  </div>
+</div> -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
 <script>
     (function() {
         'use strict';
@@ -131,6 +144,7 @@ function reotp() {
     // if (parseInt(sessionStorage.getItem('countMistake'))>3) {
     //     window.location.href = 'index.php?page=error';
     // }
+    localStorage.setItem('firstime','true');
     window.location.href = 'index.php?page=otp&msg=pwd';    
 }
 
@@ -183,4 +197,32 @@ function checkotp(params) {
         });
     }
 }
+
+
+$(document).ready(function(){
+    
+
+    if (localStorage.getItem('firstime') =='true') {
+
+        localStorage.setItem('firstime','false');
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('ข้อมความ')
+            modal.find('.modal-body').prepend($(` 
+                <div class="row">
+                    <div class="col">
+                        <div class="Regular" style="font-size: 13px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
+                    </div>
+                </div>`
+                ));
+            modal.find('.modal-footer').text('')
+            
+            })
+            $('#exampleModal').modal('show')
+        }
+    
+    });
+    
+
+
 </script>

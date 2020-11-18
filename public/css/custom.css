@@ -140,6 +140,16 @@ h7{
     width: 297px !important;
 }
 
+.footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Mitr-Regular';
+    font-size: 13px;
+    padding-bottom: 6px;
+    color: #495057;
+}
 
 /* -----------------------------------font---------------------------------------- */
 

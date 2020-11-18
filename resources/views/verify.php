@@ -31,7 +31,7 @@
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
 $(document).ready(function() {
-    $('#makesession').prop('disabled', true);
+    // $('#makesession').prop('disabled', true);
 });
 
 (function() {

@@ -4,7 +4,7 @@
 
     $errors = []; // Store errors here
 
-    // $fileExtensionsAllowed = ['jpeg','jpg','png']; // These will be the only file extensions allowed 
+    $fileExtensionsAllowed = ['jpeg','jpg','png' , 'doc','docx' ,'pdf']; // These will be the only file extensions allowed 
 
     if (isset($_POST['create_case'])) {
 
@@ -14,14 +14,14 @@
         $fileSize = $_FILES['file']['size'][$i];
         $fileTmpName  = $_FILES['file']['tmp_name'][$i];
         $fileType = $_FILES['file']['type'][$i];
-        // $fileExtension = strtolower(end(explode('.',$fileName)));
+        $fileExtension = strtolower(end(explode('.',$fileName)));
 
         $uploadPath = $currentDirectory . $uploadDirectory . basename($fileName); 
 
 
-          // if (! in_array($fileExtension,$fileExtensionsAllowed)) {
-          //   $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
-          // }
+          if (! in_array($fileExtension,$fileExtensionsAllowed)) {
+            $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
+          }
 
           if ($fileSize > 4000000) {
             $errors[] = "File exceeds maximum size (4MB)";
@@ -39,6 +39,7 @@
           } else {
             foreach ($errors as $error) {
               $msg = $error . "These are the errors" . "\n";
+              
             }
           }
 

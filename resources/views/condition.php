@@ -24,7 +24,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-12" align="center">
-            <a href="index.php?page=verify" class="btn btn-primary rounded-pill d-flex justify-content-center Regular" style="width: 380px;">ยอมรับและดำเนินการต่อ</a>
+            <a href="index.php?page=<?php echo $_REQUEST['page'] ?>" class="btn btn-primary rounded-pill d-flex justify-content-center Regular" style="width: 380px;">ยอมรับและดำเนินการต่อ</a>
         </div>
     </div>
 </div>

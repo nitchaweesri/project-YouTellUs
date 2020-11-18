@@ -19,7 +19,7 @@ $result = ytu_complainttype();
         $name_vl = $value['COMPLAINTTITLE_'.strtoupper(isset($_SESSION['lang']) ? $_SESSION['lang'] : 'th')];
         echo '<div class="row mt-3 justify-content-md-center justify-content-sm-center">
                 <div class="col-lg-8 col-md-8 col-sm-10 mb-2">
-                    <a href="index.php?page='. $page_vl .'" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
+                    <a href="index.php?condition=TRUE&page='. $page_vl .'" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
                         '. $name_vl .'
                     </a>
                 </div>

@@ -14,38 +14,44 @@
     $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;
     
     if (isset($_SESSION['logOn'])&& $_SESSION['logOn']=='true') {
-        if ($page == 2) {
-            $view = 'resources/views/menu.php';
-        } elseif ($page == "GN") {
-            $view = 'resources/views/form1.php';
-        } elseif ($page == "JP") {
-            $view = 'resources/views/form2.php';
-        } elseif ($page == "OT") {
-            $view = 'resources/views/form3.php';
-        } elseif ($page == "thanks") {
-            $view = 'resources/views/thanks.php';
-        } elseif ($page == "error") {
-            $view = 'resources/views/error.php';
-        }elseif ($page == "testdb") {
-            $view = 'resources/views/query.php';
-        }elseif ($page == "querybyid") {
-            $view = 'resources/views/querybyid.php';
-        }elseif ($page == "menuupload") {
-            $view = 'resources/views/menuUpload.php';
-        }elseif ($page == "upload") {
-            $view = 'resources/views/upload.php';
-        }elseif ($page == "test") {
-            $view = 'resources/views/test.php';
-        }elseif ($page == "error") {
-            $view = 'resources/views/error.php';
+        if (isset($_REQUEST['condition']) &&$_REQUEST['condition'] == TRUE) {
+            $view = 'resources/views/condition.php';
+        } else {
+             if ($page == 2) {
+                $view = 'resources/views/menu.php';
+            } elseif ($page == "GN") {
+                $view = 'resources/views/form1.php';
+            } elseif ($page == "JP") {
+                $view = 'resources/views/form2.php';
+            } elseif ($page == "OT") {
+                $view = 'resources/views/form3.php';
+            } elseif ($page == "thanks") {
+                $view = 'resources/views/thanks.php';
+            } elseif ($page == "error") {
+                $view = 'resources/views/error.php';
+            }elseif ($page == "testdb") {
+                $view = 'resources/views/query.php';
+            }elseif ($page == "querybyid") {
+                $view = 'resources/views/querybyid.php';
+            }elseif ($page == "menuupload") {
+                $view = 'resources/views/menuUpload.php';
+            }elseif ($page == "upload") {
+                $view = 'resources/views/upload.php';
+            }elseif ($page == "test") {
+                $view = 'resources/views/test.php';
+            }elseif ($page == "error") {
+                $view = 'resources/views/error.php';
+            }
+            else{
+                $view = 'resources/views/menu.php';
+            }
         }
-        else{
-            $view = 'resources/views/menu.php';
-        }
+        
+       
     } else {  
               
         if ($page == '' || $page == 1) {
-            $view = 'resources/views/condition.php';
+            $view = 'resources/views/verify.php';
         }elseif ($page == "verify") {
             $view = 'resources/views/verify.php';
         }elseif ($page == "otp") {
@@ -58,7 +64,7 @@
                     $view = 'resources/views/otp.php';
                 }
             } else {
-                $view = 'resources/views/condition.php';
+                $view = 'resources/views/verify.php';
             }
 
         }elseif ($page == "error") {
@@ -66,7 +72,7 @@
         }elseif ($page == "test") {
             $view = 'resources/views/test.php';
         }else{
-            $view = 'resources/views/condition.php';
+            $view = 'resources/views/verify.php';
         }
 
         

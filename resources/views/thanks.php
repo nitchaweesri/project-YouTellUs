@@ -34,7 +34,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <a href="index.php?page=1" class="text-primary d-flex justify-content-center">กลับหน้าแรก</a>
+                <a href="index.php?page=1&re_session=unset" class="text-primary d-flex justify-content-center" id="finish">กลับหน้าแรก</a>
             </div>
         </div>
     </div>

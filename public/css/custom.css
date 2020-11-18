@@ -135,6 +135,10 @@ h7{
     overflow: hidden;
 }
 
+.rc-anchor-normal {
+    height: 74px;
+    width: 297px !important;
+}
 
 
 /* -----------------------------------font---------------------------------------- */

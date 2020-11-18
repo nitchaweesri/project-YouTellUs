@@ -9,10 +9,11 @@
         <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired') { ?>
             <div class="form-group">
                 <label for="exampleInputEmail1" class="text-danger" style="float: left;">คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง</label>
-            </div> 
+            </div>
         <?php } ?>
-
-        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
+        <div class="form-group" style="float: left;">
+            <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
+        </div>
 
         <div class="row" align="center" style="display: inline;">
             <div class="col-lg-7 col-md-8 col-sm-10">
@@ -29,6 +30,10 @@
 
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
+$(document).ready(function() {
+    $('#makesession').prop('disabled', true);
+});
+
 (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -74,13 +79,7 @@ $(function () {
 });
 
 function recaptchaCallback() {
-    alert("captcha here");
-    // captcha_checked = true;
-    // if(check_data_input){
-    //     $('#pre-submit').prop('disabled', false);
-    // }else{
-    //     $('#pre-submit').prop('disabled', true);
-    // }
+    $('#makesession').prop('disabled', false);
 };
 
 </script>

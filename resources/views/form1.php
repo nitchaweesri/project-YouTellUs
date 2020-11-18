@@ -7,9 +7,9 @@ $result = ytu_product();
 ?>
 
 <div class="container-sm">
-    <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
+    <div class="container mb-4 p-3 mb-5 bg-white pd-top">
         <div class="row justify-content-center ">
-            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
+            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-3 pt-md-3">
                 <form
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
@@ -25,7 +25,7 @@ $result = ytu_product();
                     ?>
                     
                     <div class="form-group">
-                        <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
+                        <label for="exampleFormControlInput1" class="text-primary h5 Regular mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
                             required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
@@ -50,7 +50,7 @@ $result = ytu_product();
                     </div>
 
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h5 Regular"><?php echo constant('เรื่องร้องเรียน')?></label>
+                        <label for="feedsubtype" class="text-primary h5 Regular mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
                         <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
@@ -71,14 +71,15 @@ $result = ytu_product();
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <textarea name="description" type="text" rows="4" class="form-control Light "
+                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
                             id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
+                        <div id="characters-left" class="characters-left"></div>
                     </div>
 
                     <div class="form-group mt-4">
                         <div class="row">
-                            <div class="col">
+                            <div class="col mb-2 mt-2">
                                 <label for="exampleFormControlInput1"
                                     class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                             </div>
@@ -252,4 +253,21 @@ function validate() {
         document.getElementById('file-copyOfIDCard2').style.display = 'none';
     }
 }
+
+// -------------------------------------------------------------------------------------
+
+var textarea = document.getElementById('validationTextarea');
+
+window.onload = textareaLengthCheck();
+
+function textareaLengthCheck() {
+    var textArea = textarea.value.length;
+    var charactersLeft = 3000 - textArea;
+    var count = document.getElementById('characters-left');
+    count.innerHTML = charactersLeft + "/3000";
+}
+
+textarea.addEventListener('keyup', textareaLengthCheck, false);
+textarea.addEventListener('keydown', textareaLengthCheck, false);
+
 </script>

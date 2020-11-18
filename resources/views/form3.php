@@ -5,9 +5,9 @@ include 'controllers/uploadfile.php';
 $result = ytu_product();
 ?>
 <div class="container-sm">
-    <div class="container mb-4 shadow-lg p-3 mb-5 bg-white rounded pd-top">
+    <div class="container mb-4 p-3 mb-5 bg-white pd-top">
         <div class="row justify-content-center">
-            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-5 pt-md-5">
+            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-3 pt-md-3">
                 <form
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=OT";?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
@@ -24,7 +24,7 @@ $result = ytu_product();
                     ?>
  
                     <div class="row">
-                        <div class="col">
+                        <div class="col mb-2">
                             <label for="exampleFormControlInput1" class="text-primary h5 Regular">ข้อมูลนิติบุคคล</label>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ $result = ytu_product();
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h5 Regular">เรื่องร้องเรียน</label>
+                        <label for="feedsubtype" class="text-primary h5 Regular mb-2">เรื่องร้องเรียน</label>
                         <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
@@ -86,120 +86,122 @@ $result = ytu_product();
                             <?php echo $_POST['nameOwner'] = isset($_POST['nameOwner']) ?  " value='".$_POST['nameOwner']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="description" type="text" rows="4" class="form-control Light "
+                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
                             id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
                             <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
+                        <div id="characters-left" class="characters-left"></div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="exampleFormControlInput1"
-                                class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
-                        </div>
-                    </div>
-                    <div class="row pl-2">
-                        <div class="col ">
-                            <div class="form-check">
-                                <input class="form-check-input" name="copyOfDelegate" type="checkbox" checked disabled
-                                    id="copyOfDelegate" value="copyOfDelegate" onclick="validate()">
-                                <label class="form-check-label"
-                                    for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</label>
+                    <div class="form-group mt-4">
+                        <div class="row">
+                            <div class="col mb-2 mt-2">
+                                <label for="exampleFormControlInput1"
+                                    class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
                             </div>
                         </div>
-                    </div>
-                    
-                        <?php   
-                        if(isset($file)){ 
-                            foreach ($file as $key => $value) {
-                                echo '<label class="form-check-label">'.$value.'</label><br>' ;
-                            }
-                        }else{ ?>
+                        <div class="row pl-2">
+                            <div class="col ">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="copyOfDelegate" type="checkbox" checked disabled
+                                        id="copyOfDelegate" value="copyOfDelegate" onclick="validate()">
+                                    <label class="form-check-label"
+                                        for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <?php   
+                            if(isset($file)){ 
+                                foreach ($file as $key => $value) {
+                                    echo '<label class="form-check-label">'.$value.'</label><br>' ;
+                                }
+                            }else{ ?>
+                            <div class="row pl-2">
+                                <div class="col-sm-12 col-md-6 mb-2">
+                                <div class="custom-file" id="file-copyOfDelegate1" style="display: block;" >
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-copyOfDelegate1" required/>
+                                    <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 mb-2">
+                                <div class="custom-file" id="file-copyOfDelegate2" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-copyOfDelegate2" />
+                                    <label class="custom-file-label" for="input-copyOfDelegate2">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pl-2">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="copyOfOwner" type="checkbox" id="copyOfOwner"
+                                        value="copyOfOwner" onclick="validate()">
+                                    <label class="form-check-label"
+                                        for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row pl-2">
                             <div class="col-sm-12 col-md-6 mb-2">
-                            <div class="custom-file" id="file-copyOfDelegate1" style="display: block;" >
-                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfDelegate1" required/>
-                                <label class="custom-file-label" for="input-copyOfDelegate1">Choose file</label>
+                                <div class="custom-file" id="file-copyOfOwner1" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-copyOfOwner1" />
+                                    <label class="custom-file-label" for="input-copyOfOwner1">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 mb-2">
+                                <div class="custom-file" id="file-copyOfOwner2" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-copyOfOwner2" />
+                                    <label class="custom-file-label" for="input-copyOfOwner2">Choose file</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 mb-2">
-                            <div class="custom-file" id="file-copyOfDelegate2" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfDelegate2" />
-                                <label class="custom-file-label" for="input-copyOfDelegate2">Choose file</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pl-2">
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" name="copyOfOwner" type="checkbox" id="copyOfOwner"
-                                    value="copyOfOwner" onclick="validate()">
-                                <label class="form-check-label"
-                                    for="inlineCheckbox1">สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pl-2">
-                        <div class="col-sm-12 col-md-6 mb-2">
-                            <div class="custom-file" id="file-copyOfOwner1" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfOwner1" />
-                                <label class="custom-file-label" for="input-copyOfOwner1">Choose file</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 mb-2">
-                            <div class="custom-file" id="file-copyOfOwner2" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-copyOfOwner2" />
-                                <label class="custom-file-label" for="input-copyOfOwner2">Choose file</label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row  pl-2">
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="companyCertificate"
-                                    id="companyCertificate" value="companyCertificate" onclick="validate()">
-                                <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล(อายุไม่เกิน 6 เดือน)</label>
+                        <div class="row  pl-2">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="companyCertificate"
+                                        id="companyCertificate" value="companyCertificate" onclick="validate()">
+                                    <label class="form-check-label" for="inlineCheckbox1">สำเนาหนังสือรับรองนิติบุคคล(อายุไม่เกิน 6 เดือน)</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row  pl-2">
-                        <div class="col-sm-12 col-md-6  mb-2">
-                            <div class="custom-file" id="file-companyCertificate1" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-companyCertificate1" />
-                                <label class="custom-file-label" for="input-companyCertificate1">Choose file</label>
+                        <div class="row  pl-2">
+                            <div class="col-sm-12 col-md-6  mb-2">
+                                <div class="custom-file" id="file-companyCertificate1" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-companyCertificate1" />
+                                    <label class="custom-file-label" for="input-companyCertificate1">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6  mb-2">
+                                <div class="custom-file" id="file-companyCertificate2" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-companyCertificate2" />
+                                    <label class="custom-file-label" for="input-companyCertificate2">Choose file</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6  mb-2">
-                            <div class="custom-file" id="file-companyCertificate2" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-companyCertificate2" />
-                                <label class="custom-file-label" for="input-companyCertificate2">Choose file</label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row pl-2">
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="powerOfAttorney"
-                                    id="powerOfAttorney" value="powerOfAttorney" onclick="validate()">
-                                <label class="form-check-label" for="inlineCheckbox1">หนังสือมอบอำนาจ</label>
+                        <div class="row pl-2">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="powerOfAttorney"
+                                        id="powerOfAttorney" value="powerOfAttorney" onclick="validate()">
+                                    <label class="form-check-label" for="inlineCheckbox1">หนังสือมอบอำนาจ</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pl-2">
+                            <div class="col-sm-12 col-md-6  mb-2">
+                                <div class="custom-file" id="file-powerOfAttorney1" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-powerOfAttorney1" />
+                                    <label class="custom-file-label" for="input-powerOfAttorney1">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 mb-2">
+                                <div class="custom-file" id="file-powerOfAttorney2" style="display: none;">
+                                    <input name="file[]" type="file" class="custom-file-input" id="input-powerOfAttorney2" />
+                                    <label class="custom-file-label" for="input-powerOfAttorney2">Choose file</label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row pl-2">
-                        <div class="col-sm-12 col-md-6  mb-2">
-                            <div class="custom-file" id="file-powerOfAttorney1" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-powerOfAttorney1" />
-                                <label class="custom-file-label" for="input-powerOfAttorney1">Choose file</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 mb-2">
-                            <div class="custom-file" id="file-powerOfAttorney2" style="display: none;">
-                                <input name="file[]" type="file" class="custom-file-input" id="input-powerOfAttorney2" />
-                                <label class="custom-file-label" for="input-powerOfAttorney2">Choose file</label>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <?php }?>
                         
                     <div class="row mt-3">
@@ -397,4 +399,20 @@ function validate() {
         document.getElementById('file-powerOfAttorney2').style.display = 'none';
     }
 }
+
+// -------------------------------------------------------------------------------------
+
+var textarea = document.getElementById('validationTextarea');
+
+window.onload = textareaLengthCheck();
+
+function textareaLengthCheck() {
+    var textArea = textarea.value.length;
+    var charactersLeft = 3000 - textArea;
+    var count = document.getElementById('characters-left');
+    count.innerHTML = charactersLeft + "/3000";
+}
+
+textarea.addEventListener('keyup', textareaLengthCheck, false);
+textarea.addEventListener('keydown', textareaLengthCheck, false);
 </script>

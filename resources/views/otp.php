@@ -1,31 +1,3 @@
-<?php
-    if (isset($_POST['g-recaptcha-response'])) {
-        $captcha = $_POST['g-recaptcha-response'];
-    } else {
-        $captcha = false;
-    }
-    
-    if (!$captcha) {
-        printf("dont have captcha");
-    } else {
-        $secret   = '6Ldbad4ZAAAAAGdmwIx5DUNh9dLRdIcMugjXBUXF';
-        $response = file_get_contents(
-            "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
-        );
-        // use json_decode to extract json response
-        $response = json_decode($response);
-    
-        if ($response->success === false) {
-            printf("captcha fine but dont have respon");
-        }
-
-        if ($response->success==true && $response->score != 0.0) {
-            session_start();
-            $_SESSION['score'] = $response->score;
-            printf("score is : " . $response->score);
-        }
-    }
-?>
 <style>
     a { color: black; font-size: 13px; color: #495057; }
     .img-refresh-otp { width: 13px; height: 13px; margin-bottom: 3px; }

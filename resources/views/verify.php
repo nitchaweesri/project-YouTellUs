@@ -11,51 +11,24 @@
                 <label for="exampleInputEmail1" class="text-danger" style="float: left;">คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง</label>
             </div> 
         <?php } ?>
-        
-        <?php /* ?>    
-        <!-- <div class="d-flex justify-content-center">
-            <img src="public/img/captcha.png" alt="captcha" width="320" height="140">
-        </div> -->
-        <!-- <div class="row mt-3">
-            <div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary rounded-pill  Regular col-12 g-recaptcha" data-sitekey="6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD" 
-        data-callback='onSubmit' data-action='submit'>ส่งรหัส OTP</button>
-            </div>
-        </div> -->
-        <?php */ ?>
-        
+
+        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
+
         <div class="row" align="center" style="display: inline;">
             <div class="col-lg-7 col-md-8 col-sm-10">
                 <div class="col d-flex justify-content-center">
-                    <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12" style="width: ">ส่งรหัส OTP</button>
+                    <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12">ส่งรหัส OTP</button>
                 </div>
             </div>
         </div>
         
     </form>
     
-    <?php /* ?>
-    <!-- 
-    <button class="g-recaptcha" 
-        data-sitekey="6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD" 
-        data-callback='onSubmit' 
-        data-action='submit'>Submit</button> 
-    -->
-    <?php */ ?>
         
 </div>
 
-<!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
-<script src="https://www.google.com/recaptcha/api.js?render=6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD"></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6Ldbad4ZAAAAABNqGumBSri1FZbN83i-wnANG_PD', {action:'validate_captcha'}).then(function(token) {
-            // add token value to form
-            document.getElementById('g-recaptcha-response').value = token;
-        });
-    });
-
-
 (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -79,7 +52,7 @@ $(function () {
             url: 'controllers/sessionCreate.php',
             data:{"name": "countStart","value":new Date().getTime()}
             // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
+        });
         $.ajax({
             type: "POST",
             url: 'controllers/sessionCreate.php',
@@ -99,5 +72,15 @@ $(function () {
         // window.location.href = 'index.php?page=otp';    
     });
 });
+
+function recaptchaCallback() {
+    alert("captcha here");
+    // captcha_checked = true;
+    // if(check_data_input){
+    //     $('#pre-submit').prop('disabled', false);
+    // }else{
+    //     $('#pre-submit').prop('disabled', true);
+    // }
+};
 
 </script>

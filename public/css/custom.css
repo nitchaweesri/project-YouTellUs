@@ -26,12 +26,6 @@ input,p,label,textarea,a,button{
     font-family: 'Mitr-Regular';
 }
 
-.characters-left{
-    float: right;
-    color: #6c757d;
-    font-size: 1rem;
-    font-family: 'Mitr-Regular';
-}
 
 .text-primary,.btn-outline-primary{
     color:#765ABA !important;
@@ -85,14 +79,6 @@ h7{
     margin-top: 80px !important;
 }
 
-.form-group {
-    margin-bottom: 17px !important;
-}
-
-.form-control{
-    border-radius: 0.5rem !important;
-}
-
 .otp-pd-top { margin-top: 40px !important; }  
 
 #menu {
@@ -135,10 +121,6 @@ h7{
     overflow: hidden;
 }
 
-.rc-anchor-normal {
-    height: 74px;
-    width: 297px !important;
-}
 
 .footer {
     text-align: center;
@@ -200,3 +182,9 @@ h7{
 
 /* -----------------------------------font---------------------------------------- */
 
+
+
+.modal-content{
+    border: none !important;
+    border-radius: 1.5rem !important;
+}

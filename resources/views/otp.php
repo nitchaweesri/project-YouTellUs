@@ -34,7 +34,6 @@
 </div>
 
 
-
 <!-- <div id="myModal" class="modal" style="background: #343a408c;">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -49,31 +48,8 @@
 </div> -->
 
 <footer class="footer">
-    <label>ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว</label>
+    <button class="policy" onclick="policy()">ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว</button>
 </footer>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
 <script>
     (function() {
@@ -118,6 +94,20 @@ var downloadTimer = setInterval(function(){
   }
   second += 1;
 }, 1000);
+
+function policy() {
+    $('#exampleModal').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว')
+            modal.find('.modal-body').prepend($(`
+           
+             `));
+            modal.find('.modal-footer').text('')
+            
+            })
+        $('#exampleModal').modal('show')
+};
+
 
 function reotp() {
 

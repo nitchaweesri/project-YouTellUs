@@ -100,7 +100,7 @@ function policy() {
             var modal = $(this)
             modal.find('.modal-title').text('ข้อกำหนดการใช้บริการและนโยบายความเป็นส่วนตัว')
             })
-        $('#modal-policy').modal('show')
+    $('#modal-policy').modal('show')
 };
 
 

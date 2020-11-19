@@ -142,6 +142,21 @@ h7{
     outline: none !important;
 }
 
+.img-hover-zoom {
+    height: 88px;
+    overflow: hidden;
+}
+.img-hover-zoom img {
+    transition: transform .5s ease;
+}
+.img-hover-zoom:hover img {
+    transform: scale(1.2);
+}
+.img-lang{
+    padding-top: 10px;
+    cursor: pointer;
+}
+
 /* -----------------------------------font---------------------------------------- */
 
 @font-face {

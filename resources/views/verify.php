@@ -1,3 +1,5 @@
+
+
 <div class="container mb-4 p-4 mb-5 bg-white rounded pd-top" align="center">
     <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
         <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
@@ -109,7 +111,9 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col mr-0 pr-0">
                     <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
-                        <img src="public/img/thailand.svg" width="70px" alt="">
+                        <div class="img-hover-zoom">
+                            <img class="img-lang" src="public/img/thailand.svg" width="70px" alt="">
+                        </div>
                     </a>
                     <div class="row">
                         <h7 class="mx-auto mt-2 Regular">ไทย</h7>
@@ -117,7 +121,9 @@ $(document).ready(function(){
                 </div>
                 <div class="col ml-0 pl-0">
                     <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
-                        <img src="public/img/united-states.svg" width="70px" alt="">
+                        <div class="img-hover-zoom">
+                            <img class="img-lang" src="public/img/united-states.svg" width="70px" alt="">
+                        </div>
                     </a>
                     <div class="row">
                         <h7 class="mx-auto mt-2 Regular">อังกฤษ</h7>

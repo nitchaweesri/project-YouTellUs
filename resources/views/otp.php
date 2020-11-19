@@ -96,16 +96,11 @@ var downloadTimer = setInterval(function(){
 }, 1000);
 
 function policy() {
-    $('#exampleModal').on('show.bs.modal', function (event) {
+    $('#modal-policy').on('show.bs.modal', function (event) {
             var modal = $(this)
-            modal.find('.modal-title').text('ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว')
-            modal.find('.modal-body').prepend($(`
-           
-             `));
-            modal.find('.modal-footer').text('')
-            
+            modal.find('.modal-title').text('ข้อกำหนดการใช้บริการและนโยบายความเป็นส่วนตัว')
             })
-        $('#exampleModal').modal('show')
+        $('#modal-policy').modal('show')
 };
 
 
@@ -150,8 +145,6 @@ function checkotp(params) {
 
         window.location.href = 'index.php?page=otp&msg=pwd';
         
-        
-        
     
     } else {
         var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
@@ -194,7 +187,7 @@ $(document).ready(function(){
         localStorage.setItem('firstime','false');
         $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
-            modal.find('.modal-title').text('ข้อมความ')
+            modal.find('.modal-title').text('ข้อความ')
             modal.find('.modal-body').prepend($(` 
                 <div class="row">
                     <div class="col">

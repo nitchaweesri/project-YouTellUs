@@ -26,9 +26,10 @@
         </div>
         
     </form>
-        
 </div>
-
+<footer class="footer">
+    <button class="policy" onclick="policy()">ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว</button>
+</footer>
 
 
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
@@ -36,7 +37,13 @@
 $(document).ready(function() {
     // $('#makesession').prop('disabled', true);
 });
-
+function policy() {
+    $('#modal-policy').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('ข้อกำหนดการใช้บริการและนโยบายความเป็นส่วนตัว')
+            })
+        $('#modal-policy').modal('show')
+};
 (function() {
     'use strict';
     window.addEventListener('load', function() {

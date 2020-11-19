@@ -1,19 +1,4 @@
-<style>
-    .img-hover-zoom {
-        height: 88px;
-        overflow: hidden;
-    }
-    .img-hover-zoom img {
-        transition: transform .5s ease;
-    }
-    .img-hover-zoom:hover img {
-        transform: scale(1.2);
-    }
-    .img-lang{
-        padding-top: 10px;
-        cursor: pointer;
-    }
-</style>
+
 
 <div class="container mb-4 p-4 mb-5 bg-white rounded pd-top" align="center">
     <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
@@ -118,7 +103,7 @@ $(document).ready(function(){
 
     var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
     
-    // if (langSession == 'FALSE') {
+    if (langSession == 'FALSE') {
         $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
             modal.find('.modal-title').text('เลือกภาษา')
@@ -150,7 +135,7 @@ $(document).ready(function(){
             
             })
         $('#exampleModal').modal('show')
-    // }
+    }
     
 });
 

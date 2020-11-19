@@ -97,9 +97,9 @@ var downloadTimer = setInterval(function(){
 
 function policy() {
     $('#modal-policy').on('show.bs.modal', function (event) {
-            var modal = $(this)
-            modal.find('.modal-title').text('ข้อกำหนดการใช้บริการและนโยบายความเป็นส่วนตัว')
-            })
+        var modal = $(this)
+        modal.find('.modal-title').text('ข้อกำหนดการใช้บริการและนโยบายความเป็นส่วนตัว')
+    })
     $('#modal-policy').modal('show')
 };
 
@@ -108,20 +108,19 @@ function reotp() {
 
     var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
     var newmistake = oldmistake+=1;
-  
+
     $.ajax({
         type: "POST",
         url: 'controllers/sessionCreate.php',
         data:{"name": "countStart","value":new Date().getTime()}
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-    }); 
+    });
     $.ajax({
         type: "POST",
         url: 'controllers/sessionCreate.php' ,
         data:{"name": "countMistake","value":newmistake }
         // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-    }); 
-
+    });
 
     // if (parseInt(sessionStorage.getItem('countMistake'))>3) {
     //     window.location.href = 'index.php?page=error';
@@ -134,7 +133,6 @@ function checkotp(params) {
     if ($('#otp').val()!='1234') {
         var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
         var newmistake = oldmistake+=1;
-        
     
         $.ajax({
             type: "POST",
@@ -180,28 +178,26 @@ function checkotp(params) {
 
 
 $(document).ready(function(){
-    
-
     if (localStorage.getItem('firstime') =='true') {
 
         localStorage.setItem('firstime','false');
         $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
             modal.find('.modal-title').text('ข้อความ')
-            modal.find('.modal-body').prepend($(` 
+            modal.find('.modal-body').prepend($(`
                 <div class="row">
                     <div class="col">
                         <div class="Regular" style="font-size: 13px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
                     </div>
                 </div>`
-                ));
+            ));
             modal.find('.modal-footer').text('')
             
             })
             $('#exampleModal').modal('show')
         }
     
-    });
+});
     
 
 

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: devscbdb01:9306
--- Generation Time: Nov 05, 2020 at 09:22 AM
--- Server version: 10.2.25-MariaDB-log
--- PHP Version: 7.2.19
+-- Host: localhost
+-- Generation Time: Nov 20, 2020 at 10:17 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.3.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -49,7 +48,10 @@ INSERT INTO `CONFIG_YTU_PRODUCT` (`PRODUCTID`, `COMPLAINTCODE`, `PRODUCTCODE`, `
 (6, 'OT', 'PL', 'สินเชื่อส่วนบุคคล', 'Personal loan'),
 (7, 'JP', 'DP', 'บัญชีเงินฝาก', 'Deposit Account'),
 (8, 'JP', 'CC', 'บัตรเครดิต', 'Credit Card'),
-(9, 'JP', 'PL', 'สินเชื่อส่วนบุคคล', 'Personal loan');
+(9, 'JP', 'PL', 'สินเชื่อส่วนบุคคล', 'Personal loan'),
+(10, 'GN', 'IE', 'อื่น ๆ', 'Other'),
+(11, 'JP', 'IE', 'อื่น ๆ', 'Other'),
+(12, 'OT', 'IE', 'อื่น ๆ', 'Other');
 
 --
 -- Indexes for dumped tables
@@ -70,7 +72,7 @@ ALTER TABLE `CONFIG_YTU_PRODUCT`
 -- AUTO_INCREMENT for table `CONFIG_YTU_PRODUCT`
 --
 ALTER TABLE `CONFIG_YTU_PRODUCT`
-  MODIFY `PRODUCTID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `PRODUCTID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

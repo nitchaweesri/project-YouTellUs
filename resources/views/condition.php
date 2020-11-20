@@ -1,6 +1,6 @@
 
 <div style="height:80px"></div>
-<div class="container col-lg-7 col-md-12 col-sm-12 ">
+<div class="container col-lg-7 col-md-10 col-sm-11 ">
     <div class="row">
         <div class="col">
             <h2 class="text-primary text-center Regular pb-2 pt-2">เงื่อนไขการร้องเรียน</h2>
@@ -24,7 +24,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-12" align="center">
-            <a href="index.php?page=<?php echo $_REQUEST['page'] ?>" class="btn btn-primary rounded-pill d-flex justify-content-center Regular" style="width: 380px;">ยอมรับและดำเนินการต่อ</a>
+            <a href="index.php?page=<?php echo $_REQUEST['page'] ?>" class="btn btn-primary rounded-pill d-flex justify-content-center Regular">ยอมรับและดำเนินการต่อ</a>
         </div>
     </div>
 </div>

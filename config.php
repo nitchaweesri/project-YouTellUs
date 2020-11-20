@@ -16,5 +16,10 @@
     if (!defined('TIME_BLOCK_EXPIRE')) define('TIME_BLOCK_EXPIRE', 10); // minute
     if (!defined('POSSIBLE_ERROR_OTP')) define('POSSIBLE_ERROR_OTP', 3); //time
 
+
+    if (!defined('EXTENSION_ALLOW')) define('EXTENSION_ALLOW', ['jpeg','jpg','JPG','png','doc','docx','pdf']);  // no space bar
+    if (!defined('FILE_SIZE_ALLOW')) define('FILE_SIZE_ALLOW', 4000000); //// B 
+
+
     
 ?>

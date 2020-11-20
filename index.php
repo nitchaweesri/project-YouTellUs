@@ -23,9 +23,9 @@
                 $view = 'resources/views/menu.php';
             } elseif ($page == "GN") {
                 $view = 'resources/views/form1.php';
-            } elseif ($page == "JP") {
-                $view = 'resources/views/form2.php';
             } elseif ($page == "OT") {
+                $view = 'resources/views/form2.php';
+            } elseif ($page == "JP") {
                 $view = 'resources/views/form3.php';
             } elseif ($page == "thanks") {
                 $view = 'resources/views/thanks.php';
@@ -107,6 +107,9 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+
+        <script src="public/js/uploadimage.js"></script>
 
         <?php // include_once 'lang/lang_'. $lang .'.php'; ?>
     </head>

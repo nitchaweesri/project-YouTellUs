@@ -34,7 +34,6 @@
 </div>
 
 
-
 <!-- <div id="myModal" class="modal" style="background: #343a408c;">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -48,7 +47,9 @@
   </div>
 </div> -->
 
-
+<footer class="footer">
+    <button class="policy" onclick="policy()">ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว</button>
+</footer>
 
 <script>
     (function() {
@@ -94,6 +95,15 @@ var downloadTimer = setInterval(function(){
   second += 1;
 }, 1000);
 
+function policy() {
+    $('#modal-policy').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            modal.find('.modal-title').text('ข้อกำหนดการใช้บริการและนโยบายความเป็นส่วนตัว')
+            })
+    $('#modal-policy').modal('show')
+};
+
+
 function reotp() {
 
     var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
@@ -134,8 +144,6 @@ function checkotp(params) {
         });
 
         window.location.href = 'index.php?page=otp&msg=pwd';
-        
-        
         
     
     } else {
@@ -179,7 +187,7 @@ $(document).ready(function(){
         localStorage.setItem('firstime','false');
         $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
-            modal.find('.modal-title').text('ข้อมความ')
+            modal.find('.modal-title').text('ข้อความ')
             modal.find('.modal-body').prepend($(` 
                 <div class="row">
                     <div class="col">

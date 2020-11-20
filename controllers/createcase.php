@@ -22,7 +22,8 @@ function create_case($data)
         $JsonFile = array();
         foreach ($_POST['file'] as $key => $value) {
             $JsonFile["file$key"] = $value ;
-            $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$value;
+            $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$_POST['linkFile'][$key];
+
         }
 
         ///////////// set json data ////////////
@@ -31,6 +32,7 @@ function create_case($data)
                             ,"tel"=> $_POST['tel'] 
                             ,"email"=> $_POST['email']
                             ,"idUser"=> $_POST['iduser']
+                            ,"other"=> isset($_POST['other'])? $_POST['other'] : "" 
                             ,"description"=> $_POST['description']
                             ,"nameDelegate"=> isset($_POST['nameDelegate'])? $_POST['nameDelegate'] : "" 
                             ,"service"=> isset($_POST['service'])? $_POST['service'] : "" 

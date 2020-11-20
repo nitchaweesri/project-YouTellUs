@@ -12,7 +12,7 @@
     function ytu_product()
     {
         include 'database/model/database.php';
-        $sql = "SELECT * FROM `CONFIG_YTU_PRODUCT` GROUP BY `PRODUCTCODE`";
+        $sql = "SELECT * FROM `CONFIG_YTU_PRODUCT` GROUP BY `PRODUCTCODE`  ORDER BY `PRODUCTID`";
         $result = $conn->query($sql);
         return $result;
     }

@@ -6,52 +6,51 @@ include 'controllers/uploadfile.php';
 $result = ytu_product();
 ?>
 
-<div class="container-sm">
-    <div class="container mb-4 p-3 mb-5 bg-white pd-top">
+<div class="container">
+    <div class="p-2 mb-5 bg-white pd-top">
         <div class="row justify-content-center ">
-            <div class="col-lg-10 col-md-12 col-sm-12 pt-lg-3 pt-md-3">
+            <div class="col-lg-7 col-md-10 col-sm-12 pt-lg-3 pt-md-3">
                 <form
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
-
                     <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
                     <?php 
                     if(isset($file)){ 
-                        foreach ($file as $key => $value) {
-                          echo   '<input type="hidden" name="file[]" value="'.$value.'" >';
-                        }
-                    }
-                    ?>
+                        foreach ($file as $key => $value) { ?>
+                         <input type="hidden" name="file[]" value="<?php echo $value ?>" > 
+                         <input type="hidden" name="linkFile[]" value="<?php echo $linkFile[$key] ?>" >
+                       <?php  }
+                    }  ?>
                     
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h5 Regular mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>
                         <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
-                            required
+                            requiredss
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Light"
-                            placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
+                            placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" requiredss
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
                     </div>
                     <div class="form-group">
                         <input name="tel" type="tel" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
+                            placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" requiredss
                             <?php echo isset($_SESSION['phoneNo']) ?  " value='".$_SESSION['phoneNo']."' readonly"  : "";?>
                             pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">
                         <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="<?php echo constant("อีเมล")?>" required
+                            placeholder="<?php echo constant("อีเมล")?>" requiredss
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>
                             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     </div>
 
                     <div class="form-group mt-4">
                         <label for="feedsubtype" class="text-primary h5 Regular mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
-                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
+                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" requiredss>
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
                                 if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
@@ -65,57 +64,26 @@ $result = ytu_product();
                             ?>
                         </select>
                     </div>
+                    <div class="form-group" id="other"  <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
+                        <input name="other" type="text" class="form-control Light" id="other"
+                            placeholder="<?php echo constant('ระบุ')?>" requiredss
+                            <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
+                    </div>
                     <div class="form-group">
                         <input name="iduser" type="text" class="form-control Light" id="exampleFormControlInput1"
-                            placeholder="<?php echo constant('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน')?>" required
+                            placeholder="<?php echo constant('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน')?>" requiredss
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
-                            id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
+                            id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" requiredss
                             <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
                         <div id="characters-left" class="characters-left"></div>
                     </div>
 
-                    <div class="form-group mt-4">
-                        <div class="row">
-                            <div class="col mb-2 mt-2">
-                                <label for="exampleFormControlInput1"
-                                    class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" name="copyOfIDCard" type="checkbox" checked disabled
-                                        id="copyOfIDCard" value="copyOfIDCard" onclick="validate()">
-                                    <label class="form-check-label" for="copyOfIDCard">สำเนาบัตรประจำตัวประชาชน</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 mb-2">
-                                <?php  if(isset($file)){ 
-                                    foreach ($file as $key => $value) {
-                                        echo '<label class="form-check-label">'.$value.'</label><br>' ;
-                                    }
-                               
-                                }else{ 
-                                echo '<div class="custom-file" id="file-copyOfIDCard1" style="display: block;" >
-                                        <input name="file[]" type="file" class="custom-file-input" id="input-copyOfIDCard1" required/>
-                                        <label class="custom-file-label" for="input-copyOfIDCard1">Choose file</label>
-                                    </div>';
-                                }?>
-                                
-                            </div>
-                            <div class="col-sm-12 col-md-6 mb-2">
-                                <div class="custom-file" id="file-copyOfIDCard2" style="display: none;">
-                                    <input name="file[]" type="file" class="custom-file-input" id="input-copyOfIDCard2" />
-                                    <label class="custom-file-label" for="input-copyOfIDCard2">Choose file</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include 'formfile.php' ?>
+
+
                     <div class="row mt-4">
                         <div class="col">
                             <h6 class="ExtraLight">
@@ -142,20 +110,10 @@ $result = ytu_product();
 </div>
 
 <script>
-// ---------------------------------Custom Input File------------------------------------
 
-$('#input-copyOfIDCard1').on('change', function() {
-    var fileName = $(this).val();
-    $(this).next('.custom-file-label').html(fileName);
-    document.getElementById('file-copyOfIDCard2').style.display = 'flex';
-})
 
-$('#input-copyOfIDCard2').on('change', function() {
-    var fileName = $(this).val();
-    $(this).next('.custom-file-label').html(fileName);
-})
 
-// --------------------------------------------
+//---------------------------------------------------------
 
 function valid_creditcard(obj) {
     var pattern_otp =
@@ -242,18 +200,6 @@ function IsNumeric(input) {
 
 // -------------------------------------------------------------------------------------
 
-function validate() {
-    if (document.getElementById('copyOfIDCard').checked) {
-        if(document.getElementById("input-copyOfIDCard1").files.length != 0){
-            document.getElementById('file-copyOfIDCard2').style.display = 'flex';
-        }
-        document.getElementById('file-copyOfIDCard1').style.display = 'flex';
-    } else {
-        document.getElementById('file-copyOfIDCard1').style.display = 'none';
-        document.getElementById('file-copyOfIDCard2').style.display = 'none';
-    }
-}
-
 // -------------------------------------------------------------------------------------
 
 var textarea = document.getElementById('validationTextarea');
@@ -269,5 +215,17 @@ function textareaLengthCheck() {
 
 textarea.addEventListener('keyup', textareaLengthCheck, false);
 textarea.addEventListener('keydown', textareaLengthCheck, false);
+
+
+$("#exampleFormControlSelect1").change(function(){
+    var select = $('#exampleFormControlSelect1 option');
+    if(select.filter(':selected').text() == select.filter('option:last').text() ){
+        $('#other').css("display", "block");
+    }else{
+        $('#other').css("display", "none");
+    }
+
+});
+
 
 </script>

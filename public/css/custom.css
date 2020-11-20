@@ -200,7 +200,7 @@ h7{
     border-radius: 0.4rem;
   }
 
-  .close{
+  #uploadmulti div > div .close{
     opacity: 1;
     color: #888888;
     position: relative; 
@@ -211,9 +211,11 @@ h7{
     z-index: 10;
     background-color: #fff;
     border-radius: 20px;
-    padding: 0 4px;
+    padding: 0px 4px 0 4px !important;
     box-shadow: 0 0 10px 0 #ccc;
     cursor: pointer;
+    text-align: end;
   }
+
 
   .pointer {cursor: pointer;}

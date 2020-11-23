@@ -44,3 +44,25 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modal-clear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content m-5 text-center">
+      <div class="modal-header border-0 justify-content-center text-primary">
+        <!-- <h5 class="modal-title Regular" id="exampleModalLabel">Modal title</h5> -->
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body border-0 modal-clear">
+        ท่านต้องการที่จะยกเลิกขั้นตอนทั้งหมดและกลับสู่หน้าเมนูหลักใช่หรือไม่
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        <form action="index.php?re_session=unset">
+          <button type="submit" class="btn btn-primary" href="index.php?re_session=unset">ยืนยัน</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -254,3 +254,23 @@ h7{
 
 
   .pointer {cursor: pointer;}
+
+  .button-clear{
+    background-color: #765ABA;
+    color: white;
+    border: none;
+    padding: 4px;
+    border-radius: 16%;
+    font-size: 15px;
+  }
+
+  .btn-out{
+    position: fixed; 
+    bottom: 11px;
+    right: 11px;
+    width: 70px; 
+  }
+
+  .modal-clear{
+    font-family: 'Mitr-Regular' !important;
+  }

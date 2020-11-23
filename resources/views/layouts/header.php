@@ -2,7 +2,7 @@
 <?php // $countMistake = "<script>document.write(sessionStorage.getItem('countMistake'));</script>"; ?>
 <!-- 
 ################
-SESSION CountMistake is : <?php echo isset($_SESSION['logOn'])? $_SESSION['logOn']:'no'; ?> 
+SESSION lang is : <?php echo isset($_SESSION['form'])? $_SESSION['form']:'no'; ?> 
 ################
 -->
 

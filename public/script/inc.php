@@ -9,7 +9,9 @@ if(isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])){
     }
 }
    // Include Language file
-   if(isset($_SESSION['lang'])){
+   
+   
+if(isset($_SESSION['lang'])){
     include "resources/lang/lang_".$_SESSION['lang'].".php";
 }else{
     include "resources/lang/lang_th.php";

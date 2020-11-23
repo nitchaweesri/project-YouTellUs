@@ -20,7 +20,10 @@ $result = ytu_complainttype();
         ?>
         <div class="row mt-3 justify-content-md-center justify-content-sm-center">
                 <div class="col-lg-11 col-md-8 col-sm-10 mb-2">
-                    <a id="goForm<?php echo $key ?>" href="index.php?condition=TRUE&page=<?php echo $page_vl ?>" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
+                    <!-- <a id="goForm<?php echo $key ?>" href="index.php?condition=TRUE&page=<?php echo $page_vl ?>" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
+                        <?php echo $name_vl?>
+                    </a> -->
+                    <a id="goForm<?php echo $key ?>" href="index.php?page=verify" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
                         <?php echo $name_vl?>
                     </a>
                 </div>
@@ -32,6 +35,12 @@ $result = ytu_complainttype();
                     type: "POST",
                     url: 'controllers/sessionCreate.php' ,
                     data:{"name": "form","value":'<?php echo $page_vl  ?>' }
+                    // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+                });
+                $.ajax({
+                    type: "POST",
+                    url: 'controllers/sessionCreate.php' ,
+                    data:{"name": "lang","value":'<?php echo $_SESSION['lang']  ?>' }
                     // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
                 });
             });

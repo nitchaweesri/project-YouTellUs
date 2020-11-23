@@ -12,8 +12,11 @@ $result = ytu_product();
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=JP";?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 
-                    <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
-                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
+                    <!-- <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
+                    
+                    <input type="hidden" name="feedtype" value="OC" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="relationOptions" value="<?php echo $_POST['relationOptions']?>" >
                     <?php 
                     if(isset($file)){ 
@@ -240,7 +243,7 @@ textarea.addEventListener('keydown', textareaLengthCheck, false);
 $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');
     if(select.filter(':selected').text() == select.filter('option:last').text() ){
-        $('#other').css("display", "block");
+        $('#other').css("display", "block").prop('required',true);;
     }else{
         $('#other').css("display", "none");
     }

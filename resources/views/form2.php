@@ -12,8 +12,11 @@ $result = ytu_product();
                     action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=OT";?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 
-                    <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
-                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
+                    <!-- <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
+                    
+                    <input type="hidden" name="feedtype" value="OC" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="relationOptions" value="<?php echo $_POST['relationOptions']?>" >
                     <?php 
                     if(isset($file)){ 
@@ -76,7 +79,7 @@ $result = ytu_product();
                     </div>
                     <div class="form-group" id="other" <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
                         <input name="other" type="text" class="form-control Light" id="other"
-                            placeholder="<?php echo constant('ระบุ')?>" requiredss
+                            placeholder="<?php echo constant('ระบุ')?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
@@ -294,7 +297,7 @@ textarea.addEventListener('keydown', textareaLengthCheck, false);
 $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');
     if(select.filter(':selected').text() == select.filter('option:last').text() ){
-        $('#other').css("display", "block");
+        $('#other').css("display", "block").prop('required',true);;
     }else{
         $('#other').css("display", "none");
     }

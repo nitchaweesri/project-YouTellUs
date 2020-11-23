@@ -30,7 +30,8 @@
     </form>
 </div>
 <footer class="footer">
-    <button class="policy" onclick="policy()">ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว</button>
+    <p style="margin-bottom: 3px;">นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)</p>
+    <button class="policy" onclick="policy()">คลิก</button>
 </footer>
 
 

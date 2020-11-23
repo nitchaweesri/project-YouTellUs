@@ -135,9 +135,10 @@ h7{
     border: none;
     background: none;
     padding-bottom: 6px;
-    color: #495057;
     font-size: 13px;
     outline: none !important;
+    color: #244f84;
+    text-decoration: underline;
 }
 
 .img-hover-zoom {

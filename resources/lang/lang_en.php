@@ -41,5 +41,12 @@ define('หมายเลขบัญชีผลิตภัณฑ์ที่
 define('ระบุ','specify');
 
 
+///modal///
+define('ยกเลิก','Cancel');
+define('ยืนยัน','Comfirm');
+define('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่','Do you have a copy of your passport for filing a complaint?');
+
+
+
 
 ?>

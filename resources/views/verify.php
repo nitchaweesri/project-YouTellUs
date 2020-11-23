@@ -40,7 +40,7 @@ $(document).ready(function() {
     $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
             if('<?php echo $_SESSION['form']?>' == 'GN'){
-                var string = 'ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่'
+                var string = '<?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?>'
             }else if('<?php echo $_SESSION['form']?>' == 'JP'){
                 var string = `<div class="Regular">ท่านมีเอกสารเพื่อใช้ประกอบข้อร้องเรียนดังต่อไปนี้หรือไม่</div><br>
                             <ul>

@@ -69,9 +69,9 @@
         ท่านต้องการที่จะยกเลิกขั้นตอนทั้งหมดและกลับสู่หน้าเมนูหลักใช่หรือไม่
       </div>
       <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo constant("ยกเลิก")?></button>
         <form action="index.php?re_session=unset">
-          <button type="submit" class="btn btn-primary" href="index.php?re_session=unset">ยืนยัน</button>
+          <button type="submit" class="btn btn-primary" href="index.php?re_session=unset"><?php echo constant("ยืนยัน")?></button>
         </form>
       </div>
     </div>

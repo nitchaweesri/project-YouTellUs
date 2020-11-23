@@ -243,7 +243,7 @@ textarea.addEventListener('keydown', textareaLengthCheck, false);
 $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');
     if(select.filter(':selected').text() == select.filter('option:last').text() ){
-        $('#other').css("display", "block");
+        $('#other').css("display", "block").prop('required',true);;
     }else{
         $('#other').css("display", "none");
     }

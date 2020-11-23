@@ -11,10 +11,13 @@ $result = ytu_product();
         <div class="row justify-content-center ">
             <div class="col-lg-7 col-md-10 col-sm-12 pt-lg-3 pt-md-3">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN";?>"
+                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=2" ?>"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
-                    <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
-                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" >
+                    <!-- <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
+                    
+                    <input type="hidden" name="feedtype" value="OC" >
+                    <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
                     <?php 
                     if(isset($file)){ 
                         foreach ($file as $key => $value) { ?>

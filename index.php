@@ -115,7 +115,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 
 
-        <script src="public/js/uploadimage.js"></script>
+        <!-- <script src="public/js/uploadimage.js"></script> -->
 
         <?php // include_once 'lang/lang_'. $lang .'.php'; ?>
     </head>

@@ -269,12 +269,13 @@ h7{
     bottom: 11px;
     right: 11px;
     width: 70px; 
+    z-index: 5;
   }
 
   .modal-clear{
     font-family: 'Mitr-Regular' !important;
   }
-ul{
-    padding-inline-start: 20px !important;
+    ul{
+        padding-inline-start: 20px !important;
 
-}
+    }

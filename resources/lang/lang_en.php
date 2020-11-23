@@ -44,7 +44,18 @@ define('ระบุ','specify');
 ///modal///
 define('ยกเลิก','Cancel');
 define('ยืนยัน','Comfirm');
-define('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่','Do you have a copy of your passport for filing a complaint?');
+define('มี','Yes');
+define('ไม่มี','No');
+define('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่','Do you have the following documents for filing a complaint?');
+define('สำเนาบัตรประจำตัวประชาชนของเจ้าของบัญชี','Copy of passport of account owner (ID Card for Thai citizen)');
+define('สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ','Copy of passport of Attroney-in-Fact (ID Card for Thai citizen)');
+define('หนังสือมอบอำนาจ','Letter of Authorization');
+define('สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม','Copy of passport of Authorized Person (ID Card for Thai citizen)');
+define('สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)','Copy of company / partnership certificate issued within a 6-month period ');
+
+///condition///
+define('เงื่อนไขการร้องเรียน','Term & Conditions');
+define('ยอมรับและดำเนินการต่อ','Accept and continue proceed');
 
 
 

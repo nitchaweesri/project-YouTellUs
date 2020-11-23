@@ -6,8 +6,12 @@ SESSION CountMistake is : <?php echo isset($_SESSION['countMistake'])? $_SESSION
 ################
 -->
 
-<nav class="navbar navbar-light fixed-top test" style="background-color:#ffffff; box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);">
-	<div class="container">
+<nav class="navbar navbar-light fixed-top test pl-0" style="background-color:#ffffff; box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);">
+	<div class="container col-lg-7">
+		<div class="logo">
+    		<a href="#" onclick="history.go(-1);"><img src="public/img/chevron-left.png" width="" height="20" class="d-inline-block align-top pt-1" alt="" loading="lazy"></a>
+    	</div>
+
     	<div class="logo mx-auto">
     		<a href="<?php echo isset($_SESSION['pending'])? "index.php?page=menuupload": "index.php?page=2" ?>"><img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy"></a>
     	</div>

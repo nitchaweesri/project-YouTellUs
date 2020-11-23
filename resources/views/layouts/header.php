@@ -2,7 +2,7 @@
 <?php // $countMistake = "<script>document.write(sessionStorage.getItem('countMistake'));</script>"; ?>
 <!-- 
 ################
-SESSION CountMistake is : <?php echo isset($_SESSION['countMistake'])? $_SESSION['countMistake']:'no'; ?> 
+SESSION CountMistake is : <?php echo isset($_SESSION['logOn'])? $_SESSION['logOn']:'no'; ?> 
 ################
 -->
 
@@ -13,7 +13,8 @@ SESSION CountMistake is : <?php echo isset($_SESSION['countMistake'])? $_SESSION
     	</div>
 
     	<div class="logo mx-auto">
-    		<a href="<?php echo isset($_SESSION['pending'])? "index.php?page=menuupload": "index.php?page=2" ?>"><img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy"></a>
+		<div ><img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy"></div>
+    		<!-- <a href="<?php echo isset($_SESSION['pending'])? "index.php?page=menuupload": "index.php?page=2" ?>"><img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy"></a> -->
     	</div>
     	<!-- <div class="lang-btn mr-lg-5">
     		<a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">ไทย</a>&nbsp; &Iota;&nbsp;

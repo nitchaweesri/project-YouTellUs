@@ -10,17 +10,17 @@
         // unset($_SESSION['countStart']); 
         // unset($_SESSION['countMistake']);
         // unset($_SESSION['logOn']);
-        header("Location: index.php?page=verify");
+        header("Location: index.php?page=menu");
     }
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1 ;
     $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;
     
     if (isset($_SESSION['logOn'])&& $_SESSION['logOn']=='true') {
-        if (isset($_REQUEST['condition']) &&$_REQUEST['condition'] == TRUE) {
-            $view = 'resources/views/condition.php';
-        } else {
+        // if (isset($_REQUEST['condition']) &&$_REQUEST['condition'] == TRUE) {
+        //     $view = 'resources/views/condition.php';
+        // } else {
              if ($page == 2) {
-                $view = 'resources/views/menu.php';
+                $view = 'resources/views/condition.php';
             } elseif ($page == "GN") {
                 $view = 'resources/views/form1.php';
             } elseif ($page == "OT") {
@@ -45,18 +45,22 @@
                 $view = 'resources/views/error.php';
             }
             else{
+                session_destroy();
                 $view = 'resources/views/menu.php';
             }
-        }
-        
+        // }
        
     } else {  
               
-        if ($page == '' || $page == 1) {
+        // if ($page == '' || $page == 1) {
+        //     session_destroy();
+        //     $view = 'resources/views/menu.php';
+        // } 
+        if ($page == "GN" ||$page == "OT" || $page == "JP") {
             $view = 'resources/views/verify.php';
-        }elseif ($page == "verify") {
+        } elseif ($page == "verify") {
             $view = 'resources/views/verify.php';
-        }elseif ($page == "otp") {
+        } elseif ($page == "otp") {
             if (isset($_SESSION['phoneNo'])) {
                 $result = new block;
                 $block = mysqli_num_rows($result->select_block());
@@ -66,7 +70,8 @@
                     $view = 'resources/views/otp.php';
                 }
             } else {
-                $view = 'resources/views/verify.php';
+                session_destroy();
+                $view = 'resources/views/menu.php';
             }
 
         }elseif ($page == "error") {
@@ -74,7 +79,8 @@
         }elseif ($page == "test") {
             $view = 'resources/views/test.php';
         }else{
-            $view = 'resources/views/verify.php';
+            session_destroy();
+            $view = 'resources/views/menu.php';
         }
 
         

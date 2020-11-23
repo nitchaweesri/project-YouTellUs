@@ -21,7 +21,7 @@ define('ร้องเรียน','Report');
 
 
 /////memu//
-define('กรุณาระบุประเภทการร้องเรียน','Please specify the type of complaint');
+define('กรุณาระบุประเภทการร้องเรียน','Please specify your complaint type');
 define('ร้องเรียนทั่วไป','General complaints');
 define('ร้องเรียนแทนบุคคลอื่น','Complain on behalf of another person');
 define('ร้องเรียนในนามนิติบุคคล','Complain on behalf of a legal entity');

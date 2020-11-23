@@ -254,3 +254,8 @@ h7{
 
 
   .pointer {cursor: pointer;}
+
+ul{
+    padding-inline-start: 20px !important;
+
+}

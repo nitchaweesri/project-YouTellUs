@@ -9,8 +9,8 @@ $result = ytu_complainttype();
 <div style="height:80px"></div>
 <div class="container mb-4 col-lg-6 col-md-12 col-sm-12" id="menu">
     <div class="row justify-content-end">
-        <div class="col-lg-8 col-md-10 col-sm-10">
-            <h3 class="text-secondary text-right mt-4 Regular mb-4">กรุณาระบุประเภทการร้องเรียน</h3>
+        <div class="col-lg-8 col-md-11 col-sm-11">
+            <h3 class="text-secondary text-right mt-4 Regular mb-4"><?php echo constant('กรุณาระบุประเภทการร้องเรียน') ?> </h3>
         </div>
     </div>
     <?php 
@@ -58,6 +58,7 @@ $(document).ready(function(){
     if (langSession == 'FALSE') {
         $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
+            modal.find('#success').css('display','block')
             modal.find('.modal-title').text('เลือกภาษา')
             modal.find('.modal-body').prepend($(` 
             <div class="row">

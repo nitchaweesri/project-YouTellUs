@@ -9,17 +9,28 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content m-5 text-center">
-      <div class="modal-header border-0 justify-content-center text-primary">
+        <img id="error" class="mx-auto" src="public/img/icon-warning.png" width="110px" style="margin-top:-50px;display:none" alt="">
+        <img id="success" class="mx-auto" src="public/img/very-good.png" width="100px" style="margin-top:-50px;display:none" alt="">
+        <div class="modal-header border-0 justify-content-center text-primary">
         <h5 class="modal-title Regular" id="exampleModalLabel">Modal title</h5>
+        
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
       </div>
       <div class="modal-body border-0">
       </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-footer border-0 justify-content-center" >
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+        <div class="row col-12">
+                <div class="col" id="one">
+                    <a href="index.php?page=menu" id="upload-btn" class="btn rounded-pill btn-outline-primary Regular w-100" >ไม่มี</a>
+                </div>
+                <div class="col" id="two">
+                    <a id="upload-btn" class="btn rounded-pill btn-primary Regular  w-100" data-dismiss="modal" aria-label="Close">มี</a>
+                </div>
+          </div>
       </div>
     </div>
   </div>

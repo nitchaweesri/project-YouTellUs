@@ -19,17 +19,33 @@
         </div>
 
     <?php } else { ?>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-12" id="">
-                <div id="upload-btn" class="btn rounded-pill btn-outline-primary w-100 "  requiredss>
+                <div id="upload-btn" class="btn rounded-pill btn-outline-primary w-100 " >
                     <img src="public/img/upload.svg" class="d-inline text-primary" width="17px" alt=""> 
                     <div class="Regular d-inline ml-2">แนบไฟล์</div>
                 </div>
             </div>
-        </div>
-        <div id="uploadmulti" style="display: none;">
+        </div> -->
+        <div id="uploadmulti" >
             <div class="row mx-auto" >
                 <?php for ($i=1; $i <= 4; $i++) { ?>
+                    
+                    <div class="col p-2">
+                        <div  id="clear<?php echo $i ?>" class="close"  style="display: none;">
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+                        <div class="image-wrapper btn-outline-secondary" >
+                            <img id="file<?php echo $i ?>" src="public/img/plus1.jpg" alt="" />
+                        </div>
+                    </div>
+                    <input type="file" id="upload<?php echo $i ?>" name="file[]"  style="display: none;"> 
+
+                <?php } ?>
+
+            </div>
+            <div class="row mx-auto" >
+                <?php for ($i=5; $i <= 8; $i++) { ?>
                     
                     <div class="col p-2">
                         <div  id="clear<?php echo $i ?>" class="close"  style="display: none;">
@@ -59,7 +75,7 @@ $("#upload-btn").click(function() {
     $("input[id='upload1']").click();
 });
 
-for (let i = 1; i <= 4; i++) {
+for (let i = 1; i <= 8; i++) {
 
     $("#file"+i).click(function() {
         $("input[id='upload"+i+"']").click();
@@ -94,6 +110,7 @@ function readURL(input, which) {
                 // alert(filsSize)
                 $('#exampleModal').on('show.bs.modal', function (event) {
                     var modal = $(this)
+                    modal.find('#error').css('display','block')
                     modal.find('.modal-title').text('ผิดพลาด').addClass("text-danger")
                     modal.find('.modal-body').html($(` 
                 <div class="row">
@@ -104,7 +121,7 @@ function readURL(input, which) {
                     ));
                     modal.find('.modal-footer').text('')
                 });
-                $('#exampleModal').modal('toggle')
+                $('#exampleModal').modal('show')
 
 
             } else if (filsSize <= fileSizeAllow) {
@@ -146,6 +163,7 @@ function ValidateSingleInput(oInput) {
 
                 $('#exampleModal').on('show.bs.modal', function (event) {
                     var modal = $(this)
+                    modal.find('#error').css('display','block')
                     modal.find('.modal-title').text('ผิดพลาด').addClass("text-danger")
                     modal.find('.modal-body').html($(` 
                         <div class="row">
@@ -156,7 +174,7 @@ function ValidateSingleInput(oInput) {
                     ));
                     modal.find('.modal-footer').text('')
                 });
-                $('#exampleModal').modal('toggle')
+                $('#exampleModal').modal('show')
 
                 oInput.value = "";
                 return false;

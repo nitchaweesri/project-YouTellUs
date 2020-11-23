@@ -274,3 +274,7 @@ h7{
   .modal-clear{
     font-family: 'Mitr-Regular' !important;
   }
+ul{
+    padding-inline-start: 20px !important;
+
+}

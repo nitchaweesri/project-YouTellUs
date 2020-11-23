@@ -17,7 +17,7 @@ $now = strtotime(date('Y-m-d H:i:s'));
 if($now >= $expired){
     $result->delete_block();
     // unset($_SESSION['phoneNo']);
-    header("Location: index.php?page=otp");
+    header("Location: index.php?page=menu");
 }
 
 ?>

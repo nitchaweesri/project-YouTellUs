@@ -37,7 +37,40 @@
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
 $(document).ready(function() {
-    // $('#makesession').prop('disabled', true);
+    $('#exampleModal').on('show.bs.modal', function (event) {
+            var modal = $(this)
+            if('<?php echo $_SESSION['form']?>' == 'GN'){
+                var string = 'ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่'
+            }else if('<?php echo $_SESSION['form']?>' == 'JP'){
+                var string = `<div class="Regular">ท่านมีเอกสารเพื่อใช้ประกอบข้อร้องเรียนดังต่อไปนี้หรือไม่</div><br>
+                            <ul>
+                                <li>สำเนาบัตรประจำตัวประชาชนของเจ้าของบัญชี</li>
+                                <li>สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</li>
+                                <li>หนังสือมอบอำนาจ</li>
+                            </ul>
+                         `
+            }else if('<?php echo $_SESSION['form']?>' == 'OT'){
+                var string = `<div class="Regular">ท่านมีเอกสารเพื่อใช้ประกอบข้อร้องเรียนดังต่อไปนี้หรือไม่</div><br>
+                            <ul>
+                                <li>สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</li>
+                                <li>สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</li>
+                                <li>สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)</li>
+                                <li>หนังสือมอบอำนาจ</li>
+                             </ul>
+                         `
+            }
+            modal.find('#success').css('display','block')
+            modal.find('.modal-title').text('')
+            modal.find('.modal-body').prepend($(`
+                    <div class="row">
+                        <div class="col">
+                            <div class="ExtraLight text-left" style="font-size: 13px;">`+string+`</div>
+                        </div>
+                    </div>`
+                ));
+            // modal.find('#one').          
+            })
+        $('#exampleModal').modal('show')
 });
 function policy() {
     $('#modal-policy').on('show.bs.modal', function (event) {

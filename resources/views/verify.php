@@ -15,7 +15,7 @@
             </div> 
         <?php } ?>
         
-        <div class="form-group" style="float: left;">
+        <div class="form-group" style="float: center;">
             <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
         </div>
         
@@ -98,45 +98,6 @@ function recaptchaCallback() {
 };
 
 
-$(document).ready(function(){
-    localStorage.setItem('firstime','true');
 
-    var langSession = '<?php echo isset($_SESSION['lang'])? 'TRUE' : 'FALSE' ?>';
-    
-    if (langSession == 'FALSE') {
-        $('#exampleModal').on('show.bs.modal', function (event) {
-            var modal = $(this)
-            modal.find('.modal-title').text('เลือกภาษา')
-            modal.find('.modal-body').prepend($(` 
-            <div class="row">
-                <div class="col mr-0 pr-0">
-                    <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
-                        <div class="img-hover-zoom">
-                            <img class="img-lang" src="public/img/thailand.svg" width="70px" alt="">
-                        </div>
-                    </a>
-                    <div class="row">
-                        <h7 class="mx-auto mt-2 Regular">ไทย</h7>
-                    </div>
-                </div>
-                <div class="col ml-0 pl-0">
-                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
-                        <div class="img-hover-zoom">
-                            <img class="img-lang" src="public/img/united-states.svg" width="70px" alt="">
-                        </div>
-                    </a>
-                    <div class="row">
-                        <h7 class="mx-auto mt-2 Regular">อังกฤษ</h7>
-                    </div>
-                </div>
-            </div>`
-                ));
-            modal.find('.modal-footer').text('')
-            
-            })
-        $('#exampleModal').modal('show')
-    }
-    
-});
 
 </script>

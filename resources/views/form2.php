@@ -180,6 +180,9 @@ $result = ytu_product();
                     </div>
 
                 </form>
+                <div class="btn-out">
+                    <button class="button-clear" onclick="modalClear()">Clear Session</button>
+                </div>
             </div>
         </div>
     </div>
@@ -202,6 +205,13 @@ $(document).ready(function() {
     })
 });
 
+function modalClear() {
+    $('#modal-clear').on('show.bs.modal', function (event) {
+        var modal = $(this)
+            modal.find('.modal-title').text('Clear Session')        
+        })
+    $('#modal-clear').modal('show')
+};
 
 // -------------------------------------------------------------------------------------
 

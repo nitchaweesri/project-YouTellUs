@@ -105,9 +105,7 @@ $result = ytu_product();
                     </div>
                 </form>
                 <div class="btn-out">
-                    <!-- <a href="index.php?re_session=unset"> -->
-                        <button class="button-clear" onclick="modalClear()">Clear Session</button>
-                    <!-- </a> -->
+                    <button class="button-clear" onclick="modalClear()">Clear Session</button>
                 </div>
             </div>
         </div>

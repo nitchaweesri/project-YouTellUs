@@ -255,7 +255,27 @@ h7{
 
   .pointer {cursor: pointer;}
 
-ul{
-    padding-inline-start: 20px !important;
+  .button-clear{
+    background-color: #765ABA;
+    color: white;
+    border: none;
+    padding: 4px;
+    border-radius: 16%;
+    font-size: 15px;
+  }
 
-}
+  .btn-out{
+    position: fixed; 
+    bottom: 11px;
+    right: 11px;
+    width: 70px; 
+    z-index: 5;
+  }
+
+  .modal-clear{
+    font-family: 'Mitr-Regular' !important;
+  }
+    ul{
+        padding-inline-start: 20px !important;
+
+    }

@@ -24,7 +24,7 @@ define('ร้องเรียน','Report');
 define('กรุณาระบุประเภทการร้องเรียน','Please specify your complaint type');
 define('ร้องเรียนทั่วไป','General complaints');
 define('ร้องเรียนแทนบุคคลอื่น','Complain on behalf of another person');
-define('ร้องเรียนในนามนิติบุคคล','Complain on behalf of a legal entity');
+define('ร้องเรียนในนามนิติบุคคล','Complaint on behalf of a juristic person');
 
 
 ///form///
@@ -36,9 +36,28 @@ define('หมายเลขโทรศัพท์ที่ติดต่อ
 define('อีเมล','E-mail Address');
 define('รายละเอียดข้อร้องเรียน','Detail');
 define('เอกสารประกอบข้อร้องเรียน','Attachment');
-define('เรื่องร้องเรียน','Complaint');
-define('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน','The account number of the product to be complained of');
+define('เรื่องร้องเรียน','Complaint Details');
+define('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน','Account Number (related to the complaint)');
 define('ระบุ','specify');
+define('ระบุได้อีก','');
+define('ตัวอักษร',' characters left');
+define('หมายเหตุ: คำร้องหลัง 17.00 น. จะถูกส่งเข้าระบบในวันทำการถัดไป','Remark: Complaint submitted after 17.00 hrs will be uploaded into the system on the next business day.');
+define('ธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับคำร้องของท่านภายใน 15 วันนับจากวันที่ธนาคารได้รับเอกสารครบถ้วนและได้นำข้อร้องเรียนของท่านเข้าสู่ระบบ โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777','SCB will respond to your complaint within 15 days starting from the day that SCB completely receives the required documents and your complaint is uploaded to the system. SCB will contact you on working days during business hours. 
+If you need urgent assistance, please contact the SCB Customer Center at 02-777-7777.');
+define('ส่งเรื่องร้องเรียน','Submit Complaint');
+
+///form-behalf of others///
+define('ชื่อ-สกุลผู้รับมอบอำนาจ','Full Name of Attorney-in-Fact');
+define('ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน','Product or service (related to the complaint)');
+define('โปรดระบุความสัมพันธ์ของท่านต่อเจ้าของบัญชี','Please specify your relationship to the account owner');
+define('ข้อมูลทั่วไป','General Information');
+
+///form-juristic person///
+define('ชื่อบริษัท/ห้างหุ้นส่วน/องค์กร','Name of Company / Partnership / Organization');
+define('เลขจดทะเบียนนิติบุคคล','Registration Number (Juristic Person)');
+define('ชื่อ-สกุลผู้มีอำนาจลงนาม','Full Name of Authorized Person');
+define('ตำแหน่งผู้มีอำนาจลงนาม','Job Position of Authorized Person');
+
 
 
 ///modal///

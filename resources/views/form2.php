@@ -31,7 +31,7 @@ $result = ytu_product();
  
                     <div class="row">
                         <div class="col mb-2">
-                            <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลส่วนตัว")?></label>
+                            <label for="exampleFormControlInput1" class="text-primary h5 Regular"><?php echo constant("ข้อมูลทั่วไป")?></label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,7 +47,7 @@ $result = ytu_product();
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="nameDelegate" id="nameDelegate"
-                            placeholder="ชื่อ-สกุลของผู้ร้องเรียนแทน" required
+                            placeholder="<?php echo constant("ชื่อ-สกุลผู้รับมอบอำนาจ")?>" required
                             <?php echo $_POST['nameDelegate'] = isset($_POST['nameDelegate']) ?  " value='".$_POST['nameDelegate']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
@@ -62,7 +62,7 @@ $result = ytu_product();
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h5 Regular mb-2">เรื่องร้องเรียน</label>
+                        <label for="feedsubtype" class="text-primary h5 Regular mb-2"><?php echo constant("เรื่องร้องเรียน")?></label>
                         <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
@@ -84,17 +84,17 @@ $result = ytu_product();
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="service" id="service"
-                            placeholder="ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน" required
+                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" required
                             <?php echo $_POST['service'] = isset($_POST['service']) ?  " value='".$_POST['service']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="serviceID" id="serviceID"
-                            placeholder="หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน" required
+                            placeholder="<?php echo constant("หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน")?>" required
                             <?php echo $_POST['serviceID'] = isset($_POST['serviceID']) ?  " value='".$_POST['serviceID']."' readonly"  : "";?>>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="text-left">ความสัมพันธ์ของท่านและเจ้าของหมายเลขบัญชีข้างต้น</p>
+                            <p class="text-left"><?php echo constant("โปรดระบุความสัมพันธ์ของท่านต่อเจ้าของบัญชี")?></p>
                         </div>
                     </div>
 
@@ -162,23 +162,19 @@ $result = ytu_product();
 
                     <div class="row mt-3">
                         <div class="col">
-                            <p class="text-left">ข้อร้องเรียนของท่านจะถูกส่งเข้าระบบในวันทำการถัดไป
-                                และธนาคารจะใช้ระยะเวลาในการดำเนินการตอบกลับข้อร้องเรียนของท่านภายใน 15
-                                วันทำการนับจากวันที่ข้อร้องเรียนเข้าสู่ระบบโดนธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-left">หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า
-                                02-777-7777</p>
+                            <h6 class="ExtraLight">
+                                <?php echo constant("ธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับคำร้องของท่านภายใน 15 วันนับจากวันที่ธนาคารได้รับเอกสารครบถ้วนและได้นำข้อร้องเรียนของท่านเข้าสู่ระบบ โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777")?>
+                            </h6>
+                            <h6 class="ExtraLight">
+                                <?php echo constant("หมายเหตุ: คำร้องหลัง 17.00 น. จะถูกส่งเข้าระบบในวันทำการถัดไป")?>
+                            </h6>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col ">
                             <input type="submit" name="create_case"
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
-                                value="ยอมรับและส่งข้อร้องเรียน">
+                                value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
                         </div>
                     </div>
 
@@ -287,7 +283,7 @@ function textareaLengthCheck() {
     var textArea = textarea.value.length;
     var charactersLeft = 3000 - textArea;
     var count = document.getElementById('characters-left');
-    count.innerHTML = charactersLeft + "/3000";
+    count.innerHTML = "<?php echo constant("ระบุได้อีก")?>" + charactersLeft + "<?php echo constant("ตัวอักษร")?>";
 }
 
 textarea.addEventListener('keyup', textareaLengthCheck, false);

@@ -30,8 +30,9 @@
     </form>
 </div>
 <footer class="footer">
-    <p style="margin-bottom: 3px;">นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)</p>
-    <button class="policy" onclick="policy()">คลิก</button>
+    <p style="margin-bottom: 3px;"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
+    <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy"><?php echo constant('คลิก') ?></button>
+    <!-- <button class="policy" onclick="policy()">คลิก</button> -->
 </footer>
 
 

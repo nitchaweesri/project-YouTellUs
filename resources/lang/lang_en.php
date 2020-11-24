@@ -58,6 +58,12 @@ define('เลขจดทะเบียนนิติบุคคล','Regist
 define('ชื่อ-สกุลผู้มีอำนาจลงนาม','Full Name of Authorized Person');
 define('ตำแหน่งผู้มีอำนาจลงนาม','Job Position of Authorized Person');
 
+define('หมายเลขบัตรประชาชนผู้มีอำนาจลงนาม','Passport Number of Authorized Person (ID Card for Thai citizen)');
+define('ชื่อ-สกุลผู้รับมอบอำนาจลงนาม','Full Name of Attorney-in-Fact');
+define('หมายเลขบัตรประชาชนผู้รับมอบอำนาจลงนาม','Passport Number of Attorney-in-Fact (ID Card Number for Thai Citizen)');
+define('ปัญหาที่เกิดขึ้น','Please explain what has happened');
+define('สิ่งที่ต้องการให้ธนาคารดำเนินการ','Please explain how you would like SCB to proceed');
+
 
 
 ///modal///
@@ -70,7 +76,9 @@ define('สำเนาบัตรประจำตัวประชาชน
 define('สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ','Copy of passport of Attroney-in-Fact (ID Card for Thai citizen)');
 define('หนังสือมอบอำนาจ','Letter of Authorization');
 define('สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม','Copy of passport of Authorized Person (ID Card for Thai citizen)');
-define('สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)','Copy of company / partnership certificate issued within a 6-month period ');
+define('สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)','Copy of company / partnership certificate issued within a 6-month period');
+define('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)','Privacy Notice The Siam Commercial Bank Public Company Limited');
+define('คลิก','Click');
 
 ///condition///
 define('เงื่อนไขการร้องเรียน','Term & Conditions');

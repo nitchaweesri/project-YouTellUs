@@ -103,7 +103,7 @@ $result = ytu_product();
                         <div class="col ">
                             <input type="submit" name="create_case" 
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
-                                value="ยอมรับและส่งข้อร้องเรียน">
+                                value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
                         </div>
                     </div>
                 </form>

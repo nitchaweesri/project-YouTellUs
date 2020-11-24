@@ -30,7 +30,9 @@
     </form>
 </div>
 <footer class="footer">
-    <button class="policy" onclick="policy()">ข้อกำหนดการใช้บริการ | นโยบายความเป็นส่วนตัว</button>
+    <p style="margin-bottom: 3px;"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
+    <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy"><?php echo constant('คลิก') ?></button>
+    <!-- <button class="policy" onclick="policy()">คลิก</button> -->
 </footer>
 
 
@@ -40,22 +42,22 @@ $(document).ready(function() {
     $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
             if('<?php echo $_SESSION['form']?>' == 'GN'){
-                var string = 'ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่'
+                var string = '<?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?>'
             }else if('<?php echo $_SESSION['form']?>' == 'JP'){
-                var string = `<div class="Regular">ท่านมีเอกสารเพื่อใช้ประกอบข้อร้องเรียนดังต่อไปนี้หรือไม่</div><br>
+                var string = `<div class="Regular"><?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?></div><br>
                             <ul>
-                                <li>สำเนาบัตรประจำตัวประชาชนของเจ้าของบัญชี</li>
-                                <li>สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</li>
-                                <li>หนังสือมอบอำนาจ</li>
+                                <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของเจ้าของบัญชี') ?></li>
+                                <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ') ?></li>
+                                <li><?php echo constant('หนังสือมอบอำนาจ') ?></li>
                             </ul>
                          `
             }else if('<?php echo $_SESSION['form']?>' == 'OT'){
-                var string = `<div class="Regular">ท่านมีเอกสารเพื่อใช้ประกอบข้อร้องเรียนดังต่อไปนี้หรือไม่</div><br>
+                var string = `<div class="Regular"><?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?></div><br>
                             <ul>
-                                <li>สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม</li>
-                                <li>สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ</li>
-                                <li>สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)</li>
-                                <li>หนังสือมอบอำนาจ</li>
+                                <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม') ?></li>
+                                <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ') ?></li>
+                                <li><?php echo constant('สำเนาหนังสือรับรองนิติบุคคล (อายุไม่เกิน 6 เดือน)') ?></li>
+                                <li><?php echo constant('หนังสือมอบอำนาจ') ?></li>
                              </ul>
                          `
             }

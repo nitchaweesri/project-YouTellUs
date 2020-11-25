@@ -25,10 +25,10 @@
         <button type="button" class="btn btn-primary">Save changes</button> -->
         <div class="row col-12">
                 <div class="col" id="one">
-                    <a href="index.php?page=menu" id="upload-btn" class="btn rounded-pill btn-outline-primary Regular w-100" >ไม่มี</a>
+                    <a href="index.php?page=menu" id="upload-btn" class="btn rounded-pill btn-outline-primary Regular w-100" ><?php echo constant("ไม่มี")?></a>
                 </div>
                 <div class="col" id="two">
-                    <a id="upload-btn" class="btn rounded-pill btn-primary Regular  w-100" data-dismiss="modal" aria-label="Close">มี</a>
+                    <a id="upload-btn" class="btn rounded-pill btn-primary Regular  w-100" data-dismiss="modal" aria-label="Close"><?php echo constant("มี")?></a>
                 </div>
           </div>
       </div>
@@ -69,9 +69,9 @@
         ท่านต้องการที่จะยกเลิกขั้นตอนทั้งหมดและกลับสู่หน้าเมนูหลักใช่หรือไม่
       </div>
       <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo constant("ยกเลิก")?></button>
         <form action="index.php?re_session=unset">
-          <button type="submit" class="btn btn-primary" href="index.php?re_session=unset">ยืนยัน</button>
+          <button type="submit" class="btn btn-primary" href="index.php?re_session=unset"><?php echo constant("ยืนยัน")?></button>
         </form>
       </div>
     </div>

@@ -69,8 +69,8 @@ $result = ytu_product();
                         </select>
                     </div>
                     <div class="form-group" id="other"  <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
-                        <input name="other" type="text" class="form-control Light" id="other-input"
-                            placeholder="<?php echo constant('ระบุ')?>" 
+                        <input name="other" type="text" class="form-control Light" id="other"
+                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
@@ -78,11 +78,17 @@ $result = ytu_product();
                             placeholder="<?php echo constant('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน')?>" required
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
-                    <div class="form-group">
-                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
-                            id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
-                            <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
+                    <div class="form-group mt-2">
+                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Light "
+                            id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" required
+                            <?php echo isset($_POST['problem']) ?  " readonly"  : "";?>><?php echo isset($_POST['problem']) ?  $_POST['problem']  : "";?></textarea>
                         <div id="characters-left" class="characters-left"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Light "
+                            id="reqToBank" placeholder="<?php echo constant("สิ่งที่ต้องการให้ธนาคารดำเนินการ")?>" required
+                            <?php echo isset($_POST['reqToBank']) ?  " readonly"  : "";?>><?php echo isset($_POST['reqToBank']) ?  $_POST['reqToBank']  : "";?></textarea>
+                        <div id="characters-left1" class="characters-left"></div>
                     </div>
 
                     <?php include 'formfile.php' ?>
@@ -91,11 +97,10 @@ $result = ytu_product();
                     <div class="row mt-4">
                         <div class="col">
                             <h6 class="ExtraLight">
-                                *ข้อร้องเรียนของท่านจะถูกส่งเข้าระบบในวันทำการถัดไป
-                                และธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับข้อร้องเรียนของท่านภายใน 15
-                                วันทำการนับจากวันที่ข้อร้องเรียนเข้าสู่ระบบ
-                                โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร
-                                หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777
+                                <?php echo constant("ธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับคำร้องของท่านภายใน 15 วันนับจากวันที่ธนาคารได้รับเอกสารครบถ้วนและได้นำข้อร้องเรียนของท่านเข้าสู่ระบบ โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777")?>
+                            </h6>
+                            <h6 class="ExtraLight">
+                                <?php echo constant("หมายเหตุ: คำร้องหลัง 17.00 น. จะถูกส่งเข้าระบบในวันทำการถัดไป")?>
                             </h6>
                         </div>
                     </div>
@@ -104,7 +109,7 @@ $result = ytu_product();
                         <div class="col ">
                             <input type="submit" name="create_case" 
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
-                                value="ยอมรับและส่งข้อร้องเรียน">
+                                value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
                         </div>
                     </div>
                 </form>
@@ -214,21 +219,36 @@ function IsNumeric(input) {
 
 // -------------------------------------------------------------------------------------
 
-// -------------------------------------------------------------------------------------
 
 var textarea = document.getElementById('validationTextarea');
-
 window.onload = textareaLengthCheck();
 
 function textareaLengthCheck() {
     var textArea = textarea.value.length;
     var charactersLeft = 3000 - textArea;
     var count = document.getElementById('characters-left');
-    count.innerHTML = charactersLeft + "/3000";
+    count.innerHTML = "<?php echo constant("ระบุได้อีก")?>" + charactersLeft + "<?php echo constant("ตัวอักษร")?>";
 }
 
 textarea.addEventListener('keyup', textareaLengthCheck, false);
 textarea.addEventListener('keydown', textareaLengthCheck, false);
+
+
+var textarea1 = document.getElementById('reqToBank');
+window.onload = textareaLengthCheck1();
+
+function textareaLengthCheck1() {
+    var textArea1 = textarea1.value.length;
+    var charactersLeft1 = 1000 - textArea1;
+    var count1 = document.getElementById('characters-left1');
+    count1.innerHTML = "<?php echo constant("ระบุได้อีก")?>" + charactersLeft1 + "<?php echo constant("ตัวอักษร")?>";
+}
+
+textarea1.addEventListener('keyup', textareaLengthCheck1, false);
+textarea1.addEventListener('keydown', textareaLengthCheck1, false);
+
+
+// -------------------------------------------------------------------------------------
 
 
 $("#exampleFormControlSelect1").change(function(){

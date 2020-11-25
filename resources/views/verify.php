@@ -39,6 +39,10 @@
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
 $(document).ready(function() {
+
+    $('#makesession').prop('disabled', true);
+
+
     $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
             if('<?php echo $_SESSION['form']?>' == 'GN'){

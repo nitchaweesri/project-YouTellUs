@@ -100,13 +100,8 @@ $result = ytu_product();
                     </div>
                     <div class="form-group" id="other" <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?> >
                         <input name="other" type="text" class="form-control Light" id="other"
-                            placeholder="<?php echo constant('ระบุ')?>" requiredss
+                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" requiredss
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="service" id="service"
-                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" required
-                            <?php echo $_POST['service'] = isset($_POST['service']) ?  " value='".$_POST['service']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="serviceID" id="serviceID"
@@ -114,9 +109,9 @@ $result = ytu_product();
                             <?php echo $_POST['serviceID'] = isset($_POST['serviceID']) ?  " value='".$_POST['serviceID']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
+                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Light "
                             id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" required
-                            <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
+                            <?php echo isset($_POST['problem']) ?  " readonly"  : "";?>><?php echo isset($_POST['problem']) ?  $_POST['problem']  : "";?></textarea>
                         <div id="characters-left" class="characters-left"></div>
                     </div>
                     <div class="form-group mt-2">

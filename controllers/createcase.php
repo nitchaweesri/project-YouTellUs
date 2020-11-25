@@ -40,6 +40,12 @@ function create_case($data)
                             ,"relationOption"=> isset($_POST['relationOptions'])? $_POST['relationOptions'] : "" 
                             ,"numId"=> isset($_POST['numID'])? $_POST['numID'] : "" 
                             ,"nameAuthorizedPerson"=> isset($_POST['nameAuthorizedPerson'])? $_POST['nameAuthorizedPerson'] : "" 
+                            
+                            ,"nameAttorneyPerson"=> isset($_POST['nameAttorneyPerson'])? $_POST['nameAttorneyPerson'] : "" 
+                            ,"idcardAttorneyPerson"=> isset($_POST['idcardAttorneyPerson'])? $_POST['idcardAttorneyPerson'] : "" 
+                            ,"problem"=> isset($_POST['problem'])? $_POST['problem'] : "" 
+                            ,"reqToBank"=> isset($_POST['reqToBank'])? $_POST['reqToBank'] : "" 
+                            
                             ,"position"=> isset($_POST['position'])? $_POST['position'] : "" 
                             ,"nameOwner"=> isset($_POST['nameOwner'])? $_POST['nameOwner'] : "" 
                             ,"file"=>json_encode($JsonFile)

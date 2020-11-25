@@ -79,13 +79,8 @@ $result = ytu_product();
                     </div>
                     <div class="form-group" id="other" <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
                         <input name="other" type="text" class="form-control Light" id="other"
-                            placeholder="<?php echo constant('ระบุ')?>" 
+                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="service" id="service"
-                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" required
-                            <?php echo $_POST['service'] = isset($_POST['service']) ?  " value='".$_POST['service']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="serviceID" id="serviceID"
@@ -149,10 +144,16 @@ $result = ytu_product();
                     </div>
                     
                     <div class="form-group mt-2">
-                        <textarea name="description" type="text" rows="4" maxlength="3000" class="form-control Light "
-                            id="validationTextarea" placeholder="<?php echo constant("รายละเอียดข้อร้องเรียน")?>" required
-                            <?php echo isset($_POST['description']) ?  " readonly"  : "";?>><?php echo isset($_POST['description']) ?  $_POST['description']  : "";?></textarea>
-                            <div id="characters-left" class="characters-left"></div>
+                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Light "
+                            id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" required
+                            <?php echo isset($_POST['problem']) ?  " readonly"  : "";?>><?php echo isset($_POST['problem']) ?  $_POST['problem']  : "";?></textarea>
+                        <div id="characters-left" class="characters-left"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Light "
+                            id="reqToBank" placeholder="<?php echo constant("สิ่งที่ต้องการให้ธนาคารดำเนินการ")?>" required
+                            <?php echo isset($_POST['reqToBank']) ?  " readonly"  : "";?>><?php echo isset($_POST['reqToBank']) ?  $_POST['reqToBank']  : "";?></textarea>
+                        <div id="characters-left1" class="characters-left"></div>
                     </div>
 
 
@@ -273,10 +274,8 @@ function valid_creditcard(obj) {
 
 // -------------------------------------------------------------------------------------
 
-// -------------------------------------------------------------------------------------
 
 var textarea = document.getElementById('validationTextarea');
-
 window.onload = textareaLengthCheck();
 
 function textareaLengthCheck() {
@@ -289,6 +288,22 @@ function textareaLengthCheck() {
 textarea.addEventListener('keyup', textareaLengthCheck, false);
 textarea.addEventListener('keydown', textareaLengthCheck, false);
 
+
+var textarea1 = document.getElementById('reqToBank');
+window.onload = textareaLengthCheck1();
+
+function textareaLengthCheck1() {
+    var textArea1 = textarea1.value.length;
+    var charactersLeft1 = 1000 - textArea1;
+    var count1 = document.getElementById('characters-left1');
+    count1.innerHTML = "<?php echo constant("ระบุได้อีก")?>" + charactersLeft1 + "<?php echo constant("ตัวอักษร")?>";
+}
+
+textarea1.addEventListener('keyup', textareaLengthCheck1, false);
+textarea1.addEventListener('keydown', textareaLengthCheck1, false);
+
+
+// -------------------------------------------------------------------------------------
 
 $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');

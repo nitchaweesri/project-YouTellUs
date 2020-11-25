@@ -1,18 +1,18 @@
 <?php 
 /////verify/////////
 define('หมายเลขโทรศัพท์สำหรับรับรหัส OTP','Telephone number for receiving OTP');
-define('ส่งรหัส OTP','sent OTP');
-define('หมายเลขโทรศัพท์','Phone number');
+define('ขอรหัส OTP','Request OTP');
+define('หมายเลขโทรศัพท์มือถือ','Mobile Phone Number');
 define('คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง','You did not enter the OTP for the specified period. Please try again.');
 
 
 /////otp/////////
 define('กรอกรหัส OTP','Enter OTP');
 define('รหัส OTP','OTP');
-define('ส่งรหัส OTP ใหม่อีกครั้ง','Resend OTP');
+define('ขอรหัส OTP อีกครั้ง','Request for new OTP');
 define('โปรดใส่รหัสก่อน','Enter code before');
 define('วินาที','seconds');
-define('รหัส OTP ไม่ถูกต้อง','Invalid OTP');
+define('ถัดไป','Next');
 
 /////memuUpload////
 
@@ -21,7 +21,8 @@ define('ร้องเรียน','Report');
 
 
 /////memu//
-define('กรุณาระบุประเภทการร้องเรียน','Please specify your complaint type');
+define('กรุณาระบุ','Please specify');
+define('ประเภทการร้องเรียน','your complaint type');
 define('ร้องเรียนทั่วไป','General complaints');
 define('ร้องเรียนแทนบุคคลอื่น','Complain on behalf of another person');
 define('ร้องเรียนในนามนิติบุคคล','Complaint on behalf of a juristic person');
@@ -70,7 +71,6 @@ define('ปัญหาที่เกิดขึ้น','Please explain what h
 define('สิ่งที่ต้องการให้ธนาคารดำเนินการ','Please explain how you would like SCB to proceed');
 
 
-
 ///modal///
 define('ยกเลิก','Cancel');
 define('ยืนยัน','Comfirm');
@@ -88,8 +88,6 @@ define('คลิก','Click');
 ///condition///
 define('เงื่อนไขการร้องเรียน','Term & Conditions');
 define('ยอมรับและดำเนินการต่อ','Accept and continue proceed');
-
-
 
 
 ?>

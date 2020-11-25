@@ -122,7 +122,8 @@
 	<?php include 'resources/views/layouts/header.php'; ?>
 	<?php include 'resources/views/modal.php'; ?>
 
-    <body class="body-pd-bt">
+    <!-- <body class="body-pd-bt"> -->
+    <body>
         <?php include_once $view;         /*  === form YouTellUs ===  */    ?>
     </body>
 

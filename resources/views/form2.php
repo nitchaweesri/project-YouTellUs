@@ -100,11 +100,11 @@ $result = ytu_product();
 
                     <div class="row p-2">
                         <?php 
-                        $radio = array(['parent','บิดา/มารดา'],
-                                        ['attorney','ผู้รับมอบอำนาจ'],
-                                        ['child','บุตร'],
-                                        ['other','อื่น ๆ (โปรดระบุ)'],
-                                        ['relative','ญาติ / พี่น้อง']
+                        $radio = array([constant('บิดา/มารดา')],
+                                        [constant('ผู้รับมอบอำนาจ')],
+                                        [constant('บุตร')],
+                                        [constant('อื่น ๆ (โปรดระบุ)')],
+                                        [constant('ญาติ / พี่น้อง')]
                             );
                         
                         foreach ($radio as $key => $value) {
@@ -114,7 +114,7 @@ $result = ytu_product();
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" name="relationOptions" type="radio" id="'.$value[0].'" required checked disabled
                                             value="'.$value[0].'">
-                                        <label class="form-check-label" for="inlineCheckbox1">'.$value[1].'</label>
+                                        <label class="form-check-label" for="inlineCheckbox1">'.$value[0].'</label>
                                     </div>
                                 </div>
                                 ';
@@ -126,7 +126,7 @@ $result = ytu_product();
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" name="relationOptions" type="radio" id="'.$value[0].'" required disabled
                                                 value="'.$value[0].'">
-                                            <label class="form-check-label" for="inlineCheckbox1">'.$value[1].'</label>
+                                            <label class="form-check-label" for="inlineCheckbox1">'.$value[0].'</label>
                                         </div>
                                     </div>
                                     ';
@@ -136,7 +136,7 @@ $result = ytu_product();
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" name="relationOptions" type="radio" id="'.$value[0].'" required
                                                 value="'.$value[0].'">
-                                            <label class="form-check-label" for="inlineCheckbox1">'.$value[1].'</label>
+                                            <label class="form-check-label" for="inlineCheckbox1">'.$value[0].'</label>
                                         </div>
                                     </div>
                                     ';

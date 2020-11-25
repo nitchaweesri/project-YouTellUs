@@ -39,7 +39,10 @@ define('เอกสารประกอบข้อร้องเรียน
 define('เรื่องร้องเรียน','Complaint');
 define('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน','The account number of the product to be complained of');
 define('ระบุ','specify');
-
-
+define('บิดา/มารดา','parent');
+define('ผู้รับมอบอำนาจ','attorney');
+define('บุตร','child');
+define('อื่น ๆ (โปรดระบุ)','other');
+define('ญาติ / พี่น้อง','relative');
 
 ?>

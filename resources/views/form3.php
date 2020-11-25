@@ -82,7 +82,7 @@ $result = ytu_product();
                         </select>
                     </div>
                     <div class="form-group" id="other" <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?> >
-                        <input name="other" type="text" class="form-control Light" id="other"
+                        <input name="other" type="text" class="form-control Light" id="other-input"
                             placeholder="<?php echo constant('ระบุ')?>" requiredss
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
@@ -243,11 +243,12 @@ textarea.addEventListener('keydown', textareaLengthCheck, false);
 $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');
     if(select.filter(':selected').text() == select.filter('option:last').text() ){
-        $('#other').css("display", "block").prop('required',true);;
+        $('#other').css("display", "block");
+        $("#other-input").attr("required",true); 
     }else{
         $('#other').css("display", "none");
+        $("#other-input").removeAttr("required"); 
     }
-
 });
 
 </script>

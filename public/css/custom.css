@@ -225,7 +225,7 @@ h7{
     padding-bottom: 100%;
     z-index: 1;
   }
-  
+
   .image-wrapper img {
     position: absolute;
     object-fit: cover;
@@ -250,7 +250,9 @@ h7{
     box-shadow: 0 0 10px 0 #ccc;
     cursor: pointer;
     text-align: end;
+    
   }
+
 
 
   .pointer {cursor: pointer;}

@@ -69,7 +69,7 @@ $result = ytu_product();
                         </select>
                     </div>
                     <div class="form-group" id="other"  <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
-                        <input name="other" type="text" class="form-control Light" id="other"
+                        <input name="other" type="text" class="form-control Light" id="other-input"
                             placeholder="<?php echo constant('ระบุ')?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
@@ -168,6 +168,7 @@ function valid_creditcard(obj) {
                     event.stopPropagation();
 
                 }
+                
                 form.classList.add('was-validated');
             }, false);
         });
@@ -234,17 +235,11 @@ $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');
     if(select.filter(':selected').text() == select.filter('option:last').text() ){
         $('#other').css("display", "block");
-        // $('#other').css('background-color','red');
-        // $('#other').attr('required');
-        // $('#other').prop('required',false);
-        document.getElementById("other").setAttribute('required','required');
-
-
-
+        $("#other-input").attr("required",true); 
     }else{
         $('#other').css("display", "none");
+        $("#other-input").removeAttr("required"); 
     }
-
 });
 
 

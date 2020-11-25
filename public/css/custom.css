@@ -288,11 +288,36 @@
     }
     .btn-menu{
         padding: 17px;
-        font-size: 23px;
+        font-size: 21px;
         color: #765ABA;
         background: none;
+        border: 3px solid #765ABA !important;
+        border-radius: 12px !important;
     }
     .btn-menu:hover {
         color: #fff;
         background-color:#765ABA !important;
+    }
+    .container-btn-menu{
+        padding: 0 20px;
+    }
+    .btn-re-otp{
+        font-size: 14px;
+        height: 45px;
+        color: #765ABA;
+        background: none;
+        border: 2px solid #765ABA !important;
+        padding: 1px .75rem;
+    }
+    .btn-submit-otp{
+        height: 45px;
+    }
+    .txt-wrong-otp{
+        font-size: 13px !important;
+        margin: 0;
+        float: left;
+        font-weight: 600;
+    }
+    .txt-count-otp{
+        display: block;
     }

@@ -1,18 +1,18 @@
 <?php 
 /////verify/////////
 define('หมายเลขโทรศัพท์สำหรับรับรหัส OTP','Telephone number for receiving OTP');
-define('ส่งรหัส OTP','sent OTP');
-define('หมายเลขโทรศัพท์','Phone number');
+define('ขอรหัส OTP','Request OTP');
+define('หมายเลขโทรศัพท์มือถือ','Mobile Phone Number');
 define('คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง','You did not enter the OTP for the specified period. Please try again.');
 
 
 /////otp/////////
 define('กรอกรหัส OTP','Enter OTP');
 define('รหัส OTP','OTP');
-define('ส่งรหัส OTP ใหม่อีกครั้ง','Resend OTP');
+define('ขอรหัส OTP อีกครั้ง','Request for new OTP');
 define('โปรดใส่รหัสก่อน','Enter code before');
 define('วินาที','seconds');
-define('รหัส OTP ไม่ถูกต้อง','Invalid OTP');
+define('ถัดไป','Next');
 
 /////memuUpload////
 

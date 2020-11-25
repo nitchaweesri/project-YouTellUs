@@ -1,46 +1,47 @@
-
-
-<div class="container mb-4 p-4 mb-5 bg-white rounded pd-top" align="center">
-    <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
-        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-        <input type="hidden" name="action" value="validate_captcha">
-       
-        <div class="form-group">
-            <label for="exampleInputEmail1" style="float: left;"><?php echo constant('หมายเลขโทรศัพท์สำหรับรับรหัส OTP') ?></label>
-            <input name="tel" type="text" class="form-control" id="tell" placeholder="<?php echo constant('หมายเลขโทรศัพท์') ?>" required pattern="^0([8|9|6])([0-9]{8}$)">
-        </div>
-        <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired') { ?>
+<div style="height:70px"></div>
+    <div class="container mb-4 mb-5 col-lg-6 col-md-12 col-sm-12" align="center" id="menu">
+    <div style="height: 195px; padding: 70px 15px;">
+        <h3 class="text-secondary text-right Regular"><?php echo constant('หมายเลขโทรศัพท์สำหรับรับรหัส OTP') ?></h3>
+    </div>
+        <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <input type="hidden" name="action" value="validate_captcha">
+        
             <div class="form-group">
-                <label for="exampleInputEmail1" class="text-danger" style="float: left;"><?php echo constant('คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง') ?></label>
-            </div> 
-        <?php } ?>
-        
-        <div class="form-group" style="float: center;">
-            <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
-        </div>
-        
-        <div class="row" align="center" style="display: inline;">
-            <div class="col-lg-7 col-md-8 col-sm-10">
-                <div class="col d-flex justify-content-center">
-                    <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12" style="width: "><?php echo constant('ส่งรหัส OTP')?></button>
+                <input name="tel" type="text" class="form-control" id="tell" placeholder="<?php echo constant('หมายเลขโทรศัพท์มือถือ') ?>" required pattern="^0([8|9|6])([0-9]{8}$)">
+            </div>
+            <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='expired') { ?>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="text-danger" style="float: left;"><?php echo constant('คุณไม่ใส่ OTP ในระยะเวลาที่กำหนด กรุณาทำรายการใหม่อีกครั้ง') ?></label>
+                </div> 
+            <?php } ?>
+            
+            <div class="form-group" style="float: center;">
+                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfFReQZAAAAAD3Mr4HAkoY37Xvh7Bx3B0_HwKg-"></div>
+            </div>
+            
+            <div class="row" align="center" style="display: inline;">
+                <div class="col-lg-7 col-md-8 col-sm-10">
+                    <div class="col d-flex justify-content-center">
+                        <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12" style="width: "><?php echo constant('ขอรหัส OTP')?></button>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-    </form>
+            
+        </form>
+    </div>
+    <footer class="footer">
+        <p style="margin-bottom: 3px;"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
+        <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy"><?php echo constant('คลิก') ?></button>
+        <!-- <button class="policy" onclick="policy()">คลิก</button> -->
+    </footer>
 </div>
-<footer class="footer">
-    <p style="margin-bottom: 3px;"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
-    <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy"><?php echo constant('คลิก') ?></button>
-    <!-- <button class="policy" onclick="policy()">คลิก</button> -->
-</footer>
-
 
 <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
 <script>
 $(document).ready(function() {
 
-    $('#makesession').prop('disabled', true);
+    // $('#makesession').prop('disabled', true);
 
 
     $('#exampleModal').on('show.bs.modal', function (event) {

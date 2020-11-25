@@ -4,30 +4,29 @@
     .text-alert { display: none; font-size: 14px; }
 </style>
 <?php include 'config.php'; ?>
-<div class="container mb-4 pt-5 mt-5 mb-5 bg-white rounded otp-pd-top" align="center">
+<div style="height:70px"></div>
+<div class="container mb-4 mb-5 col-lg-6 col-md-12 col-sm-12 rounded" align="center" id="menu">
+    <div style="height: 195px; padding: 70px 15px;">
+        <h3 class="text-secondary text-right Regular"><?php echo constant('กรอกรหัส OTP') ?></h3>
+    </div>
     <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="form-group">
-            <label for="exampleInputEmail1" style="float: left;"><?php echo constant('กรอกรหัส OTP') ?></label>
             <input type="text" class="form-control mb-2" id="otp" placeholder="<?php echo constant('รหัส OTP') ?>" required>
-
-            <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
-                <div class="form-group">
-                    <label for="exampleInputEmail1" class="text-danger" style="float: left;"><?php echo constant('รหัส OTP ไม่ถูกต้อง') ?></label>
-                </div> 
-            <?php }?>
-       
-           
-            <div class="d-flex justify-content-between col-lg-12 col-md-12 col-sm-12 p-0">
-                <a href="" onclick="reotp()"><img src="public/img/refresh1.png" class="img-refresh-otp" alt="refresh"> <?php echo constant('ส่งรหัส OTP ใหม่อีกครั้ง') ?></a>
-                <a id="countdown" class="Light"></a>
+                 
+            <div class="col-lg-12 col-md-12 col-sm-12 p-0 justify-content-between" style="text-align: end; display: block;">
+                <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
+                    <label for="exampleInputEmail1" class="text-danger txt-wrong-otp"><?php echo constant('รหัส OTP ไม่ถูกต้อง') ?></label>
+                <?php }?>
+                <a id="countdown" class="text-primary txt-count-otp"></a>
             </div>
                 
         </div>
-        <div class="row" align="center" style="display: inline;">
-        	<div class="col-lg-7 col-md-8 col-sm-10">
-                <div class="col d-flex justify-content-center">
-                    <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill  Regular col-12"><?php echo constant('ส่งรหัส OTP') ?></button>
-                </div>
+        <div class="row pt-5" align="center">
+            <div class="col">
+                <button onclick="reotp()" class="btn rounded-pill Regular col-12 btn-re-otp"><?php echo constant('ขอรหัส OTP อีกครั้ง') ?></button>
+            </div>
+        	<div class="col">
+                <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill Regular col-12 btn-submit-otp"><?php echo constant('ถัดไป') ?></button>
             </div>
         </div>
     </div>    

@@ -9,8 +9,9 @@ $result = ytu_complainttype();
 <div style="height:80px"></div>
 <div class="container mb-4 col-lg-6 col-md-12 col-sm-12" id="menu">
     <div class="row justify-content-end">
-        <div class="col-lg-8 col-md-11 col-sm-11">
-            <h3 class="text-secondary text-right mt-4 Regular mb-4"><?php echo constant('กรุณาระบุประเภทการร้องเรียน') ?> </h3>
+        <div class="col-lg-8 col-md-11 col-sm-11" style="height: 195px; padding: 70px 15px;">
+            <h2 class="text-secondary text-right Regular"><?php echo constant('กรุณาระบุ')?> </h2>
+            <h2 class="text-secondary text-right Regular"><?php echo constant('ประเภทการร้องเรียน')?> </h2>
         </div>
     </div>
     <?php 
@@ -23,7 +24,7 @@ $result = ytu_complainttype();
                     <!-- <a id="goForm<?php echo $key ?>" href="index.php?condition=TRUE&page=<?php echo $page_vl ?>" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
                         <?php echo $name_vl?>
                     </a> -->
-                    <a id="goForm<?php echo $key ?>" href="index.php?page=verify" class="btn btn-lg btn-primary rounded d-flex justify-content-center Regular" style="color: #fff !important; padding: 17px;">
+                    <a id="goForm<?php echo $key ?>" href="index.php?page=verify" class="btn btn-lg  rounded d-flex justify-content-center Regular btn-menu">
                         <?php echo $name_vl?>
                     </a>
                 </div>

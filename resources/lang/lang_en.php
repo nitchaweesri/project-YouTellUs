@@ -21,7 +21,8 @@ define('ร้องเรียน','Report');
 
 
 /////memu//
-define('กรุณาระบุประเภทการร้องเรียน','Please specify your complaint type');
+define('กรุณาระบุ','Please specify');
+define('ประเภทการร้องเรียน','your complaint type');
 define('ร้องเรียนทั่วไป','General complaints');
 define('ร้องเรียนแทนบุคคลอื่น','Complain on behalf of another person');
 define('ร้องเรียนในนามนิติบุคคล','Complaint on behalf of a juristic person');
@@ -70,7 +71,6 @@ define('ปัญหาที่เกิดขึ้น','Please explain what h
 define('สิ่งที่ต้องการให้ธนาคารดำเนินการ','Please explain how you would like SCB to proceed');
 
 
-
 ///modal///
 define('ยกเลิก','Cancel');
 define('ยืนยัน','Comfirm');
@@ -88,8 +88,6 @@ define('คลิก','Click');
 ///condition///
 define('เงื่อนไขการร้องเรียน','Term & Conditions');
 define('ยอมรับและดำเนินการต่อ','Accept and continue proceed');
-
-
 
 
 ?>

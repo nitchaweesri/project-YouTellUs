@@ -39,6 +39,11 @@ define('เอกสารประกอบข้อร้องเรียน
 define('เรื่องร้องเรียน','Complaint Details');
 define('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน','Account Number (related to the complaint)');
 define('ระบุ','specify');
+define('บิดา/มารดา','parent');
+define('ผู้รับมอบอำนาจ','attorney');
+define('บุตร','child');
+define('อื่น ๆ (โปรดระบุ)','other');
+define('ญาติ / พี่น้อง','relative');
 define('ระบุได้อีก','');
 define('ตัวอักษร',' characters left');
 define('หมายเหตุ: คำร้องหลัง 17.00 น. จะถูกส่งเข้าระบบในวันทำการถัดไป','Remark: Complaint submitted after 17.00 hrs will be uploaded into the system on the next business day.');

@@ -1,3 +1,5 @@
+
+
 <div class="form-group mt-4">
     <div class="row">
         <div class="col mb-2 mt-2">
@@ -35,11 +37,15 @@
                         <div  id="clear<?php echo $i ?>" class="close"  style="display: none;">
                             <span aria-hidden="true">&times;</span>
                         </div>
-                        <div class="image-wrapper btn-outline-secondary" >
-                            <img id="file<?php echo $i ?>" src="public/img/plus1.jpg" alt="" />
+                        <div class="image-wrapper" >
+                            <img  id="file<?php echo $i ?>" src="public/img/plus1.jpg" alt="" />
                         </div>
                     </div>
-                    <input type="file" id="upload<?php echo $i ?>" name="file[]"  style="display: none;"> 
+                    <?php if($i == 1){ ?>
+                        <input oninvalid="invalid()" type="file" id="upload<?php echo $i ?>" name="file[]"  style="display: none;" required> 
+                    <?php } else { ?>
+                        <input type="file" id="upload<?php echo $i ?>" name="file[]"  style="display: none;"> 
+                    <?php } ?>  
 
                 <?php } ?>
 
@@ -51,7 +57,7 @@
                         <div  id="clear<?php echo $i ?>" class="close"  style="display: none;">
                             <span aria-hidden="true">&times;</span>
                         </div>
-                        <div class="image-wrapper btn-outline-secondary" >
+                        <div id="test1" class="image-wrapper" >
                             <img id="file<?php echo $i ?>" src="public/img/plus1.jpg" alt="" />
                         </div>
                     </div>
@@ -128,6 +134,7 @@ function readURL(input, which) {
                 $(which).attr('src', e.target.result);
                 $('#upload-btn').css("display", "none");
                 $('#uploadmulti').css("display", "block");
+                $('#file1').css({'border':'1.7px solid #28a745'});
             }
 
         }
@@ -183,5 +190,18 @@ function ValidateSingleInput(oInput) {
     }
     return true;
 }
+
+
+function invalid() {
+    $('#file1').css({'border':'1.7px solid #dc3545'});
+
+}
+
+
+
+
+// if( document.getElementById("file1").files.length == 0 ){
+// }
+
 
 </script>

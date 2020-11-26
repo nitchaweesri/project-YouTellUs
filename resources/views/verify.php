@@ -1,7 +1,7 @@
 <div style="height:70px"></div>
     <div class="container mb-4 mb-5 col-lg-6 col-md-12 col-sm-12" align="center" id="menu">
     <div style="height: 195px; padding: 70px 15px;">
-        <h3 class="text-secondary text-right Regular"><?php echo constant('หมายเลขโทรศัพท์สำหรับรับรหัส OTP') ?></h3>
+        <h3 class="text-secondary text-right Bold txt-menu-topic"><?php echo constant('หมายเลขโทรศัพท์สำหรับรับรหัส OTP') ?></h3>
     </div>
         <form action="index.php?page=otp" method="post" class="needs-validation col-lg-7 col-md-12 col-sm-12" id="demo-form" novalidate>
             <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
@@ -23,7 +23,7 @@
             <div class="row" align="center" style="display: inline;">
                 <div class="col-lg-7 col-md-8 col-sm-10">
                     <div class="col d-flex justify-content-center">
-                        <button type="submit" id='makesession' class="btn btn-primary rounded-pill  Regular col-12" style="width: "><?php echo constant('ขอรหัส OTP')?></button>
+                        <button type="submit" id='makesession' class="btn btn-primary rounded-pill Bold col-12 btn-verify"><?php echo constant('ขอรหัส OTP')?></button>
                     </div>
                 </div>
             </div>
@@ -31,8 +31,8 @@
         </form>
     </div>
     <footer class="footer">
-        <p style="margin-bottom: 3px;"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
-        <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy"><?php echo constant('คลิก') ?></button>
+        <p class="txt-policy Bold"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
+        <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy Bold"><?php echo constant('คลิก') ?></button>
         <!-- <button class="policy" onclick="policy()">คลิก</button> -->
     </footer>
 </div>
@@ -49,7 +49,7 @@ $(document).ready(function() {
             if('<?php echo $_SESSION['form']?>' == 'GN'){
                 var string = '<?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?>'
             }else if('<?php echo $_SESSION['form']?>' == 'JP'){
-                var string = `<div class="Regular"><?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?></div><br>
+                var string = `<div class="Bold"><?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?></div><br>
                             <ul>
                                 <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของเจ้าของบัญชี') ?></li>
                                 <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ') ?></li>
@@ -57,7 +57,7 @@ $(document).ready(function() {
                             </ul>
                          `
             }else if('<?php echo $_SESSION['form']?>' == 'OT'){
-                var string = `<div class="Regular"><?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?></div><br>
+                var string = `<div class="Bold"><?php echo constant('ท่านมีสำเนาบัตรประจำตัวประชาชนเพื่อใช้ประกอบข้อร้องเรียนหรือไม่') ?></div><br>
                             <ul>
                                 <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของผู้มีอำนาจลงนาม') ?></li>
                                 <li><?php echo constant('สำเนาบัตรประจำตัวประชาชนของผู้รับมอบอำนาจ') ?></li>
@@ -71,7 +71,7 @@ $(document).ready(function() {
             modal.find('.modal-body').prepend($(`
                     <div class="row">
                         <div class="col">
-                            <div class="ExtraLight text-left" style="font-size: 13px;">`+string+`</div>
+                            <div class="Bold text-left" style="font-size: 21px;">`+string+`</div>
                         </div>
                     </div>`
                 ));

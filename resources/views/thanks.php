@@ -28,6 +28,8 @@
     }
     #finish{
         text-decoration: revert;
+        font-family: 'Kittithada-Bold';
+        font-size: 25px;
     }
     .footer-thanks {
         text-align: center;
@@ -49,6 +51,16 @@
         font-size: 17px;
         margin-bottom: 3px;
         font-weight: 800;
+        font-size: 24px;
+    }
+
+    .txt-thanks-topic{
+        font-family: 'Kittithada-Bold';
+        font-size: 52px;
+    }
+    .txt-thanks{
+        font-family: 'Kittithada-Bold';
+        font-size: 28px;
     }
 
 </style>
@@ -57,17 +69,17 @@
     <div class="container col-lg-6 col-md-12 col-sm-12" id="main-thanks">
         <div class="row mt-4">
             <div class="col">
-                <h2 class="text-primary text-center">ขอบคุณค่ะ</h2>
+                <h2 class="text-primary text-center txt-thanks-topic"><?php echo constant('ขอบคุณค่ะ') ?></h2>
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row mb-4">
             <div class="col">
-                <h5 class="text-primary text-center">เราได้รับข้อมูลของคุณเรียบร้อยแล้ว</h5>
+                <h5 class="text-primary text-center txt-thanks">เราได้รับข้อมูลของคุณเรียบร้อยแล้ว</h5>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <a href="index.php?page=1&re_session=unset" class="text-primary d-flex justify-content-center" id="finish">กลับหน้าแรก</a>
+                <a href="index.php?page=1&re_session=unset" class="text-primary d-flex justify-content-center" id="finish"><?php echo constant('กลับหน้าแรก') ?></a>
             </div>
         </div>
     </div>

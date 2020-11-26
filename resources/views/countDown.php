@@ -36,20 +36,27 @@ if($now >= $expired){
     h5,a{
         font-family: 'Mitr-Regular', Fallback, sans-serif;
     }
+    .txt-block{
+        font-size: 28px;
+    }
+    .txt-back{
+        font-size: 22px;
+        text-decoration: revert;
+    }
 
 </style>
 
 <body>
     <div style="height:80px"></div>
     <div class="container" id="main">
-        <div class="row mb-8">
+        <div class="row mb-5">
             <div class="col">
-                <h5 class="text-primary text-center" id="msg"></h5>
+                <h5 class="text-primary text-center Bold txt-block  mb-2 mt-3" id="msg"></h5>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <a href="index.php?page=condition" class="text-primary d-flex justify-content-center">กลับหน้าแรก</a>
+                <a href="index.php?page=condition" class="text-primary d-flex justify-content-center Bold txt-back"><?php echo constant('กลับหน้าแรก') ?></a>
             </div>
         </div>
     </div>

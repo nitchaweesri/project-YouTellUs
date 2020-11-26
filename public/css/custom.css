@@ -23,7 +23,7 @@
     body .body-pd-bt { padding-bottom: 37px; }
 
     input,p,label,textarea,a,button{
-        font-family: 'Mitr-Regular';
+        font-family: 'Kittithada-Medium';
     }
 
     .btn {
@@ -66,7 +66,7 @@
     }
     
     #footer .text_thx {
-        font-family: 'Mitr-Light' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Medium' ,Fallback, sans-serif;
         color: #7A58BF; 
         text-align: right; 
         padding-top: 10px;
@@ -94,7 +94,7 @@
     }
 
     .lang-btn a{
-        font-family: 'Mitr-Regular';
+        font-family: 'Kittithada-Medium';
         font-size: 13px;
         cursor: pointer;
         text-decoration : none;
@@ -103,7 +103,7 @@
     .lang-btn a:hover { color: #765ABA !important; }
 
     .lang-btn a.se{
-        font-family: 'Mitr-Regular';
+        font-family: 'Kittithada-Medium';
         color: rgb(70, 34, 121) !important;
         font-size: 13px;
         cursor: pointer;
@@ -112,6 +112,7 @@
 
     .text-condition{
         line-height: 22px;
+        font-size: 22px;
     }
 
     .custom-file-label{
@@ -135,7 +136,7 @@
         border: none;
         background: none;
         padding-bottom: 6px;
-        font-size: 13px;
+        font-size: 18px;
         outline: none !important;
         color: #244f84;
         text-decoration: underline;
@@ -159,48 +160,32 @@
     /* -----------------------------------font---------------------------------------- */
 
     @font-face {
-        font-family: 'Mitr-Bold';
-        src: url('../fonts/Mitr/Mitr-Bold.ttf')
+        font-family: 'Kittithada-Bold';
+        src: url('../fonts/roboto/PSL-KittithadaBold.ttf')
     }
     @font-face {
-        font-family: 'Mitr-ExtraLight';
-        src: url('../fonts/sukhumvit/SukhumvitSet-Thin.ttf')
-    }
-    @font-face {
-        font-family: 'Mitr-Light';
-        src: url('../fonts/sukhumvit/SukhumvitSet-Light.ttf')
-    }
-    @font-face {
-        font-family: 'Mitr-Medium';
-        src: url('../fonts/Mitr/Mitr-Medium.ttf')
-    }
-    @font-face {
-        font-family: 'Mitr-Regular';
-        src: url('../fonts/sukhumvit/SukhumvitSet-Text.ttf')
-    }
-    @font-face {
-        font-family: 'Mitr-SemiBold';
-        src: url('../fonts/Mitr/Mitr-SemiBold.ttf')
+        font-family: 'Kittithada-Medium';
+        src: url('../fonts/roboto/PSL-Kittithada.ttf')
     }
 
 
     .Bold{
-        font-family: 'Mitr-Bold' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Bold' ,Fallback, sans-serif;
     }
     .ExtraLight{
-        font-family: 'Mitr-ExtraLight' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Medium' ,Fallback, sans-serif;
     }
     .Light{
-        font-family: 'Mitr-Light' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Medium' ,Fallback, sans-serif;
     }
     .Medium{
-        font-family: 'Mitr-Medium' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Medium' ,Fallback, sans-serif;
     }
     .Regular{
-        font-family: 'Mitr-Regular' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Medium' ,Fallback, sans-serif;
     }
     .SemiBold{
-        font-family: 'Mitr-SemiBold' ,Fallback, sans-serif;
+        font-family: 'Kittithada-Bold' ,Fallback, sans-serif;
     }
 
     /* -----------------------------------font---------------------------------------- */
@@ -213,10 +198,11 @@
     }
 
     .characters-left{
+        font-size: 19px;
+        padding-bottom: 5px;
         float: right;
         color: #6c757d;
-        font-size: 1rem;
-        font-family: 'Mitr-Regular';
+        font-family: 'Kittithada-Bold';
     }
 
 
@@ -264,7 +250,9 @@
         border: none;
         padding: 4px;
         border-radius: 16%;
-        font-size: 15px;
+        font-size: 20px;
+        line-height: 21px;
+        font-family: 'Kittithada-Bold';
     }
 
     .btn-out{
@@ -275,10 +263,6 @@
         z-index: 5;
     }
 
-    .modal-clear{
-        font-family: 'Mitr-Regular' !important;
-    }
-
     ul{
         padding-inline-start: 20px !important;
 
@@ -286,9 +270,9 @@
     .text-topic-menu{
         padding: 86px 15px;
     }
-    .btn-menu{
-        padding: 17px;
-        font-size: 21px;
+    .btn-menu {
+        padding: 9px;
+        font-size: 27px;
         color: #765ABA;
         background: none;
         border: 3px solid #765ABA !important;
@@ -302,22 +286,49 @@
         padding: 0 20px;
     }
     .btn-re-otp{
-        font-size: 14px;
-        height: 45px;
+        font-size: 18px;
+        height: 48px;
         color: #765ABA;
         background: none;
         border: 2px solid #765ABA !important;
         padding: 1px .75rem;
     }
     .btn-submit-otp{
-        height: 45px;
+        font-size: 19px;
+        height: 48px;
     }
     .txt-wrong-otp{
-        font-size: 13px !important;
+        font-size: 20px !important;
         margin: 0;
         float: left;
         font-weight: 600;
     }
     .txt-count-otp{
         display: block;
+        font-size: 19px;
+    }
+    .txt-menu-topic{
+        font-size: 45px;
+        margin: 0;
+    }
+    .form-control{
+        font-size: 20px !important;
+    }
+    .btn-verify{
+        font-size: 22px !important;
+    }
+    .txt-policy{
+        margin-bottom: 3px;
+        font-size: 18px;
+        line-height: 12px;
+    }
+    .btn-condition{
+        font-size: 22px;
+    }
+    .btn-submit-form{
+        font-size: 22px;
+    }
+    .btn-clear-session{
+        font-size: 20px;
+        font-family: 'Kittithada-Bold';
     }

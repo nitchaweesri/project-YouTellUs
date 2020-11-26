@@ -1,10 +1,10 @@
 
 
 <div class="form-group mt-4">
-    <div class="row">
+    <div class="row" style="width: 100%;">
         <div class="col mb-2 mt-2">
             <label for="exampleFormControlInput1"
-                class="text-primary h5 Regular"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
+                class="text-primary h2 Bold"><?php echo constant("เอกสารประกอบข้อร้องเรียน")?></label>
         </div>
     </div>
 
@@ -121,7 +121,7 @@ function readURL(input, which) {
                     modal.find('.modal-body').html($(` 
                 <div class="row">
                     <div class="col">
-                        <div class="Regular" style="font-size: 13px;">ขนาดไฟล์ของท่านคือ `+ filsSize + ` เกินกว่าที่กำหนดไว้คือ ` + fileSizeAllow + `MB</div>
+                        <div class="Bold" style="font-size: 19px;">ขนาดไฟล์ของท่านคือ `+ filsSize + ` เกินกว่าที่กำหนดไว้คือ ` + fileSizeAllow + `MB</div>
                     </div>
                 </div>`
                     ));
@@ -175,7 +175,7 @@ function ValidateSingleInput(oInput) {
                     modal.find('.modal-body').html($(` 
                         <div class="row">
                             <div class="col">
-                                <div class="Regular" style="font-size: 13px;">ไฟล์ของท่านคือ `+ sFileName + ` ท่านสามารถแนบไฟล์ ` + _validFileExtensions.join(", ") + `</div>
+                                <div class="Bold" style="font-size: 19px;">ไฟล์ของท่านคือ `+ sFileName + ` ท่านสามารถแนบไฟล์ ` + _validFileExtensions.join(", ") + `</div>
                             </div>
                         </div>`
                     ));

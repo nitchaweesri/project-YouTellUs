@@ -13,6 +13,7 @@ define('ขอรหัส OTP อีกครั้ง','Request for new OTP');
 define('โปรดใส่รหัสก่อน','Enter code before');
 define('วินาที','seconds');
 define('ถัดไป','Next');
+define('รหัส OTP ไม่ถูกต้อง','OTP is incorrect');
 
 /////memuUpload////
 
@@ -88,6 +89,13 @@ define('คลิก','Click');
 ///condition///
 define('เงื่อนไขการร้องเรียน','Term & Conditions');
 define('ยอมรับและดำเนินการต่อ','Accept and continue proceed');
+
+///thanks///
+define('ขอบคุณค่ะ','Thank you');
+define('ทุก ๆ ความคิดเห็น ...เป็นเรื่องสำคัญ','Every Comment Does Matter');
+
+///block///
+define('กลับหน้าแรก','Back');
 
 
 ?>

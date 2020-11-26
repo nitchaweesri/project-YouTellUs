@@ -7,7 +7,7 @@
 <div style="height:70px"></div>
 <div class="container mb-4 mb-5 col-lg-6 col-md-12 col-sm-12 rounded" align="center" id="menu">
     <div style="height: 195px; padding: 70px 15px;">
-        <h3 class="text-secondary text-right Regular"><?php echo constant('กรอกรหัส OTP') ?></h3>
+        <h3 class="text-secondary text-right Bold txt-menu-topic"><?php echo constant('กรอกรหัส OTP') ?></h3>
     </div>
     <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="form-group">
@@ -15,18 +15,18 @@
                  
             <div class="col-lg-12 col-md-12 col-sm-12 p-0 justify-content-between" style="text-align: end; display: block;">
                 <?php  if (isset($_REQUEST['msg'])&&$_REQUEST['msg']=='pwd'){ ?>
-                    <label for="exampleInputEmail1" class="text-danger txt-wrong-otp"><?php echo constant('รหัส OTP ไม่ถูกต้อง') ?></label>
+                    <label for="exampleInputEmail1" class="text-danger txt-wrong-otp Bold"><?php echo constant('รหัส OTP ไม่ถูกต้อง') ?></label>
                 <?php }?>
-                <a id="countdown" class="text-primary txt-count-otp"></a>
+                <a id="countdown" class="text-primary txt-count-otp Bold"></a>
             </div>
                 
         </div>
         <div class="row pt-5" align="center">
             <div class="col">
-                <button onclick="reotp()" class="btn rounded-pill Regular col-12 btn-re-otp"><?php echo constant('ขอรหัส OTP อีกครั้ง') ?></button>
+                <button onclick="reotp()" class="btn rounded-pill Bold col-12 btn-re-otp"><?php echo constant('ขอรหัส OTP อีกครั้ง') ?></button>
             </div>
         	<div class="col">
-                <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill Regular col-12 btn-submit-otp"><?php echo constant('ถัดไป') ?></button>
+                <button type="submit" onclick="checkotp()" class="btn btn-primary rounded-pill Bold col-12 btn-submit-otp"><?php echo constant('ถัดไป') ?></button>
             </div>
         </div>
     </div>    
@@ -47,8 +47,8 @@
 </div> -->
 
 <footer class="footer">
-    <p style="margin-bottom: 3px;">นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)</p>
-    <button class="policy" onclick="policy()">คลิก</button>
+    <p class="txt-policy Bold"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
+    <button class="policy Bold" onclick="policy()"><?php echo constant('คลิก') ?></button>
 </footer>
 
 <script>
@@ -187,7 +187,7 @@ $(document).ready(function(){
             modal.find('.modal-body').prepend($(`
                 <div class="row">
                     <div class="col">
-                        <div class="Regular" style="font-size: 13px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
+                        <div class="Bold" style="font-size: 19px;">ใช้  &lt;OTP 1234&gt; &lt;Ref.<?php echo @$_SESSION['phoneNo']; ?>&gt; ใน 2 นาที ห้ามบอก OTP นี้แก่ผู้อื่นไม่ว่ากรณีใด</div>
                     </div>
                 </div>`
             ));

@@ -13,7 +13,9 @@ SESSION lang is : <?php echo isset($_SESSION['form'])? $_SESSION['form']:'no'; ?
     	</div>
 
     	<div class="logo mx-auto">
-		<div ><img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy"></div>
+		<div >
+			<img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+		</div>
     		<!-- <a href="<?php echo isset($_SESSION['pending'])? "index.php?page=menuupload": "index.php?page=2" ?>"><img src="public/img/icon.png" width="" height="40" class="d-inline-block align-top" alt="" loading="lazy"></a> -->
     	</div>
     	<!-- <div class="lang-btn mr-lg-5">

@@ -28,33 +28,33 @@ $result = ytu_product();
                     }  ?>
                     
                     <div class="form-group">
-                        <label for="exampleFormControlInput1" class="text-primary h5 Regular mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>
-                        <input name="name" type="text" class="form-control Light" id="name" placeholder='<?php echo constant("ชื่อ")?>'
+                        <label for="exampleFormControlInput1" class="text-primary h2 Bold mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>
+                        <input name="name" type="text" class="form-control Bold" id="name" placeholder='<?php echo constant("ชื่อ")?>'
                             required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Light"
+                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Bold"
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" required
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
                     </div>
                     <div class="form-group">
-                        <input name="tel" type="tel" class="form-control Light" id="exampleFormControlInput1"
+                        <input name="tel" type="tel" class="form-control Bold" id="exampleFormControlInput1"
                             placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" required
                             <?php echo isset($_SESSION['phoneNo']) ?  " value='".$_SESSION['phoneNo']."' readonly"  : "";?>
                             pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">
-                        <input name="email" type="email" class="form-control Light" id="exampleFormControlInput1"
+                        <input name="email" type="email" class="form-control Bold" id="exampleFormControlInput1"
                             placeholder="<?php echo constant("อีเมล")?>" required
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>
                             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     </div>
 
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h5 Regular mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
-                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
+                        <label for="feedsubtype" class="text-primary h2 Bold mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
+                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Bold" id="exampleFormControlSelect1" required>
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
                                 if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
@@ -69,23 +69,23 @@ $result = ytu_product();
                         </select>
                     </div>
                     <div class="form-group" id="other"  <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
-                        <input name="other" type="text" class="form-control Light" id="other"
+                        <input name="other" type="text" class="form-control Bold" id="other-input"
                             placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="iduser" type="text" class="form-control Light" id="exampleFormControlInput1"
+                        <input name="iduser" type="text" class="form-control Bold" id="exampleFormControlInput1"
                             placeholder="<?php echo constant('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน')?>" required
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Light "
+                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Bold "
                             id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" required
                             <?php echo isset($_POST['problem']) ?  " readonly"  : "";?>><?php echo isset($_POST['problem']) ?  $_POST['problem']  : "";?></textarea>
                         <div id="characters-left" class="characters-left"></div>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Light "
+                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Bold "
                             id="reqToBank" placeholder="<?php echo constant("สิ่งที่ต้องการให้ธนาคารดำเนินการ")?>" required
                             <?php echo isset($_POST['reqToBank']) ?  " readonly"  : "";?>><?php echo isset($_POST['reqToBank']) ?  $_POST['reqToBank']  : "";?></textarea>
                         <div id="characters-left1" class="characters-left"></div>
@@ -96,19 +96,19 @@ $result = ytu_product();
 
                     <div class="row mt-4">
                         <div class="col">
-                            <h6 class="ExtraLight">
+                            <h5 class="Bold">
                                 <?php echo constant("ธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับคำร้องของท่านภายใน 15 วันนับจากวันที่ธนาคารได้รับเอกสารครบถ้วนและได้นำข้อร้องเรียนของท่านเข้าสู่ระบบ โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777")?>
-                            </h6>
-                            <h6 class="ExtraLight">
+                            </h5>
+                            <h5 class="Bold">
                                 <?php echo constant("หมายเหตุ: คำร้องหลัง 17.00 น. จะถูกส่งเข้าระบบในวันทำการถัดไป")?>
-                            </h6>
+                            </h5>
                         </div>
                     </div>
 
                     <div class="row mt-3">
                         <div class="col ">
                             <input type="submit" name="create_case" 
-                                class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12"
+                                class="btn btn-primary rounded-pill d-flex justify-content-center Bold col-12 btn-submit-form"
                                 value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
                         </div>
                     </div>

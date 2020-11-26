@@ -20,8 +20,8 @@ a.textunset {
 <div class="container mb-4 col-lg-6 col-md-12 col-sm-12" id="menu">
     <div class="row justify-content-end">
         <div class="col-lg-8 col-md-11 col-sm-11" style="height: 195px; padding: 70px 15px;">
-            <h2 class="text-secondary text-right Regular"><?php echo constant('กรุณาระบุ')?> </h2>
-            <h2 class="text-secondary text-right Regular"><?php echo constant('ประเภทการร้องเรียน')?> </h2>
+            <h1 class="text-secondary text-right Bold txt-menu-topic"><?php echo constant('กรุณาระบุ')?> </h1>
+            <h1 class="text-secondary text-right Bold txt-menu-topic"><?php echo constant('ประเภทการร้องเรียน')?> </h1>
         </div>
     </div>
     <div class="container-btn-menu">
@@ -33,7 +33,7 @@ a.textunset {
         <div class="row mt-3 justify-content-md-center justify-content-sm-center">
             <div class="col-lg-11 col-md-8 col-sm-10 mb-2">
                 <a id="goForm<?php echo $key ?>" href="index.php?page=verify"
-                    class="btn btn-lg rounded d-flex justify-content-center Regular btn-menu">
+                    class="btn btn-lg rounded d-flex justify-content-center Bold btn-menu">
                     <?php echo $name_vl?>
                 </a>
             </div>
@@ -94,7 +94,7 @@ $(document).ready(function() {
                         </div>
                     </a>
                     <div class="row">
-                        <h7 class="mx-auto mt-2 Regular">ไทย</h7>
+                        <h7 class="mx-auto mt-2 Bold" style="font-size: 20px;">ไทย</h7>
                     </div>
                 </div>
                 <div class="col ml-0 pl-0">
@@ -104,7 +104,7 @@ $(document).ready(function() {
                         </div>
                     </a>
                     <div class="row">
-                        <h7 class="mx-auto mt-2 Regular">อังกฤษ</h7>
+                        <h7 class="mx-auto mt-2 Bold" style="font-size: 20px;">อังกฤษ</h7>
                     </div>
                 </div>
             </div>`));

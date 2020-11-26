@@ -12,7 +12,7 @@
         <img id="error" class="mx-auto" src="public/img/icon-warning.png" width="110px" style="margin-top:-50px;display:none" alt="">
         <img id="success" class="mx-auto" src="public/img/very-good.png" width="100px" style="margin-top:-50px;display:none" alt="">
         <div class="modal-header border-0 justify-content-center text-primary">
-        <h5 class="modal-title Regular" id="exampleModalLabel">Modal title</h5>
+        <h3 class="modal-title Bold" id="exampleModalLabel">Modal title</h3>
         
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -25,10 +25,10 @@
         <button type="button" class="btn btn-primary">Save changes</button> -->
         <div class="row col-12">
                 <div class="col" id="one">
-                    <a href="index.php?page=menu" id="upload-btn" class="btn rounded-pill btn-outline-primary Regular w-100" ><?php echo constant("ไม่มี")?></a>
+                    <a href="index.php?page=menu" id="upload-btn" class="btn rounded-pill btn-outline-primary Bold w-100" style="font-size: 20px;"><?php echo constant("ไม่มี")?></a>
                 </div>
                 <div class="col" id="two">
-                    <a id="upload-btn" class="btn rounded-pill btn-primary Regular  w-100" data-dismiss="modal" aria-label="Close"><?php echo constant("มี")?></a>
+                    <a id="upload-btn" class="btn rounded-pill btn-primary Bold w-100" data-dismiss="modal" aria-label="Close" style="font-size: 20px;"><?php echo constant("มี")?></a>
                 </div>
           </div>
       </div>
@@ -65,13 +65,13 @@
           <span aria-hidden="true">&times;</span>
         </button> -->
       </div>
-      <div class="modal-body border-0 modal-clear">
+      <div class="modal-body border-0 modal-clear Bold"  style="font-size: 21px;">
         ท่านต้องการที่จะยกเลิกขั้นตอนทั้งหมดและกลับสู่หน้าเมนูหลักใช่หรือไม่
       </div>
       <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo constant("ยกเลิก")?></button>
+        <button type="button" class="btn btn-secondary btn-clear-session" data-dismiss="modal"><?php echo constant("ยกเลิก")?></button>
         <form action="index.php?re_session=unset">
-          <button type="submit" class="btn btn-primary" href="index.php?re_session=unset"><?php echo constant("ยืนยัน")?></button>
+          <button type="submit" class="btn btn-primary btn-clear-session" href="index.php?re_session=unset"><?php echo constant("ยืนยัน")?></button>
         </form>
       </div>
     </div>

@@ -78,13 +78,9 @@
             $view = 'resources/views/error.php';
         }elseif ($page == "test") {
             $view = 'resources/views/test.php';
-        }elseif ($page == "thanks") {
-            $view = 'resources/views/thanks.php';
-        }
-        else{
+        }else{
             session_destroy();
             $view = 'resources/views/menu.php';
-            
         }
 
         

@@ -3,7 +3,7 @@
     // if (!defined('DATABASE_HOSTNAME')) define('DATABASE_HOSTNAME', 'devscbdb01');
     // if (!defined('DATABASE_USER')) define('DATABASE_USER', 'tellvoice');
     // if (!defined('DATABASE_PASSWORD')) define('DATABASE_PASSWORD', 'eciovllet');
-    // if (!defined('DATABASE_DBNAME')) define('DATABASE_DBNAME', 'scbytu_dev');
+    // if (!defined('DATABASE_DBNAME')) define('DATABASE_DBNAME', 'scbtvss_dev');
     // if (!defined('DATABASE_HOSTPORT')) define('DATABASE_HOSTPORT', '9306');
     //////////////////     localhost     //////////////////
     if (!defined('DATABASE_HOSTNAME')) define('DATABASE_HOSTNAME', 'localhost');

@@ -78,9 +78,13 @@
             $view = 'resources/views/error.php';
         }elseif ($page == "test") {
             $view = 'resources/views/test.php';
-        }else{
+        }elseif ($page == "thanks") {
+            $view = 'resources/views/thanks.php';
+        }
+        else{
             session_destroy();
             $view = 'resources/views/menu.php';
+            
         }
 
         
@@ -119,7 +123,12 @@
 
         <?php // include_once 'lang/lang_'. $lang .'.php'; ?>
     </head>
-	<?php include 'resources/views/layouts/header.php'; ?>
+
+    <?php 
+        if($page != "thanks"){
+            include 'resources/views/layouts/header.php'; 
+        }
+    ?>
 	<?php include 'resources/views/modal.php'; ?>
 
     <!-- <body class="body-pd-bt"> -->

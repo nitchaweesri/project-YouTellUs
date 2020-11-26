@@ -78,7 +78,7 @@ $result = ytu_product();
                         </select>
                     </div>
                     <div class="form-group" id="other" <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
-                        <input name="other" type="text" class="form-control Light" id="other"
+                        <input name="other" type="text" class="form-control Light" id="other-input"
                             placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>

@@ -89,5 +89,7 @@ define('คลิก','Click');
 define('เงื่อนไขการร้องเรียน','Term & Conditions');
 define('ยอมรับและดำเนินการต่อ','Accept and continue proceed');
 
+///thanks///
+define('ทุก ๆ ความคิดเห็น ...เป็นเรื่องสำคัญ','Every Comment Does Matter');
 
 ?>

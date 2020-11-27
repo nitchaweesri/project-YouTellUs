@@ -18,6 +18,7 @@ $result = ytu_product();
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
                     
                     <input type="hidden" name="feedtype" value="OC" >
+                    <input type="hidden" name="lang" value="<?php echo $_SESSION['lang']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
                     <?php 
                     if(isset($file)){ 
@@ -114,7 +115,7 @@ $result = ytu_product();
                     </div>
                 </form>
                 <div class="btn-out">
-                    <button class="button-clear" onclick="modalClear()">Clear Session</button>
+                    <button class="button-clear" onclick="modalClear()"><img src="public/img/home.png" class="d-inline-block icon-home" loading="lazy"></button>
                 </div>
             </div>
         </div>

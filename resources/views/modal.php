@@ -66,7 +66,7 @@
         </button> -->
       </div>
       <div class="modal-body border-0 modal-clear Bold"  style="font-size: 21px;">
-        ท่านต้องการที่จะยกเลิกขั้นตอนทั้งหมดและกลับสู่หน้าเมนูหลักใช่หรือไม่
+        หากกลับสู่หน้าเมนูหลักขั้นตอนทุกอย่างจะถูกยกเลิกและท่านจะต้องรับรหัส OTP ใหม่อีกครั้ง ต้องการจะกลับเมนูหลักหรือไม่
       </div>
       <div class="modal-footer border-0">
         <button type="button" class="btn btn-secondary btn-clear-session" data-dismiss="modal"><?php echo constant("ยกเลิก")?></button>

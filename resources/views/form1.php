@@ -18,6 +18,7 @@ $result = ytu_product();
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
                     
                     <input type="hidden" name="feedtype" value="OC" >
+                    <input type="hidden" name="lang" value="<?php echo $_SESSION['lang']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
                     <?php 
                     if(isset($file)){ 

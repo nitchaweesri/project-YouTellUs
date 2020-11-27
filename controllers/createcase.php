@@ -31,9 +31,9 @@ function create_case($data)
                             ,"idCard"=> $idcard
                             ,"tel"=> $_POST['tel'] 
                             ,"email"=> $_POST['email']
-                            ,"idUser"=> $_POST['iduser']
+                            ,"idUser"=> isset($_POST['iduser'])? $_POST['iduser'] : "" 
                             ,"other"=> isset($_POST['other'])? $_POST['other'] : "" 
-                            ,"description"=> $_POST['description']
+                            // ,"description"=> $_POST['description']
                             ,"nameDelegate"=> isset($_POST['nameDelegate'])? $_POST['nameDelegate'] : "" 
                             ,"service"=> isset($_POST['service'])? $_POST['service'] : "" 
                             ,"serviceId"=> isset($_POST['serviceID'])? $_POST['serviceID'] : "" 
@@ -49,9 +49,11 @@ function create_case($data)
                             ,"position"=> isset($_POST['position'])? $_POST['position'] : "" 
                             ,"nameOwner"=> isset($_POST['nameOwner'])? $_POST['nameOwner'] : "" 
                             ,"file"=>json_encode($JsonFile)
+                            ,"lang"=>$_POST['lang']
                         );
         
-
+        print_r($Jsonbody);
+        exit;
         $ParamArr = array(   
                             "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tel'].' '.$_POST['name']
                             ,"feedType"=> $_POST['feedtype']

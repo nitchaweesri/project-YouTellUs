@@ -14,10 +14,9 @@ $result = ytu_product();
 
                     <!-- <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
-                    
+                    <input type="hidden" name="lang" value="<?php echo $_SESSION['lang']?>" >
                     <input type="hidden" name="feedtype" value="OC" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
-                    <input type="hidden" name="relationOptions" value="<?php echo $_POST['relationOptions']?>" >
                     <?php 
                     if(isset($file)){ 
                         foreach ($file as $key => $value) {
@@ -55,7 +54,7 @@ $result = ytu_product();
                             <?php echo $_POST['position'] = isset($_POST['position']) ?  " value='".$_POST['position']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Light"
+                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Blod"
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชนผู้มีอำนาจลงนาม")?>" required
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
@@ -66,10 +65,10 @@ $result = ytu_product();
                             <?php echo $_POST['nameAttorneyPerson'] = isset($_POST['nameAttorneyPerson']) ?  " value='".$_POST['nameAttorneyPerson']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="idcardAttorneyPerson" type="tel" id="idcardAttorneyPerson" maxlength="13" class="form-control Light"
+                        <input name="idcardAttorneyPerson" type="tel" id="idcardAttorneyPerson" maxlength="13" class="form-control Blod"
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชนผู้รับมอบอำนาจลงนาม")?>" required
                             <?php echo $_POST['idcardAttorneyPerson'] = isset($_POST['idcardAttorneyPerson']) ?  " value='".$_POST['idcardAttorneyPerson']."' readonly"  : "";  ?>
-                            pattern="[0-9]{13}" oninput="valid_creditcard(this)">
+                            pattern="[0-9]{13}" oninput="valid_creditcard1(this)">
                     </div>
                     <div class="form-group">
                         <input name="tel" type="tel" class="form-control Light" id="tel"
@@ -165,6 +164,20 @@ $(document).ready(function() {
             $('span.error').removeClass('true').text('');
         }
     })
+
+    $('#idcardAttorneyPerson').on('keyup', function() {
+        if ($.trim($(this).val()) != '' && $(this).val().length == 13) {
+            id = $(this).val().replace(/-/g, "");
+            var result = Script_checkID(id);
+            if (result === false) {
+                $('#idcardAttorneyPerson').removeClass('is-valid').addClass('is-invalid');
+            } else {
+                $('#idcardAttorneyPerson').removeClass('is-invalid').addClass('is-valid');
+            }
+        } else {
+            $('span.error').removeClass('true').text('');
+        }
+    })
 });
 
 function modalClear() {
@@ -194,6 +207,31 @@ function IsNumeric(input) {
 
 
 function valid_creditcard(obj) {
+    var pattern_otp =
+        /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
+    if (!obj.value.match(pattern_otp)) {
+        obj.setCustomValidity('invalid');
+    }
+    if (obj.value.substring(0, 1) == 0) {
+        obj.setCustomValidity('invalid');
+    }
+    if (obj.length != 13) {
+        obj.setCustomValidity('invalid');
+    }
+    for (i = 0, sum = 0; i < 12; i++)
+        sum += parseFloat(obj.value.charAt(i)) * (13 - i);
+    if ((11 - sum % 11) % 10 != parseFloat(obj.value.charAt(12))) {
+        obj.setCustomValidity('invalid');
+    } else {
+        obj.setCustomValidity('');
+    }
+
+
+    // obj.setCustomValidity(obj.value.match(pattern_otp)?"":"invalid");
+
+}
+
+function valid_creditcard1(obj) {
     var pattern_otp =
         /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
     if (!obj.value.match(pattern_otp)) {

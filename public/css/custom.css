@@ -248,19 +248,29 @@
         background-color: #765ABA;
         color: white;
         border: none;
-        padding: 4px;
-        border-radius: 16%;
+        padding: 14px;
+        border-radius: 63%;
         font-size: 20px;
         line-height: 21px;
         font-family: 'Kittithada-Bold';
     }
 
+    .button-clear:hover{
+        background-color: #5c3da7;
+    }
+
     .btn-out{
-        position: fixed; 
-        bottom: 11px;
+        position: fixed;
+        bottom: 13px;
         right: 11px;
-        width: 70px; 
+        width: 70px;
         z-index: 5;
+    }
+    button:focus {
+        outline: none;
+    }
+    .icon-home{
+        height: 33px;
     }
 
     ul{

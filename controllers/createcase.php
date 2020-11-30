@@ -54,7 +54,7 @@ function create_case($data)
         
 
         $ParamArr = array(   
-                            "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tel'].' '.$_POST['name']
+                            "feedTitle"=> $_POST['feedsubtype'].' : '.$_POST['tel'].' '.$_POST['name']
                             ,"feedType"=> $_POST['feedtype']
                             ,"feedSubType"=> $_POST['feedsubtype']
                             ,"feedBody"=> json_encode($Jsonbody)

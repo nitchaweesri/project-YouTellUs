@@ -28,6 +28,12 @@ $result = ytu_product();
                           }
                     }
                     ?>
+
+                    <?php if(isset($_POST['name'])){ ?>
+                        <div class="form-group">
+                            <p class="text-primary" style="font-size: 28px; text-align: center;">"<?php echo constant("กรุณาตรวจสอบข้อมูลก่อนกดยืนยัน")?>"</p>
+                        </div>
+                    <?php } ?>
  
                     <div class="row">
                         <div class="col mb-2">

@@ -27,6 +27,12 @@ $result = ytu_product();
                          <input type="hidden" name="linkFile[]" value="<?php echo $linkFile[$key] ?>" >
                        <?php  }
                     }  ?>
+
+                    <?php if(isset($_POST['name'])){ ?>
+                        <div class="form-group">
+                            <p class="text-primary" style="font-size: 28px; text-align: center;">"<?php echo constant("กรุณาตรวจสอบข้อมูลก่อนกดยืนยัน")?>"</p>
+                        </div>
+                    <?php } ?>
                     
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h2 Bold mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>

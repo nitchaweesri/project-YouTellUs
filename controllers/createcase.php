@@ -52,8 +52,7 @@ function create_case($data)
                             ,"lang"=>$_POST['lang']
                         );
         
-        print_r($Jsonbody);
-        exit;
+
         $ParamArr = array(   
                             "feedTitle"=> $_POST['feedtype'].' : '.$_POST['tel'].' '.$_POST['name']
                             ,"feedType"=> $_POST['feedtype']

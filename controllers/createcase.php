@@ -13,7 +13,7 @@ function create_case($data)
 
     try{
 
-        $url = "https://devytuapp.tellvoice.com/TVSSCRAWLER3/youtellus/webhook_fik_test.php";
+        $url = "https://clonld01.tellvoice.com/TVSSCRAWLER3/youtellus/webhook_fik_test.php";
         
         $idcard = encryptString($_POST['idcard']);
         $ch = curl_init( $url );

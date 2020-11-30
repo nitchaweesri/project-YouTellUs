@@ -58,6 +58,7 @@ function create_case($data)
                             ,"feedType"=> $_POST['feedtype']
                             ,"feedSubType"=> $_POST['feedsubtype']
                             ,"feedBody"=> json_encode($Jsonbody)
+                            ,'textfeedsubtype' => $_POST['textfeedsubtype']
                         );
         
         $payload = json_encode( $ParamArr);

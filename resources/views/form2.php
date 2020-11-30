@@ -18,6 +18,8 @@ $result = ytu_product();
                     <input type="hidden" name="feedtype" value="OC" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="relationOptions" value="<?php echo $_POST['relationOptions']?>" >
+                    <input type="hidden" name="textfeedsubtype" value="<?php echo $_POST['textfeedsubtype']?>" >
+
                     <?php 
                     if(isset($file)){ 
                         foreach ($file as $key => $value) {
@@ -76,7 +78,7 @@ $result = ytu_product();
                                     echo "<option selected='selected' value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
 
                                 }else{
-                                    echo "<option  value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+                                    echo "<option data-text='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'  value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
 
                                 }
                             }
@@ -195,6 +197,12 @@ $result = ytu_product();
 </div>
 
 <script>
+
+$('select[name ="feedsubtype"]').on('change',function () {
+    $('input[name ="textfeedsubtype"]').val($('select[name ="feedsubtype"] :selected').data('text'));
+    }
+);
+
 $(document).ready(function() {
     $('#idcard').on('keyup', function() {
         if ($.trim($(this).val()) != '' && $(this).val().length == 13) {

@@ -37,7 +37,7 @@
     </footer>
 </div>
 
-<script src='https://www.google.com/recaptcha/api.js' async defer ></script>
+<script src='https://www.google.com/recaptcha/api.js?hl=th' async defer ></script>
 <script>
 $(document).ready(function() {
 

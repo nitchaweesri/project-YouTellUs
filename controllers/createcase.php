@@ -4,16 +4,19 @@ include_once('crypt.php') ;
 
 // die ('yes');
 if (isset($_POST['create_case'])) {
-    include 'uploadfile.php';
-    $linkFile = array_filter($linkFile, function($value) { return !is_null($value) && $value !== ''; });
-    $file = array_filter($_FILES['file']['name'], function($value) { return !is_null($value) && $value !== ''; });
 
-    // var_dump($_POST,$_FILES['file']['name'],$linkFile);
-    create_case($_POST,$file,$linkFile);
+
+    include 'uploadfile.php';
+    // $linkFile = array_filter($linkFile, function($value) { return !is_null($value) && $value !== ''; });
+    // $file = array_filter($_FILES['file']['name'], function($value) { return !is_null($value) && $value !== ''; });
+    // print_r($_FILES['file']);
+    // exit();
+    create_case($_POST,$_FILES['file']);
 }
 
-function create_case($data,$file,$linkFile)
+function create_case($data,$file)
 {
+
 
     try{
 
@@ -29,9 +32,11 @@ function create_case($data,$file,$linkFile)
         //     $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$_POST['linkFile'][$key];
 
         // }
-        foreach ($file as $key => $value) {
+
+        foreach ($file['name'] as $key => $value) {
+
             $JsonFile["file$key"] = $value ;
-            $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$linkFile[$key];
+            $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$file['linkFile'][$key];
 
         }
 
@@ -72,7 +77,7 @@ function create_case($data,$file,$linkFile)
         
         $payload = json_encode( $ParamArr);
 
-        die(var_dump($payload));
+        // die(var_dump($payload));
 
         // $ParamArr = array( "data"=> "FIK TEST" );
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );

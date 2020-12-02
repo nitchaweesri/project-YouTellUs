@@ -36,8 +36,13 @@
         <!-- <button class="policy" onclick="policy()">คลิก</button> -->
     </footer>
 </div>
-
-<script src='https://www.google.com/recaptcha/api.js?hl=th' async defer ></script>
+<?php 
+    if($_SESSION['lang'] == 'th'){
+        echo("<script src='https://www.google.com/recaptcha/api.js?hl=th ' async defer ></script>");
+    }else{
+        echo("<script src='https://www.google.com/recaptcha/api.js?hl=en ' async defer ></script>");
+    }
+?>
 <script>
 $(document).ready(function() {
 

@@ -12,7 +12,7 @@
       foreach( $_FILES['file']['name'] as $i => $value ) {
         if ($_FILES['file']['name'][$i] !='' ) {
           $fileName = $_FILES['file']['name'][$i];
-          $fileSize = $_FILES['file']['size'][$i];
+          $fileSize = $_FILES['file']['size'][$i] / 1000000;
           $fileTmpName  = $_FILES['file']['tmp_name'][$i];
           $fileType = $_FILES['file']['type'][$i];
 
@@ -27,9 +27,10 @@
             }
 
 
+            $filesizeallow = FILE_SIZE_ALLOW / 1000000;
 
-            if ($fileSize > FILE_SIZE_ALLOW) {
-              $errors[] = "File exceeds maximum size (".FILE_SIZE_ALLOW."MB)";
+            if ($fileSize > $filesizeallow) {
+              $errors[] = "File exceeds maximum size (".$filesizeallow."MB)";
             }
 
 

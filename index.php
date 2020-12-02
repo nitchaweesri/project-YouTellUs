@@ -15,10 +15,20 @@
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1 ;
     $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;
     
-    if (isset($_SESSION['logOn'])&& $_SESSION['logOn']=='true') {
+    if (isset($_SESSION['logOn'])) {
         // if (isset($_REQUEST['condition']) &&$_REQUEST['condition'] == TRUE) {
         //     $view = 'resources/views/condition.php';
         // } else {
+            if(time() - $_SESSION['logOn'] > 1800) {
+
+                session_destroy();
+                echo "<script>
+                        alert('Session หมดอายุ กรุณาทำรายการใหม่อีกครั้ง');
+                        window.location.href='index.php?page=menu';
+                    </script>";
+
+                // header("Location: index.php?page=menu");
+            }
              if ($page == 2) {
                 $view = 'resources/views/condition.php';
             } elseif ($page == "GN") {

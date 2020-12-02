@@ -39,24 +39,23 @@ $result = ytu_product();
                     
                     <div class="form-group">
                         <label for="exampleFormControlInput1" class="text-primary h2 Bold mb-3"><?php echo constant("ข้อมูลส่วนตัว")?></label>
-                        <input name="name" type="text" class="form-control Bold" id="name" placeholder='<?php echo constant("ชื่อ")?>'
-                            
+                        <input name="name" type="text" class="form-control Bold" id="name" placeholder='<?php echo constant("ชื่อ")?>' required
                             <?php echo $_POST['name'] = isset($_POST['name']) ?  " value='".$_POST['name']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Bold"
+                        <input name="idcard" type="tel" id="idcard" maxlength="13" class="form-control Bold" required
                             placeholder="<?php echo constant("หมายเลขบัตรประชาชน")?>" 
                             <?php echo $_POST['idcard'] = isset($_POST['idcard']) ?  " value='".$_POST['idcard']."' readonly"  : "";  ?>
                             pattern="[0-9]{13}" oninput="valid_creditcard(this)">
                     </div>
                     <div class="form-group">
-                        <input name="tel" type="tel" class="form-control Bold" id="exampleFormControlInput1"
+                        <input name="tel" type="tel" class="form-control Bold" id="exampleFormControlInput1" required
                             placeholder="<?php echo constant("หมายเลขโทรศัพท์ที่ติดต่อได้")?>" 
                             <?php echo isset($_SESSION['phoneNo']) ?  " value='".$_SESSION['phoneNo']."' readonly"  : "";?>
                             pattern="^0([8|9|6])([0-9]{8}$)">
                     </div>
                     <div class="form-group">
-                        <input name="email" type="email" class="form-control Bold" id="exampleFormControlInput1"
+                        <input name="email" type="email" class="form-control Bold" id="exampleFormControlInput1" required
                             placeholder="<?php echo constant("อีเมล")?>" 
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>
                             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
@@ -64,7 +63,7 @@ $result = ytu_product();
 
                     <div class="form-group mt-4">
                         <label for="feedsubtype" class="text-primary h2 Bold mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
-                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Bold" id="exampleFormControlSelect1" >
+                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Bold" id="exampleFormControlSelect1" required> 
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
                                 if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
@@ -84,18 +83,18 @@ $result = ytu_product();
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="iduser" type="text" class="form-control Bold" id="exampleFormControlInput1"
+                        <input name="iduser" type="text" class="form-control Bold" id="exampleFormControlInput1" required
                             placeholder="<?php echo constant('หมายเลขบัญชีผลิตภัณฑ์ที่ต้องการร้องเรียน')?>" 
                             <?php echo $_POST['iduser'] = isset($_POST['iduser']) ?  " value='".$_POST['iduser']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Bold "
+                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Bold " required
                             id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" 
                             <?php echo isset($_POST['problem']) ?  " readonly"  : "";?>><?php echo isset($_POST['problem']) ?  $_POST['problem']  : "";?></textarea>
                         <div id="characters-left" class="characters-left"></div>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Bold "
+                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Bold " required
                             id="reqToBank" placeholder="<?php echo constant("สิ่งที่ต้องการให้ธนาคารดำเนินการ")?>" 
                             <?php echo isset($_POST['reqToBank']) ?  " readonly"  : "";?>><?php echo isset($_POST['reqToBank']) ?  $_POST['reqToBank']  : "";?></textarea>
                         <div id="characters-left1" class="characters-left"></div>
@@ -277,6 +276,12 @@ $("#exampleFormControlSelect1").change(function(){
         $("#other-input").removeAttr(""); 
     }
 });
+
+var select = $('#exampleFormControlSelect1 option');
+if(select.filter(':selected').text() != select.filter('option:last').text() ){
+    $('#other').css("display", "none");
+    
+}
 
 
 </script>

@@ -46,8 +46,8 @@
 <script>
 $(document).ready(function() {
 
-    // $('#makesession').prop('disabled', true);
-
+    $('#makesession').prop('disabled', true);
+    document.getElementById("makesession").style.display = "none";
 
     $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)
@@ -140,6 +140,7 @@ $(function () {
 
 function recaptchaCallback() {
     $('#makesession').prop('disabled', false);
+    document.getElementById("makesession").style.display = "contents";
 };
 
 

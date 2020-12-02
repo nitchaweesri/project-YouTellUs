@@ -1,6 +1,6 @@
 <?php
-    include '../config.php';
-    
+    include 'config.php';
+
     $currentDirectory = getcwd();
     $uploadDirectory = "/uploads/file/";
 
@@ -19,8 +19,7 @@
           $fileExtension = strtolower(explode('.',$fileName)[1]);
           $fileExtension = str_replace(' ', '', $fileExtension);
 
-            // str_replace("world","Peter","Hello world!")
-            $uploadPath = str_replace("controllers","",$currentDirectory) . $uploadDirectory . $fileName;
+          $uploadPath = $currentDirectory . $uploadDirectory . $fileName; 
 
             if (! in_array($fileExtension,$fileExtensionsAllowed)) {
               $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
@@ -38,8 +37,8 @@
             if (empty($errors)) {
 
               $sur = strrchr($fileName, "."); //ตัดนามสกุลไฟล์เก็บไว้
-              $newfilename =  $_POST['tel'].(Date("dmy_His").$i.$sur); //ผมตั้งเป็น วันที่_เวลา.นามสกุล
-              $didUpload = copy($fileTmpName,str_replace("controllers","",$currentDirectory) . $uploadDirectory.$newfilename); //แล้วค่อยเก็บลงไฟล์
+              $newfilename = $_SESSION['phoneNo'].(Date("dmy_His").$i.$sur); //ผมตั้งเป็น วันที่_เวลา.นามสกุล
+              $didUpload = copy($fileTmpName,$currentDirectory . $uploadDirectory.$newfilename); //แล้วค่อยเก็บลงไฟล์
             
               // $didUpload = move_uploaded_file($fileTmpName, $uploadPath);  //ไม่เปลี่ยนชื่อ
 

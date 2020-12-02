@@ -1,7 +1,7 @@
 
 <?php 
 include 'controllers/case.php';
-include 'controllers/uploadfile.php';
+// include 'controllers/uploadfile.php';
 
 $result = ytu_product();
 ?>
@@ -12,7 +12,7 @@ $result = ytu_product();
             <div class="col-lg-7 col-md-10 col-sm-12 pt-lg-3 pt-md-3">
                 
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=GN" ;?>"
+                    action="controllers/createcase.php"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                     <!-- <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
@@ -20,16 +20,16 @@ $result = ytu_product();
                     <input type="hidden" name="feedtype" value="OC" >
                     <input type="hidden" name="lang" value="<?php echo $_SESSION['lang']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
-                    <input type="hidden" name="textfeedsubtype" value="<?php echo $_POST['textfeedsubtype']?>" >
+                    <!-- <input type="hidden" name="textfeedsubtype" value="<?php echo $_POST['textfeedsubtype']?>" > -->
 
 
-                    <?php 
+                    <!-- <?php 
                     if(isset($file)){ 
                         foreach ($file as $key => $value) { ?>
                          <input type="hidden" name="file[]" value="<?php echo $value ?>" > 
                          <input type="hidden" name="linkFile[]" value="<?php echo $linkFile[$key] ?>" >
                        <?php  }
-                    }  ?>
+                    }  ?> -->
 
                     <?php if(isset($_POST['name'])){ ?>
                         <div class="form-group">
@@ -79,8 +79,13 @@ $result = ytu_product();
                     </div>
                     <div class="form-group" id="other"  <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
                         <input name="other" type="text" class="form-control Bold" id="other-input"
-                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
+                            placeholder="<?php echo constant("อื่น ๆ (โปรดระบุ)")?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
+                    </div>
+                    <div class="form-group">
+                        <input name="complaintId" type="text" class="form-control Bold" id="complaintId"
+                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
+                            <?php echo $_POST['complaintId'] = isset($_POST['complaintId']) ?  " value='".$_POST['complaintId']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input name="iduser" type="text" class="form-control Bold" id="exampleFormControlInput1" required

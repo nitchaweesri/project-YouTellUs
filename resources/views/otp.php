@@ -148,12 +148,16 @@ function checkotp(params) {
         var oldmistake = parseInt('<?php echo $_SESSION['countMistake'];?>');
         var newmistake = oldmistake+=1;
     
-        $.ajax({
+        var logOn = '<?php echo isset($_SESSION['logOn'])? $_SESSION['logOn']: '';?>';
+        if (logOn == '') {
+            $.ajax({
             type: "POST",
-            url: 'controllers/sessionCreate.php' ,
-            data:{"name": "logOn","value":"true" }
-            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
+                url: 'controllers/sessionCreate.php' ,
+                data:{"name": "logOn","value":"<?php echo time(); ?>" }
+                // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+            }); 
+        }
+        
         
 
         ///////////////////   check require file    ///////////////////

@@ -22,14 +22,11 @@ $result = ytu_product();
 
                     <?php 
                     if(isset($file)){ 
-                        foreach ($file as $key => $value) {
-                          echo   '<input type="hidden" name="file[]" value="'.$value.'" >';
-                        }
-                        foreach ($linkFile as $key1 => $value1) {
-                            echo   '<input type="hidden" name="linkFile[]" value="'.$value1.'" >';
-                          }
-                    }
-                    ?>
+                        foreach ($file as $key => $value) { ?>
+                         <input type="hidden" name="file[]" value="<?php echo $value ?>" > 
+                         <input type="hidden" name="linkFile[]" value="<?php echo $linkFile[$key] ?>" >
+                       <?php  }
+                    }  ?>
 
                     <?php if(isset($_POST['name'])){ ?>
                         <div class="form-group">
@@ -330,4 +327,9 @@ $("#exampleFormControlSelect1").change(function(){
     }
 });
 
+var select = $('#exampleFormControlSelect1 option');
+if(select.filter(':selected').text() != select.filter('option:last').text() ){
+    $('#other').css("display", "none");
+    
+}
 </script>

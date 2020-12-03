@@ -62,15 +62,15 @@ $result = ytu_product();
                     </div>
 
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h2 Bold mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
-                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Bold" id="exampleFormControlSelect1" required> 
+                        <label for="textfeedsubtype" class="text-primary h2 Bold mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
+                        <select <?php echo isset($_POST['textfeedsubtype'])? 'disabled': ''?>  name="textfeedsubtype" class="form-control Bold" id="exampleFormControlSelect1" required> 
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
-                                if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
-                                    echo "<option selected='selected' value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+                                if (isset($_POST['textfeedsubtype']) && $value['PRODUCTCODE']== $_POST['textfeedsubtype']) {
+                                    echo "<option selected='selected' value='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
 
                                 }else{
-                                    echo "<option data-text='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'  value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+                                    echo "<option data-text='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'  value='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
 
                                 }
                             }
@@ -137,10 +137,10 @@ $result = ytu_product();
 
 <script>
 
-$('select[name ="feedsubtype"]').on('change',function () {
-    $('input[name ="textfeedsubtype"]').val($('select[name ="feedsubtype"] :selected').data('text'));
-    }
-);
+// $('select[name ="feedsubtype"]').on('change',function () {
+//     $('input[name ="textfeedsubtype"]').val($('select[name ="feedsubtype"] :selected').data('text'));
+//     }
+// );
 
 
 function modalClear() {

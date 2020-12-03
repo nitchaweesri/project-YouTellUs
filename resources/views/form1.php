@@ -122,9 +122,9 @@ $result = ytu_product();
                         </div>
                     </div>
                 </form>
-                <div class="btn-out">
+                <!-- <div class="btn-out">
                     <button class="button-clear" onclick="modalClear()"><img src="public/img/home.png" class="d-inline-block icon-home" loading="lazy"></button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

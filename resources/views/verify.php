@@ -46,8 +46,8 @@
 <script>
 $(document).ready(function() {
 
-    $('#makesession').prop('disabled', true);
-    document.getElementById("makesession").style.display = "none";
+    // $('#makesession').prop('disabled', true);
+    // document.getElementById("makesession").style.display = "none";
 
     $('#exampleModal').on('show.bs.modal', function (event) {
             var modal = $(this)

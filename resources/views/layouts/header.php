@@ -9,7 +9,7 @@ SESSION lang is : <?php echo isset($_SESSION['form'])? $_SESSION['form']:'no'; ?
 <nav class="navbar navbar-light fixed-top test pl-0" style="background-color:#ffffff; box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);">
 	<div class="container col-lg-7">
 		<div class="logo">
-    		<a href="#" onclick="history.go(-1);"><img src="public/img/chevron-left.png" width="" height="20" class="d-inline-block align-top pt-1" alt="" loading="lazy"></a>
+    		<a  href="javascript:history.go(-1)" onclick="history.go(-1);"><img src="public/img/chevron-left.png" width="" height="20" class="d-inline-block align-top pt-1" alt="" loading="lazy"></a>
     	</div>
 
     	<div class="logo mx-auto">

@@ -5,7 +5,6 @@ include_once('crypt.php') ;
 // die ('yes');
 if (isset($_POST['create_case'])) {
 
-    // print_r($_POST);
 
     include 'uploadfile.php';
     // $linkFile = array_filter($linkFile, function($value) { return !is_null($value) && $value !== ''; });
@@ -52,6 +51,7 @@ function create_case($data,$file)
                             ,"idUser"=> isset($_POST['iduser'])? $_POST['iduser'] : "" 
                             // ,"description"=> $_POST['description']
                             ,'textfeedsubtype' => ($_POST['other'])==''? $_POST['textfeedsubtype'] : $_POST['other'] 
+                            ,"complaintId"=> isset($_POST['complaintId'])? $_POST['complaintId'] : "" 
                             ,"nameDelegate"=> isset($_POST['nameDelegate'])? $_POST['nameDelegate'] : "" 
                             ,"service"=> isset($_POST['service'])? $_POST['service'] : "" 
                             ,"serviceId"=> isset($_POST['serviceID'])? $_POST['serviceID'] : "" 
@@ -81,7 +81,7 @@ function create_case($data,$file)
         
         $payload = json_encode( $ParamArr);
 
-        die(var_dump($payload));
+        // die(var_dump($payload));
 
         // $ParamArr = array( "data"=> "FIK TEST" );
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );

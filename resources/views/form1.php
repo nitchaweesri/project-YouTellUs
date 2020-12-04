@@ -83,7 +83,7 @@ $result = ytu_product();
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="complaintId" type="text" class="form-control Bold" id="complaintId"
+                        <input name="complaintId" type="text" class="form-control Bold" id="complaintId" required
                             placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
                             <?php echo $_POST['complaintId'] = isset($_POST['complaintId']) ?  " value='".$_POST['complaintId']."' readonly"  : "";?>>
                     </div>
@@ -275,10 +275,10 @@ $("#exampleFormControlSelect1").change(function(){
     var select = $('#exampleFormControlSelect1 option');
     if(select.filter(':selected').text() == select.filter('option:last').text() ){
         $('#other').css("display", "block");
-        $("#other-input").attr("",true); 
+        $("#other-input").attr("required",true); 
     }else{
         $('#other').css("display", "none");
-        $("#other-input").removeAttr(""); 
+        $("#other-input").removeAttr("required"); 
     }
 });
 

@@ -107,35 +107,33 @@ function policy() {
     }, false);
 })();
 
-$(function () {
-    $('#makesession').on('click', function () {
-        $.ajax({
-            type: "POST",
-            url: 'controllers/sessionCreate.php',
-            data:{"name": "countStart","value":new Date().getTime()}
-            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
-        $.ajax({
-            type: "POST",
-            url: 'controllers/sessionCreate.php',
-            data:{"name": "phoneNo","value":$('#tell').val()}
-            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
-        var countMistake = '<?php echo isset($_SESSION['countMistake'])? $_SESSION['countMistake']: '';?>';
+$('#makesession').on('click', function () {
+    $.ajax({
+        type: "POST",
+        url: 'controllers/sessionCreate.php',
+        data:{"name": "countStart","value":new Date().getTime()}
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
+    $.ajax({
+        type: "POST",
+        url: 'controllers/sessionCreate.php',
+        data:{"name": "phoneNo","value":$('#tell').val()}
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
+    var countMistake = '<?php echo isset($_SESSION['countMistake'])? $_SESSION['countMistake']: '';?>';
 
-        if (countMistake == '') {
-            $.ajax({
-            type: "POST",
-            url: 'controllers/sessionCreate.php',
-            data:{"name": "countMistake","value":"0"}
-            // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-        }); 
-        }
+    if (countMistake == '') {
+        $.ajax({
+        type: "POST",
+        url: 'controllers/sessionCreate.php',
+        data:{"name": "countMistake","value":"0"}
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
+    }
 
-        // window.location.href = 'index.php?page=otp'; 
-        
+    // window.location.href = 'index.php?page=otp'; 
+    
     });
-});
 
 
 function recaptchaCallback() {

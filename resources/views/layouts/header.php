@@ -2,14 +2,19 @@
 <?php // $countMistake = "<script>document.write(sessionStorage.getItem('countMistake'));</script>"; ?>
 <!-- 
 ################
-SESSION lang is : <?php echo isset($_SESSION['form'])? $_SESSION['form']:'no'; ?> 
+SESSION phoneNo is : <?php echo isset($_SESSION['phoneNo'])? $_SESSION['phoneNo']:'no'; ?> 
+################
+-->
+<!-- 
+################
+SESSION lang is : <?php echo isset($_SESSION['lang'])? $_SESSION['lang']:'no'; ?> 
 ################
 -->
 
 <nav class="navbar navbar-light fixed-top test pl-0" style="background-color:#ffffff; box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);">
 	<div class="container col-lg-7">
 		<div class="logo">
-    		<a  href="javascript:history.go(-1)" onclick="history.go(-1);"><img src="public/img/chevron-left.png" width="" height="20" class="d-inline-block align-top pt-1" alt="" loading="lazy"></a>
+    		<a  href="#" onclick="back();"><img src="public/img/chevron-left.png" width="" height="20" class="d-inline-block align-top pt-1" alt="" loading="lazy"></a>
     	</div>
 
     	<div class="logo mx-auto">
@@ -27,3 +32,31 @@ SESSION lang is : <?php echo isset($_SESSION['form'])? $_SESSION['form']:'no'; ?
 <!-- <script>
     document.getElementById("count").innerHTML = sessionStorage.getItem('countMistake') ;
 </script> -->
+
+
+
+<script>
+
+function back() {
+	var page = '<?php echo $_REQUEST['page'] ?>'
+	if(page == 'GN' || page == 'OT' || page == 'JP'){
+		$('#modal-clear').on('show.bs.modal', function (event) {
+        var modal = $(this)
+            modal.find('.modal-title').text('Clear Session')        
+        })
+    	$('#modal-clear').modal('show')
+	}
+	else if(page == 'verify'){
+		window.location.href = 'index.php?page=menu'; 
+	}
+	else if(page == 'otp'){
+		window.location.href = 'index.php?page=verify'; 
+	}else if(page == '2'){
+		window.location.href = 'index.php?page=re_session'; 
+	}
+	else if(page == 'menu'){
+		location.reload(); 
+	}
+}
+
+</script>

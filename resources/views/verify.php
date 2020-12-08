@@ -137,8 +137,8 @@ $('#makesession').on('click', function () {
 
 
 function recaptchaCallback() {
-    $('#makesession').prop('disabled', false);
-    document.getElementById("makesession").style.display = "contents";
+    // $('#makesession').prop('disabled', false);
+    document.getElementById("makesession").style.display = "block";
 };
 
 

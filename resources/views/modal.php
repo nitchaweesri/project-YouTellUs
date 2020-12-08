@@ -70,9 +70,9 @@
       </div>
       <div class="modal-footer border-0">
         <button type="button" class="btn btn-secondary btn-clear-session" data-dismiss="modal"><?php echo constant("ยกเลิก")?></button>
-        <form action="index.php?re_session=unset">
-          <button type="submit" class="btn btn-primary btn-clear-session" href="index.php?re_session=unset"><?php echo constant("ยืนยัน")?></button>
-        </form>
+        <a href="index.php?re_session=unset">
+          <button type="button" class="btn btn-primary btn-clear-session"><?php echo constant("ยืนยัน")?></button>
+        </a>
       </div>
     </div>
   </div>

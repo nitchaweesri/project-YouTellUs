@@ -80,7 +80,7 @@
                     $view = 'resources/views/otp.php';
                 }
             } else {
-                session_destroy();
+                session_destroy(); // ยังคงมีปัญหา
                 $view = 'resources/views/menu.php';
             }
 
@@ -151,4 +151,19 @@
     });
     </script>
     */ ?>
+
+    <script>
+    
+    
+    var lang = '<?php echo isset($_SESSION['lang'])? $_SESSION['lang']: '';?>';
+
+    if (lang == '') {
+        $.ajax({
+        type: "POST",
+        url: 'controllers/sessionCreate.php',
+        data:{"name": "lang","value":"th"}
+        // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
+    }); 
+    }
+    </script>
 </html>

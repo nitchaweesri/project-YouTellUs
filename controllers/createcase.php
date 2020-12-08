@@ -4,12 +4,19 @@ include_once('crypt.php') ;
 
 // die ('yes');
 if (isset($_POST['create_case'])) {
-    // print_r($_POST);
-    create_case($_POST);
+
+
+    include 'uploadfile.php';
+    // $linkFile = array_filter($linkFile, function($value) { return !is_null($value) && $value !== ''; });
+    // $file = array_filter($_FILES['file']['name'], function($value) { return !is_null($value) && $value !== ''; });
+    // print_r($_FILES['file']);
+    // exit();
+    create_case($_POST,$_FILES['file']);
 }
 
-function create_case($data)
+function create_case($data,$file)
 {
+
 
     try{
 
@@ -20,9 +27,19 @@ function create_case($data)
 
 
         $JsonFile = array();
-        foreach ($_POST['file'] as $key => $value) {
-            $JsonFile["file$key"] = $value ;
-            $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$_POST['linkFile'][$key];
+        // foreach ($_POST['file'] as $key => $value) {
+        //     $JsonFile["file$key"] = $value ;
+        //     $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$_POST['linkFile'][$key];
+
+        // }
+
+        foreach ($file['name'] as $key => $value) {
+            if( $value !=''){
+
+                $JsonFile["file$key"] = $value ;
+                $JsonFile["linkFile$key"] = 'https://devytuapp.tellvoice.com/youtellus/uploads/file/'.$file['linkFile'][$key];
+    
+            }
 
         }
 
@@ -32,8 +49,9 @@ function create_case($data)
                             ,"tel"=> $_POST['tel'] 
                             ,"email"=> $_POST['email']
                             ,"idUser"=> isset($_POST['iduser'])? $_POST['iduser'] : "" 
-                            ,"other"=> isset($_POST['other'])? $_POST['other'] : "" 
                             // ,"description"=> $_POST['description']
+                            ,'textfeedsubtype' => ($_POST['other'])==''? $_POST['textfeedsubtype'] : $_POST['other'] 
+                            ,"complaintId"=> isset($_POST['complaintId'])? $_POST['complaintId'] : "" 
                             ,"nameDelegate"=> isset($_POST['nameDelegate'])? $_POST['nameDelegate'] : "" 
                             ,"service"=> isset($_POST['service'])? $_POST['service'] : "" 
                             ,"serviceId"=> isset($_POST['serviceID'])? $_POST['serviceID'] : "" 
@@ -58,12 +76,12 @@ function create_case($data)
                             ,"feedType"=> $_POST['feedtype']
                             ,"feedSubType"=> $_POST['feedsubtype']
                             ,"feedBody"=> json_encode($Jsonbody)
-                            ,'textfeedsubtype' => $_POST['textfeedsubtype']
+                            
                         );
         
         $payload = json_encode( $ParamArr);
 
-        // die(print_r ($payload));
+        // die(var_dump($payload));
 
         // $ParamArr = array( "data"=> "FIK TEST" );
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );

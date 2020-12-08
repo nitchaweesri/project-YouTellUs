@@ -1,31 +1,32 @@
 <?php 
 include 'controllers/case.php';
-include 'controllers/uploadfile.php';
+// include 'controllers/uploadfile.php';
 
 $result = ytu_product();
 ?>
 <div class="container">
-    <div class="container mb-4 p-2 mb-5 bg-white pd-top">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-12 col-sm-12 pt-lg-3 pt-md-3">
+    <div class="p-2 mb-5 bg-white pd-top">
+        <div class="row justify-content-center ">
+            <div class="col-lg-7 col-md-10 col-sm-12 pt-lg-3 pt-md-3">
                 <form
-                    action="<?php echo isset($_POST['name']) ?  "controllers/createcase.php"  : "index.php?page=JP";?>"
+                    action="controllers/createcase.php"
                     method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 
                     <!-- <input type="hidden" name="feedtype" value="<?php echo $_REQUEST['page']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_POST['feedsubtype']?>" > -->
-                    <input type="hidden" name="lang" value="<?php echo $_SESSION['lang']?>" >
+                    
                     <input type="hidden" name="feedtype" value="OC" >
+                    <input type="hidden" name="lang" value="<?php echo $_SESSION['lang']?>" >
                     <input type="hidden" name="feedsubtype" value="<?php echo $_REQUEST['page']?>" >
-                    <input type="hidden" name="textfeedsubtype" value="<?php echo $_POST['textfeedsubtype']?>" >
+                    <!-- <input type="hidden" name="textfeedsubtype" value="<?php echo $_POST['textfeedsubtype']?>" > -->
 
-                    <?php 
+                    <!-- <?php 
                     if(isset($file)){ 
                         foreach ($file as $key => $value) { ?>
                          <input type="hidden" name="file[]" value="<?php echo $value ?>" > 
                          <input type="hidden" name="linkFile[]" value="<?php echo $linkFile[$key] ?>" >
                        <?php  }
-                    }  ?>
+                    }  ?> -->
 
                     <?php if(isset($_POST['name'])){ ?>
                         <div class="form-group">
@@ -86,26 +87,32 @@ $result = ytu_product();
                             required
                             <?php echo $_POST['email'] = isset($_POST['email']) ?  " value='".$_POST['email']."' readonly"  : "";?>>
                     </div>
+                
                     <div class="form-group mt-4">
-                        <label for="feedsubtype" class="text-primary h2 Bold mb-2"><?php echo constant("เรื่องร้องเรียน")?></label>
-                        <select <?php echo isset($_POST['feedsubtype'])? 'disabled': ''?>  name="feedsubtype" class="form-control Light" id="exampleFormControlSelect1" required>
+                        <label for="textfeedsubtype" class="text-primary h2 Bold mb-3"><?php echo constant('เรื่องร้องเรียน')?></label>
+                        <select <?php echo isset($_POST['textfeedsubtype'])? 'disabled': ''?>  name="textfeedsubtype" class="form-control Bold" id="exampleFormControlSelect1" required> 
                             <option value=""> <?php echo !isset($_SESSION['lang']) || $_SESSION['lang'] == 'th'? 'เลือก': 'select'?></option>
                             <?php foreach ($result as $key => $value) {
-                                if (isset($_POST['feedsubtype']) && $value['PRODUCTCODE']== $_POST['feedsubtype']) {
-                                    echo "<option selected='selected' value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+                                if (isset($_POST['textfeedsubtype']) && $value['PRODUCTCODE']== $_POST['textfeedsubtype']) {
+                                    echo "<option selected='selected' value='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
 
                                 }else{
-                                    echo "<option data-text='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'  value='".$value['PRODUCTCODE']."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
+                                    echo "<option data-text='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'  value='".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."'>".$value['PRODUCTTITLE_'.strtoupper(isset($_SESSION['lang'])? $_SESSION['lang']: 'th')]."</option>";
 
                                 }
                             }
                             ?>
                         </select>
                     </div>
-                    <div class="form-group" id="other" <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?> >
-                        <input name="other" type="text" class="form-control Light" id="other-input"
-                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" required
+                    <div class="form-group" id="other"  <?php echo isset($_POST['other'])? '': 'style="display: none;"' ?>>
+                        <input name="other" type="text" class="form-control Bold" id="other-input"
+                            placeholder="<?php echo constant("อื่น ๆ (โปรดระบุ)")?>" 
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
+                    </div>
+                    <div class="form-group">
+                        <input name="complaintId" type="text" class="form-control Bold" id="complaintId" required
+                            placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
+                            <?php echo $_POST['complaintId'] = isset($_POST['complaintId']) ?  " value='".$_POST['complaintId']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="serviceID" id="serviceID"
@@ -113,21 +120,21 @@ $result = ytu_product();
                             <?php echo $_POST['serviceID'] = isset($_POST['serviceID']) ?  " value='".$_POST['serviceID']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Light "
-                            id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" required
+                        <textarea name="problem" type="text" rows="4" maxlength="3000" class="form-control Bold " required
+                            id="validationTextarea" placeholder="<?php echo constant("ปัญหาที่เกิดขึ้น")?>" 
                             <?php echo isset($_POST['problem']) ?  " readonly"  : "";?>><?php echo isset($_POST['problem']) ?  $_POST['problem']  : "";?></textarea>
                         <div id="characters-left" class="characters-left"></div>
                     </div>
                     <div class="form-group mt-2">
-                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Light "
-                            id="reqToBank" placeholder="<?php echo constant("สิ่งที่ต้องการให้ธนาคารดำเนินการ")?>" required
+                        <textarea name="reqToBank" type="text" rows="4" maxlength="1000" class="form-control Bold " required
+                            id="reqToBank" placeholder="<?php echo constant("สิ่งที่ต้องการให้ธนาคารดำเนินการ")?>" 
                             <?php echo isset($_POST['reqToBank']) ?  " readonly"  : "";?>><?php echo isset($_POST['reqToBank']) ?  $_POST['reqToBank']  : "";?></textarea>
                         <div id="characters-left1" class="characters-left"></div>
                     </div>
                     
                     <?php include 'formfile.php' ?>
 
-                    <div class="row mt-3">
+                    <div class="row mt-4">
                         <div class="col">
                             <h5 class="Bold">
                                 <?php echo constant("ธนาคารจะใช้ระยะเวลาดำเนินการในการตอบกลับคำร้องของท่านภายใน 15 วันนับจากวันที่ธนาคารได้รับเอกสารครบถ้วนและได้นำข้อร้องเรียนของท่านเข้าสู่ระบบ โดยธนาคารจะติดต่อกลับท่านในช่วงวันและเวลาทำการของธนาคาร หากท่านต้องการติดต่อธนาคารกรณีเร่งด่วน กรุณาติดต่อศูนย์บริการลูกค้า 02-777-7777")?>
@@ -140,7 +147,7 @@ $result = ytu_product();
                     <div class="row mt-3">
                         <div class="col ">
                             <input type="submit" name="create_case"
-                                class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12 btn-submit-form"
+                                class="btn btn-primary rounded-pill d-flex justify-content-center Bold col-12 btn-submit-form"
                                 value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
                         </div>
                     </div>
@@ -156,10 +163,10 @@ $result = ytu_product();
 
 <script>
 
-$('select[name ="feedsubtype"]').on('change',function () {
-    $('input[name ="textfeedsubtype"]').val($('select[name ="feedsubtype"] :selected').data('text'));
-    }
-);
+// $('select[name ="feedsubtype"]').on('change',function () {
+//     $('input[name ="textfeedsubtype"]').val($('select[name ="feedsubtype"] :selected').data('text'));
+//     }
+// );
 
 $(document).ready(function() {
     $('#idcard').on('keyup', function() {

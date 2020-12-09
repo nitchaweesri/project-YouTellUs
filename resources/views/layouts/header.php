@@ -52,7 +52,7 @@ function back() {
 	else if(page == 'otp'){
 		window.location.href = 'index.php?page=verify'; 
 	}else if(page == '2'){
-		window.location.href = 'index.php?page=menu'; 
+		window.location.href = 'index.php?re_session=unset'; 
 	}
 	else if(page == 'menu'){
 		window.location.href = 'index.php?re_session=unset'; 

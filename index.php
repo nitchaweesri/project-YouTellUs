@@ -55,7 +55,6 @@
                 $view = 'resources/views/error.php';
             }
             else{
-                session_destroy();
                 $view = 'resources/views/menu.php';
             }
         // }

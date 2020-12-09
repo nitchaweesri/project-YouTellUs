@@ -13,7 +13,7 @@
         header("Location: index.php?page=menu");
     }
     $page = @$_REQUEST['page'] != '' ? $_REQUEST['page'] : 1 ;
-    $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;
+    // $lang = @$_SESSION['lang'] != '' ? $_SESSION['lang'] : 'th' ;
     
     if (isset($_SESSION['logOn'])) {
         // if (isset($_REQUEST['condition']) &&$_REQUEST['condition'] == TRUE) {
@@ -80,16 +80,16 @@
                     $view = 'resources/views/otp.php';
                 }
             } else {
-                session_destroy(); // ยังคงมีปัญหา
                 $view = 'resources/views/menu.php';
             }
 
         }elseif ($page == "error") {
             $view = 'resources/views/error.php';
-        }elseif ($page == "test") {
-            $view = 'resources/views/test.php';
+        }elseif ($page == "testOtp") {
+            $view = 'resources/views/testOtp.php';
+        }elseif ($page == "testValidOtp") {
+            $view = 'resources/views/testValidOtp.php';
         }else{
-            session_destroy();
             $view = 'resources/views/menu.php';
         }
 

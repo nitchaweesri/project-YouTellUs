@@ -1,6 +1,7 @@
 <?php 
 include 'controllers/case.php';
 $result = ytu_complainttype();
+// session_start();
 ?>
 <style>
 .bt-unset {
@@ -18,6 +19,7 @@ a.textunset {
 </style>
 <div style="height:70px"></div>
 <div class="container mb-4 col-lg-6 col-md-12 col-sm-12" id="menu">
+    <input type="hidden" name="test" value="<?php echo $_SESSION['lang'] ?>">
     <div class="row justify-content-end">
         <div class="col-lg-8 col-md-11 col-sm-11" style="height: 195px; padding: 70px 15px;">
             <h1 class="text-secondary text-right Bold txt-menu-topic"><?php echo constant('กรุณาระบุ')?> </h1>
@@ -50,15 +52,6 @@ a.textunset {
                 }
                 // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
             });
-            $.ajax({
-                type: "POST",
-                url: 'controllers/sessionCreate.php',
-                data: {
-                    "name": "lang",
-                    "value": '<?php echo $_SESSION['lang']  ?>'
-                }
-                // data: {sessionJson: { countStart :'countStartvalue1' , countStart1: 'countStar1tvalue1'}}
-            });
         });
         </script>
 
@@ -88,7 +81,7 @@ $(document).ready(function() {
             modal.find('.modal-body').prepend($(` 
             <div class="row">
                 <div class="col mr-0 pr-0">
-                    <a <?php echo (@$lang == 'th') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','th')">
+                    <a onclick="langFunc('th')">
                         <div class="img-hover-zoom">
                             <img class="img-lang" src="public/img/thailand.svg" width="70px" alt="">
                         </div>
@@ -98,8 +91,8 @@ $(document).ready(function() {
                     </div>
                 </div>
                 <div class="col ml-0 pl-0">
-                    <a <?php echo (@$lang == 'en') ? 'class="se"':'' ; ?> onclick="setGetParameter('lang','en')">
-                        <div class="img-hover-zoom">
+                    <a onclick="langFunc('en')">
+                        <div class="img-hover-zoom"  >
                             <img class="img-lang" src="public/img/united-states.svg" width="70px" alt="">
                         </div>
                     </a>
@@ -115,4 +108,17 @@ $(document).ready(function() {
     }
 
 });
+
+
+
+function langFunc(lang) {
+
+    $.ajax({
+        type: "POST",
+        url: 'controllers/sessionCreate.php',
+        data:{ name: 'lang', value: lang}
+    }); 
+    location.reload();
+}
+
 </script>

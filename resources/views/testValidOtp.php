@@ -27,7 +27,6 @@
                         <a id="countdown" class="text-primary txt-count-otp Bold"></a>
                     </div> -->
                     
-
                     <div class="row mt-3">
                         <div class="col ">
                             <input type="submit" name="validOtp" 

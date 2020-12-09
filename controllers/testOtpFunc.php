@@ -1,5 +1,6 @@
 
 <?php 
+session_start();
 
 include 'appintegrate/function/config/authenconfig.php';
 
@@ -15,13 +16,13 @@ if(isset($_POST['genOtp'])){
         echo implode(" ",$rusult);
     }
     elseif($rusult['status'] == "SUCCESS"){
-        session_start();
         $_SESSION['uuid'] = $rusult['info']['tokenUUID']; //เก็บ uuid ที่ return จาก genOTPToEAPI ถ้า ไม่ fail
         header("Location: ../index.php?page=testValidOtp");
 
     }
 
 }elseif(isset($_POST['validOtp'])){
+
 
     $rusult = validOTP($requestId, $_POST['otp'],$_SESSION['uuid']);
     // $validateOTP = validOTP($requestId, $otpNo, $tokenUUID);
@@ -101,7 +102,7 @@ function validOTP($requestId, $otpNo, $tokenUUID)
 	if($retVal['status'] == "FAIL" && ($retVal['httpcode'] != 409 && $retVal['httpcode'] != 400)){
 		// // logWrite(LOGFILE, "validOTP: WARNING: status = ".$retVal['status']." , description = ".$retVal['description']." , httpcode = ".$retVal['httpcode']);
 		// // logWrite(LOGFILE, "validOTP: WARNING: responsetext = ".$retVal['responsetext']);
-		return(null);
+		return($retVal);
 	}
 
 	/* Get response array */
@@ -109,7 +110,7 @@ function validOTP($requestId, $otpNo, $tokenUUID)
 	$responseArray = json_decode($retVal['responsetext'], true);
 	if(json_last_error() != JSON_ERROR_NONE){
 		// // logWrite(LOGFILE, "validOTP: WARNING: Invalid response text \"".$retVal['responsetext']."\"!");
-		return(null);
+		return($retVal);
 	}
 
 	/* Fill in output personal info */

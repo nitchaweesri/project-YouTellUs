@@ -52,10 +52,10 @@ function back() {
 	else if(page == 'otp'){
 		window.location.href = 'index.php?page=verify'; 
 	}else if(page == '2'){
-		window.location.href = 'index.php?page=re_session'; 
+		window.location.href = 'index.php?page=menu'; 
 	}
 	else if(page == 'menu'){
-		location.reload(); 
+		window.location.href = 'index.php?re_session=unset'; 
 	}
 }
 

@@ -1,3 +1,32 @@
+<?php 
+    include 'database/model/database.php';
+
+     if ($conn->connect_error) {
+         die("Connection failed: " . $conn->connect_error);
+     }else{
+       
+        print_r($_SESSION['phoneNo']);
+        $sql = "SELECT YTU_REQFILE.CASEID
+                FROM `YTU_REQFILE`
+                INNER JOIN `CASEINFO` ON `CASEINFO`.`CASEID` = `YTU_REQFILE`.`CASEID`
+                WHERE `YTU_REQFILE`.`MOBILENO` = '" . $_SESSION['phoneNo'] . "'
+                    AND `YTU_REQFILE`.`RECSTATUS` = 'A'
+                    AND `YTU_REQFILE`.`EXPIRED_DT` > NOW()";
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+            printf("Error: %s\n", mysqli_error($conn));
+            exit();
+        }else{
+            echo($result);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $data = $row;
+                print_r($data);
+                exit;
+            }
+            $fileReq = explode(",",$data["FILEDESC"]);
+        }
+     }
+?>
 <style>
     .menu {
         background-image: url("public/img/thankyou_smile.png");

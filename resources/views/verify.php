@@ -82,7 +82,10 @@ $(document).ready(function() {
                 ));
             // modal.find('#one').          
             })
-        $('#exampleModal').modal('show')
+        if('<?php echo $_SESSION['form']?>' != 'RF'){
+            $('#exampleModal').modal('show')
+        }
+        
 });
 function policy() {
     $('#modal-policy').on('show.bs.modal', function (event) {
@@ -95,7 +98,7 @@ function policy() {
     'use strict';
     window.addEventListener('load', function() {
         var forms = document.getElementsByClassName('needs-validation');
-        var validation = Array.prototype.filter.call(forms, function(form) {
+        var validation = Array.prototype.filter.call(forms, function(form) {Teq
             form.addEventListener('submit', function(event) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();

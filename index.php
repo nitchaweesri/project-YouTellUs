@@ -66,7 +66,7 @@
         //     session_destroy();
         //     $view = 'resources/views/menu.php';
         // } 
-        if ($page == "GN" ||$page == "OT" || $page == "JP") {
+        if ($page == "GN" ||$page == "OT" || $page == "JP" || $page == "RF") {
             $view = 'resources/views/verify.php';
         } elseif ($page == "verify") {
             $view = 'resources/views/verify.php';

@@ -56,6 +56,14 @@ a.textunset {
         </script>
 
         <?php } ?>
+        <!-- <div class="row mt-3 justify-content-md-center justify-content-sm-center">
+            <div class="col-lg-11 col-md-8 col-sm-10 mb-2">
+                <a id="goFormReq" href="index.php?page=verify"
+                    class="btn btn-lg rounded d-flex justify-content-center Bold btn-menu">
+                    ส่งเอกสารเพิ่มเติม
+                </a>
+            </div>
+        </div> -->
     </div>
 
 
@@ -106,6 +114,17 @@ $(document).ready(function() {
         })
         $('#exampleModal').modal('show')
     }
+
+    $('#goFormReq').on('click', function() {
+        $.ajax({
+            type: "POST",
+            url: 'controllers/sessionCreate.php',
+            data: {
+                "name": "form",
+                "value": 'RF'
+            }
+        });
+    });
 
 });
 

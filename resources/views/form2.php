@@ -88,7 +88,7 @@ $result = ytu_product();
                             <?php echo $_POST['other'] = isset($_POST['other']) ?  " value='".$_POST['other']."' readonly"  : "";?>>
                     </div>
                     <div class="form-group">
-                        <input name="complaintId" type="text" class="form-control Bold" id="complaintId"
+                        <input name="complaintId" type="text" class="form-control Bold" id="complaintId" required
                             placeholder="<?php echo constant("ผลิตภัณฑ์หรือบริการที่ต้องการร้องเรียน")?>" 
                             <?php echo $_POST['complaintId'] = isset($_POST['complaintId']) ?  " value='".$_POST['complaintId']."' readonly"  : "";?>>
                     </div>
@@ -183,6 +183,9 @@ $result = ytu_product();
                     </div>
                     <div class="row mt-3">
                         <div class="col ">
+                            <div class="text-form-fail" id="textFormFail" style="display: none;">
+                                <p>ข้อมูลของท่านไม่ครบถ้วนหรือผิดพลาด กรุณาตรวจสอบอีกครั้ง</p>
+                            </div>
                             <input type="submit" name="create_case"
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Regular col-12 btn-submit-form"
                                 value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
@@ -281,6 +284,7 @@ function valid_creditcard(obj) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
+                    document.getElementById('textFormFail').style.display = 'contents';
                 }
                 form.classList.add('was-validated');
             }, false);

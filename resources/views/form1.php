@@ -6,6 +6,7 @@ include 'controllers/case.php';
 $result = ytu_product();
 ?>
 
+
 <div class="container">
     <div class="p-2 mb-5 bg-white pd-top">
         <div class="row justify-content-center ">
@@ -121,6 +122,9 @@ $result = ytu_product();
 
                     <div class="row mt-3">
                         <div class="col ">
+                            <div class="text-form-fail" id="textFormFail" style="display: none;">
+                                <p>ข้อมูลของท่านไม่ครบถ้วนหรือผิดพลาด กรุณาตรวจสอบอีกครั้ง</p>
+                            </div>
                             <input type="submit" name="create_case" 
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Bold col-12 btn-submit-form"
                                 value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
@@ -141,7 +145,6 @@ $result = ytu_product();
 //     $('input[name ="textfeedsubtype"]').val($('select[name ="feedsubtype"] :selected').data('text'));
 //     }
 // );
-
 
 function modalClear() {
     $('#modal-clear').on('show.bs.modal', function (event) {
@@ -191,9 +194,8 @@ function valid_creditcard(obj) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
-
+                    document.getElementById('textFormFail').style.display = 'contents';
                 }
-                
                 form.classList.add('was-validated');
             }, false);
         });

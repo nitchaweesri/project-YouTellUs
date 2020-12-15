@@ -32,7 +32,12 @@
     </div>
     <footer class="footer">
         <p class="txt-policy Bold"><?php echo constant('นโยบายความเป็นส่วนตัวธนาคารไทยพาณิชย์ จำกัด (มหาชน)') ?></p>
-        <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy Bold"><?php echo constant('คลิก') ?></button>
+        <?php if($_SESSION['lang'] == 'th'){ ?>
+            <a href="https://www.scb.co.th/th/personal-banking/privacy-notice.html" target="_blank" class="policy Bold"><?php echo constant('คลิก') ?></a>
+        <?php }?>
+        <?php if($_SESSION['lang'] == 'en'){ ?>
+            <a href="https://www.scb.co.th/en/personal-banking/privacy-notice.html" target="_blank" class="policy Bold"><?php echo constant('คลิก') ?></a>
+        <?php }?>
         <!-- <button class="policy" onclick="policy()">คลิก</button> -->
     </footer>
 </div>

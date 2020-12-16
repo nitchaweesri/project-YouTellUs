@@ -146,6 +146,9 @@ $result = ytu_product();
                     </div>
                     <div class="row mt-3">
                         <div class="col ">
+                            <div class="text-form-fail" id="textFormFail" style="display: none;">
+                                <p>ข้อมูลของท่านไม่ครบถ้วนหรือผิดพลาด กรุณาตรวจสอบอีกครั้ง</p>
+                            </div>
                             <input type="submit" name="create_case"
                                 class="btn btn-primary rounded-pill d-flex justify-content-center Bold col-12 btn-submit-form"
                                 value="<?php echo constant("ส่งเรื่องร้องเรียน")?>">
@@ -283,6 +286,7 @@ function valid_creditcard1(obj) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
+                    document.getElementById('textFormFail').style.display = 'contents';
                 }
                 form.classList.add('was-validated');
             }, false);

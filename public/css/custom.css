@@ -342,3 +342,8 @@
         font-size: 20px;
         font-family: 'Kittithada-Bold';
     }
+    .text-form-fail{
+        font-size: 20px;
+        font-weight: 700;
+        color: red;
+    }
